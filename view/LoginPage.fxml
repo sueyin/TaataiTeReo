@@ -30,7 +30,7 @@
          </font>
       </Label>
       <JFXListView fx:id="_userList" blendMode="SRC_ATOP" depth="4" layoutX="439.0" layoutY="420.0" prefHeight="94.0" prefWidth="232.0" style="-fx-background-color: white; -fx-opacity: 0.5; -fx-background-radius: 10;" />
-      <Button fx:id="_add" layoutX="677.0" layoutY="410.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
+      <Button fx:id="_add" layoutX="677.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
          <effect>
             <Blend>
                <topInput>
@@ -41,7 +41,7 @@
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
-                  <Image url="@/application/image/plus1600.png" />
+                  <Image url="@/application/image/login/plus1600.png" />
                </image>
                <viewport>
                   <Rectangle2D minX="10.0" minY="10.0" />
@@ -52,7 +52,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="_delete" layoutX="678.0" layoutY="465.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
+      <Button fx:id="_delete" layoutX="678.0" layoutY="465.0" mnemonicParsing="false" onMouseClicked="#handlePressDeleteUser" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
          <effect>
             <Blend>
                <topInput>
@@ -63,7 +63,7 @@
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
-                  <Image url="@/application/image/minus.png" />
+                  <Image url="@/application/image/login/minus.png" />
                </image>
             </ImageView>
          </graphic>
@@ -73,7 +73,7 @@
             <MotionBlur angle="175.61" radius="45.34" />
          </effect>
       </Line>
-      <Button fx:id="_enter" layoutX="525.0" layoutY="508.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
+      <Button fx:id="_enter" layoutX="525.0" layoutY="508.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
          <effect>
             <Blend>
                <topInput>
@@ -84,7 +84,7 @@
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="62.0" pickOnBounds="true">
                <image>
-                  <Image url="@/application/image/enter.png" />
+                  <Image url="@/application/image/login/enter.png" />
                </image>
             </ImageView>
          </graphic>
