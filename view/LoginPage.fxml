@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="139.0" prefHeight="166.0" prefWidth="486.0" text="Tātai!" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="130.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="515.0" layoutY="357.0" prefWidth="100.0" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="30.0" />
+         </font>
+      </Label>
+      <JFXListView fx:id="_userList" blendMode="SRC_ATOP" depth="4" layoutX="439.0" layoutY="420.0" prefHeight="94.0" prefWidth="232.0" style="-fx-background-color: white; -fx-opacity: 0.5; -fx-background-radius: 10;" />
+      <Button fx:id="_add" layoutX="677.0" layoutY="410.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
+         <effect>
+            <Blend>
+               <topInput>
+                  <Bloom />
+               </topInput>
+            </Blend>
+         </effect>
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
+               <image>
+                  <Image url="@/application/image/plus1600.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D minX="10.0" minY="10.0" />
+               </viewport>
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="_delete" layoutX="678.0" layoutY="465.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
+         <effect>
+            <Blend>
+               <topInput>
+                  <Bloom />
+               </topInput>
+            </Blend>
+         </effect>
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
+               <image>
+                  <Image url="@/application/image/minus.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Line endX="350.0" fill="WHITE" layoutX="400.0" layoutY="404.0" stroke="WHITE" strokeWidth="2.0">
+         <effect>
+            <MotionBlur angle="175.61" radius="45.34" />
+         </effect>
+      </Line>
+      <Button fx:id="_enter" layoutX="525.0" layoutY="508.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="59.0" style="-fx-background-color: transparent;">
+         <effect>
+            <Blend>
+               <topInput>
+                  <Bloom />
+               </topInput>
+            </Blend>
+         </effect>
+         <graphic>
+            <ImageView fitHeight="58.0" fitWidth="62.0" pickOnBounds="true">
+               <image>
+                  <Image url="@/application/image/enter.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
