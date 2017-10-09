@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+   <children>
+      <Label alignment="CENTER" layoutX="440.0" layoutY="60.0" prefHeight="69.0" prefWidth="271.0" text="Instruction" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="49.0" />
+         </font>
+      </Label>
+      <Label layoutX="456.0" layoutY="130.0" prefHeight="177.0" prefWidth="288.0" text=" 10 seconds for 1 question" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="122.0" fitWidth="118.0" layoutX="785.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/survivalpage/10seconds.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="509.0" layoutY="457.0" prefHeight="102.0" prefWidth="201.0" text="You have 3 lives" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="24.0" />
+         </font>
+      </Label>
+      <HBox layoutX="718.0" layoutY="479.0" prefHeight="68.0" prefWidth="180.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/survivalpage/heart.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/survivalpage/heart.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/survivalpage/heart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label layoutX="308.0" layoutY="270.0" prefHeight="131.0" prefWidth="387.0" text="Contains addition, subtraction, multiplication, and subtraction" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Yuanti SC Regular" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="122.0" fitWidth="118.0" layoutX="123.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/survivalpage/maths_sign.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
-

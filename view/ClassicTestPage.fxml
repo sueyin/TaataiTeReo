@@ -13,7 +13,7 @@
    <children>
       <Label fx:id="_question" alignment="CENTER" layoutX="226.0" layoutY="228.0" prefHeight="136.0" prefWidth="674.0" text="(32+21)x2-32" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Bold" size="96.0" />
+            <Font name="Yuanti SC Regular" size="96.0" />
          </font>
       </Label>
       <JFXButton fx:id="_button" layoutX="429.0" layoutY="468.0" prefHeight="78.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
