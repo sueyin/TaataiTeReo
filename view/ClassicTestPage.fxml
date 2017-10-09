@@ -21,12 +21,14 @@
             <Font name="Yuanti SC Regular" size="29.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="19.0" layoutY="17.0" prefHeight="65.0" prefWidth="65.0" />
-      <ImageView fx:id="_return" fitHeight="97.0" fitWidth="55.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/testpage/return.png" />
-         </image>
-      </ImageView>
+      <JFXButton layoutX="19.0" layoutY="17.0" prefHeight="65.0" prefWidth="65.0" text=" ">
+         <graphic>
+            <ImageView fx:id="_return" fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/testpage/return.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
       <VBox layoutX="1034.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
             <JFXRadioButton fx:id="_q1" text=" " />
