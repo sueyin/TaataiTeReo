@@ -1,11 +1,13 @@
 package application.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import org.controlsfx.control.Notifications;
 
+import application.TataiApp;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 
@@ -17,7 +19,6 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +26,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class LoginPageController {
 	
@@ -102,8 +102,12 @@ public class LoginPageController {
 	 */
 	@FXML
 	public void handlePressDeleteUser(MouseEvent event) {
-		System.out.println("delete user"); // need to implement delete user from the store file.................
+		System.out.println("delete user");
 		String toDelete = _userList.getSelectionModel().getSelectedItem();
+		File target = new File(TataiApp.getUserDir() + toDelete);
+		if (target.exists()){
+			target.delete();
+		}
 		_items.remove(toDelete);
 	}
 
@@ -239,11 +243,10 @@ public class LoginPageController {
 	 * This method initializes the user list when launching this page. It gets data on existing users from txt file
 	 */
 	private void initialiseUserList(){
-		_data.add("UserA");//get data for the user list from store file, need to be implemented later.........
-		_data.add("UserB");
-		_data.add("UserC");
-		_data.add("UserD");
-		
+		File usrDir = new File(TataiApp.getUserDir());
+		for (String user : Arrays.asList(usrDir.list())){
+			_data.add(user);
+		}
 		
 		_items =FXCollections.observableArrayList (_data);
 		_userList.setItems(_items); 
@@ -264,11 +267,14 @@ public class LoginPageController {
 	 */
 	private void saveNewUserName(String username) {
 		_items.add(username);
-		// need to implement save user name to file later .................................
+		File newUser = new File (TataiApp.getUserDir() + username);
+		if (!newUser.exists()){
+			newUser.mkdir();
+		}
 	}
 	
 	public static String getSelectedUser() {
-		
+
 		return _selectedUser;
 	}
 }

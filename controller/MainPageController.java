@@ -2,6 +2,7 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.User;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,16 +19,20 @@ public class MainPageController {
 
 	@FXML
 	private Label _notification;
+
+	private User _user = null;
 	
 	@FXML
 	public void initialize() {
 		String username = LoginPageController.getSelectedUser();
 		_notification.setText("Welcome, " + username + "!");
-		FadeTransition ft = new FadeTransition(Duration.seconds(3), _notification);
-	     ft.setFromValue(1.0);
-	     ft.setToValue(0.0);
-	 
-	     ft.play();
+		if (_user == null){
+			_user = new User(username);
+			FadeTransition ft = new FadeTransition(Duration.seconds(3), _notification);
+			ft.setFromValue(1.0);
+			ft.setToValue(0.0);
+			ft.play();
+		}
 	}
 	
 	@FXML
@@ -117,6 +122,7 @@ public class MainPageController {
 	@FXML
 	public void handlePressLogout(MouseEvent event) {
         try {
+			_user = null;
         	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/LoginPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
