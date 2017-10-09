@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.controlsfx.control.Notifications;
+
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 
@@ -15,6 +17,7 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LoginPageController {
 	
@@ -110,7 +114,7 @@ public class LoginPageController {
 	@FXML
 	public void handlePressContinueFromSelectUser(MouseEvent event) {
 		System.out.println("Enter Main page from Select User Page");
-		
+			
 		//get current selected user from the list
 		_selectedUser = _userList.getSelectionModel().getSelectedItem();
 		
@@ -130,6 +134,7 @@ public class LoginPageController {
 		//if a user is selected, then save the choice and continue to main page
 		else {
 			saveNewUserName(_selectedUser);
+			Notifications.create().title("Title").text("Welcome, "+ _selectedUser +"!").darkStyle().hideAfter(Duration.seconds(3)).show();
 	        try {
 	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
 	        	Scene scene = new Scene(parent);
@@ -260,7 +265,7 @@ public class LoginPageController {
 	 */
 	private void saveNewUserName(String username) {
 		_items.add(username);
-		// need to implment save user name to file later .................................
+		// need to implement save user name to file later .................................
 	}
 }
 

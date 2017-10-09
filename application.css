@@ -1,7 +1,7 @@
 
 
 .button:hover {
-	-fx-effect: dropshadow(one-pass-box, white, 7, 0.1 , 4, 2);
+	-fx-effect: dropshadow(one-pass-box, grey, 7, 1, 0.1, 0.1);
 }
 
 .list-view .list-cell {
