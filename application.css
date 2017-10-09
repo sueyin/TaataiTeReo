@@ -1,0 +1,28 @@
+
+
+.button:hover {
+	-fx-effect: dropshadow(one-pass-box, grey, 7, 1, 0.1, 0.1);
+}
+
+.list-view .list-cell {
+	-fx-background-color: #232323;
+	-fx-text-fill: white;
+	-fx-alignment: center;
+}
+
+.list-view .list-cell:selected:focused {
+    -fx-background-color: lightgrey;
+    -fx-text-fill: black;
+}
+
+.list-view {
+	-fx-background-color: #232323;
+}
+
+.list-view .scroll-bar:vertical {
+	-fx-background-color: #595959;
+	}
+	
+.list-view .scroll-bar:vertical .thumb {
+	-fx-background-color: black;
+	}
