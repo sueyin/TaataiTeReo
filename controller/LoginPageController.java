@@ -268,6 +268,7 @@ public class LoginPageController {
 	}
 	
 	public static String getSelectedUser() {
+		
 		return _selectedUser;
 	}
 }
