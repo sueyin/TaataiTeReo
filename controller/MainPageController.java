@@ -2,16 +2,33 @@ package application.controller;
 
 import java.io.IOException;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class MainPageController {
 
+	@FXML
+	private Label _notification;
+	
+	@FXML
+	public void initialize() {
+		String username = LoginPageController.getSelectedUser();
+		_notification.setText("Welcome, " + username + "!");
+		FadeTransition ft = new FadeTransition(Duration.seconds(3), _notification);
+	     ft.setFromValue(1.0);
+	     ft.setToValue(0.0);
+	 
+	     ft.play();
+	}
 	
 	@FXML
 	public void handlePressClassic(MouseEvent event) {

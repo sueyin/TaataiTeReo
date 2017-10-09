@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +12,7 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="370.0" layoutY="24.0" prefHeight="184.0" prefWidth="410.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="379.0" layoutY="88.0" prefHeight="184.0" prefWidth="410.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="130.0" />
          </font>
@@ -19,7 +20,7 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      <VBox layoutX="538.0" layoutY="233.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+      <VBox layoutX="538.0" layoutY="271.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0">
          <children>
             <Button fx:id="_classic" mnemonicParsing="false" onMouseClicked="#handlePressClassic" prefHeight="102.0" prefWidth="92.0" style="-fx-background-color: transparent;" stylesheets="@../application.css">
                <graphic>
@@ -149,5 +150,9 @@
             </VBox>
          </graphic>
       </Button>
+      <Label fx:id="_notification" alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" prefHeight="104.0" prefWidth="202.0" style="-fx-background-color: grey;" text="Welcome!" textAlignment="CENTER" textFill="WHITE">
+         <effect>
+            <DropShadow color="#ae7e7e" height="96.89" radius="30.4925" spread="0.18" width="27.08" />
+         </effect></Label>
    </children>
 </AnchorPane>

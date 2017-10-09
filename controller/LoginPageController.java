@@ -60,7 +60,7 @@ public class LoginPageController {
 	
 	private ObservableList<String> _items; 
 	
-	private String _selectedUser; //the user that is going to be used in the game
+	private static String _selectedUser; //the user that is going to be used in the game
 	
 	
 	/**
@@ -134,8 +134,7 @@ public class LoginPageController {
 		//if a user is selected, then save the choice and continue to main page
 		else {
 			saveNewUserName(_selectedUser);
-			Notifications.create().title("Title").text("Welcome, "+ _selectedUser +"!").darkStyle().hideAfter(Duration.seconds(3)).show();
-	        try {
+			try {
 	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
 	        	Scene scene = new Scene(parent);
 	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -266,6 +265,10 @@ public class LoginPageController {
 	private void saveNewUserName(String username) {
 		_items.add(username);
 		// need to implement save user name to file later .................................
+	}
+	
+	public static String getSelectedUser() {
+		return _selectedUser;
 	}
 }
 
