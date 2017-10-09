@@ -2,6 +2,7 @@ package application.model.Question;
 
 public class ClassicQuestion extends Question {
     private boolean _tested;
+    private boolean _finished;
 
 
     public ClassicQuestion(String question, String answer) {
@@ -14,12 +15,13 @@ public class ClassicQuestion extends Question {
     protected void updateGUI() {
         if (_result){
             rightGUI();
+            _finished = true;
         }else{
             if (!_tested){
-                _finished = true;
                 firstWrongGUI();
             }else{
                 _tested = true;
+                _finished = true;
                 secondWrongGUI();
             }
         }
@@ -38,8 +40,7 @@ public class ClassicQuestion extends Question {
 
     }
 
-
-
-
-
+    public boolean isFinished() {
+        return _finished;
+    }
 }

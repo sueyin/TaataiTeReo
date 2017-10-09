@@ -2,16 +2,9 @@ package application.model.Question;
 
 import application.TataiApp;
 import application.controller.TestPageController;
-import application.model.Answer;
 import javafx.concurrent.Task;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Scanner;
-
 public abstract class Question {
 
 	protected final int MAX = 10;
@@ -28,7 +21,6 @@ public abstract class Question {
 	protected static final String PLAY_CMD = "aplay " + TEMPWAV + " &> /dev/null";
 
 	protected boolean _result;
-	protected boolean _finished;
 
 	protected String _answer;
 	protected String _question;
@@ -40,7 +32,6 @@ public abstract class Question {
 
 
 	public Question(String question, String answer){
-		_finished = false;
 		_answer = answer;
 		_question = question;
 	}
@@ -57,7 +48,6 @@ public abstract class Question {
 	}
 
 
-
 	/**
 	 * Use HTK command to analyse the user record, read the result to determine what the user said and whether it is
 	 * the correct answer.
@@ -71,7 +61,6 @@ public abstract class Question {
 
 
 	protected abstract void updateGUI();
-
 
 
 	/**
@@ -108,6 +97,11 @@ public abstract class Question {
         return _result;
     }
 
+
+    public String getQuestion(){
+    	return _question;
+	}
+
 	/**
 	 * TODO When the user said the number wrong, should use this method to show the correct answer (optional??)
 	 * @return a String indicating the correct answer.
@@ -120,17 +114,6 @@ public abstract class Question {
 	public String getRead(){
 		return _read;
 	}
-
-
-	/**
-	 * Return a boolean to show whether the Question is finished.
-	 * To be finished, the user either said the number right in the first try or used up the second chance.
-	 * If the user said the number wrong the first time, the Question is not finished.
-	 * @return	a boolean value indicating whether the Question is finished.
-	 */
-	public boolean isFinished(){
-        return _finished;
-    }
 
 
 	/**
