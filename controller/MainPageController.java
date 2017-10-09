@@ -24,6 +24,8 @@ public class MainPageController {
 	
 	@FXML
 	public void initialize() {
+		
+		//display pop up message "welcome user", auto disappear after 3 seconds
 		String username = LoginPageController.getSelectedUser();
 		_notification.setText("Welcome, " + username + "!");
 		if (_user == null){
@@ -35,6 +37,9 @@ public class MainPageController {
 		}
 	}
 	
+	/**
+	 * this method changes from main page to classic mode menu page
+	 */
 	@FXML
 	public void handlePressClassic(MouseEvent event) {
         try {
@@ -49,6 +54,9 @@ public class MainPageController {
         }
 	}
 	
+	/**
+	 * this method changes from main page to survival mode instruction page
+	 */
 	@FXML
 	public void handlePressSurvival(MouseEvent event) {
         try {
@@ -63,6 +71,9 @@ public class MainPageController {
         }
 	}
 	
+	/**
+	 * this method changes from main page to endless mode instruction page
+	 */
 	@FXML
 	public void handlePressEndless(MouseEvent event) {
         try {
@@ -77,6 +88,9 @@ public class MainPageController {
         }
 	}
 	
+	/**
+	 * this method changes from main page to tutorial page
+	 */
 	@FXML
 	public void handlePressTutorial(MouseEvent event) {
         try {
@@ -91,6 +105,9 @@ public class MainPageController {
         }
 	}
 	
+	/**
+	 * this method changes from main page to custom instruction page
+	 */
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
         try {
@@ -105,6 +122,9 @@ public class MainPageController {
         }
 	}
 	
+	/**
+	 * this method changes from main page to ahievement page
+	 */
 	@FXML
 	public void handlePressAchievement(MouseEvent event) {
         try {
@@ -119,6 +139,9 @@ public class MainPageController {
         }
 	}
 	
+	/**
+	 * this method changes from main page to login page
+	 */
 	@FXML
 	public void handlePressLogout(MouseEvent event) {
         try {
