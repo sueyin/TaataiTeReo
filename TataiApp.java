@@ -70,7 +70,7 @@ public class TataiApp extends Application {
 
     /**
      * Getter for the path of the user directory, where records of users are stored in respective subfolders
-     * @return a String indicating the path of the user directory
+     * @return a String ndicating the path of the user directory
      */
     public static String getTempDir(){
         return TEMP;
