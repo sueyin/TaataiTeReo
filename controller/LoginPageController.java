@@ -25,9 +25,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoginPageController {
+	
+	@FXML
+	private Stage _deleteConfirm;
 	
 	@FXML
 	private JFXListView<String> _userList; // the list displayed on select user page with all existing user names
@@ -59,6 +63,8 @@ public class LoginPageController {
 	private List<String> _data = new ArrayList<String>(); //data extracted from txt file............................
 	
 	private ObservableList<String> _items; 
+	
+	private boolean _toDelete;
 	
 	private static String _selectedUser; //the user that is going to be used in the game
 	
@@ -102,14 +108,33 @@ public class LoginPageController {
 	 */
 	@FXML
 	public void handlePressDeleteUser(MouseEvent event) {
-		System.out.println("delete user");
-		String toDelete = _userList.getSelectionModel().getSelectedItem();
-		File target = new File(TataiApp.getUserDir() + toDelete);
-		if (target.exists()){
-			target.delete();
+		//opens a window that confirms if the user want to delete the user
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/DeleteConfirmation.fxml"));
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(parent);
+			_deleteConfirm = new Stage();
+			_deleteConfirm.setScene(scene);
+			_deleteConfirm.initOwner(stage);
+			_deleteConfirm.initModality(Modality.WINDOW_MODAL);
+			_deleteConfirm.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		_items.remove(toDelete);
+		//get user result, if the user does want to delete, then delete
+		boolean confirm = DeleteConfirmationController.getDeleteConfirm();
+		if (confirm){
+			System.out.println("delete user");
+			String toDelete = _userList.getSelectionModel().getSelectedItem();
+			File target = new File(TataiApp.getUserDir() + toDelete);
+			if (target.exists()){
+				target.delete();
+			}
+			_items.remove(toDelete);
+		}
 	}
+	
+
 
 	
 	/**
