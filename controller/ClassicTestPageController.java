@@ -1,27 +1,41 @@
 package application.controller;
 
-import java.io.IOException;
 
+import application.model.Question.ClassicQuestion;
+import application.model.Question.ClassicQuestionSuite;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ClassicTestPageController {
+import java.io.IOException;
 
-	@FXML
-	private Label _level;
-	
+public class ClassicTestPageController extends TestPageController {
+
 	private static String _selectedLevel;
+
+	private ClassicQuestionSuite _qs;
+
+	private ClassicQuestion _q;
 	
 	@FXML
 	public void initialize() {
+		//Decide the which level the user chose
 		_selectedLevel = ClassicMenuPageController.getSelectedLevel();
 		_level.setText("Level "+_selectedLevel);
+		//Generate the correspongding quesition bank
+		_qs = new ClassicQuestionSuite(_selectedLevel);
+		//Set the first question
+		_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
+		_question.setText(_qs.getQuestion());
+		//Initialize GUI
+		_record.setVisible(true);
+		_record.setText("Record");
+		_next.setVisible(false);
+		_next.setText("Next");
 	}
 	
 	/**
@@ -29,21 +43,39 @@ public class ClassicTestPageController {
 	 */
 	@FXML
 	public void handlePressButton(MouseEvent event) {
-		System.out.println("button pressed");
+		_q.test();
+		_qs.collectResult(_q.getResult());
 	}
-	
+
+	@FXML
+	public void handlePressNext(MouseEvent event) {
+		//Change to the next question
+		_qs.nextQuestion();
+		_question.setText(_qs.getQuestion());
+		_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
+		//Update GUI
+		_next.setVisible(false);
+		_record.setVisible(true);
+		_record.setText("Record");
+		_message.setText("");
+	}
+
+
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicMenuPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
+			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicMenuPage.fxml"));
+			Scene scene = new Scene(parent);
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
+	
+
+
 	
 }

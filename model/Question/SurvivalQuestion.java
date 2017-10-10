@@ -1,11 +1,13 @@
 package application.model.Question;
 
+import application.controller.TestPageController;
+
 public class SurvivalQuestion extends Question{
     private int _live;
     private int _score;
 
-    public SurvivalQuestion(String question, String answer) {
-        super(question, answer);
+    public SurvivalQuestion(String question, String answer, TestPageController page) {
+        super(question, answer, page);
         _live = 3;
         _score = 0;
     }

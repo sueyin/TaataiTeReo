@@ -43,7 +43,6 @@ public class ClassicMenuPageController {
             e.printStackTrace();
         }
 	}
-	
 	@FXML
 	public void handlePressLevel2(MouseEvent event) {
 		_selectedLevel = "2";

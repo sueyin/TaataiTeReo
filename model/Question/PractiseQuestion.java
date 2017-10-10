@@ -1,10 +1,12 @@
 package application.model.Question;
 
+import application.controller.TestPageController;
+
 public class PractiseQuestion extends Question {
 
 
-    public PractiseQuestion(String number) {
-        super(number, number);
+    public PractiseQuestion(String number, TestPageController page) {
+        super(number, number, page);
     }
 
     @Override
