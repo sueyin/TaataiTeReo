@@ -2,6 +2,7 @@ package application.model.Question;
 
 import application.TataiApp;
 import application.controller.TestPageController;
+import application.model.Answer;
 import javafx.concurrent.Task;
 
 import java.io.File;
@@ -32,7 +33,8 @@ public abstract class Question {
 
 
 	public Question(String question, String answer){
-		_answer = answer;
+		Answer a = new Answer(Integer.parseInt(answer));
+		_answer = a.getAnswer();
 		_question = question;
 	}
 
