@@ -13,11 +13,13 @@ public class ClassicQuestionSuite {
     private int _index;
     private List<String> _answerList = new ArrayList<>();
 
-    private boolean[] _results ;
+    private boolean[] _results = new boolean[TOTAL];
 
     public ClassicQuestionSuite(String level) {
         _level = level;
+        _index = 0;
         readQuestionBank();
+        Arrays.fill(_results, Boolean.FALSE);
     }
 
 
@@ -47,8 +49,10 @@ public class ClassicQuestionSuite {
     }
 
 
-
-
+    /**
+     * Return the current level (1-15)
+     * @return a String representing the current level
+     */
     public String getLevel() {
         return _level;
     }
@@ -56,7 +60,7 @@ public class ClassicQuestionSuite {
 
 
     /**
-     * Return the current question index starting from 1
+     * Return the current question index (starting from 1)
      * @return a number representing the current question index
      */
     public int getIndexNumber(){
@@ -81,6 +85,7 @@ public class ClassicQuestionSuite {
     public String getAnswer(){
         return _answerList.get(_index);
     }
+
 
     /**
      * Return the content for the current question

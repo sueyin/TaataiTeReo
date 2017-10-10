@@ -48,6 +48,7 @@ public abstract class Question {
 		System.out.println("Deleted last recording");
 		System.out.println("Recording");
 		System.out.println("Recorded");
+		compare();
 	}
 
 

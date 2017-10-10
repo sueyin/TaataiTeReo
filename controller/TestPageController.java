@@ -22,18 +22,25 @@ public abstract class TestPageController {
 
 
 
+
     //Change GUI methods
 
     public void rightGUI(){
-        System.out.println("right");
+        _message.setText("You got it Right!");
+        _record.setVisible(false);
+        _next.setVisible(true);
     }
 
     public void tryAgainGUI(){
-        System.out.println("Try Again");
+        _message.setText("Not really.. One more chance");
+        _record.setText("Try Again");
+        _record.setVisible(true);
     }
 
     public void WrongGUI(){
-        System.out.println("Wrong");
+        _message.setText("dd.You are hopeless");
+        _record.setVisible(false);
+        _next.setVisible(true);
     }
 
 }
