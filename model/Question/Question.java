@@ -32,10 +32,11 @@ public abstract class Question {
 	protected Task _compareTask;
 
 
-	public Question(String question, String answer){
+	public Question(String question, String answer, TestPageController page){
 		Answer a = new Answer(Integer.parseInt(answer));
 		_answer = a.getAnswer();
 		_question = question;
+		_page = page;
 	}
 
 	/**
@@ -58,6 +59,7 @@ public abstract class Question {
 		System.out.println("Comparing");
 		System.out.println("Compared. Result set to false");
 		_result = false;
+		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
 	}
 

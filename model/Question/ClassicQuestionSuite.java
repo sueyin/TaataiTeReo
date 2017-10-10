@@ -5,17 +5,17 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ClassicQuestionSuite {
-    private static final String BANKDIR = "bank/classic/";
+    private static final String BANKDIR = "./src/application/bank/classic/";
     private static final int TOTAL = 10;
-    private int _level;
+    private String _level;
     private HashMap<String, String> _questionSuite = new HashMap<>();
 
     private int _index;
-    private List<Integer> _answerList = new ArrayList<>();
+    private List<String> _answerList = new ArrayList<>();
 
     private boolean[] _results ;
 
-    public ClassicQuestionSuite(int level) {
+    public ClassicQuestionSuite(String level) {
         _level = level;
         readQuestionBank();
     }
@@ -25,7 +25,7 @@ public class ClassicQuestionSuite {
      * Read the corresponding question bank and shuffle the questions randomly.
      */
     protected void readQuestionBank() {
-        String bankAddress = BANKDIR + Integer.toString(_level) + ".txt";
+        String bankAddress = BANKDIR + _level + ".txt";
         File bank = new File(bankAddress);
 
         try {
@@ -36,7 +36,7 @@ public class ClassicQuestionSuite {
                 String answer = line.split("#")[0];
                 String question = line.split("#")[1];
                 _questionSuite.put(answer, question);
-                _answerList.add(Integer.parseInt(answer));
+                _answerList.add(answer);
             }
             sc.close();
             Collections.shuffle(_answerList);
@@ -47,7 +47,9 @@ public class ClassicQuestionSuite {
     }
 
 
-    public int getLevel() {
+
+
+    public String getLevel() {
         return _level;
     }
 
@@ -76,7 +78,7 @@ public class ClassicQuestionSuite {
      * Return the answer for the current question
      * @return the correct answer for the current math question
      */
-    public int getAnswer(){
+    public String getAnswer(){
         return _answerList.get(_index);
     }
 
@@ -85,7 +87,7 @@ public class ClassicQuestionSuite {
      * @return a String representing the current math question
      */
     public String getQuestion(){
-        return _questionSuite.get(Integer.toString(_answerList.get(_index)));
+        return _questionSuite.get(_answerList.get(_index));
     }
 
 
@@ -110,7 +112,7 @@ public class ClassicQuestionSuite {
      * Return the results of the set of questions
      * @return _results an array of boolean values indicating the result from each quesiton.
      */
-    public List<Integer> getAnswers(){
+    public List<String> getAnswers(){
         return _answerList;
     }
 

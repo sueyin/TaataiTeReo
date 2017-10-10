@@ -2,8 +2,8 @@ package application.model.Question.generator;
 
 public class Addition {
 
-    public Addition(int answer){
-
+    public Addition(String answer){
+        generateQuestion(Integer.parseInt(answer));
     }
 
     protected String generateQuestion(int answer) {
@@ -14,52 +14,6 @@ public class Addition {
         return " "+ a + " + " + b + " ";
     }
 
-    public static class Multiplication {
-        private enum Combo{
-
-
-
-        }
-    }
-
-    public static class Power {
-        private int[] powers = {1, 4, 8, 9, 16, 25, 27 ,32 ,36, 49, 64, 81 };
-
-
-    }
-
-    public static class Substraction extends Question {
-        private final int MAX = 99;
-
-        public Substraction(int answer) {
-            super(answer);
-        }
-
-        protected String generateQuestion(int answer) {
-            int a = (int)(Math.random() * (MAX - answer + 1 ) + 1);
-            int b = a - answer;
-            return " " + a + " - " + b + " ";
-        }
-    }
-
-    public abstract static class Question {
-        private String _question;
-        private String _answer;
-
-        public Question(int answer){
-            _question = generateQuestion(answer);
-            _answer = Integer.toString(answer);
-        }
-
-        protected abstract String generateQuestion(int answer);
-
-        public String getAnswer(){
-            return _answer;
-        }
-
-        public String getQuestion() {
-            return _question;
-        }
 
     /*
         public static void generateQuestionBank(){
@@ -118,5 +72,5 @@ public class Addition {
 
 
 
-    }
+
 }

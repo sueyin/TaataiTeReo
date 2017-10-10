@@ -1,12 +1,14 @@
 package application.model.Question;
 
+import application.controller.TestPageController;
+
 public class ClassicQuestion extends Question {
     private boolean _tested;
     private boolean _finished;
 
 
-    public ClassicQuestion(String question, String answer) {
-        super(question, answer);
+    public ClassicQuestion(String question, String answer, TestPageController page) {
+        super(question, answer, page);
         _tested = false;
     }
 
@@ -14,31 +16,20 @@ public class ClassicQuestion extends Question {
     @Override
     protected void updateGUI() {
         if (_result){
-            rightGUI();
+            _page.rightGUI();
             _finished = true;
         }else{
             if (!_tested){
-                firstWrongGUI();
+                _page.tryAgainGUI();
             }else{
                 _tested = true;
                 _finished = true;
-                secondWrongGUI();
+                _page.WrongGUI();
             }
         }
     }
 
 
-    private void rightGUI(){
-
-    }
-
-    private void firstWrongGUI(){
-
-    }
-
-    private void secondWrongGUI(){
-
-    }
 
     public boolean isFinished() {
         return _finished;

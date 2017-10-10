@@ -2,26 +2,36 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.Question.ClassicQuestion;
+import application.model.Question.ClassicQuestionSuite;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ClassicTestPageController {
+public class ClassicTestPageController extends TestPageController {
 
-	@FXML
-	private Label _level;
-	
 	private static String _selectedLevel;
+
+	private ClassicQuestionSuite _qs;
+
+	private ClassicQuestion _q;
 	
 	@FXML
 	public void initialize() {
 		_selectedLevel = ClassicMenuPageController.getSelectedLevel();
 		_level.setText("Level "+_selectedLevel);
+		_qs = new ClassicQuestionSuite(_selectedLevel);
+		//_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
+
+		//for now
+		_record.setText("(Test) Next");
+
 	}
 	
 	/**
@@ -29,6 +39,11 @@ public class ClassicTestPageController {
 	 */
 	@FXML
 	public void handlePressButton(MouseEvent event) {
+		_question.setText(_qs.getQuestion());
+		_qs.nextQuestion();
+		//_q.test();
+		//_qs.collectResult(_q.getResult());
+		_record.setText("Right");
 		System.out.println("button pressed");
 	}
 	
@@ -45,5 +60,7 @@ public class ClassicTestPageController {
             e.printStackTrace();
         }
 	}
+
+
 	
 }
