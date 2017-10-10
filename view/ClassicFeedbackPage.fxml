@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicFeedbackPageController">
+   <children>
+      <Label fx:id="_message" alignment="CENTER" layoutX="220.0" layoutY="82.0" prefHeight="113.0" prefWidth="686.0" text="Execellent!" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="80.0" />
+         </font>
+      </Label>
+      <Label fx:id="_number" layoutX="517.0" layoutY="218.0" text="10/10" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="50.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="_nextLevel" layoutX="478.0" layoutY="505.0" onMouseClicked="#handlePressNextLevel" stylesheets="@../application.css" text="Next Level" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="_replay" layoutX="120.0" layoutY="503.0" onMouseClicked="#handlePressReplay" stylesheets="@../application.css" text="Replay" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="_menu" layoutX="889.0" layoutY="505.0" onMouseClicked="#handlePressMenu" stylesheets="@../application.css" text="Menu" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="30.0" />
+         </font>
+      </JFXButton>
+      <HBox fx:id="_full" layoutX="381.0" layoutY="311.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+         <children>
+            <ImageView fx:id="_full1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/feedback/full_star.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="_full2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/feedback/full_star.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="_full3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/feedback/full_star.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="_hallow" layoutX="381.0" layoutY="311.0" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+         <children>
+            <ImageView fx:id="_hallow1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/feedback/hallow_star.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="_hallow2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/feedback/hallow_star.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="_hallow3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/feedback/hallow_star.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="_level" alignment="CENTER_RIGHT" layoutX="947.0" layoutY="33.0" prefHeight="43.0" prefWidth="143.0" text="Level #" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
