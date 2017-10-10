@@ -31,6 +31,10 @@ public class PracticePageController {
 	public void initialize() {
 		_disabledButton.setVisible(false);
 	}
+	
+	/**
+	 * This method updates the text of the custom button when user enters number in text field 
+	 */
 	@FXML
 	public void handleTextChange(KeyEvent event) {
 		String input = _textField.getText();
@@ -54,6 +58,9 @@ public class PracticePageController {
 	
 	}
 	
+	/**
+	 * checks if a string consists of only numbers 
+	 */
 	private boolean isOnlyNumber(String value) {
 		if (value == null || value.equals("")){
 			return false;
@@ -61,6 +68,9 @@ public class PracticePageController {
 	    return value.matches("^[0-9]+$");
 	}
 	
+	/**
+	 * This method switches page to main page when return is pressed 
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
         try {
@@ -75,6 +85,9 @@ public class PracticePageController {
         }
 	}
 
+	/**
+	 * This method switches to easy practice page wehn easy button is pressed 
+	 */
 	@FXML
 	public void handlePressEasy(MouseEvent event) {
         try {
@@ -89,7 +102,9 @@ public class PracticePageController {
         }
 	}
 	
-	
+	/**
+	 * This method switches to hard practice page when hard button is pressed 
+	 */
 	@FXML
 	public void handlePressHard(MouseEvent event) {
         try {
@@ -104,6 +119,9 @@ public class PracticePageController {
         }
 	}
 	
+	/**
+	 * This method switches to custom practice page when custom  button is pressed 
+	 */
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
         try {
