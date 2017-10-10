@@ -37,7 +37,7 @@ public abstract class TestPageController {
         _record.setVisible(true);
     }
 
-    public void WrongGUI(){
+    public void wrongGUI(){
         _message.setText("dd.You are hopeless");
         _record.setVisible(false);
         _next.setVisible(true);

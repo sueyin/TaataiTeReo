@@ -12,9 +12,9 @@ public class PractiseQuestion extends Question {
     @Override
     protected void updateGUI() {
         if (_result){
-            rightGUI();
+            _page.rightGUI();
         }else{
-            wrongGUI();
+            _page.wrongGUI();
         }
     }
 
