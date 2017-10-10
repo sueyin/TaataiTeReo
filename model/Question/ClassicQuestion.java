@@ -21,7 +21,7 @@ public class ClassicQuestion extends Question {
                 _page.tryAgainGUI();
                 _tested = true;
             }else{
-                _page.WrongGUI();
+                _page.wrongGUI();
             }
         }
     }

@@ -20,7 +20,7 @@ public class MainPageController {
 	@FXML
 	private Label _notification;
 
-	private User _user = null;
+	private static User _user = null;
 	
 	@FXML
 	public void initialize() {
@@ -155,5 +155,13 @@ public class MainPageController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+	}
+
+	/**
+	 * Pass the current user
+	 * @return the current user
+	 */
+	public static User getUser(){
+		return _user;
 	}
 }

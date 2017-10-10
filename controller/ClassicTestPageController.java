@@ -45,19 +45,42 @@ public class ClassicTestPageController extends TestPageController {
 	public void handlePressButton(MouseEvent event) {
 		_q.test();
 		_qs.collectResult(_q.getResult());
+		if (_qs.getIndexNumber() == 10){
+			_next.setText("Completed");
+		}
 	}
 
 	@FXML
 	public void handlePressNext(MouseEvent event) {
-		//Change to the next question
-		_qs.nextQuestion();
-		_question.setText(_qs.getQuestion());
-		_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
-		//Update GUI
-		_next.setVisible(false);
-		_record.setVisible(true);
-		_record.setText("Record");
-		_message.setText("");
+		if (_next.getText() == "Completed"){
+			try {
+				//Count the score (how many right attempts)
+				int score = 0;
+				for (boolean b : _qs.getResults()){
+						if (b){
+							score++;
+						}
+				}
+				MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(score));
+				Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicFeedbackPage.fxml"));
+				Scene scene = new Scene(parent);
+				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else {
+			//Change to the next question
+			_qs.nextQuestion();
+			_question.setText(_qs.getQuestion());
+			_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
+			//Update GUI
+			_next.setVisible(false);
+			_record.setVisible(true);
+			_record.setText("Record");
+			_message.setText("");
+		}
 	}
 
 
@@ -74,7 +97,11 @@ public class ClassicTestPageController extends TestPageController {
 			e.printStackTrace();
 		}
 	}
-	
+
+
+	public static String getLevel(){
+		return _selectedLevel;
+	}
 
 
 	

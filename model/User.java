@@ -28,7 +28,7 @@ public class User {
      * @param mode a String representing which record to update
      * @param score a int representing the score of the latest attempt
      */
-    private void updateRecord(String mode, int score){
+    private void updateRecord(String mode, String score){
         //Check if the file exist (if it is the first try)
         File target = new File(_dir + mode + ".txt");
         if (!target.exists()){
@@ -51,7 +51,7 @@ public class User {
             e.printStackTrace();
         }
         //Update the score if it is higher
-        if (current <= score) {
+        if (current <= Integer.parseInt(score)) {
             try {
                 PrintWriter writer = new PrintWriter(target, "UTF-8");
                 writer.println(score);
@@ -65,21 +65,35 @@ public class User {
     }
 
 
-    public void updateClassicRecord(int level, int score){
+    public void updateClassicRecord(String level, String score){
         updateRecord("classic" + level, score);
     }
 
 
-    public void updateEndlessRecord(int score){
+    public void updateEndlessRecord(String score){
         updateRecord("endless", score);
     }
 
 
-    public void updateSurvivalRecord(int score){
+    public void updateSurvivalRecord(String score){
         updateRecord("survival", score);
     }
 
 
+    public int getClassicRecore(String level){
+        //Read the current score
+        int current = 0;
+        try {
+            Scanner sc = new Scanner(new File(_dir + "classic" + level + ".txt"));
+            while (sc.hasNextLine()) {
+                current = Integer.parseInt(sc.nextLine());
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return current;
+    }
 
 
 

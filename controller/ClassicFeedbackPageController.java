@@ -39,13 +39,15 @@ public class ClassicFeedbackPageController {
 	
 	private int _result;
 	
-	private int _levelNum;
+	private String _levelNum;
 	
 	@FXML
 	public void initialize() {
 		//_result = ClassicTestPage.getResult(); 0-1  2-4 5-8  9-10
 		//_levelNum = CLassicTestPage.getLevel();
-		_result = 0;
+		_levelNum = ClassicTestPageController.getLevel();
+		_level.setText("Level "+_levelNum);
+		_result = MainPageController.getUser().getClassicRecore(_levelNum);
 		_number.setText(_result + "/10");
 		
 		//display no star if between 0-2

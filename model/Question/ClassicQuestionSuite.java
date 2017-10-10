@@ -27,8 +27,7 @@ public class ClassicQuestionSuite {
      * Read the corresponding question bank and shuffle the questions randomly.
      */
     protected void readQuestionBank() {
-        String bankAddress = BANKDIR + _level + ".txt";
-        File bank = new File(bankAddress);
+        File bank = new File(BANKDIR + _level + ".txt");
 
         try {
             Scanner sc = new Scanner(bank);
