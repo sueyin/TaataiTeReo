@@ -58,7 +58,7 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button fx:id="_endless" mnemonicParsing="false" onMouseClicked="#handlePressEndless" prefWidth="100.0" style="-fx-background-color: transparent;" stylesheets="@../application.css">
+            <Button fx:id="_practice" mnemonicParsing="false" onMouseClicked="#handlePressPractice" prefWidth="100.0" style="-fx-background-color: transparent;" stylesheets="@../application.css">
                <graphic>
                   <VBox prefHeight="92.0" prefWidth="55.0">
                      <children>
@@ -67,7 +67,7 @@
                               <Image url="@../image/mainpage/endless.png" />
                            </image>
                         </ImageView>
-                        <Label text="Endless" textFill="WHITE" translateX="4.0" translateY="-15.0">
+                        <Label text="Practice" textFill="WHITE" translateX="4.0" translateY="-15.0">
                            <font>
                               <Font size="20.0" />
                            </font>

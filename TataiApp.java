@@ -17,7 +17,7 @@ public class TataiApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/ClassicFeedbackPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/LoginPage.fxml"));
         primaryStage.setTitle("Tatai Te Reo");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -17,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -24,6 +25,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -100,6 +103,15 @@ public class LoginPageController {
 		
 		//switch to add user page
 		showSelectUserPage(false);
+		
+		_textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		    @Override
+		    public void handle(KeyEvent keyEvent) {
+		        if (keyEvent.getCode() == KeyCode.ENTER)  {
+		        	performAfterPressEnter();
+		        }
+		    }
+		});
 	}
 	
 	
@@ -181,57 +193,7 @@ public class LoginPageController {
 	 */
 	@FXML
 	public void handlePressContinueFromAddUser(MouseEvent event) {
-		Service delay = new DelayDisappear();
-		
-		//check if the entered name exist already 
-		_selectedUser = _textField.getText();
-		boolean repeated = false;
-		for (String existedUser: _data) {
-			if (_selectedUser.equals(existedUser)){
-				repeated = true;
-			}
-		}
-		//check if the text field is empty, if so then display warning message
-		if (_selectedUser.equals("")) {
-			_addUserMessage.setText("Please enter a username");
-			_addUserMessage.setVisible(true);
-			//disable the warning message after a few seconds
-			if (!delay.isRunning()){
-				delay.start();
-			}
-			delay.setOnSucceeded(e -> {
-	            _addUserMessage.setVisible(false);
-	            delay.reset();
-	        });
-		}
-		//check if the entered user name already exists, if so, then asks the user to enter another one
-		else if (repeated == true) {
-			_addUserMessage.setText("Username already exist, please choose another one");
-			_addUserMessage.setVisible(true);
-			//disable the warning message after a few seconds
-			if (!delay.isRunning()){
-				delay.start();
-			}
-			delay.setOnSucceeded(e -> {
-	            _addUserMessage.setVisible(false);
-	            delay.reset();
-	        });
-		}
-		//if the user name entered is valid, then proceed to next page and save user name
-		else {
-			saveNewUserName(_selectedUser);
-	        try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-	        	Scene scene = new Scene(parent);
-	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        	stage.setScene(scene);
-	        	stage.show();
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-			System.out.println("Enter Main page from Add User Page");
-		}
+		performAfterPressEnter();
 	}
 	
 	
@@ -301,6 +263,60 @@ public class LoginPageController {
 	public static String getSelectedUser() {
 
 		return _selectedUser;
+	}
+	
+	private void performAfterPressEnter() {
+	Service delay = new DelayDisappear();
+		
+		//check if the entered name exist already 
+		_selectedUser = _textField.getText();
+		boolean repeated = false;
+		for (String existedUser: _data) {
+			if (_selectedUser.equals(existedUser)){
+				repeated = true;
+			}
+		}
+		//check if the text field is empty, if so then display warning message
+		if (_selectedUser.equals("")) {
+			_addUserMessage.setText("Please enter a username");
+			_addUserMessage.setVisible(true);
+			//disable the warning message after a few seconds
+			if (!delay.isRunning()){
+				delay.start();
+			}
+			delay.setOnSucceeded(e -> {
+	            _addUserMessage.setVisible(false);
+	            delay.reset();
+	        });
+		}
+		//check if the entered user name already exists, if so, then asks the user to enter another one
+		else if (repeated == true) {
+			_addUserMessage.setText("Username already exist, please choose another one");
+			_addUserMessage.setVisible(true);
+			//disable the warning message after a few seconds
+			if (!delay.isRunning()){
+				delay.start();
+			}
+			delay.setOnSucceeded(e -> {
+	            _addUserMessage.setVisible(false);
+	            delay.reset();
+	        });
+		}
+		//if the user name entered is valid, then proceed to next page and save user name
+		else {
+			saveNewUserName(_selectedUser);
+	        try {
+	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
+	        	Scene scene = new Scene(parent);
+	        	Stage stage = (Stage) _textField.getScene().getWindow();
+	        	stage.setScene(scene);
+	        	stage.show();
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+			System.out.println("Enter Main page from Add User Page");
+		}
 	}
 }
 
