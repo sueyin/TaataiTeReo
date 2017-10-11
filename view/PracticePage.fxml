@@ -22,17 +22,17 @@
 				<Glow level="1.0" />
 			</effect>
 		</Label>
-		<Label layoutX="401.0" layoutY="272.0" prefHeight="178.0" prefWidth="186.0" text="Randomly generated between 1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		<Label fx:id = "_hardInstruction" layoutX="401.0" layoutY="272.0" prefHeight="178.0" prefWidth="186.0" text="Randomly generated between 1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
 			<font>
 				<Font name="Yuanti SC Regular" size="24.0" />
 			</font>
 		</Label>
-		<Label layoutX="179.0" layoutY="252.0" prefHeight="220.0" prefWidth="167.0" text="Randomly generated between 1 ~ 9" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		<Label fx:id = "_easyInstruction"  layoutX="179.0" layoutY="252.0" prefHeight="220.0" prefWidth="167.0" text="Randomly generated between 1 ~ 9" textAlignment="CENTER" textFill="WHITE" wrapText="true">
 			<font>
 				<Font name="Yuanti SC Regular" size="24.0" />
 			</font>
 		</Label>
-		<JFXButton fx:id="_return" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressReturn" stylesheets="@../application.css" text=" ">
+		<JFXButton fx:id="_testReturn" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressTestReturn" stylesheets="@../application.css" text=" ">
 			<graphic>
 				<ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
 					<image>
@@ -41,7 +41,16 @@
 				</ImageView>
 			</graphic>
 		</JFXButton>
-		<Label layoutX="664.0" layoutY="296.0" prefHeight="129.0" prefWidth="219.0" text="Select a Specific Number To Practice   1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		<JFXButton fx:id="_mainReturn" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressMainReturn" stylesheets="@../application.css" text=" ">
+			<graphic>
+				<ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../image/practice/return.png" />
+					</image>
+				</ImageView>
+			</graphic>
+		</JFXButton>
+		<Label  fx:id = "_customInstruction" layoutX="664.0" layoutY="296.0" prefHeight="129.0" prefWidth="219.0" text="Select a Specific Number To Practice   1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
 			<font>
 				<Font name="Yuanti SC Regular" size="24.0" />
 			</font>
@@ -116,12 +125,12 @@
 				<Font name="Yuanti SC Regular" size="96.0" />
 			</font>
 		</Label>
-		<JFXButton fx:id="_record" layoutX="457.0" layoutY="450.0" prefHeight="78.0" prefWidth="219.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
+		<JFXButton fx:id="_record" layoutX="457.0" layoutY="450.0" prefHeight="78.0" prefWidth="219.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" onMouseClicked="#handlePressRecord"  text="Record" textFill="WHITE">
 			<font>
 				<Font name="Yuanti SC Regular" size="29.0" />
 			</font>
 		</JFXButton>
-      <JFXButton fx:id="_record1" layoutX="805.0" layoutY="320.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text=" " textFill="WHITE">
+      <JFXButton fx:id="_repeat" layoutX="805.0" layoutY="320.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text=" " textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="29.0" />
          </font>
