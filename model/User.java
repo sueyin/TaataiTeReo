@@ -97,4 +97,12 @@ public class User {
             dir.delete();
         }
     }
+
+    public String getDir(){
+        return _dir;
+    }
+
+    public String getName(){
+        return _name;
+    }
 }

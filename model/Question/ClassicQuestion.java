@@ -1,18 +1,18 @@
 package application.model.Question;
 
-import application.controller.ClassicTestPageController;
 import application.controller.TestPageController;
 
 public class ClassicQuestion extends Question {
     private boolean _tested;
 
-
-    public ClassicQuestion(String question, String answer, ClassicTestPageController page) {
+    public ClassicQuestion(String question, String answer, TestPageController page) {
         super(question, answer, page);
         _tested = false;
     }
 
-
+    /**
+     * Update GUI according to the question status and the result
+     */
     @Override
     protected void updateGUI() {
         if (_result){

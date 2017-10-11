@@ -2,9 +2,9 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.Question.PracticeQuestion;
+import application.model.Question.PracticeQuestion;
 import application.model.Question.Question;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -35,6 +35,9 @@ public class PracticePageController extends TestPageController {
 	private Button _hard;
 
 	@FXML
+	private Button _record;
+
+	@FXML
 	private Button _mainReturn;
 
 	@FXML
@@ -56,6 +59,8 @@ public class PracticePageController extends TestPageController {
 	private Label _customInstruction;
 
 
+
+
 	private Question _q;
 
 	private String _input;
@@ -64,7 +69,7 @@ public class PracticePageController extends TestPageController {
 	@FXML
 	public void initialize() {
 		_disabledButton.setVisible(false);
-		beferoTestGUI();
+		beforeTestGUI();
 	}
 	
 	/**
@@ -122,30 +127,23 @@ public class PracticePageController extends TestPageController {
 
 	@FXML
 	public void handlePressTestReturn(MouseEvent event) {
-		beferoTestGUI();
+		beforeTestGUI();
 		//TODO _q.cancel();
 	}
 
 	@FXML
 	public void handlePressRecord(MouseEvent event){
-
+		_q.test();
 	}
 
 	/**
-	 * This method switches to easy practice page wehn easy button is pressed 
+	 * This method switches to easy practice page when easy button is pressed
 	 */
 	@FXML
 	public void handlePressEasy(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        _q = new PracticeQuestion( "9", this);
+        _question.setText(_q.getQuestion());
+        testGUI();
 	}
 	
 	/**
@@ -153,16 +151,9 @@ public class PracticePageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressHard(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		_q = new PracticeQuestion( "99", this);
+		_question.setText(_q.getQuestion());
+		testGUI();
 	}
 	
 	/**
@@ -171,9 +162,17 @@ public class PracticePageController extends TestPageController {
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
         _input = _textField.getText();
-
+        _q = new PracticeQuestion(_input, this);
+        testGUI();
 	}
 
+
+	@FXML
+	public void handlePressRepeat(MouseEvent event) {
+		String question = _q.getQuestion();
+		_q = new PracticeQuestion(question,this);
+		testGUI();
+	}
 
 	/**
 	 * Adjust GUI to the test state
@@ -185,47 +184,86 @@ public class PracticePageController extends TestPageController {
 		_hard.setVisible(false);
 		_repeat.setVisible(false);
 		_question.setVisible(true);
+		_record.setVisible(true);
+		_record.setText("Record");
 		_easyInstruction.setVisible(false);
 		_hardInstruction.setVisible(false);
 		_customInstruction.setVisible(false);
 		_mainReturn.setVisible(false);
 		_testReturn.setVisible(true);
+		_message.setText("");
 		//TODO set statistic invisible
 	}
 
 	/**
-	 * Adjust GUI to after test state
+	 * Adjust GUI to after test state with right answer
 	 */
-	private void afterTestGUI(){
+	@Override
+	public void rightGUI(){
 		_textField.setVisible(true);
 		_custom.setVisible(true);
 		_easy.setVisible(true);
 		_hard.setVisible(true);
 		_repeat.setVisible(true);
 		_question.setVisible(true);
+		_record.setVisible(false);
 		_easyInstruction.setVisible(false);
 		_hardInstruction.setVisible(false);
 		_customInstruction.setVisible(false);
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
+		_message.setText("Congratulations");
 		//TODO set statistic visible
+	}
+
+	/**
+	 * Adjust GUI to after test state with wrong answer
+	 */
+	@Override
+	public void wrongGUI(){
+		_textField.setVisible(true);
+		_custom.setVisible(true);
+		_easy.setVisible(true);
+		_hard.setVisible(true);
+		_repeat.setVisible(true);
+		_question.setVisible(true);
+		_record.setVisible(false);
+		_easyInstruction.setVisible(false);
+		_hardInstruction.setVisible(false);
+		_customInstruction.setVisible(false);
+		_mainReturn.setVisible(true);
+		_testReturn.setVisible(false);
+		_message.setText("BUBU");
+		//TODO set statistic visible
+	}
+
+
+	/**
+	 * Adjust GUI to try again state
+	 */
+	@Override
+	public void tryAgainGUI(){
+		_message.setText("Plz Try Again");
+		_record.setText("Try Again");
 	}
 
 	/**
 	 * Adjust GUI to the before test state
 	 */
-	private void beferoTestGUI(){
+	private void beforeTestGUI(){
 		_textField.setVisible(true);
 		_custom.setVisible(true);
 		_easy.setVisible(true);
 		_hard.setVisible(true);
 		_repeat.setVisible(false);
-		_question.setVisible(true);
+		_question.setVisible(false);
+		_record.setVisible(false);
 		_easyInstruction.setVisible(true);
 		_hardInstruction.setVisible(true);
 		_customInstruction.setVisible(true);
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
+		_message.setText("");
 		//TODO set statistic invisible
 	}
 
