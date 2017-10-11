@@ -1,4 +1,4 @@
-package application.model.Question.generator;
+package application.model.Question;
 
 import java.io.File;
 import java.io.FileNotFoundException;

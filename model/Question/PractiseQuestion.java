@@ -3,6 +3,7 @@ package application.model.Question;
 import application.controller.TestPageController;
 
 public class PractiseQuestion extends Question {
+    private boolean _level;
 
 
     public PractiseQuestion(String number, TestPageController page) {
@@ -19,11 +20,11 @@ public class PractiseQuestion extends Question {
     }
 
 
-    private void rightGUI() {
+    public void newQuestion() {
+
+
     }
 
 
-    private void wrongGUI() {
-    }
 
 }
