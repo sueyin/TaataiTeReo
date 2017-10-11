@@ -72,12 +72,12 @@ public class MainPageController {
 	}
 	
 	/**
-	 * this method changes from main page to endless mode instruction page
+	 * this method changes from main page to practice page
 	 */
 	@FXML
-	public void handlePressEndless(MouseEvent event) {
+	public void handlePressPractice(MouseEvent event) {
         try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/EndlessInstructionPage.fxml"));
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/PracticePage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	stage.setScene(scene);
