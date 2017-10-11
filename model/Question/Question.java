@@ -1,11 +1,14 @@
 package application.model.Question;
 
 import application.TataiApp;
+import application.controller.ClassicTestPageController;
 import application.controller.TestPageController;
 import application.model.Answer;
 import javafx.concurrent.Task;
 
 import java.io.File;
+import java.nio.channels.ClosedSelectorException;
+
 public abstract class Question {
 
 	protected final int MAX = 10;

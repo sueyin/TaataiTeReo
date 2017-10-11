@@ -21,7 +21,7 @@ public abstract class TestPageController {
     protected Button _next;
 
 
-    private static String _score;
+    protected static String _score;
 
 
     //Change GUI methods

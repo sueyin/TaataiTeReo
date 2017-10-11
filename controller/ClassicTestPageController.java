@@ -104,5 +104,10 @@ public class ClassicTestPageController extends TestPageController {
 	}
 
 
-	
+	@Override
+	public void tryAgainGUI() {
+		super.tryAgainGUI();
+		_message.setText("from classic");
+	}
+
 }

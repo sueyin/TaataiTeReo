@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class User {
     private File classicRecordInit;
-    private File endlessRecord;
     private File survivalRecord;
     private String _dir;
     private String _name;
@@ -17,7 +16,6 @@ public class User {
         _name = name;
         _dir = TataiApp.getUserDir() + name + "/";
         classicRecordInit = new File(_dir + "classic1.txt");
-        endlessRecord = new File(_dir + "endless.txt");
         survivalRecord = new File(_dir + "survival.txt");
     }
 
@@ -69,12 +67,6 @@ public class User {
         updateRecord("classic" + level, score);
     }
 
-
-    public void updateEndlessRecord(String score){
-        updateRecord("endless", score);
-    }
-
-
     public void updateSurvivalRecord(String score){
         updateRecord("survival", score);
     }
@@ -96,10 +88,13 @@ public class User {
     }
 
 
-
-
-
-
-
-
+    public void deleteUser(){
+        File dir = new File (_dir);
+        if(dir.exists()){
+            for (File f : dir.listFiles()){
+                f.delete();
+            }
+            dir.delete();
+        }
+    }
 }

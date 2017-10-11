@@ -8,6 +8,7 @@ import java.util.List;
 
 
 import application.TataiApp;
+import application.model.User;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 
@@ -138,10 +139,11 @@ public class LoginPageController {
 		if (confirm){
 			System.out.println("delete user");
 			String toDelete = _userList.getSelectionModel().getSelectedItem();
-			File target = new File(TataiApp.getUserDir() + toDelete);
-			if (target.exists()){
-				target.delete();
-			}
+			new User(toDelete).deleteUser();
+			//File target = new File(TataiApp.getUserDir() + toDelete);
+			//if (target.exists()){
+			//	target.delete();
+			//}
 			_items.remove(toDelete);
 		}
 	}
