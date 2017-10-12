@@ -89,6 +89,8 @@ public class PracticeStatisticPageController {
 
 	@FXML
 	public void initialize() {
+		//TODO change to User
+		//_result = MainPageController.getUser().getOverallStatistic();
 		_result = application.model.PractiseSomething.getResult();
 		_list = sortResult();
 		setCircles();

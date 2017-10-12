@@ -192,6 +192,13 @@ public class PracticePageController extends TestPageController {
 		testGUI();
 	}
 
+
+
+
+	/*
+		GUIs
+	 */
+
 	/**
 	 * Adjust GUI to the test state
 	 */

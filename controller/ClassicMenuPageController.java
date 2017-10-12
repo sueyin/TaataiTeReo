@@ -2,6 +2,8 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.Question.ClassicQuestion;
+import application.model.Question.ClassicQuestionSuite;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,7 +15,16 @@ import javafx.stage.Stage;
 public class ClassicMenuPageController {
 	
 	private static String _selectedLevel;
-	
+
+	@FXML
+	public void initialize() {
+		/*TODO
+		for btn 1-15
+			Integer.parseInt(MainPageController.getUser().getClassicRecord());
+		分析后判断是否解锁，多少颗星
+	*/
+	}
+
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		try {

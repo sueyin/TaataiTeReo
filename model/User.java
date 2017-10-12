@@ -2,6 +2,7 @@ package application.model;
 
 
 import application.TataiApp;
+import application.controller.ClassicTestPageController;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -86,8 +87,8 @@ public class User {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            for (int i = 1; i<=15; i++){
-                String line = i + "#";
+            for (int i = 1; i <= 15; i++){
+                String line = i + "#" + "-";
                 writer.println(line);
             }
             writer.close();
@@ -160,7 +161,8 @@ public class User {
     /**
      * Return the statistic for the overall performance
      */
-    public ArrayList<Boolean> getOverallStatistic(){
+    public Map<String, ArrayList<Boolean>> getOverallStatistic(){
+        /*
         readPracticeStatistic();
         ArrayList<Boolean> overall = new ArrayList<>();
         for (String s:_practiceStatistic.keySet()){
@@ -169,6 +171,9 @@ public class User {
             }
         }
         return overall;
+        */
+        return _practiceStatistic;
+
     }
 
 
@@ -195,6 +200,9 @@ public class User {
     }
 
 
+
+
+
     /*
         Classic Mode
      */
@@ -211,7 +219,7 @@ public class User {
                 String level = line.split("#")[0];
                 String score = null;
                 if (line.split("#").length > 1){
-                    score = sc.nextLine().split("#")[1];
+                    score = line.split("#")[1];
                 }
                 _classicStatistic.put(level, score);
             }
@@ -237,7 +245,7 @@ public class User {
         readClassicRecord();
         boolean flag = false;
         //Decide whether the current score is greater than the last record
-        if (_classicStatistic.get(level) == null){
+        if (_classicStatistic.get(level).equals("-")){
             flag = true;
         }else{
             int last = Integer.parseInt(_classicStatistic.get(level));
@@ -264,6 +272,9 @@ public class User {
             writer.close();
         }
     }
+
+
+
 
 
 
@@ -304,6 +315,9 @@ public class User {
             }
         }
     }
+
+
+
 
 
     /*

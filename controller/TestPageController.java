@@ -21,7 +21,12 @@ public abstract class TestPageController {
     protected Button _next;
 
 
-    protected static int _score;
+    protected int _score;
+
+    public void addScore(){
+        _score = _score + 1;
+        System.out.println("Score is " +_score);
+    }
 
 
     //Change GUI methods

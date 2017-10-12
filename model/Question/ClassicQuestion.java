@@ -17,6 +17,7 @@ public class ClassicQuestion extends Question {
     protected void updateGUI() {
         if (_result){
             _page.rightGUI();
+            _page.addScore();
         }else{
             if (!_tested){
                 _page.tryAgainGUI();

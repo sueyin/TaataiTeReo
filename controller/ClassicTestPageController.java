@@ -23,24 +23,14 @@ public class ClassicTestPageController extends TestPageController {
 	
 	@FXML
 	public void initialize() {
+		_score = 0;
 		//Decide the which level the user chose
 		_selectedLevel = ClassicMenuPageController.getSelectedLevel();
 		_level.setText("Level "+_selectedLevel);
 		//Generate the correspongding quesition bank
 		_qs = new ClassicQuestionSuite(_selectedLevel);
-
-		System.out.println("created new qs");
-
 		//Set the first question
-
-		System.out.println(_qs.getQuestion());
-
-		System.out.println(_qs.getAnswer());
-
 		_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
-		System.out.println("created new q");
-
-
 		_question.setText(_qs.getQuestion());
 		//Initialize GUI
 		_record.setVisible(true);
@@ -64,8 +54,8 @@ public class ClassicTestPageController extends TestPageController {
 	@FXML
 	public void handlePressNext(MouseEvent event) {
 		if (_next.getText() == "Completed"){
+			System.out.println(_score);
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
-			_score = 0;
 			try {
 				//Count the score (how many right attempts)
 				int score = 0;
@@ -94,10 +84,6 @@ public class ClassicTestPageController extends TestPageController {
 			_record.setText("Record");
 			_message.setText("");
 		}
-	}
-
-	public void addScore(){
-		_score = _score++;
 	}
 
 
