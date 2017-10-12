@@ -16,6 +16,9 @@ public class User {
     private File _classicRecord;
     private File _survivalRecord;
     private File _practiceRecord;
+    //TODO add exp and achiv systems
+    private File _e;
+    private File _achivs;
     private String _dir;
     private String _name;
 
