@@ -95,6 +95,20 @@ public class PracticeStatisticPageController {
 		_null.setVisible(false);
 
 	}
+	
+	@FXML
+	public void handlePressReturn(MouseEvent event) {
+        try {
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/PracticePage.fxml"));
+        	Scene scene = new Scene(parent);
+        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        	stage.setScene(scene);
+        	stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
 
 	//sort the numbers according to correct answers
 	private Item[] sortResult() {

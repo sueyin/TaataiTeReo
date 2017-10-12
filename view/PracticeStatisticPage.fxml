@@ -8,6 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
    <children>
@@ -19,6 +22,15 @@
             <Glow level="1.0" />
          </effect>
       </Label>
+      		<JFXButton fx:id="_return" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressReturn" stylesheets="@../application.css" text=" ">
+			<graphic>
+				<ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../image/practice/return.png" />
+					</image>
+				</ImageView>
+			</graphic>
+		</JFXButton>
       <PieChart fx:id="_pie" layoutX="147.0" layoutY="184.0" prefHeight="360.0" prefWidth="911.0" stylesheets="@../application.css" />
       <HBox alignment="BOTTOM_CENTER" layoutX="-9.0" layoutY="474.0" prefHeight="118.0" prefWidth="1240.0" spacing="10.0">
          <children>

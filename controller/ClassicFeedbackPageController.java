@@ -37,7 +37,7 @@ public class ClassicFeedbackPageController {
 	@FXML
 	private Button _nextLevel;
 	
-	private int _result;
+	private String _result;
 	
 	private String _levelNum;
 	
@@ -51,19 +51,19 @@ public class ClassicFeedbackPageController {
 		_number.setText(_result + "/10");
 		
 		//display no star if between 0-2
-		if (_result < 2) {
+		if (Integer.parseInt(_result) < 2) {
 			setNoStar();
 			_message.setText("Not Achieved..");
 			_nextLevel.setVisible(false);
 		}
 		
 		//display 1 star is between 2-4
-		else if (_result < 5) {
+		else if (Integer.parseInt(_result) < 5) {
 			setOneStar();
 			_message.setText("Achieved~");
 		}
 		//display 2 stars if between 5 -8
-		else if (_result < 9) {
+		else if (Integer.parseInt(_result) < 9) {
 			setTwoStar();
 			_message.setText("Merit!");
 		}

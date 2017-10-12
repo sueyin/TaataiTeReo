@@ -3,7 +3,6 @@ package application.controller;
 import java.io.IOException;
 
 import application.model.Question.PracticeQuestion;
-import application.model.Question.PracticeQuestion;
 import application.model.Question.Question;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,6 +71,8 @@ public class PracticePageController extends TestPageController {
 		beforeTestGUI();
 	}
 	
+
+	
 	/**
 	 * This method updates the text of the custom button when user enters number in text field 
 	 */
@@ -115,6 +116,23 @@ public class PracticePageController extends TestPageController {
 	public void handlePressMainReturn(MouseEvent event) {
         try {
         	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
+        	Scene scene = new Scene(parent);
+        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        	stage.setScene(scene);
+        	stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	/**
+	 * This method switches page to main page when return is pressed 
+	 */
+	@FXML
+	public void handlePressStats(MouseEvent event) {
+        try {
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/PracticeStatisticPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	stage.setScene(scene);
