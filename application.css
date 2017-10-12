@@ -7,6 +7,13 @@
 	-fx-effect: dropshadow(one-pass-box, grey, 7, 1, 0.1, 0.1);
 }
 
+#group:hover {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+    -fx-scale-z: 1.5;
+    -fx-background-color: lightgrey;
+}
+
 .list-view .list-cell {
 	-fx-background-color: #232323;
 	-fx-text-fill: white;
@@ -29,3 +36,13 @@
 .list-view .scroll-bar:vertical .thumb {
 	-fx-background-color: black;
 	}
+	
+.chart-pie-label {
+	-fx-fill: white;
+	-fx-font-size: 30;
+}
+
+.chart-pie-label-line {
+	-fx-fill: white;
+	-fx-stroke: white;
+}
