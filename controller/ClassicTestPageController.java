@@ -61,7 +61,7 @@ public class ClassicTestPageController extends TestPageController {
 							score++;
 						}
 				}
-				MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(score));
+				//MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(score));
 				Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicFeedbackPage.fxml"));
 				Scene scene = new Scene(parent);
 				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
