@@ -3,8 +3,6 @@ package application.model.Question;
 import application.controller.MainPageController;
 import application.controller.TestPageController;
 
-import java.io.File;
-import java.io.IOException;
 
 public class PracticeQuestion extends ClassicQuestion {
 
@@ -17,28 +15,21 @@ public class PracticeQuestion extends ClassicQuestion {
      */
     @Override
     protected void updateGUI(){
-        super.updateGUI();
-        recordResult();
-    }
-
-    /**
-     * Record the result to a local record
-     */
-    private void recordResult(){
-        File record = new File(MainPageController.getUser().getDir()+"practice.txt");
-        if (!record.exists()){
-            try {
-                record.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (_result){
+            _page.rightGUI();
+            _page.addScore();
+            System.out.println("before update " + _question + _result);
+            MainPageController.getUser().updatePractiseRecord(_question, _result);
+        }else{
+            if (!_tested){
+                _page.tryAgainGUI();
+                _tested = true;
+            }else{
+                _page.wrongGUI();
+                System.out.println("before update " + _question + _result);
+                MainPageController.getUser().updatePractiseRecord(_question, _result);
             }
         }
-
-
-
-
-
-
-
     }
+
 }

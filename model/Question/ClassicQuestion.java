@@ -3,7 +3,7 @@ package application.model.Question;
 import application.controller.TestPageController;
 
 public class ClassicQuestion extends Question {
-    private boolean _tested;
+    protected boolean _tested;
 
     public ClassicQuestion(String question, String answer, TestPageController page) {
         super(question, answer, page);
