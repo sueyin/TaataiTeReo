@@ -90,8 +90,8 @@ public class PracticeStatisticPageController {
 	@FXML
 	public void initialize() {
 		//TODO change to User
-		//_result = MainPageController.getUser().getOverallStatistic();
-		_result = application.model.PractiseSomething.getResult();
+		_result = MainPageController.getUser().getOverallStatistic();
+		//_result = application.model.PractiseSomething.getResult();
 		_list = sortResult();
 		setCircles();
 		setOverallData();
@@ -120,6 +120,7 @@ public class PracticeStatisticPageController {
 		List<String> keys = new ArrayList<>(_result.keySet()); 
 		List<ArrayList<Boolean>> values = new ArrayList<>(_result.values());
 
+		System.out.println(keys);
 		Item[] list = new Item[keys.size()];
 
 		for (int i = 0; i < keys.size(); i++) {

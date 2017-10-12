@@ -163,7 +163,7 @@ public class User {
      */
     public Map<String, ArrayList<Boolean>> getOverallStatistic(){
         /*
-        readPracticeStatistic();
+        
         ArrayList<Boolean> overall = new ArrayList<>();
         for (String s:_practiceStatistic.keySet()){
             for (Boolean b : _practiceStatistic.get(s) ){
@@ -172,6 +172,7 @@ public class User {
         }
         return overall;
         */
+    	readPracticeStatistic();
         return _practiceStatistic;
 
     }
