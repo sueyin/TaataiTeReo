@@ -56,7 +56,7 @@ public class PracticeStatisticPageController {
 	private Button _h7;
 
 	@FXML
-	private Button _m;
+	private Button _h8;
 
 	@FXML
 	private Button _l1;
@@ -77,6 +77,9 @@ public class PracticeStatisticPageController {
 	private Button _l6;
 	@FXML
 	private Button _l7;
+	
+	@FXML
+	private Button _l8;
 	
 	@FXML
 	private Label _null;
@@ -138,7 +141,7 @@ public class PracticeStatisticPageController {
 		_h5.setText(_list[4]._num);
 		_h6.setText(_list[5]._num);
 		_h7.setText(_list[6]._num);
-		_m.setText(_list[7]._num);
+		_h8.setText(_list[7]._num);
 		_l1.setText(_list[_list.length-1]._num);
 		_l2.setText(_list[_list.length-2]._num);
 		_l3.setText(_list[_list.length-3]._num);
@@ -146,6 +149,7 @@ public class PracticeStatisticPageController {
 		_l5.setText(_list[_list.length-5]._num);
 		_l6.setText(_list[_list.length-6]._num);
 		_l7.setText(_list[_list.length-7]._num);
+		_l8.setText(_list[_list.length-8]._num);
 	}
 
 	private void setOverallData() {

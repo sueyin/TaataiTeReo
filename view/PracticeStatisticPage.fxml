@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
    <children>
@@ -40,16 +40,17 @@
             <Button id="group" fx:id="_h4" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="H4" />
             <Button id="group" fx:id="_h5" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="H5" />
             <Button id="group" fx:id="_h6" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="H6" />
-            <Button id="group" fx:id="_h7" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <padding>
-                  <Insets right="0.5" top="0.5" />
-               </padding>
+            <Button id="group" fx:id="_h7" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="H7">
             </Button>
-            <Button id="group" fx:id="_m" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" />
-            <Button id="group" fx:id="_l7" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" />
+            <Button id="group" fx:id="_h8" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="H8">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin></Button>
+            <Button id="group" fx:id="_l8" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="L8">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Button>
+            <Button id="group" fx:id="_l7" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="L7" />
             <Button id="group" fx:id="_l6" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="L6" />
             <Button id="group" fx:id="_l5" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="L5" />
             <Button id="group" fx:id="_l4" alignment="CENTER" onMouseEntered="#enter" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: white; -fx-background-radius: 90;" stylesheets="@../application.css" text="L4" />
