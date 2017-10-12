@@ -1,15 +1,16 @@
 package application.model.Question;
 
 import application.TataiApp;
-import application.controller.ClassicTestPageController;
 import application.controller.TestPageController;
 import application.model.Answer;
 import javafx.concurrent.Task;
 
 import java.io.File;
-import java.nio.channels.ClosedSelectorException;
 
 public abstract class Question {
+	private static final String MULTIPLE = "\u00D7";
+	private static final String DIVIDE = "\u00F7";
+
 
 	protected final int MAX = 10;
 
@@ -42,6 +43,10 @@ public abstract class Question {
 		_page = page;
 	}
 
+
+	/*
+		Functionality
+	 */
 	/**
 	 * Record by bash command, create a temporary wav file in the hidden root folder. Call method from the TestPageController
 	 * field to change GUI respectively. (record -> recording)
@@ -62,14 +67,21 @@ public abstract class Question {
 	private void compare(){
 		System.out.println("Comparing");
 		System.out.println("Compared. Result set to false");
-		_result = false;
+		int i = (int)(Math.random()*10);
+		System.out.println(i);
+		if (i < 5) {
+			_result = false;
+			System.out.println("Compared. Result set to false");
+		}else{
+			_result = true;
+			System.out.println("Compared. Result set to true");
+		}
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
 	}
 
 
 	protected abstract void updateGUI();
-
 
 	/**
 	 * Read mlx file produced by HTK and get what were recognized.
@@ -101,6 +113,9 @@ public abstract class Question {
 	}
 
 
+	/*
+		Getters
+	 */
     public boolean getResult(){
         return _result;
     }
@@ -124,6 +139,9 @@ public abstract class Question {
 	}
 
 
+	/*
+		Management
+	 */
 	/**
 	 * Delete the temp wav file if there is one.
 	 */
@@ -145,5 +163,28 @@ public abstract class Question {
 		if ((_compareTask != null)&&(_compareTask.isRunning())){
 			_compareTask.cancel();
 		}
+	}
+
+
+	/*
+		Additional
+	 */
+	/**
+	 * Translate multiplication and division signs to UTF code
+	 */
+	public static String translate(String raw){
+		String translated = "";
+		if (raw.length() > 1) {
+			for (char i : raw.toCharArray()) {
+				if (i == '*') {
+					translated = translated + MULTIPLE;
+				} else if (i == '/') {
+					translated = translated + DIVIDE;
+				} else {
+					translated = translated + i;
+				}
+			}
+		}
+		return translated;
 	}
 }

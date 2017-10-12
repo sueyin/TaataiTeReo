@@ -37,33 +37,31 @@ public class ClassicFeedbackPageController {
 	@FXML
 	private Button _nextLevel;
 	
-	private String _result;
+	private int _result;
 	
 	private String _levelNum;
 	
 	@FXML
 	public void initialize() {
-		//_result = ClassicTestPage.getResult(); 0-1  2-4 5-8  9-10
-		//_levelNum = CLassicTestPage.getLevel();
 		_levelNum = ClassicTestPageController.getLevel();
 		_level.setText("Level "+_levelNum);
-		_result = MainPageController.getUser().getClassicRecore(_levelNum);
+		_result = Integer.parseInt(MainPageController.getUser().getClassicRecord(_levelNum));
 		_number.setText(_result + "/10");
 		
 		//display no star if between 0-2
-		if (Integer.parseInt(_result) < 2) {
+		if (_result < 2) {
 			setNoStar();
 			_message.setText("Not Achieved..");
 			_nextLevel.setVisible(false);
 		}
 		
 		//display 1 star is between 2-4
-		else if (Integer.parseInt(_result) < 5) {
+		else if (_result < 5) {
 			setOneStar();
 			_message.setText("Achieved~");
 		}
 		//display 2 stars if between 5 -8
-		else if (Integer.parseInt(_result) < 9) {
+		else if (_result < 9) {
 			setTwoStar();
 			_message.setText("Merit!");
 		}
@@ -72,6 +70,7 @@ public class ClassicFeedbackPageController {
 			setThreeStar();
 			_message.setText("Excellence!");
 		}
+
 		
 	}
 	
@@ -125,15 +124,20 @@ public class ClassicFeedbackPageController {
 	}
 	
 	private void setOneStar() {
+		_full1.setVisible(true);
 		_full2.setVisible(false);
 		_full3.setVisible(false);
 	}
 	
 	private void setTwoStar() {
+		_full1.setVisible(true);
+		_full1.setVisible(true);
 		_full3.setVisible(false);
 	}
 	
 	private void setThreeStar() {
-		//
+		_full1.setVisible(true);
+		_full2.setVisible(true);
+		_full3.setVisible(true);
 	}
 }

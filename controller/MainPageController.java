@@ -24,7 +24,6 @@ public class MainPageController {
 	
 	@FXML
 	public void initialize() {
-		
 		//display pop up message "welcome user", auto disappear after 3 seconds
 		String username = LoginPageController.getSelectedUser();
 		_notification.setText("Welcome, " + username + "!");
@@ -144,8 +143,8 @@ public class MainPageController {
 	 */
 	@FXML
 	public void handlePressLogout(MouseEvent event) {
+		_user = null;
         try {
-			_user = null;
         	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/LoginPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

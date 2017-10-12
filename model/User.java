@@ -12,22 +12,24 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class User {
-    private File _classicRecordInit;
+    private File _classicRecord;
     private File _survivalRecord;
     private File _practiceRecord;
     private String _dir;
     private String _name;
 
-    private static Map<String, ArrayList<Boolean>> _practiceStatistic = new HashMap<>();
-    private static Map<String, String> _classicStatistic = new HashMap<>();
-    private static String _suivivalRecord;
+    private Map<String, ArrayList<Boolean>> _practiceStatistic = new HashMap<>();
+    private Map<String, String> _classicStatistic = new HashMap<>();
+    private String _suivivalRecord;
+
+    private int _exp;
 
     public User(String name){
         _name = name;
         _dir = TataiApp.getUserDir() + name + "/";
         _practiceRecord = new File(_dir+"practice.txt");
         initializePracticeRecord();
-        _classicRecordInit = new File(_dir + "classic.txt");
+        _classicRecord = new File(_dir + "classic.txt");
         initializeClassicRecord();
         _survivalRecord = new File(_dir + "survival.txt");
         initializeSurvivalRecord();
@@ -69,16 +71,16 @@ public class User {
      */
     private void initializeClassicRecord(){
         //Create the record file if not exist
-        if (!_classicRecordInit.exists()){
+        if (!_classicRecord.exists()){
             try {
-                _classicRecordInit.createNewFile();
+                _classicRecord.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             //Write the default format
             PrintWriter writer = null;
             try {
-                writer = new PrintWriter(_classicRecordInit, "UTF-8");
+                writer = new PrintWriter(_classicRecord, "UTF-8");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (UnsupportedEncodingException e) {
@@ -99,6 +101,7 @@ public class User {
         if(!_survivalRecord.exists()){
             try {
                 _survivalRecord.createNewFile();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -169,7 +172,7 @@ public class User {
     }
 
 
-    public void writePractiseRecord(String number, boolean result){
+    public void updatePractiseRecord(String number, boolean result){
         String path = _dir + "practice.txt";
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(path))) {
             for (String s : _practiceStatistic.keySet()) {
@@ -204,11 +207,10 @@ public class User {
         try {
             Scanner sc = new Scanner(new File(_dir + "classic.txt"));
             while (sc.hasNextLine()) {
-                String level = sc.nextLine().split("#")[0];
-                String score;
-                if (sc.nextLine().split("#").length == 1){
-                    score = null;
-                }else{
+                String line = sc.nextLine();
+                String level = line.split("#")[0];
+                String score = null;
+                if (line.split("#").length > 1){
                     score = sc.nextLine().split("#")[1];
                 }
                 _classicStatistic.put(level, score);
@@ -222,7 +224,7 @@ public class User {
     /**
      * Return the highest record of a specified level of the user
      */
-    public String getClassicRecore(String level){
+    public String getClassicRecord(String level){
        readClassicRecord();
        return _classicStatistic.get(level);
     }
@@ -250,7 +252,7 @@ public class User {
             _classicStatistic.put(level, score);
             PrintWriter writer = null;
             try {
-                writer = new PrintWriter(_classicRecordInit, "UTF-8");
+                writer = new PrintWriter(_classicRecord, "UTF-8");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (UnsupportedEncodingException e) {
@@ -275,21 +277,13 @@ public class User {
      * @param mode a String representing which record to update
      * @param score a int representing the score of the latest attempt
      */
-    private void updateRecord(String mode, String score){
+    private void updateSurvivalRecord(String mode, String score){
         //Check if the file exist (if it is the first try)
-        File target = new File(_dir + mode + ".txt");
-        if (!target.exists()){
-            try {
-                target.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        File target = new File(_dir + "survival.txt");
         //Read the current score
         int current = 0;
         try {
             Scanner sc = new Scanner(target);
-
             while (sc.hasNextLine()) {
                 current = Integer.parseInt(sc.nextLine());
             }
@@ -311,15 +305,14 @@ public class User {
         }
     }
 
-    public void updateSurvivalRecord(String score){
-        updateRecord("survival", score);
-    }
-
 
     /*
         Administration
      */
 
+    /**
+     * Delete the user foler and its content
+     */
     public void deleteUser(){
         File dir = new File (_dir);
         if(dir.exists()){
@@ -330,11 +323,33 @@ public class User {
         }
     }
 
+    /**
+     * Return the path of the user folder
+     */
     public String getDir(){
         return _dir;
     }
 
+    /**
+     * Return the user's name
+     */
     public String getName(){
         return _name;
     }
+
+    /**
+     * Return the current exp value of the user
+     */
+    public int getExp() {
+        return _exp;
+    }
+
+    /**
+     * Increase the exp value of the user
+     */
+    public void increaseExp(int exp){
+        _exp = _exp + exp;
+    }
+
+
 }

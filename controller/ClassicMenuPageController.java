@@ -27,11 +27,9 @@ public class ClassicMenuPageController {
             e.printStackTrace();
         }
 	}
-	
 	@FXML
 	public void handlePressLevel1(MouseEvent event) {
 		_selectedLevel = "1";
-		System.out.println("level1");
 		try {
         	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicTestPage.fxml"));
         	Scene scene = new Scene(parent);

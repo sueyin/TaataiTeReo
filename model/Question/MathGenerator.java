@@ -9,6 +9,9 @@ public class MathGenerator {
     private static Map<String, ArrayList<String>> _factors = new HashMap<>();
     private static Map<String, ArrayList<String>> _divisors = new HashMap<>();
 
+    /**
+     * Given an answer, randomly generate two integers.
+     */
     public static String generateAddition(int answer) {
         //int range = (max - min) +1
         //int a = (int)(Math.random()* range + min)
@@ -17,6 +20,9 @@ public class MathGenerator {
         return a + " + " + b;
     }
 
+    /**
+     * Given an answer, randomly generate two integers.
+     */
     public static String generateSubstraction(int answer, int max) {
         //max =99
         int a = (int) (Math.random() * (max - answer + 1) + 1);
@@ -24,6 +30,9 @@ public class MathGenerator {
         return a + " - " + b;
     }
 
+    /**
+     * Given an answer, randomly generate two integers.
+     */
     public static String generateMultiplication(int answer){
         readFactors();
         ArrayList<String> factors = _factors.get(answer);
@@ -31,7 +40,9 @@ public class MathGenerator {
         return factors.get(0);
     }
 
-
+    /**
+     * Given an answer, randomly generate two integers.
+     */
     public static String generateDivision(int answer){
         readDivisors();
         ArrayList<String> divisors = _divisors.get(answer);

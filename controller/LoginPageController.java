@@ -140,10 +140,6 @@ public class LoginPageController {
 			System.out.println("delete user");
 			String toDelete = _userList.getSelectionModel().getSelectedItem();
 			new User(toDelete).deleteUser();
-			//File target = new File(TataiApp.getUserDir() + toDelete);
-			//if (target.exists()){
-			//	target.delete();
-			//}
 			_items.remove(toDelete);
 		}
 	}

@@ -23,19 +23,22 @@ public class ClassicQuestionSuite {
     }
 
 
+    /*
+        Manage Questions
+     */
+
     /**
      * Read the corresponding question bank and shuffle the questions randomly.
      */
     protected void readQuestionBank() {
         File bank = new File(BANKDIR + _level + ".txt");
-
         try {
             Scanner sc = new Scanner(bank);
             String line;
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
                 String answer = line.split("#")[0];
-                String question = line.split("#")[1];
+                String question = Question.translate(line.split("#")[1]);
                 _questionSuite.put(answer, question);
                 _answerList.add(answer);
             }
@@ -47,6 +50,36 @@ public class ClassicQuestionSuite {
         }
     }
 
+    /**
+     * Increase the current index by one. Process to the next question.
+     */
+    public void nextQuestion(){
+        if (_index < TOTAL - 1) {
+            _index++;
+        }
+    }
+
+
+
+    /*
+        Getters
+     */
+
+    /**
+     * Return the content for the current question
+     * @return a String representing the current math question
+     */
+    public String getQuestion(){
+        return _questionSuite.get(_answerList.get(_index));
+    }
+
+    /**
+     * Return the answer for the current question
+     * @return the correct answer for the current math question
+     */
+    public String getAnswer(){
+        return _answerList.get(_index);
+    }
 
     /**
      * Return the current level (1-15)
@@ -55,8 +88,6 @@ public class ClassicQuestionSuite {
     public String getLevel() {
         return _level;
     }
-
-
 
     /**
      * Return the current question index (starting from 1)
@@ -68,32 +99,10 @@ public class ClassicQuestionSuite {
 
 
 
-    /**
-     * Increase the current index by one. Process to the next question.
+
+    /*
+        Manage Results
      */
-    public void nextQuestion(){
-        if (_index < TOTAL - 1) {
-            _index++;
-        }
-    }
-
-    /**
-     * Return the answer for the current question
-     * @return the correct answer for the current math question
-     */
-    public String getAnswer(){
-        return _answerList.get(_index);
-    }
-
-
-    /**
-     * Return the content for the current question
-     * @return a String representing the current math question
-     */
-    public String getQuestion(){
-        return _questionSuite.get(_answerList.get(_index));
-    }
-
 
     /**
      * Collect result from a question.
@@ -111,6 +120,7 @@ public class ClassicQuestionSuite {
     public boolean[] getResults(){
         return _results;
     }
+
 
     /**
      * Return the results of the set of questions
