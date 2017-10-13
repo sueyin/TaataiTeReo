@@ -11,13 +11,13 @@ import java.io.*;
 public class TataiApp extends Application {
     private static final String ROOTDIR = "./Tatai/";
     private static final String USR = ROOTDIR +"usr/";
-    private static final String CUSTOMQUESTIONS = ROOTDIR + "questions/custome/";
-    private static final String QUESTIONBANK = ROOTDIR + "questions/bank";
+    private static final String CUSTOM = ROOTDIR + "custom/";
+    private static final String CUSTOMPUBLIC = ROOTDIR + "custom/.publicpool";
     private static final String TEMP = ROOTDIR + "temp/";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/CustomCreatePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/LoginPage.fxml"));
         primaryStage.setTitle("Tatai Te Reo");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -27,7 +27,8 @@ public class TataiApp extends Application {
     public static void main(String[] args) {
         setup(ROOTDIR);
         setup(USR);
-        setup(CUSTOMQUESTIONS);
+        setup(CUSTOM);
+        setup(CUSTOMPUBLIC);
         launch(args);
     }
 
@@ -60,12 +61,22 @@ public class TataiApp extends Application {
     }
 
     /**
+     * Getter for the path of the public custom question directory, where all the public custom questions are stored.
+     * @return a String indicating the path of the custom question directory
+     */
+    public static String getPublicCustomDir(){
+        return CUSTOMPUBLIC;
+    }
+
+
+    /**
      * Getter for the path of the custom question directory, where all the custom questions are stored.
      * @return a String indicating the path of the custom question directory
      */
     public static String getCustomDir(){
-        return CUSTOMQUESTIONS;
+        return CUSTOM;
     }
+
 
 
     /**
