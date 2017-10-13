@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXRadioButton;
+import com.sun.javafx.geom.Shape;
+
 public class ClassicTestPageController extends TestPageController {
 
 	private static String _selectedLevel;
@@ -20,7 +23,29 @@ public class ClassicTestPageController extends TestPageController {
 	private ClassicQuestionSuite _qs;
 
 	private ClassicQuestion _q;
-	
+
+	@FXML
+	private JFXRadioButton _q1;
+	@FXML
+	private JFXRadioButton _q2;
+	@FXML
+	private JFXRadioButton _q3;
+	@FXML
+	private JFXRadioButton _q4;
+	@FXML
+	private JFXRadioButton _q5;
+	@FXML
+	private JFXRadioButton _q6;
+	@FXML
+	private JFXRadioButton _q7;
+	@FXML
+	private JFXRadioButton _q8;
+	@FXML
+	private JFXRadioButton _q9;
+	@FXML
+	private JFXRadioButton _q10;
+
+
 	@FXML
 	public void initialize() {
 		//Decide the which level the user chose
@@ -40,8 +65,11 @@ public class ClassicTestPageController extends TestPageController {
 		_record.setText("Record");
 		_next.setVisible(false);
 		_next.setText("Next");
+
+
+		_q1.setId("onQuestion");
 	}
-	
+
 	/**
 	 *This method handles event when the button is pressed (button => "record", "next question")
 	 */
@@ -63,9 +91,9 @@ public class ClassicTestPageController extends TestPageController {
 				//Count the score (how many right attempts)
 				int score = 0;
 				for (boolean b : _qs.getResults()){
-						if (b){
-							score++;
-						}
+					if (b){
+						score++;
+					}
 				}
 				//MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(score));
 				Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicFeedbackPage.fxml"));
@@ -77,6 +105,129 @@ public class ClassicTestPageController extends TestPageController {
 				e.printStackTrace();
 			}
 		}else {
+			//Update GUI
+			boolean result = _q.getResult();
+			int index = _qs.getIndexNumber();
+			if (result) {
+				if (index ==1) {
+					_q1.setSelected(true);
+					_q1.setId("radio_correct");
+
+					_q2.setId("onQuestion");
+				}
+				else if (index == 2) {
+					_q2.setSelected(true);
+					_q2.setId("radio_correct");
+
+					_q3.setId("onQuestion");
+				}
+				else if (index == 3) {
+					_q3.setSelected(true);
+					_q3.setId("radio_correct");
+					
+					_q4.setId("onQuestion");
+				}
+				else if (index == 4) {
+					_q4.setSelected(true);
+					_q4.setId("radio_correct");
+					
+					_q5.setId("onQuestion");
+				}
+				else if (index == 5) {
+					_q5.setSelected(true);
+					_q5.setId("radio_correct");
+					
+					_q6.setId("onQuestion");
+				}
+				else if (index == 6) {
+					_q6.setSelected(true);
+					_q6.setId("radio_correct");
+					
+					_q7.setId("onQuestion");
+				}
+				else if (index == 7) {
+					_q7.setSelected(true);
+					_q7.setId("radio_correct");
+					
+					_q8.setId("onQuestion");
+				}
+				else if (index == 8) {
+					_q8.setSelected(true);
+					_q8.setId("radio_correct");
+					
+					_q9.setId("onQuestion");
+				}
+				else if (index == 9) {
+					_q9.setSelected(true);
+					_q9.setId("radio_correct");
+					
+					_q10.setId("onQuestion");
+				}
+				else if (index == 10) {
+					_q10.setSelected(true);
+					_q10.setId("radio_correct");
+				}
+			}
+			else {
+				if (index ==1) {
+			
+					_q1.setId("radio_incorrect");
+					
+					_q2.setId("onQuestion");
+				}
+				else if (index == 2) {
+				
+					_q2.setId("radio_incorrect");
+					
+					_q3.setId("onQuestion");
+				}
+				else if (index == 3) {
+					
+					_q3.setId("radio_incorrect");
+					
+					_q4.setId("onQuestion");
+				}
+				else if (index == 4) {
+				
+					_q4.setId("radio_incorrect");
+
+					_q5.setId("onQuestion");
+				}
+				else if (index == 5) {
+					
+					_q5.setId("radio_incorrect");
+
+					_q6.setId("onQuestion");
+				}
+				else if (index == 6) {
+		
+					_q6.setId("radio_incorrect");
+
+					_q7.setId("onQuestion");
+				}
+				else if (index == 7) {
+				
+					_q7.setId("radio_incorrect");
+
+					_q4.setId("onQuestion");
+				}
+				else if (index == 8) {
+				
+					_q8.setId("radio_incorrect");
+
+					_q9.setId("onQuestion");
+				}
+				else if (index == 9) {
+				
+					_q9.setId("radio_incorrect");
+
+					_q10.setId("onQuestion");
+				}
+				else if (index == 10) {
+				
+					_q10.setId("radio_incorrect");
+				}
+			}
 			//Change to the next question
 			_qs.nextQuestion();
 			_question.setText(_qs.getQuestion());

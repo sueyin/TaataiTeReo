@@ -1,20 +1,78 @@
 package application.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import application.model.Question.ClassicQuestion;
 import application.model.Question.ClassicQuestionSuite;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class ClassicMenuPageController {
 	
 	private static String _selectedLevel;
+	
+	@FXML
+	private ImageView _star1;
+	@FXML
+	private ImageView _star2;
+	@FXML
+	private ImageView _star3;
+	
+	@FXML
+	private HBox _level1;
+	
+	@FXML
+	private HBox _level2;
+	
+	@FXML
+	private HBox _level3;
+	
+	@FXML
+	private HBox _level4;
+	
+	@FXML
+	private HBox _level5;
+	
+	@FXML
+	private HBox _level6;
+	
+	@FXML
+	private HBox _level7;
+	
+	@FXML
+	private HBox _level8;
+	
+	@FXML
+	private HBox _level9;
+	
+	@FXML
+	private HBox _level10;
+	
+	@FXML
+	private HBox _level11;
+	
+	@FXML
+	private HBox _level12;
+	
+	@FXML
+	private HBox _level13;
+	
+	@FXML
+	private HBox _level14;
+	
+	@FXML
+	private HBox _level15;
+	
 
 	@FXML
 	public void initialize() {
@@ -22,7 +80,61 @@ public class ClassicMenuPageController {
 		for btn 1-15
 			Integer.parseInt(MainPageController.getUser().getClassicRecord());
 		分析后判断是否解锁，多少颗星
-	*/
+		
+	*/	
+		
+		List<Integer> Star = new ArrayList<Integer>();
+		for (int level = 1; level < 16; level++) {
+			String result = MainPageController.getUser().getClassicRecord(Integer.toString(level));
+			System.out.println(result);
+			if (result.equals("-")) {
+				Star.add(0);
+			}
+			else{
+				int score = Integer.parseInt(result);
+				//display no star if between 0-2
+				if (score < 2) {
+					Star.add(0);
+				}
+				//display 1 star is between 2-4
+				else if (score < 5) {
+					Star.add(1);
+				}
+				//display 2 stars if between 5 -8
+				else if (score < 9) {
+					Star.add(2);
+				}
+				//display 3 stars if between 9-10
+				else {
+					Star.add(3);
+				}
+			}
+		}
+		System.out.println(Star.size());
+		HBox[] box = {_level1, _level2, _level3, _level4, _level5, _level6, _level7, _level8, _level9, _level10, _level11, _level12, _level13, _level14, _level15};
+		for (int i = 0; i < 15; i++) {
+			int num = Star.get(i);
+			System.out.println("star " + num);
+			box[i].setId(""+num);
+		}
+		
+		for (HBox b: box){
+			if (b.getId().equals("0")){
+				b.setVisible(false);
+				ObservableList list = b.getChildren();
+				
+			}
+			else if (b.getId().equals("1")) {
+				Node node = b.getChildren().get(1);
+				node.setVisible(false);
+				node = b.getChildren().get(2);
+				node.setVisible(false);
+			}
+			else if (b.getId().equals("2")) {
+				Node node = b.getChildren().get(2);
+				node.setVisible(false);
+			}
+		}
 	}
 
 	@FXML

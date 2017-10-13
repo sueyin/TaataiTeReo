@@ -32,7 +32,26 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5">
+            <HBox fx:id="_level1" prefHeight="100.0" prefWidth="117.0" spacing="1.5">
+               <children>
+                  <ImageView fx:id="_star1" fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/classic/classic.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="_star2" fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/classic/classic.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="_star3" fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/classic/classic.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox fx:id="_level15" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -51,7 +70,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <HBox fx:id="_level14" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,7 +89,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <HBox fx:id="_level13" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -89,7 +108,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <HBox fx:id="_level12" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -108,7 +127,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox fx:id="_level11" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.rowIndex="2">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -127,7 +146,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.rowIndex="2">
+            <HBox fx:id="_level10" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -146,7 +165,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <HBox fx:id="_level9" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -165,7 +184,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <HBox fx:id="_level8" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -184,7 +203,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <HBox fx:id="_level6" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.rowIndex="1">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -203,7 +222,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.rowIndex="1">
+            <HBox fx:id="_level7" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -222,7 +241,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <HBox fx:id="_level5" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="4">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -241,7 +260,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="4">
+            <HBox fx:id="_level4" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="3">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -260,7 +279,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="3">
+            <HBox fx:id="_level3" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="2">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -279,26 +298,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="2">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/classic/classic.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/classic/classic.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/classic/classic.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="1">
+            <HBox fx:id="_level2" prefHeight="100.0" prefWidth="117.0" spacing="1.5" GridPane.columnIndex="1">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -333,77 +333,77 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXButton fx:id="_level1" buttonType="RAISED" onMouseClicked="#handlePressLevel1" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="1" textFill="WHITE">
+            <JFXButton fx:id="_l1" buttonType="RAISED" onMouseClicked="#handlePressLevel1" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="1" textFill="WHITE">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level15" buttonType="RAISED" onMouseClicked="#handlePressLevel15" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="15" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <JFXButton fx:id="_l15" buttonType="RAISED" onMouseClicked="#handlePressLevel15" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="15" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level10" buttonType="RAISED" onMouseClicked="#handlePressLevel10" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="10" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <JFXButton fx:id="_l10" buttonType="RAISED" onMouseClicked="#handlePressLevel10" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="10" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level5" buttonType="RAISED" onMouseClicked="#handlePressLevel5" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="5" textFill="WHITE" GridPane.columnIndex="4">
+            <JFXButton fx:id="_l5" buttonType="RAISED" onMouseClicked="#handlePressLevel5" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="5" textFill="WHITE" GridPane.columnIndex="4">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level14" buttonType="RAISED" onMouseClicked="#handlePressLevel14" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="14" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <JFXButton fx:id="_l14" buttonType="RAISED" onMouseClicked="#handlePressLevel14" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="14" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level9" buttonType="RAISED" onMouseClicked="#handlePressLevel9" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="9" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <JFXButton fx:id="_l9" buttonType="RAISED" onMouseClicked="#handlePressLevel9" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="9" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level4" buttonType="RAISED" onMouseClicked="#handlePressLevel4" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="4" textFill="WHITE" GridPane.columnIndex="3">
+            <JFXButton fx:id="_l4" buttonType="RAISED" onMouseClicked="#handlePressLevel4" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="4" textFill="WHITE" GridPane.columnIndex="3">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level13" buttonType="RAISED" onMouseClicked="#handlePressLevel13" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="13" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <JFXButton fx:id="_l13" buttonType="RAISED" onMouseClicked="#handlePressLevel13" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="13" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level8" buttonType="RAISED" onMouseClicked="#handlePressLevel8" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <JFXButton fx:id="_l8" buttonType="RAISED" onMouseClicked="#handlePressLevel8" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level3" buttonType="RAISED" onMouseClicked="#handlePressLevel3" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="3" textFill="WHITE" GridPane.columnIndex="2">
+            <JFXButton fx:id="_l3" buttonType="RAISED" onMouseClicked="#handlePressLevel3" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="3" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level12" buttonType="RAISED" onMouseClicked="#handlePressLevel12" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="12" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <JFXButton fx:id="_l12" buttonType="RAISED" onMouseClicked="#handlePressLevel12" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="12" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level11" buttonType="RAISED" onMouseClicked="#handlePressLevel11" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="11" textFill="WHITE" GridPane.rowIndex="2">
+            <JFXButton fx:id="_l11" buttonType="RAISED" onMouseClicked="#handlePressLevel11" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="11" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level7" buttonType="RAISED" onMouseClicked="#handlePressLevel7" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="7" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <JFXButton fx:id="_l7" buttonType="RAISED" onMouseClicked="#handlePressLevel7" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="7" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level6" buttonType="RAISED" onMouseClicked="#handlePressLevel6" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="6" textFill="WHITE" GridPane.rowIndex="1">
+            <JFXButton fx:id="_l6" buttonType="RAISED" onMouseClicked="#handlePressLevel6" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="6" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="_level2" buttonType="RAISED" onMouseClicked="#handlePressLevel2" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="2" textFill="WHITE" GridPane.columnIndex="1">
+            <JFXButton fx:id="_l2" buttonType="RAISED" onMouseClicked="#handlePressLevel2" prefHeight="70.0" prefWidth="70.0" ripplerFill="WHITE" style="-fx-background-color: #696969; -fx-background-radius: 15;" text="2" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font name="Yuanti SC Regular" size="22.0" />
                </font>

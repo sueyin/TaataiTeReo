@@ -1,4 +1,21 @@
 
+
+#onQuestion{
+	-jfx-selected-color: white;
+	-jfx-unselected-color: white;
+	-fx-effect: dropshadow(three-pass-box, white, 11, 0.8, 0.5, 0.1);
+}
+
+#radio_correct{
+	-jfx-selected-color: white;
+
+}
+
+#radio_incorrect{
+	-jfx-selected-color: grey;
+
+}
+
 .button {
 	-fx-background-color: transparent;
 }

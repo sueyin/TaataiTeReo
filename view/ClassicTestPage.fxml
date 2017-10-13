@@ -37,16 +37,16 @@
          </graphic></JFXButton>
       <VBox layoutX="1034.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
-            <JFXRadioButton fx:id="_q1" text=" " />
-            <JFXRadioButton fx:id="_q2" text=" " />
-            <JFXRadioButton fx:id="_q3" text=" " />
-            <JFXRadioButton fx:id="_q4" text=" " />
-            <JFXRadioButton fx:id="_q5" text=" " />
-            <JFXRadioButton fx:id="_q6" text=" " />
-            <JFXRadioButton fx:id="_q7" text=" " />
-            <JFXRadioButton fx:id="_q8" text=" " />
-            <JFXRadioButton fx:id="_q9" text=" " />
-            <JFXRadioButton fx:id="_q10" text=" " />
+            <JFXRadioButton fx:id="_q1" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q2" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q3" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q4" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q5" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q6" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q7" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q8" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q9" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q10" stylesheets="@../application.css" text=" " />
          </children>
       </VBox>
       <Label fx:id="_message" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="50.0" prefHeight="142.0" prefWidth="568.0" text="message" textAlignment="CENTER" textFill="#aeaeae">

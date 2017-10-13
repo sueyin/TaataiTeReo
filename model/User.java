@@ -252,7 +252,7 @@ public class User {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String level = line.split("#")[0];
-                String score = null;
+                String score = "-";
                 if (line.split("#").length > 1){
                     score = line.split("#")[1];
                 }
