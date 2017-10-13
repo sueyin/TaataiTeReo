@@ -162,7 +162,6 @@ public class User {
 
     }
 
-
     /**
      * Write the newest record to the local record file
      */
