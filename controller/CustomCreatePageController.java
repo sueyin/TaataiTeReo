@@ -91,10 +91,9 @@ public class CustomCreatePageController {
 
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		//TODO create a pop up notification to ask if user want to quit
-		//opens a window that confirms if the user want to delete the user
+		//opens a window that confirms if the user wants to quit 
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomQuitConfirmation.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/QuitConfirmation.fxml"));
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(parent);
 			_quitConfirm = new Stage();
@@ -105,10 +104,19 @@ public class CustomCreatePageController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//get user result, if the user does want to delete, then delete
-		boolean confirm = DeleteConfirmationController.getDeleteConfirm();
+		//get user result, if the user does want to quit, then quit
+		boolean confirm = QuitConfirmationController.getQuit();
 		if (confirm){
-			System.out.println("quit this creation");
+			try {
+	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+	        	Scene scene = new Scene(parent);
+	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        	stage.setScene(scene);
+	        	stage.show();
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 		}
 	}
 
