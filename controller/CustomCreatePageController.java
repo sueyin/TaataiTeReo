@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -49,6 +50,9 @@ public class CustomCreatePageController {
 
 	@FXML
 	private Button _return;
+	
+	@FXML
+	private CheckBox _public;
 
 	private ObservableList<ListCell> _data;
 
@@ -63,6 +67,7 @@ public class CustomCreatePageController {
 
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
+		boolean isPublic = _public.isSelected();
 		String name = _name.getText();
 		if (name.equals("")) {
 			//TODO create a pop up notification saying must enter a name before create

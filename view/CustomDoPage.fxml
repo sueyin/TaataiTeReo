@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -9,7 +10,7 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane layoutX="61.0" layoutY="53.0" prefHeight="458.0" prefWidth="390.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="61.0" layoutY="203.0" prefHeight="294.0" prefWidth="392.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="All creations">
             <content>
@@ -40,7 +41,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <ListView fx:id="_questionList" layoutX="507.0" layoutY="63.0" prefHeight="431.0" prefWidth="550.0" />
+      <ListView fx:id="_questionList" layoutX="507.0" layoutY="201.0" prefHeight="293.0" prefWidth="550.0" />
       <JFXButton fx:id="_do" layoutX="508.0" layoutY="527.0" onMouseClicked="#handlePressDo" text="Do Question" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="24.0" />
@@ -56,5 +57,10 @@
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
       </JFXButton>
+      <Label alignment="CENTER" layoutX="340.0" layoutY="25.0" prefHeight="116.0" prefWidth="440.0" text="Select Question Suite" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="34.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

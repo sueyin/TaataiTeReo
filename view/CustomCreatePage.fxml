@@ -23,7 +23,7 @@
             <Font name="Yuanti SC Regular" size="27.0" />
          </font>
       </Label>
-      <JFXCheckBox layoutX="807.0" layoutY="148.0" text="public" textFill="WHITE">
+      <JFXCheckBox fx:id="_public" layoutX="807.0" layoutY="148.0" text="public" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="34.0" />
          </font>
