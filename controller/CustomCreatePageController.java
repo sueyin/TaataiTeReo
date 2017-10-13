@@ -78,7 +78,6 @@ public class CustomCreatePageController {
 
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
-		_questionIndex = 0;
 		String name = _name.getText();
 		if (name.equals("")) {
 			//TODO create a pop up notification saying must enter a name before create
@@ -90,9 +89,8 @@ public class CustomCreatePageController {
 				System.out.println("the question list is empty, 你四不四撒");
 			}
 			else {
-				//TODO store _data in the file and report question suite created. 
-				System.out.println("question suite created");
-				String id = name+"#"+ _description.getText()+"#"+_quitConfirm;
+				//TODO store _data in the file and report question suite created.
+				String id = name+"#"+ _description.getText()+"#"+_questionIndex;
 				if (_public.isSelected()){
 					//Create a Public Question suite
 					_manager.writePublicSuite(id, _qs);
@@ -100,10 +98,14 @@ public class CustomCreatePageController {
 					//Create a Private Question suite
 					_manager.writePrivateSuite(id, _qs);
 				}
+				//Update GUI
+				_questionIndex = 0;
+				_qs.clear();
+				//TODO return to custom page
+				//TODO should add a confirmation popup?
+				//handlePressReturn(event);
 			}
 		}
-		//handlePressReturn(event);
-
 	}
 
 	@FXML
@@ -114,20 +116,22 @@ public class CustomCreatePageController {
 			String equation = _equation.getText();
 			if (equation.length() > 0){
 				try {
-				String value = engine.eval(equation).toString();
+				int value = Integer.parseInt(engine.eval(equation).toString());
 				//Ensure the given input is within the range
-				if((Integer.parseInt(value) < 1)||(Integer.parseInt(value) > 99)){
+				if( value < 1 || value > 99){
 						//TODO out of range notification
 				}else{
-					_questionIndex++;
 					//If valid equation, then add it to data
+					_questionIndex++;
 					_qs.add(_questionIndex + "#" + value + "#"+ equation);
 					//TODO format is 1#32#2+30
 					_data.add(new ListCell(equation));
 				}
 				} catch (ScriptException e) {
 					e.printStackTrace();
-					//TODO wrong format exception
+					//TODO wrong format, equation cant run
+				} catch (NumberFormatException e){
+					//TODO wrong answer, not int
 				}
 			}else{
 				//TODO empty input notification
@@ -170,8 +174,6 @@ public class CustomCreatePageController {
 		Button delete = new Button();
 		Button preview = new Button();
 
-
-
 		ListCell(String equation) {
 			super();
 			label.setText(equation);
@@ -189,6 +191,8 @@ public class CustomCreatePageController {
 
 		public void clickDelete(MouseEvent event) {
 			System.out.println("delete");
+			//TODO get the row number and remove the corresponding question
+			_qs.remove(_questionIndex - 1);
 			_data.remove(this);
 		}
 
