@@ -23,16 +23,19 @@ public class ClassicTestPageController extends TestPageController {
 	
 	@FXML
 	public void initialize() {
-		_score = 0;
 		//Decide the which level the user chose
 		_selectedLevel = ClassicMenuPageController.getSelectedLevel();
-		_level.setText("Level "+_selectedLevel);
+
 		//Generate the correspongding quesition bank
 		_qs = new ClassicQuestionSuite(_selectedLevel);
+
 		//Set the first question
 		_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
 		_question.setText(_qs.getQuestion());
+		_score = 0;
+
 		//Initialize GUI
+		_level.setText("Level "+_selectedLevel);
 		_record.setVisible(true);
 		_record.setText("Record");
 		_next.setVisible(false);
@@ -86,7 +89,6 @@ public class ClassicTestPageController extends TestPageController {
 		}
 	}
 
-
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		try {
@@ -102,11 +104,12 @@ public class ClassicTestPageController extends TestPageController {
 	}
 
 
-
 	public static String getLevel(){
 		return _selectedLevel;
 	}
 
-
+	public static String getScore(){
+		return Integer.toString(_score);
+	}
 
 }

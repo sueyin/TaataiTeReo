@@ -253,4 +253,7 @@ public class ClassicMenuPageController {
 		return _selectedLevel;
 	}
 
+	public static void setSelectedLevel(String level){
+		_selectedLevel = level;
+	}
 }

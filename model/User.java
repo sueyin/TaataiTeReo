@@ -19,6 +19,8 @@ public class User {
     //TODO add exp and achiv systems
     private File _e;
     private File _achivs;
+
+
     private String _dir;
     private String _name;
 

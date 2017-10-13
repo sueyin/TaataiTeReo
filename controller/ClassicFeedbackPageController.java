@@ -43,18 +43,29 @@ public class ClassicFeedbackPageController {
 	
 	@FXML
 	public void initialize() {
+		//Get date from the TestPage
 		_levelNum = ClassicTestPageController.getLevel();
+		_result = Integer.parseInt(ClassicTestPageController.getScore());
+
+		//Update the result
+		MainPageController.getUser().updateClassicRecord(_levelNum, ClassicTestPageController.getScore());
+
+		//Change GUI correspondingly
 		_level.setText("Level "+_levelNum);
-		_result = Integer.parseInt(MainPageController.getUser().getClassicRecord(_levelNum));
 		_number.setText(_result + "/10");
-		
+		if (_levelNum.equals("15")){
+			_nextLevel.setVisible(false);
+		}else{
+			_nextLevel.setVisible(true);
+		}
+
+		//Display Feedback according to the score
 		//display no star if between 0-2
 		if (_result < 2) {
 			setNoStar();
 			_message.setText("Not Achieved..");
 			_nextLevel.setVisible(false);
 		}
-		
 		//display 1 star is between 2-4
 		else if (_result < 5) {
 			setOneStar();
@@ -70,8 +81,6 @@ public class ClassicFeedbackPageController {
 			setThreeStar();
 			_message.setText("Excellence!");
 		}
-
-		
 	}
 	
 	@FXML
@@ -91,6 +100,8 @@ public class ClassicFeedbackPageController {
 	@FXML
 	public void handlePressNextLevel(MouseEvent event) {
 		try {
+			int nextLevel = Integer.parseInt(_levelNum) + 1;
+			ClassicMenuPageController.setSelectedLevel(Integer.toString(nextLevel));
         	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicTestPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -116,25 +127,42 @@ public class ClassicFeedbackPageController {
         }
 		
 	}
-	
+
+
+	/*
+		Private method about GUI
+	 */
+
+	/**
+	 * Set the reward to zero star
+	 */
 	private void setNoStar() {
 		_full1.setVisible(false);
 		_full2.setVisible(false);
 		_full3.setVisible(false);
 	}
-	
+
+	/**
+	 * Set the reward to one star
+	 */
 	private void setOneStar() {
 		_full1.setVisible(true);
 		_full2.setVisible(false);
 		_full3.setVisible(false);
 	}
-	
+
+	/**
+	 * Set the reward to two stars
+	 */
 	private void setTwoStar() {
 		_full1.setVisible(true);
 		_full1.setVisible(true);
 		_full3.setVisible(false);
 	}
-	
+
+	/**
+	 * Set the reward to three stars
+	 */
 	private void setThreeStar() {
 		_full1.setVisible(true);
 		_full2.setVisible(true);
