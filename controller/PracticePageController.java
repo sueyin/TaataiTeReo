@@ -159,7 +159,7 @@ public class PracticePageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressEasy(MouseEvent event) {
-        _q = new PracticeQuestion( "9", this);
+        _q = new PracticeQuestion(Integer.toString((int)(Math.random() * 10) + 1), this);
         _question.setText(_q.getQuestion());
         testGUI();
 	}
@@ -169,7 +169,7 @@ public class PracticePageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressHard(MouseEvent event) {
-		_q = new PracticeQuestion( "99", this);
+		_q = new PracticeQuestion(Integer.toString((int)(Math.random() * 99) + 1), this);
 		_question.setText(_q.getQuestion());
 		testGUI();
 	}
@@ -181,6 +181,7 @@ public class PracticePageController extends TestPageController {
 	public void handlePressCustom(MouseEvent event) {
         _input = _textField.getText();
         _q = new PracticeQuestion(_input, this);
+		_question.setText(_q.getQuestion());
         testGUI();
 	}
 
@@ -189,6 +190,7 @@ public class PracticePageController extends TestPageController {
 	public void handlePressRepeat(MouseEvent event) {
 		String question = _q.getQuestion();
 		_q = new PracticeQuestion(question,this);
+		_question.setText(_q.getQuestion());
 		testGUI();
 	}
 

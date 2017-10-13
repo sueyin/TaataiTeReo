@@ -16,6 +16,11 @@ public class User {
     private File _classicRecord;
     private File _survivalRecord;
     private File _practiceRecord;
+    //TODO add exp and achiv systems
+    private File _e;
+    private File _achivs;
+
+
     private String _dir;
     private String _name;
 
@@ -56,7 +61,7 @@ public class User {
             try {
                 PrintWriter writer = new PrintWriter(_dir + "practice.txt", "UTF-8");
                 for (int i = 1; i<=99; i++){
-                    writer.println(i+"#");
+                    writer.println(i+"#-");
                 }
                 writer.close();
             } catch (FileNotFoundException e) {
@@ -88,7 +93,7 @@ public class User {
                 e.printStackTrace();
             }
             for (int i = 1; i <= 15; i++){
-                String line = i + "#" + "-";
+                String line = i + "#-";
                 writer.println(line);
             }
             writer.close();
@@ -102,7 +107,6 @@ public class User {
         if(!_survivalRecord.exists()){
             try {
                 _survivalRecord.createNewFile();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -119,32 +123,23 @@ public class User {
      * Read the current practice Statistic of the user
      */
     private void readPracticeStatistic(){
+        //Create a scanner
         Scanner sc = null;
         try {
             sc = new Scanner(_practiceRecord);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String line;
+        //Read the record file
         while (sc.hasNextLine()) {
-            line = sc.nextLine();
-            String[] records = line.split("#");
-            String number = records[0];
-            if(records.length == 1){
+            String line = sc.nextLine();
+            String number = line.split("#")[0];
+            //Put null when there is no record
+            if(line.split("#")[1].equals("-")){
                 _practiceStatistic.put(number, null);
             }else{
-                String results = records[1];
-                ArrayList<Boolean> marks = new ArrayList<>();
-                for (int i = 0; i < results.length(); i++) {
-                    Character c = results.charAt(i);
-                    String chara = c.toString();
-                    if (chara.equals("1")) {
-                        marks.add(true);
-                    } else {
-                        marks.add(false);
-                    }
-                }
-                _practiceStatistic.put(number, marks);
+                //Put the corresponding boolean value when there are records
+                _practiceStatistic.put(number, stringTranslate(line.split("#")[1]));
             }
         }
         sc.close();
@@ -162,45 +157,84 @@ public class User {
      * Return the statistic for the overall performance
      */
     public Map<String, ArrayList<Boolean>> getOverallStatistic(){
-        /*
-        
-        ArrayList<Boolean> overall = new ArrayList<>();
-        for (String s:_practiceStatistic.keySet()){
-            for (Boolean b : _practiceStatistic.get(s) ){
-                overall.add(b);
-            }
-        }
-        return overall;
-        */
     	readPracticeStatistic();
         return _practiceStatistic;
 
     }
 
 
+    /**
+     * Write the newest record to the local record file
+     */
     public void updatePractiseRecord(String number, boolean result){
-        String path = _dir + "practice.txt";
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(path))) {
-            for (String s : _practiceStatistic.keySet()) {
-                if (s.equals(number)){
-                    _practiceStatistic.get(s).add(result);
+        readPracticeStatistic();
+        //Update the new statistic
+        Map<String, ArrayList<Boolean>> newStats = new HashMap<>();
+        for (String n : _practiceStatistic.keySet()) {
+            //Update the corresponding record
+            if (n.equals(number)) {
+                ArrayList<Boolean> newRecord = new ArrayList<>();
+                if (_practiceStatistic.get(n) != null) {
+                    newRecord = _practiceStatistic.get(n);
                 }
-                String binary = "";
-                for (boolean b : _practiceStatistic.get(s)){
-                    if (b){
-                        binary = binary + "1";
-                    }else{
-                        binary = binary + "0";
-                    }
-                }
-                writer.write(s + "#"+ binary + "\n");
+                newRecord.add(result);
+                newStats.put(n, newRecord);
+            } else {
+                newStats.put(n, _practiceStatistic.get(n));
             }
-        }catch (IOException e) {
+        }
+        _practiceStatistic = newStats;
+
+        //Write the newest statistic
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(_practiceRecord, "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        for (String s : _practiceStatistic.keySet()) {
+            //Write the newest record
+            if (_practiceStatistic.get(s) != null) {
+                String binary = booleanTranslate(_practiceStatistic.get(s));
+                writer.println(s + "#" + binary);
+            } else {
+                writer.println(s + "#" + "-");
+            }
+        }
+            writer.close();
     }
 
+    /**
+     * Supports the updatePractiseRecord() method. Translate the ArrayList<Boolean> to a String
+     */
+    private String booleanTranslate(ArrayList<Boolean> stats){
+        String result = "";
+        for (boolean b : stats){
+            if (b){
+                result = result + "1";
+            }else{
+                result = result + "0";
+            }
+        }
+        return result;
+    }
 
+    /**
+     * Supports the updatePractiseRecord() method. Translate the  String to an ArrayList<Boolean>
+     */
+    private ArrayList<Boolean> stringTranslate(String read){
+        ArrayList<Boolean> marks = new ArrayList<>();
+        for (char c : read.toCharArray()){
+            if (c == '1'){
+                marks.add(true);
+            }else{
+                marks.add(false);
+            }
+        }
+        return marks;
+    }
 
 
 

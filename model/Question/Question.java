@@ -66,9 +66,7 @@ public abstract class Question {
 	 */
 	private void compare(){
 		System.out.println("Comparing");
-		System.out.println("Compared. Result set to false");
 		int i = (int)(Math.random()*10);
-		System.out.println(i);
 		if (i < 5) {
 			_result = false;
 			System.out.println("Compared. Result set to false");
