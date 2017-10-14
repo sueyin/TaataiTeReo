@@ -30,7 +30,7 @@ public abstract class TestPageController {
     //Change GUI methods
 
     public void rightGUI(){
-        _message.setText("You got it Right!");
+        _message.setText("You got it Right ! XD");
         _record.setVisible(false);
         _next.setVisible(true);
     }
@@ -42,7 +42,7 @@ public abstract class TestPageController {
     }
 
     public void wrongGUI(){
-        _message.setText("dd.You are hopeless");
+        _message.setText("You have used up your chance :(");
         _record.setVisible(false);
         _next.setVisible(true);
     }

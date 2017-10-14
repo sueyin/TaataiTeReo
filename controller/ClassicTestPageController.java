@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -23,6 +24,9 @@ public class ClassicTestPageController extends TestPageController {
 	private ClassicQuestionSuite _qs;
 
 	private ClassicQuestion _q;
+
+	@FXML
+	private Label _question;
 
 	@FXML
 	private JFXRadioButton _q1;
@@ -59,15 +63,24 @@ public class ClassicTestPageController extends TestPageController {
 		_question.setText(_qs.getQuestion());
 		_score = 0;
 
+		_question.setStyle("-fx-text-size: 100");
 		//Initialize GUI
+		_message.setVisible(false);
+
+		if (Integer.parseInt(_selectedLevel) > 12){
+			//Change font size for Strings
+			_question.setStyle("-fx-font-size: 24");
+		}else{
+			//Change font size for numbers
+			_question.setStyle("-fx-font-size: 130");
+		}
+		_q1.setId("onQuestion");
 		_level.setText("Level "+_selectedLevel);
 		_record.setVisible(true);
 		_record.setText("Record");
 		_next.setVisible(false);
 		_next.setText("Next");
 
-		_message.setVisible(false);
-		_q1.setId("onQuestion");
 	}
 
 	/**

@@ -254,7 +254,6 @@ public class CustomTestPageController extends TestPageController {
 		}
 	}
 
-
 	public static String getLevel(){
 		return _selectedLevel;
 	}
