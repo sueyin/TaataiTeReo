@@ -167,11 +167,8 @@ public abstract class Question {
 
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
-<<<<<<< HEAD
-	*/
-=======
+
 		*/
->>>>>>> 9c132e597fa9dffc7aad073f81df92cfb395ec59
 	}
 
 
