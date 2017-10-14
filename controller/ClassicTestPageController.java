@@ -66,7 +66,7 @@ public class ClassicTestPageController extends TestPageController {
 		_next.setVisible(false);
 		_next.setText("Next");
 
-
+		_message.setVisible(false);
 		_q1.setId("onQuestion");
 	}
 
@@ -75,6 +75,7 @@ public class ClassicTestPageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressButton(MouseEvent event) {
+		_message.setVisible(true);
 		_q.test();
 		_qs.collectResult(_q.getResult());
 		if (_qs.getIndexNumber() == 10){
@@ -84,6 +85,7 @@ public class ClassicTestPageController extends TestPageController {
 
 	@FXML
 	public void handlePressNext(MouseEvent event) {
+		
 		if (_next.getText() == "Completed"){
 			System.out.println(_score);
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
@@ -209,7 +211,7 @@ public class ClassicTestPageController extends TestPageController {
 				
 					_q7.setId("radio_incorrect");
 
-					_q4.setId("onQuestion");
+					_q8.setId("onQuestion");
 				}
 				else if (index == 8) {
 				

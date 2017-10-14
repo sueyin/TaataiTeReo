@@ -8,6 +8,7 @@ import java.util.List;
 
 
 import application.TataiApp;
+import application.confirmation.DeleteConfirmationController;
 import application.model.User;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
@@ -123,7 +124,7 @@ public class LoginPageController {
 	public void handlePressDeleteUser(MouseEvent event) {
 		//opens a window that confirms if the user want to delete the user
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/DeleteConfirmation.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/DeleteConfirmation.fxml"));
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(parent);
 			_deleteConfirm = new Stage();

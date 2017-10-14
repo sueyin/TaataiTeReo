@@ -58,5 +58,15 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label fx:id="_warningMessage" alignment="CENTER" layoutX="647.0" layoutY="550.0" prefHeight="65.0" prefWidth="439.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="_equationMessage" alignment="CENTER" layoutX="685.0" layoutY="205.0" prefHeight="65.0" prefWidth="422.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -4,9 +4,12 @@ package application.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import application.confirmation.QuitConfirmationController;
 import application.model.CustomManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -55,6 +58,12 @@ public class CustomCreatePageController {
 	
 	@FXML
 	private CheckBox _public;
+	
+	@FXML
+	private Label _warningMessage;
+	
+	@FXML
+	private Label _equationMessage;
 
 	private ObservableList<ListCell> _data;
 
@@ -66,7 +75,7 @@ public class CustomCreatePageController {
 
 
 	@FXML
-	private Stage _quitConfirm;
+	private Stage _popUp;
 
 	@FXML
 	public void initialize() {
@@ -74,18 +83,40 @@ public class CustomCreatePageController {
 		_list.setItems(_data);
 		_questionIndex = 0;
 		_manager = new CustomManager(MainPageController.getUser());
+		_warningMessage.setVisible(false);
+		_equationMessage.setVisible(false);
 	}
 
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
 		String name = _name.getText();
 		if (name.equals("")) {
-			//TODO create a pop up notification saying must enter a name before create
+			Service delay = new TimedMessage();
+			_warningMessage.setText("Please enter a name before continuing");
+			_warningMessage.setVisible(true);
+			//disable the message after a few seconds
+			if (!delay.isRunning()){
+				delay.start();
+			}
+			delay.setOnSucceeded(e -> {
+	            _warningMessage.setVisible(false);
+	            delay.reset();
+	        });
 			System.out.println("please enter a name");
 		}
 		else {
 			if (_data.isEmpty()) {
-				//TODO create a pop up notification to ensure if the use want to create an empty question suite
+				Service delay = new TimedMessage();
+				_warningMessage.setText("The question list cannot be empty");
+				_warningMessage.setVisible(true);
+				//disable the message after a few seconds
+				if (!delay.isRunning()){
+					delay.start();
+				}
+				delay.setOnSucceeded(e -> {
+		            _warningMessage.setVisible(false);
+		            delay.reset();
+		        });
 				System.out.println("the question list is empty, 你四不四撒");
 			}
 			else {
@@ -119,7 +150,17 @@ public class CustomCreatePageController {
 				int value = Integer.parseInt(engine.eval(equation).toString());
 				//Ensure the given input is within the range
 				if( value < 1 || value > 99){
-						//TODO out of range notification
+					Service delay = new TimedMessage();
+					_equationMessage.setText("Result is out of range (1~99)");
+					_equationMessage.setVisible(true);
+					//disable the message after a few seconds
+					if (!delay.isRunning()){
+						delay.start();
+					}
+					delay.setOnSucceeded(ec -> {
+			            _equationMessage.setVisible(false);
+			            delay.reset();
+			        });
 				}else{
 					//If valid equation, then add it to data
 					_questionIndex++;
@@ -128,13 +169,46 @@ public class CustomCreatePageController {
 					_data.add(new ListCell(equation));
 				}
 				} catch (ScriptException e) {
-					e.printStackTrace();
-					//TODO wrong format, equation cant run
+					//e.printStackTrace();
+					// wrong format, equation cant run
+					Service delay = new TimedMessage();
+					_equationMessage.setText("Please enter an equation");
+					_equationMessage.setVisible(true);
+					//disable the message after a few seconds
+					if (!delay.isRunning()){
+						delay.start();
+					}
+					delay.setOnSucceeded(b -> {
+			            _equationMessage.setVisible(false);
+			            delay.reset();
+			        });
 				} catch (NumberFormatException e){
 					//TODO wrong answer, not int
+					Service delay = new TimedMessage();
+					_equationMessage.setText("Please enter numbers");
+					_equationMessage.setVisible(true);
+					//disable the message after a few seconds
+					if (!delay.isRunning()){
+						delay.start();
+					}
+					delay.setOnSucceeded(a -> {
+			            _equationMessage.setVisible(false);
+			            delay.reset();
+			        });
 				}
 			}else{
 				//TODO empty input notification
+				Service delay = new TimedMessage();
+				_equationMessage.setText("Please enter an equation before add");
+				_equationMessage.setVisible(true);
+				//disable the message after a few seconds
+				if (!delay.isRunning()){
+					delay.start();
+				}
+				delay.setOnSucceeded(eg -> {
+		            _equationMessage.setVisible(false);
+		            delay.reset();
+		        });
 			}
 	}
 
@@ -142,14 +216,15 @@ public class CustomCreatePageController {
 	public void handlePressReturn(MouseEvent event) {
 		//opens a window that confirms if the user wants to quit 
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/QuitConfirmation.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/QuitConfirmation.fxml"));
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(parent);
-			_quitConfirm = new Stage();
-			_quitConfirm.setScene(scene);
-			_quitConfirm.initOwner(stage);
-			_quitConfirm.initModality(Modality.WINDOW_MODAL);
-			_quitConfirm.showAndWait();
+			_popUp = new Stage();
+			_popUp.setScene(scene);
+			_popUp.initOwner(stage);
+			_popUp.initModality(Modality.WINDOW_MODAL);
+
+			_popUp.showAndWait();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -201,4 +276,5 @@ public class CustomCreatePageController {
 		}
 	}
 }
+
 
