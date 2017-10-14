@@ -61,6 +61,8 @@ public abstract class Question {
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
+
+		/*
 		deleteWAV();
 		//TODO start bar
 
@@ -92,13 +94,13 @@ public abstract class Question {
 
 		new Thread(_recordTask).start();
 
+*/
 
-		/*
 		System.out.println("Deleted last recording");
 		System.out.println("Recording");
 		System.out.println("Recorded");
 		compare();
-		*/
+
 	}
 
 
@@ -108,7 +110,7 @@ public abstract class Question {
 	 * the correct answer.
 	 */
 	private void compare(){
-
+/*
 
 
 		//Create anthoer Task to implement the HTK command in background.
@@ -149,12 +151,12 @@ public abstract class Question {
 		new Thread(_compareTask).start();
 
 
+*/
 
 
 
 
 
-		/*
 		System.out.println("Comparing");
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
@@ -167,7 +169,7 @@ public abstract class Question {
 
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
-		*/
+
 	}
 
 
