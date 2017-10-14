@@ -74,30 +74,39 @@ public class PrivateList {
 	private StringProperty author;
 	private StringProperty description;
 	private StringProperty questionNum;
-	}
+
 
 	public PrivateList(String name, String author, String description, String questionNum) {
 
 
 	}
+
 	public void setName(String value) {
 	}
-	public String getName(){
+
+	public String getName() {
 		return name.toString();
 	}
+
 	public void setAuthor(String value) {
 	}
+
 	public String getAuthor() {
 		return author.toString();
 	}
+
 	public void setDescription(String value) {
 	}
+
 	public String getDescription() {
 		return description.toString();
 	}
+
 	public void setQuestionNum(String value) {
 	}
-	public String getQuestionNum(){
+
+	public String getQuestionNum() {
 		return questionNum.toString();
 	}
+}
 }
