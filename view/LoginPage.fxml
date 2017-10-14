@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
@@ -33,7 +34,10 @@
             <Font name="Yuanti SC Regular" size="30.0" />
          </font>
       </Label>
-      <JFXListView fx:id="_userList" blendMode="SRC_ATOP" fixedCellSize="30.0" layoutX="657.0" layoutY="395.0" prefHeight="94.0" prefWidth="232.0" stylesheets="@../application.css" verticalGap="2.0" />
+      <JFXListView fx:id="_userList" blendMode="SRC_ATOP" fixedCellSize="34.0" layoutX="657.0" layoutY="395.0" prefHeight="94.0" prefWidth="232.0" stylesheets="@../application.css" verticalGap="1.0">
+         <padding>
+            <Insets bottom="-1.0" />
+         </padding></JFXListView>
       <JFXTextField fx:id="_textField" alignment="CENTER" focusColor="#e1e4ee" layoutX="654.0" layoutY="409.0" prefHeight="43.0" prefWidth="232.0" promptText="User Name" style="-fx-text-fill: white;" unFocusColor="#e1e4ee">
          <font>
             <Font name="Yuanti SC Regular" size="30.0" />

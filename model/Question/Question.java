@@ -148,7 +148,7 @@ public abstract class Question {
 
 
 
-
+/*
 
 		System.out.println("Comparing");
 		int i = (int)(Math.random()*10);
@@ -161,6 +161,7 @@ public abstract class Question {
 		}
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
+	*/
 	}
 
 
