@@ -30,6 +30,7 @@ public class TataiApp extends Application {
         setup(USR);
         setup(CUSTOM);
         setup(CUSTOMPUBLIC);
+        setup(TEMP);
         launch(args);
     }
 

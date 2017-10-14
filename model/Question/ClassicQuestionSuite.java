@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ClassicQuestionSuite {
-    private static final String BANKDIR = "./src/application/bank/classic/";
+    private static final String BANKDIR = "./bank/classic/";
     private static final int TOTAL = 10;
     private String _level;
     private HashMap<String, String> _questionSuite = new HashMap<>();
@@ -39,6 +39,7 @@ public class ClassicQuestionSuite {
                 line = sc.nextLine();
                 String answer = line.split("#")[0];
                 String question = Question.translate(line.split("#")[1]);
+                System.out.println(answer +" " + question);
                 _questionSuite.put(answer, question);
                 _answerList.add(answer);
             }

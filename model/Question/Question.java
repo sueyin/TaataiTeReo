@@ -22,16 +22,16 @@ public abstract class Question {
 	protected static final String TEMPWAV = TataiApp.getTempDir() + "/temp.wav";
     protected static final String RECOUT = TataiApp.getTempDir() + "/recout.mlf";
 
-	protected static final String RECORD_CMD = "ffmpeg -f alsa -i default -t 3 -acodec pcm_s16le -ar 22050 -ac 1 " + TEMPWAV + " &> /dev/null";
-	/*
+	protected static final String RECORD_CMD = "ffmpeg -f alsa -i default -t 3 -acodec pcm_s16le -ar 22050 -ac 1 " + TEMPWAV ;
+	
 	protected static final String HTK_CMD = "HVite -H ~/Documents/HTK/MaoriNumbers/HMMs/hmm15/macros " +
 			"-H ~/Documents/HTK/MaoriNumbers/HMMs/hmm15/hmmdefs -C ~/Documents/HTK/MaoriNumbers/user/configLR  " +
 			"-w ~/Documents/HTK/MaoriNumbers/user/wordNetworkNum -o SWT -l '*' " +
 			"-i " + RECOUT + " -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumbers/user/dictionaryD " +
-			"~/Documents/HTK/MaoriNumbers/user/tiedList " + TEMPWAV + " &> /dev/null";
-*/
+			"~/Documents/HTK/MaoriNumbers/user/tiedList " + TEMPWAV;
 
-	protected static final String HTK_CMD  = "HVite -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/macros -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/hmmdefs -C user/configLR  -w ~/Documents/HTK/MaoriNumers/user/wordNetworkNum -o SWT -l '*' -i "+RECOUT+" -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumers/user/dictionaryD user/tiedList "+TEMPWAV;
+
+	//protected static final String HTK_CMD  = "HVite -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/macros -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/hmmdefs -C user/configLR  -w ~/Documents/HTK/MaoriNumers/user/wordNetworkNum -o SWT -l '*' -i "+RECOUT+" -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumers/user/dictionaryD user/tiedList "+TEMPWAV;
 	protected static final String PLAY_CMD = "aplay " + TEMPWAV + " &> /dev/null";
 
 	protected boolean _result;
@@ -61,7 +61,8 @@ public abstract class Question {
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
-		deleteWAV();
+
+		
 		//TODO start bar
 
 		//Create a Task to implement Record in the background thread
@@ -92,13 +93,13 @@ public abstract class Question {
 
 		new Thread(_recordTask).start();
 
+/*
 
-		/*
 		System.out.println("Deleted last recording");
 		System.out.println("Recording");
 		System.out.println("Recorded");
 		compare();
-		*/
+*/
 	}
 
 
@@ -152,9 +153,8 @@ public abstract class Question {
 
 
 
-/*
 
-		/*
+/*
 		System.out.println("Comparing");
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
@@ -167,8 +167,7 @@ public abstract class Question {
 
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
-
-		*/
+*/
 	}
 
 
