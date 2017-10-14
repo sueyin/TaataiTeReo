@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomTestPageController">
+   <children>
+      <Label fx:id="_question" alignment="CENTER" layoutX="226.0" layoutY="228.0" prefHeight="136.0" prefWidth="674.0" text="(32+21)x2-32" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="96.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="_record" layoutX="429.0" layoutY="468.0" onMouseClicked="#handlePressButton" prefHeight="78.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="29.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="_next" layoutX="429.0" layoutY="468.0" onMouseClicked="#handlePressNext" prefHeight="78.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Next" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="29.0" />
+         </font>
+      </JFXButton>
+
+      <JFXButton fx:id="_return" layoutX="19.0" layoutY="17.0" onMouseClicked="#handlePressReturn" prefHeight="65.0" prefWidth="65.0" text=" ">
+         <graphic>
+            <ImageView fx:id="_return" fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/testpage/return.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <VBox layoutX="1034.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <JFXRadioButton fx:id="_q1" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q2" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q3" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q4" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q5" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q6" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q7" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q8" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q9" stylesheets="@../application.css" text=" " />
+            <JFXRadioButton fx:id="_q10" stylesheets="@../application.css" text=" " />
+         </children>
+      </VBox>
+      <Label fx:id="_message" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="50.0" prefHeight="142.0" prefWidth="568.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
+         <font>
+            <Font name="Yuanti SC Regular" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="_level" layoutX="872.0" layoutY="57.0" prefHeight="40.0" prefWidth="162.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="1013.0" layoutY="118.0" prefHeight="431.0" prefWidth="69.0" text=" " />
+   </children>
+</AnchorPane>

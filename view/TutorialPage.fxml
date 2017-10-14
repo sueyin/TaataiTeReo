@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="437.0" layoutY="37.0" text="Tutorial Page" textFill="WHITE">
          <font>
@@ -21,9 +21,9 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      <Label layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="Welcome to Tātai! The dedicated education application for Maori Numeracy" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="Welcome to Tātai! The Dedicated Educational Application for Maori Numerical Pronouncation" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Yuanti SC Regular" size="24.0" />
+            <Font size="22.0" />
          </font>
          <padding>
             <Insets left="30.0" />
