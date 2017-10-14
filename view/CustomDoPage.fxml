@@ -2,17 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
    <children>
-      <TabPane layoutX="61.0" layoutY="160.0" prefHeight="337.0" prefWidth="825.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="_tab" layoutX="61.0" layoutY="160.0" prefHeight="337.0" prefWidth="825.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Public pool">
+          <Tab fx:id="public" text="Public pool">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
@@ -21,7 +21,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Private questions">
+            <Tab fx:id="private" text="Private questions">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightgrey;">
                      <children>
