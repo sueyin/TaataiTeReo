@@ -20,7 +20,6 @@ public class TataiApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/LoginPage.fxml"));
         primaryStage.setTitle("Tatai Te Reo");
         primaryStage.setScene(new Scene(root));
-        primaryStage.setStyle("-fx-background-color: black")
         primaryStage.show();
     
     }
