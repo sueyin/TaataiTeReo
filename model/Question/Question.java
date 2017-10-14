@@ -4,8 +4,13 @@ import application.TataiApp;
 import application.controller.TestPageController;
 import application.model.Answer;
 import javafx.concurrent.Task;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
 
 public abstract class Question {
 	private static final String MULTIPLE = "\u00D7";
@@ -52,12 +57,46 @@ public abstract class Question {
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
-		//deleteWAV();
+		deleteWAV();
+		//TODO start bar
+
+		//Create a Task to implement Record in the background thread
+		_recordTask = new Task<Void>() {
+			@Override public Void call() throws IOException {
+				try {
+					deleteWAV();	//Overwrite the wav file if there is one.
+					ProcessBuilder pb = new ProcessBuilder("bash","-c", RECORD_CMD);
+					pb.inheritIO();
+					Process p  = pb.start();
+					p.waitFor();
+				} catch(InterruptedException e){
+					e.printStackTrace();
+				}
+				return null;
+			}
+		};
+
+		//When the Record process is completed, update the status of the Question and switch GUI to show progressing.
+		//Invoke the next Compare step
+		_recordTask.setOnSucceeded(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				//TODO change record btn text to "Processing"
+				compare();
+			}
+		});
+
+		new Thread(_recordTask).start();
+
+
+		/*
 		System.out.println("Deleted last recording");
 		System.out.println("Recording");
 		System.out.println("Recorded");
 		compare();
+		*/
 	}
+
 
 
 	/**
@@ -65,6 +104,52 @@ public abstract class Question {
 	 * the correct answer.
 	 */
 	private void compare(){
+
+
+
+		//Create anthoer Task to implement the HTK command in background.
+		_compareTask = new Task<Void>() {
+			@Override public Void call() throws IOException {
+				try {
+					ProcessBuilder pb = new ProcessBuilder("bash", "-c", HTK_CMD);
+					pb.inheritIO();
+					Process p = pb.start();
+					p.waitFor();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				//Read the result from HTK command and get what the user said.
+				_read = computeRead();
+				//Determine whether the user said the correct answer.
+				if (_read.equals("")){
+					_result = false;
+					//TODO change a label or something to indicate the user nothing has been recorded
+				}else if(_read.equals(_answer)){
+					_result = true;
+				}else{
+					_result = false;
+				}
+				return null;
+			}
+		};
+		//When the Compare process finished, update Question status and GUI.
+		_compareTask.setOnSucceeded(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				updateGUI();
+			}
+		});
+
+		//ToDO stop bar
+		//_page.getBar().progressProperty().bind(_compareTask.progressProperty());
+		new Thread(_compareTask).start();
+
+
+
+
+
+
+
 		System.out.println("Comparing");
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
@@ -85,7 +170,7 @@ public abstract class Question {
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
 	private String computeRead() {
-		/*
+
 		String read = null;
 		//Read the mlx file produced by HTK command.
 		File recout = new File(RECOUT);
@@ -106,8 +191,8 @@ public abstract class Question {
 		}else{
 			return "";
 		}
-		*/
-		return "dd";
+
+		//return "dd";
 	}
 
 
