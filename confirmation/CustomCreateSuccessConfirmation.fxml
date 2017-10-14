@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.confirmation.CustomCreateSuccessConfirmationController">
+   <children>
+      <Label alignment="CENTER" layoutX="37.0" layoutY="43.0" prefHeight="67.0" prefWidth="421.0" text="Question Suite Successfully Created!" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="_ok" layoutX="214.0" layoutY="132.0" onMouseClicked="#handlePressConfirm" text="Ok" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

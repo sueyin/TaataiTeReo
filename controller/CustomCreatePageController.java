@@ -19,6 +19,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -31,8 +33,6 @@ import javax.script.ScriptException;
 
 public class CustomCreatePageController {
 
-	@FXML
-	private TextField _name;
 
 	@FXML
 	private TextField _equation;
@@ -88,10 +88,10 @@ public class CustomCreatePageController {
 
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
-		String name = _name.getText();
-		if (name.equals("")) {
+		String description = _description.getText();
+		if (description.equals("")) {
 			Service delay = new TimedMessage();
-			_warningMessage.setText("Please enter a name before continuing");
+			_warningMessage.setText("Please enter a description before continuing");
 			_warningMessage.setVisible(true);
 			//disable the message after a few seconds
 			if (!delay.isRunning()){
@@ -120,7 +120,7 @@ public class CustomCreatePageController {
 			}
 			else {
 				//TODO store _data in the file and report question suite created.
-				String id = name+"#"+ _description.getText()+"#"+_questionIndex;
+				String id = "name"+"#"+ _description.getText()+"#"+_questionIndex;
 				if (_public.isSelected()){
 					//Create a Public Question suite
 					_manager.writePublicSuite(id, _qs);
@@ -132,8 +132,30 @@ public class CustomCreatePageController {
 				_questionIndex = 0;
 				_qs.clear();
 				//TODO return to custom page
+				try {
+		        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+		        	Scene scene = new Scene(parent);
+		        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		        	stage.setScene(scene);
+		        	stage.show();
+
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
 				//TODO should add a confirmation popup?
-				//handlePressReturn(event);
+				try {
+					Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/CustomCreateSuccessConfirmation.fxml"));
+					Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+					Scene scene = new Scene(parent);
+					_popUp = new Stage();
+					_popUp.setScene(scene);
+					_popUp.initOwner(stage);
+					_popUp.initModality(Modality.WINDOW_MODAL);
+
+					_popUp.showAndWait();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -246,7 +268,6 @@ public class CustomCreatePageController {
 	class ListCell extends HBox {
 		Label label = new Label();
 		Button delete = new Button();
-		Button preview = new Button();
 
 		ListCell(String equation) {
 			super();
@@ -255,12 +276,13 @@ public class CustomCreatePageController {
 			HBox.setHgrow(label, Priority.ALWAYS);
 
 			delete.setOnMouseClicked(this::clickDelete);
-			delete.setText("delete");
+			Image deleteImage = new Image(getClass().getResourceAsStream("../image/custom/delete.png"));
+			ImageView img = new ImageView(deleteImage);
+			img.setFitWidth(20);
+			img.setFitHeight(20);
+			delete.setGraphic(img);
 
-			preview.setOnMouseClicked(this::clickPreview);
-			preview.setText("preview");
-
-			this.getChildren().addAll(label, delete, preview);
+			this.getChildren().addAll(label, delete);
 		}
 
 		public void clickDelete(MouseEvent event) {

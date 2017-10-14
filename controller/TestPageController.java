@@ -1,8 +1,11 @@
 package application.controller;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 public abstract class TestPageController {
     @FXML
@@ -19,6 +22,9 @@ public abstract class TestPageController {
 
     @FXML
     protected Button _next;
+    
+    @FXML
+    private Button _play;
 
     protected static int _score;
 
@@ -46,5 +52,11 @@ public abstract class TestPageController {
         _record.setVisible(false);
         _next.setVisible(true);
     }
+    
+	@FXML
+	public void handlePressPlay(MouseEvent event) {
+		//TODO function for play recording 
+		System.out.println("play");
+	}
 
 }

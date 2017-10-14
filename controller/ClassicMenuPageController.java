@@ -76,13 +76,6 @@ public class ClassicMenuPageController {
 
 	@FXML
 	public void initialize() {
-		/*TODO
-		for btn 1-15
-			Integer.parseInt(MainPageController.getUser().getClassicRecord());
-		分析后判断是否解锁，多少颗星
-		
-	*/	
-		
 		List<Integer> Star = new ArrayList<Integer>();
 		for (int level = 1; level < 16; level++) {
 			String result = MainPageController.getUser().getClassicRecord(Integer.toString(level));
@@ -110,11 +103,9 @@ public class ClassicMenuPageController {
 				}
 			}
 		}
-		System.out.println(Star.size());
 		HBox[] box = {_level1, _level2, _level3, _level4, _level5, _level6, _level7, _level8, _level9, _level10, _level11, _level12, _level13, _level14, _level15};
 		for (int i = 0; i < 15; i++) {
 			int num = Star.get(i);
-			System.out.println("star " + num);
 			box[i].setId(""+num);
 		}
 		

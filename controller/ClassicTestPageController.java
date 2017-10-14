@@ -55,7 +55,7 @@ public class ClassicTestPageController extends TestPageController {
 		//Decide the which level the user chose
 		_selectedLevel = ClassicMenuPageController.getSelectedLevel();
 
-		//Generate the correspongding quesition bank
+		//Generate the corresponding question bank
 		_qs = new ClassicQuestionSuite(_selectedLevel);
 
 		//Set the first question
@@ -82,6 +82,7 @@ public class ClassicTestPageController extends TestPageController {
 		_next.setText("Next");
 
 	}
+	
 
 	/**
 	 *This method handles event when the button is pressed (button => "record", "next question")
