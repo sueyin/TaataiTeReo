@@ -1,0 +1,11 @@
+
+69#Ben wants to buy three pencils and twelve erasers, each pencil costs $3, one eraser costs $5. How much does Ben need to pay? 
+4#On the weekend Sam played 4 more games than Alex did, and together they played 12 games. How many games did Alex play?
+48#The sum of two numbers is 84, and one of them is 12 more than the other.  What is the larger number of the two?
+3#At a bake sale, a total of 24 cakes and pies were sold for $69. The price of each cake was $9, and the price of each pie was $6. How many cakes were sold?
+29#Divide $80 among three people so that the second will have twice as much as the first, and the third will have $5 less than the second. What is the maximum a person could get?
+18#Two cyclists A and B started off at the same time from the same place in the same direction at 12km/h and 18km/h respectively.How far apart were they when cyclist A covered a distance of 36km?
+66#Mr Daley bought some pigs, goats and sheep. Altogether he bought 100 animals and spent $600. Mr Daley paid $21 for each pig, $8 for each goat and $3 for each sheep. There was an even number of pigs. How many of sheep did Mr Daley buy?
+17#An unknown number of rabbits and chickens were locked in a cage, count from top, there was 26 heads; count from bottom, there was 86 feet. How many rabbits were locked in this cage?
+4#There are 3 taps A, B, B to fill a pond, and the ratio of velocity of water output from the three taps is 1:2:3. We know that if we open all three taps for 2 hours, and then close B, it will take another 3 hours to fill the pond. How much time it would take to fill the pond if all three taps are all open? 
+56#How old is Bakh? :B
