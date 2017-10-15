@@ -56,9 +56,9 @@ public class PracticePageController extends TestPageController {
 
 	@FXML
 	private Label _customInstruction;
-
-
-
+	
+	@FXML
+	private Label _title;
 
 	private Question _q;
 
@@ -162,6 +162,7 @@ public class PracticePageController extends TestPageController {
         _q = new PracticeQuestion(Integer.toString((int)(Math.random() * 10) + 1), this);
         _question.setText(_q.getQuestion());
         testGUI();
+        
 	}
 	
 	/**

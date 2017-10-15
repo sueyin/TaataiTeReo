@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +15,15 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticePageController">
 	<children>
-		<Label alignment="CENTER" layoutX="405.0" layoutY="49.0" prefHeight="85.0" prefWidth="316.0" text="Practice" textFill="WHITE">
+      <ImageView fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="63.0" />
+         </effect>
+      </ImageView>
+		<Label fx:id="_title" alignment="CENTER" layoutX="405.0" layoutY="49.0" prefHeight="85.0" prefWidth="316.0" text="Practice" textFill="WHITE">
 			<font>
 				<Font name="Yuanti SC Regular" size="60.0" />
 			</font>
@@ -120,7 +129,7 @@
 				<Insets left="20.0" top="10.0" />
 			</padding>
 		</JFXButton>
-		<Label fx:id="_question" alignment="CENTER" layoutX="489.0" layoutY="231.0" prefHeight="142.0" prefWidth="157.0" text="99" textFill="WHITE">
+		<Label fx:id="_question" alignment="CENTER" layoutX="489.0" layoutY="258.0" prefHeight="142.0" prefWidth="157.0" text="99" textFill="WHITE">
 			<font>
 				<Font name="Yuanti SC Regular" size="96.0" />
 			</font>
@@ -148,7 +157,7 @@
             <Insets right="-6.0" />
          </padding>
       </JFXButton>
-		<Label fx:id="_message" alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="50.0" prefHeight="142.0" prefWidth="568.0" text=" " textAlignment="CENTER" textFill="#aeaeae">
+		<Label fx:id="_message" alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="110.0" prefHeight="142.0" prefWidth="568.0" text=" Message" textAlignment="CENTER" textFill="#aeaeae">
 			<font>
 				<Font name="Yuanti SC Regular" size="36.0" />
 			</font>

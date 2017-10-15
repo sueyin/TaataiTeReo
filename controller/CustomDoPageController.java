@@ -29,21 +29,20 @@ public class CustomDoPageController {
 	private TableView<TableList> _privateList;
 	@FXML
 	private JFXButton _do;
-	@FXML
-	private JFXButton _edit;
+
 	@FXML
 	private JFXButton _delete;
-	
+
 	private Stage _popUp;
-	
+
 	@FXML
 	private Tab _private;
 	@FXML
 	private Tab _public;
-	
+
 	@FXML
 	private TabPane _tab;
-	
+
 	private TableList _selected;
 
 	private ObservableList<TableList> _publicData= FXCollections.observableArrayList();
@@ -78,17 +77,17 @@ public class CustomDoPageController {
 
 		table.getColumns().setAll(nameCol, authorCol, descriptionCol, questionNumCol);
 	}
-	
+
 	private void setSelected() {
 		_selected = null;
 		int t = _tab.getSelectionModel().getSelectedIndex();
 		if (t==0){
 			_selected = _publicList.getSelectionModel().getSelectedItem();
-			
+
 		}
 		else {
 			_selected = _privateList.getSelectionModel().getSelectedItem();
-			
+
 		}
 		if (_selected == null) {
 			System.out.println("select one first");
@@ -107,45 +106,34 @@ public class CustomDoPageController {
 		}
 	}
 
-	// Event Listener on JFXButton[#_edit].onMouseClicked
-	@FXML
-	public void handlePressEdit(MouseEvent event) {
-		setSelected();
-		if (_selected == null) {
-			System.out.println("null.......");
-			//TODO pop up window
-		}
-		else {
-			//TODO switch to the selected question list's edit page
-		}
-	}
-
 	// Event Listener on JFXButton[#_delete].onMouseClicked
 	@FXML
 	public void handlePressDelete(MouseEvent event) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/DeleteTableListConfirmation.fxml"));
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(parent);
-			_popUp = new Stage();
-			_popUp.setScene(scene);
-			_popUp.initOwner(stage);
-			_popUp.initModality(Modality.WINDOW_MODAL);
+		setSelected();
+		if (_selected == null) {
+			//TODO pop up window;
 
-			_popUp.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-		//get user result, if the user does want to delete, then delete
-		boolean confirm = application.confirmation.DeleteTableListConfirmationController.getDeleteConfirm();
-		System.out.println(""+confirm);
-		if (confirm){
-			setSelected();
-			if (_selected==null){
-				System.out.println("null.......");
-				//TODO pop up 
+		else {
+			try {
+				Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/DeleteTableListConfirmation.fxml"));
+				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				Scene scene = new Scene(parent);
+				_popUp = new Stage();
+				_popUp.setScene(scene);
+				_popUp.initOwner(stage);
+				_popUp.initModality(Modality.WINDOW_MODAL);
+
+				_popUp.showAndWait();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			else {
+			//get user result, if the user does want to delete, then delete
+			boolean confirm = application.confirmation.DeleteTableListConfirmationController.getDeleteConfirm();
+			System.out.println(""+confirm);
+			if (confirm){
+				setSelected();
+
 				boolean isPublic = _selected.getPublic();
 				System.out.println("isPublic "+isPublic);
 				if (isPublic){
@@ -159,7 +147,9 @@ public class CustomDoPageController {
 					//TODO remove selected question suite (private)
 				}
 			}
-
 		}
+
+
+
 	}
 }

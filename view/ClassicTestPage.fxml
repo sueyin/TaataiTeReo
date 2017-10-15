@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +12,7 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicTestPageController">
    <children>
-      <Label fx:id="_question" alignment="CENTER" layoutX="226.0" layoutY="228.0" prefHeight="136.0" prefWidth="674.0" text="(32+21)x2-32" textFill="WHITE">
+      <Label fx:id="_question" alignment="CENTER" layoutX="226.0" layoutY="146.0" prefHeight="294.0" prefWidth="674.0" text="fgdshkfadfahfbadfhabfajfbajfhasbfhjasbfajhsf" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="96.0" />
          </font>
@@ -60,5 +61,17 @@
          </font>
       </Label>
       <Label layoutX="1013.0" layoutY="118.0" prefHeight="431.0" prefWidth="69.0" text=" " />
+      <JFXButton fx:id="_play" layoutX="768.0" layoutY="474.0" onMouseClicked="#handlePressPlay" prefHeight="58.0" prefWidth="51.0">
+         <graphic>
+            <ImageView fitHeight="103.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/play.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

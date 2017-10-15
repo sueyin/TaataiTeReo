@@ -60,5 +60,17 @@
          </font>
       </Label>
       <Label layoutX="1013.0" layoutY="118.0" prefHeight="431.0" prefWidth="69.0" text=" " />
+            <JFXButton fx:id="_play" layoutX="768.0" layoutY="474.0" onMouseClicked="#handlePressPlay" prefHeight="58.0" prefWidth="51.0">
+         <graphic>
+            <ImageView fitHeight="103.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/play.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -1,5 +1,8 @@
 
 
+.imageView {
+	-fx-effect: dropshadow(one-pass-box, grey, 7, 1, 0.1, 0.1);
+}
 #onQuestion{
 	-jfx-selected-color: white;
 	-jfx-unselected-color: white;

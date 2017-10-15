@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,12 +14,20 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicMenuPageController">
    <children>
+      <ImageView fx:id="_background" fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="63.0" />
+         </effect>
+      </ImageView>
       <Label alignment="CENTER" layoutX="371.0" layoutY="31.0" prefHeight="83.0" prefWidth="420.0" text="Classic Mode" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="58.0" />
          </font>
       </Label>
-      <GridPane hgap="40.0" layoutX="164.0" layoutY="230.0" prefHeight="400.0" prefWidth="826.0" vgap="50.0">
+      <GridPane hgap="40.0" layoutX="164.0" layoutY="230.0" prefHeight="400.0" prefWidth="826.0" stylesheets="@../application.css" vgap="50.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
