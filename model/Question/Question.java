@@ -16,22 +16,27 @@ public abstract class Question {
 	private static final String MULTIPLE = "\u00D7";
 	private static final String DIVIDE = "\u00F7";
 
-
 	protected final int MAX = 10;
 
-	protected static final String TEMPWAV = TataiApp.getTempDir() + "/temp.wav";
-    protected static final String RECOUT = TataiApp.getTempDir() + "/recout.mlf";
+	protected static final String TEMPWAV = TataiApp.getTempDir() + "temp.wav";
+    protected static final String RECOUT = TataiApp.getTempDir() + "recout.mlf";
 
 	protected static final String RECORD_CMD = "ffmpeg -f alsa -i default -t 3 -acodec pcm_s16le -ar 22050 -ac 1 " + TEMPWAV ;
-	
+
+	/*Use in Assignment 3 VM
 	protected static final String HTK_CMD = "HVite -H ~/Documents/HTK/MaoriNumbers/HMMs/hmm15/macros " +
 			"-H ~/Documents/HTK/MaoriNumbers/HMMs/hmm15/hmmdefs -C ~/Documents/HTK/MaoriNumbers/user/configLR  " +
 			"-w ~/Documents/HTK/MaoriNumbers/user/wordNetworkNum -o SWT -l '*' " +
 			"-i " + RECOUT + " -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumbers/user/dictionaryD " +
 			"~/Documents/HTK/MaoriNumbers/user/tiedList " + TEMPWAV;
+	*/
+	//Use in zip
+	protected static final String HTK_CMD = "HVite -H ./HTK/MaoriNumbers/HMMs/hmm15/macros " +
+			"-H ./HTK/MaoriNumbers/HMMs/hmm15/hmmdefs -C ./HTK/MaoriNumbers/user/configLR  " +
+			"-w ./HTK/MaoriNumbers/user/wordNetworkNum -o SWT -l '*' " +
+			"-i " + RECOUT + " -p 0.0 -s 5.0  ./HTK/MaoriNumbers/user/dictionaryD " +
+			"./HTK/MaoriNumbers/user/tiedList " + TEMPWAV;
 
-
-	//protected static final String HTK_CMD  = "HVite -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/macros -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/hmmdefs -C user/configLR  -w ~/Documents/HTK/MaoriNumers/user/wordNetworkNum -o SWT -l '*' -i "+RECOUT+" -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumers/user/dictionaryD user/tiedList "+TEMPWAV;
 	protected static final String PLAY_CMD = "aplay " + TEMPWAV + " &> /dev/null";
 
 	protected boolean _result;
@@ -61,9 +66,6 @@ public abstract class Question {
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
-
-
-/*
 		//TODO start bar
 
 		//Create a Task to implement Record in the background thread
@@ -93,27 +95,14 @@ public abstract class Question {
 		});
 
 		new Thread(_recordTask).start();
-
-*/
-
-		System.out.println("Deleted last recording");
-		System.out.println("Recording");
-		System.out.println("Recorded");
-		compare();
-
 	}
-
-
 
 	/**
 	 * Use HTK command to analyse the user record, read the result to determine what the user said and whether it is
 	 * the correct answer.
 	 */
 	private void compare(){
-
-
-/*
-		//Create anthoer Task to implement the HTK command in background.
+		//Create another Task to implement the HTK command in background.
 		_compareTask = new Task<Void>() {
 			@Override public Void call() throws IOException {
 				try {
@@ -150,27 +139,8 @@ public abstract class Question {
 		//_page.getBar().progressProperty().bind(_compareTask.progressProperty());
 		new Thread(_compareTask).start();
 
-
-
-*/
-
-
-
-
-		System.out.println("Comparing");
-		int i = (int)(Math.random()*10);
-		if (i < 5) {
-			_result = false;
-			System.out.println("Compared. Result set to false");
-		}else{
-			_result = true;
-			System.out.println("Compared. Result set to true");
-		}
-
-		updateGUI();
-		//TODO compare完了之后在done()里叫 updateGUI()
-
 	}
+
 
 
 	protected abstract void updateGUI();
@@ -179,7 +149,6 @@ public abstract class Question {
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
 	private String computeRead() {
-		/*
 		String read = null;
 		//Read the mlx file produced by HTK command.
 		File recout = new File(RECOUT);
@@ -200,9 +169,6 @@ public abstract class Question {
 		}else{
 			return "";
 		}
-		*/
-
-		return "dd";
 	}
 
 

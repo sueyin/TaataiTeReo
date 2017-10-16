@@ -50,7 +50,7 @@ public class CustomDoPageController {
 	@FXML
 	private Label _message;
 
-	private TableList _selected;
+	private static TableList _selected;
 
 	private ObservableList<TableList> _publicData= FXCollections.observableArrayList();
 	private ObservableList<TableList> _privateData= FXCollections.observableArrayList();
@@ -62,6 +62,7 @@ public class CustomDoPageController {
 		return _manager;
 	}
 
+	@FXML
 	public void initialize() {
 		_manager = new CustomManager(MainPageController.getUser());
 		
@@ -227,5 +228,9 @@ public class CustomDoPageController {
 				}
 			}
 		}
+	}
+
+	public static TableList getSelected() {
+		return _selected;
 	}
 }
