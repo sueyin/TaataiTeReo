@@ -73,7 +73,7 @@ public class CustomCreatePageController {
 
 	private String _id;
 
-	private CustomManager _manager = CustomInstructionPageController.getManager();
+	private CustomManager _manager = CustomDoPageController.getManager();
 
 	@FXML
 	private Stage _popUp;
@@ -116,7 +116,7 @@ public class CustomCreatePageController {
 				//Update GUI
 				//Return to custom page
 				try {
-		        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+		        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomDoPage.fxml"));
 		        	Scene scene = new Scene(parent);
 		        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		        	stage.setScene(scene);
@@ -276,7 +276,7 @@ public class CustomCreatePageController {
 		boolean confirm = QuitConfirmationController.getQuit();
 		if (confirm){
 			try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomDoPage.fxml"));
 	        	Scene scene = new Scene(parent);
 	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        	stage.setScene(scene);

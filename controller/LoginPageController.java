@@ -160,7 +160,7 @@ public class LoginPageController {
 		
 		//check if user selected a user, if not, then shows warning message
 		if (_selectedUser == null) {
-			Service delay = new TimedMessage();
+			TimedMessage delay = new TimedMessage();
 			_selectUserMessage.setVisible(true);
 			//disable the message after a few seconds
 			if (!delay.isRunning()){

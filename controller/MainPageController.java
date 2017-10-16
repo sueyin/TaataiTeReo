@@ -110,7 +110,7 @@ public class MainPageController {
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
         try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomDoPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	stage.setScene(scene);

@@ -14,7 +14,7 @@
 
 .tab-pane .tab
 {
-    -fx-background-color: #e6e6e6;
+    -fx-background-color: #959595;
 
 }
 
@@ -36,15 +36,16 @@
     -fx-text-fill: white;
 }
 
-
 .table-row-cell{
-    -fx-background-color:  transparent;
+    -fx-background-color: transparent;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
+     -fx-text-fill: white;
 }
 
 .table-view .table-cell{
     -fx-text-fill: white;
+    -fx-text-family: Yuanti SC;
 }
 
 .table-view .column-header {
@@ -57,13 +58,15 @@
 }
 
 .table-row-cell:odd{
-    -fx-background-color: transparent;
+    -fx-background-color:  transparent;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;  
+    
 }
 
+
 .table-row-cell:selected {
-    -fx-background-color: lightgrey;
+    -fx-background-color: grey;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }

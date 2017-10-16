@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -10,11 +11,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" stylesheets="@../application.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
    <children>
-            <ImageView fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="633.0" fitWidth="1126.0" layoutX="-22.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/background.png" />
          </image>
@@ -22,7 +25,8 @@
             <GaussianBlur radius="63.0" />
          </effect>
       </ImageView>
-      <TabPane fx:id="_tab" layoutX="61.0" layoutY="160.0" prefHeight="337.0" prefWidth="825.0" stylesheets="@../application.css" tabClosingPolicy="UNAVAILABLE">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b3b3bc0" height="290.0" layoutX="150.0" layoutY="220.0" stroke="BLACK" strokeType="INSIDE" width="826.0" />
+      <TabPane fx:id="_tab" layoutX="150.0" layoutY="160.0" prefHeight="337.0" prefWidth="826.0" style="-fx-background-color: transparent;" stylesheets="@../application.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Public pool">
             <content>
@@ -44,17 +48,6 @@
             </Tab>
         </tabs>
       </TabPane>
-      <JFXButton fx:id="_do" layoutX="508.0" layoutY="527.0" onMouseClicked="#handlePressDo" text="Do Question" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="24.0" />
-         </font>
-      </JFXButton>
- 
-      <JFXButton fx:id="_delete" layoutX="367.0" layoutY="523.0" onMouseClicked="#handlePressDelete" text="Delete" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="24.0" />
-         </font>
-      </JFXButton>
       <Label alignment="CENTER" layoutX="340.0" layoutY="25.0" prefHeight="116.0" prefWidth="440.0" text="Select Question Suite" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="34.0" />
@@ -75,5 +68,54 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <HBox layoutX="161.0" layoutY="521.0" prefHeight="61.0" prefWidth="562.0" spacing="50.0">
+         <children>
+            <JFXButton fx:id="_do" onMouseClicked="#handlePressDo" text="Do Question" textFill="WHITE">
+               <font>
+                  <Font name="Yuanti SC Regular" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="93.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/custom/enter.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets top="-1.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="_add" onMouseClicked="#handlePressAdd" text="Add" textFill="WHITE">
+               <font>
+                  <Font name="Yuanti SC Regular" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/custom/plus1600.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+       
+            <JFXButton fx:id="_delete" onMouseClicked="#handlePressDelete" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="Yuanti SC Regular" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/custom/minus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Label fx:id="_message" layoutX="738.0" layoutY="537.0" prefHeight="28.0" prefWidth="307.0" text="Please select one from above " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

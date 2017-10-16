@@ -15,6 +15,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -45,6 +46,9 @@ public class CustomDoPageController {
 
 	@FXML
 	private TabPane _tab;
+	
+	@FXML
+	private Label _message;
 
 	private TableList _selected;
 
@@ -52,9 +56,14 @@ public class CustomDoPageController {
 	private ObservableList<TableList> _privateData= FXCollections.observableArrayList();
 
 	//Grace's part
-	private CustomManager _manager = CustomInstructionPageController.getManager();
+	private static CustomManager _manager;
+	
+	public static CustomManager getManager() {
+		return _manager;
+	}
 
 	public void initialize() {
+		_manager = new CustomManager(MainPageController.getUser());
 		
 		_privateData = FXCollections.observableArrayList();
 		Map<String, ArrayList<String>> privateSuites =  _manager.getPrivateSuites();
@@ -76,6 +85,8 @@ public class CustomDoPageController {
 		}
 		setTable(_publicList, _publicData);
 		setTable(_privateList, _privateData);
+		
+		_message.setVisible(false);
 	}
 
 	private void setTable(TableView table, ObservableList<TableList> data) {
@@ -91,6 +102,9 @@ public class CustomDoPageController {
 		questionNumCol.setCellValueFactory(new PropertyValueFactory("questionNum"));
 
 		nameCol.setMaxWidth(150);
+		authorCol.setMaxWidth(200);
+		descriptionCol.setMaxWidth(300);
+		questionNumCol.setMaxWidth(200);
 		table.getColumns().setAll(nameCol, authorCol, descriptionCol, questionNumCol);
 		table.setColumnResizePolicy(table.CONSTRAINED_RESIZE_POLICY);
 	}
@@ -108,6 +122,17 @@ public class CustomDoPageController {
 		}
 		if (_selected == null) {
 			System.out.println("select one first");
+			TimedMessage delay = new TimedMessage();
+			_message.setVisible(true);
+			//disable the message after a few seconds
+			if (!delay.isRunning()){
+				delay.start();
+			}
+			delay.setOnSucceeded(e -> {
+	            _message.setVisible(false);
+	            delay.reset();
+	        });
+			
 			//TODO pop up notification need to select one first
 		}
 	}
@@ -119,14 +144,37 @@ public class CustomDoPageController {
 			//TODO pop up window
 		}
 		else {
-			//TODO switch to question list 
+			try {
+	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomTestPage.fxml"));
+	        	Scene scene = new Scene(parent);
+	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        	stage.setScene(scene);
+	        	stage.show();
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 		}
+	}
+	
+	@FXML
+	public void handlePressAdd(MouseEvent event) {
+		try {
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomCreatePage.fxml"));
+        	Scene scene = new Scene(parent);
+        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        	stage.setScene(scene);
+        	stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	stage.setScene(scene);
