@@ -5,27 +5,39 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" stylesheets="@../application.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
    <children>
-      <TabPane fx:id="_tab" layoutX="61.0" layoutY="160.0" prefHeight="337.0" prefWidth="825.0" tabClosingPolicy="UNAVAILABLE">
+            <ImageView fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="63.0" />
+         </effect>
+      </ImageView>
+      <TabPane fx:id="_tab" layoutX="61.0" layoutY="160.0" prefHeight="337.0" prefWidth="825.0" stylesheets="@../application.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="public" text="Public pool">
+          <Tab text="Public pool">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                      <children>
-                        <TableView fx:id="_publicList" prefHeight="314.0" prefWidth="825.0" />
+                        <TableView fx:id="_publicList" prefHeight="314.0" prefWidth="825.0" style="-fx-background-color: transparent;" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab fx:id="private" text="Private questions">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightgrey;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                      <children>
-                        <TableView fx:id="_privateList" prefHeight="313.0" prefWidth="825.0" />
+                        <TableView id="table" fx:id="_privateList" prefHeight="313.0" prefWidth="825.0" style="-fx-background-color: transparent;" />
                      </children>
                   </AnchorPane>
               </content>
@@ -48,5 +60,20 @@
             <Font name="Yuanti SC Regular" size="34.0" />
          </font>
       </Label>
+      <JFXButton fx:id="_return" layoutX="13.0" layoutY="9.0" onMouseClicked="#handlePressReturn" prefHeight="112.0" prefWidth="124.0" text=" " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="36.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="82.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/custom/return.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -55,6 +55,7 @@ public class CustomDoPageController {
 	private CustomManager _manager = CustomInstructionPageController.getManager();
 
 	public void initialize() {
+		
 		_privateData = FXCollections.observableArrayList();
 		Map<String, ArrayList<String>> privateSuites =  _manager.getPrivateSuites();
 		for (String s : privateSuites.keySet()){
@@ -89,7 +90,9 @@ public class CustomDoPageController {
 		TableColumn<TableList, String> questionNumCol = new TableColumn<TableList, String>("Number of Questions");
 		questionNumCol.setCellValueFactory(new PropertyValueFactory("questionNum"));
 
+		nameCol.setMaxWidth(150);
 		table.getColumns().setAll(nameCol, authorCol, descriptionCol, questionNumCol);
+		table.setColumnResizePolicy(table.CONSTRAINED_RESIZE_POLICY);
 	}
 
 	private void setSelected() {
@@ -118,6 +121,20 @@ public class CustomDoPageController {
 		else {
 			//TODO switch to question list 
 		}
+	}
+	
+	@FXML
+	public void handlePressReturn(MouseEvent event) {
+		try {
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
+        	Scene scene = new Scene(parent);
+        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        	stage.setScene(scene);
+        	stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 	// Event Listener on JFXButton[#_delete].onMouseClicked

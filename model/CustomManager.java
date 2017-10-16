@@ -46,7 +46,7 @@ public class CustomManager {
                     e.printStackTrace();
                 }
                 //Read the question suite file
-                String id = f.getName();
+                String id = f.getName().substring(0, 7);
                 //Read abstraction
                 ArrayList<String> abs = new ArrayList<>();
                 String author = sc.nextLine().split("#")[1];
