@@ -3,6 +3,7 @@ package application.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import application.confirmation.QuitConfirmationController;
 import application.model.CustomManager;
@@ -66,12 +67,13 @@ public class CustomCreatePageController {
 
 	private ObservableList<ListCell> _data;
 
-	private ArrayList<String> _qs = new ArrayList<>();
+	private String[] _qs;
 
-	private CustomManager _manager;
+	//private ArrayList<String> _qs = new ArrayList<>();
 
-	private int _questionIndex;
+	private String _id;
 
+	private CustomManager _manager = CustomInstructionPageController.getManager();
 
 	@FXML
 	private Stage _popUp;
@@ -80,58 +82,39 @@ public class CustomCreatePageController {
 	public void initialize() {
 		_data= FXCollections.observableArrayList ();
 		_list.setItems(_data);
-		_questionIndex = 0;
-		_manager = new CustomManager(MainPageController.getUser());
 		_warningMessage.setVisible(false);
 		_equationMessage.setVisible(false);
+		//TODO if private limit, force public & versa vice
+		_qs = new String[10];
+		for (int i = 0; i<_qs.length; i++){
+			_qs[i] = "";
+		}
+		generateID();
 	}
 
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
 		String description = _description.getText();
 		if (description.equals("")) {
-			Service delay = new TimedMessage();
-			_warningMessage.setText("Please enter a description before continuing");
-			_warningMessage.setVisible(true);
-			//disable the message after a few seconds
-			if (!delay.isRunning()){
-				delay.start();
-			}
-			delay.setOnSucceeded(e -> {
-	            _warningMessage.setVisible(false);
-	            delay.reset();
-	        });
-			System.out.println("please enter a name");
-		}
-		else {
+			errorMsg("Please enter a description before continuing");
+		} else {
 			if (_data.isEmpty()) {
-				Service delay = new TimedMessage();
-				_warningMessage.setText("The question list cannot be empty");
-				_warningMessage.setVisible(true);
-				//disable the message after a few seconds
-				if (!delay.isRunning()){
-					delay.start();
-				}
-				delay.setOnSucceeded(e -> {
-		            _warningMessage.setVisible(false);
-		            delay.reset();
-		        });
-				System.out.println("the question list is empty, 你四不四撒");
+				errorMsg("The question list cannot be empty");
 			}
 			else {
-				//TODO store _data in the file and report question suite created.
-				String id = "name"+"#"+ _description.getText()+"#"+_questionIndex;
-				if (_public.isSelected()){
-					//Create a Public Question suite
-					_manager.writePublicSuite(id, _qs);
-				}else{
-					//Create a Private Question suite
-					_manager.writePrivateSuite(id, _qs);
+				//TODO confirmation ask
+				//Store _data in the file and report question suite created.
+				ArrayList<String> delivery = new ArrayList<>();
+				for (String s : _qs){
+					if (s.length() > 1){
+						delivery.add(s);
+					}
 				}
+				//Create a new Question suite
+				_manager.writeCustomSuite(_id, description, delivery, _public.isSelected());
+
 				//Update GUI
-				_questionIndex = 0;
-				_qs.clear();
-				//TODO return to custom page
+				//Return to custom page
 				try {
 		        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomInstructionPage.fxml"));
 		        	Scene scene = new Scene(parent);
@@ -142,7 +125,7 @@ public class CustomCreatePageController {
 		        } catch (IOException e) {
 		            e.printStackTrace();
 		        }
-				//TODO should add a confirmation popup?
+				//Successfully created message
 				try {
 					Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/CustomCreateSuccessConfirmation.fxml"));
 					Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -151,7 +134,6 @@ public class CustomCreatePageController {
 					_popUp.setScene(scene);
 					_popUp.initOwner(stage);
 					_popUp.initModality(Modality.WINDOW_MODAL);
-
 					_popUp.showAndWait();
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -164,11 +146,64 @@ public class CustomCreatePageController {
 	public void handlePressAdd(MouseEvent event) {
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");
-			//Ensure the given input is not empty
-			String equation = _equation.getText();
-			if (equation.length() > 0){
-				try {
+		//Ensure the given input is not empty
+		String equation = _equation.getText();
+		if (equation.length() < 1){
+			//Empty input notification
+			errorMsg("Please enter an equation before add");
+		}else {
+			boolean validEquation = true;
+			int value = -1;
+			try {
+				value = Integer.parseInt(engine.eval(equation).toString());
+			} catch (ScriptException e) {
+				validEquation = false;
+				// Wrong format, equation can not be evaluated
+				errorMsg("Please enter an equation");
+			} catch (NumberFormatException e) {
+				validEquation = false;
+				//Answer is not an integer
+				errorMsg("Please ensure the answer is an integer");
+			}
+			if (validEquation) {
+				if (value < 1 || value > 99) {
+					errorMsg("Result is out of range (1~99)");
+				} else {
+					//If valid equation, then add it to data
+					//int index = _data.size() + 1;
+					_qs[_data.size()] = value + "#" + equation;
+					//TODO format is 32#2+30
+					_data.add(new ListCell(equation));
+				}
+				if (_qs[9].length() > 0){
+					//Disable add btn when the list is full
+					_add.setDisable(true);
+				}
+			}
+		}
+
+
+/*
+
+		if (equation.length() > 0){
+			try {
 				int value = Integer.parseInt(engine.eval(equation).toString());
+			} catch (ScriptException e) {
+				//e.printStackTrace();
+				// wrong format, equation cant run
+				Service delay = new TimedMessage();
+				_equationMessage.setText("Please enter an equation");
+				_equationMessage.setVisible(true);
+				//disable the message after a few seconds
+				if (!delay.isRunning()){
+					delay.start();
+				}
+				delay.setOnSucceeded(b -> {
+					_equationMessage.setVisible(false);
+					delay.reset();
+				});
+
+
 				//Ensure the given input is within the range
 				if( value < 1 || value > 99){
 					Service delay = new TimedMessage();
@@ -189,20 +224,7 @@ public class CustomCreatePageController {
 					//TODO format is 1#32#2+30
 					_data.add(new ListCell(equation));
 				}
-				} catch (ScriptException e) {
-					//e.printStackTrace();
-					// wrong format, equation cant run
-					Service delay = new TimedMessage();
-					_equationMessage.setText("Please enter an equation");
-					_equationMessage.setVisible(true);
-					//disable the message after a few seconds
-					if (!delay.isRunning()){
-						delay.start();
-					}
-					delay.setOnSucceeded(b -> {
-			            _equationMessage.setVisible(false);
-			            delay.reset();
-			        });
+
 				} catch (NumberFormatException e){
 					//TODO wrong answer, not int
 					Service delay = new TimedMessage();
@@ -231,6 +253,7 @@ public class CustomCreatePageController {
 		            delay.reset();
 		        });
 			}
+			*/
 	}
 
 	@FXML
@@ -288,13 +311,45 @@ public class CustomCreatePageController {
 		public void clickDelete(MouseEvent event) {
 			System.out.println("delete");
 			//TODO get the row number and remove the corresponding question
-			_qs.remove(_questionIndex - 1);
+			_qs[_data.indexOf(this)]= "-";
 			_data.remove(this);
 		}
 
-		public void clickPreview(MouseEvent event) {
-			System.out.println("preview");
+	}
+
+
+	/*
+    Support methods
+ */
+	private void errorMsg(String msg){
+		Service delay = new TimedMessage();
+		_equationMessage.setText(msg);
+		_equationMessage.setVisible(true);
+		//disable the message after a few seconds
+		if (!delay.isRunning()){
+			delay.start();
 		}
+		delay.setOnSucceeded(eg -> {
+			_equationMessage.setVisible(false);
+			delay.reset();
+		});
+	}
+
+	/**
+	 * Generate a unique ID
+	 */
+	private void generateID(){
+		String root = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+		String id = "";
+		for (int i = 0; i < 7; i++) {
+			id = id + root.toCharArray()[(int) (Math.random() * (root.length()))];
+		}
+		//Recursively check if the id is unique
+		if ((_manager.getPublicSuites().keySet().contains(id))
+			|| (_manager.getPrivateSuites().keySet().contains(id))){
+			generateID();
+		}
+		_id = id;
 	}
 }
 

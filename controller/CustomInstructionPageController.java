@@ -2,6 +2,7 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.CustomManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,6 +12,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class CustomInstructionPageController {
+	private static CustomManager _manager;
+
+	@FXML
+	public void initialize() {
+		_manager = new CustomManager(MainPageController.getUser());
+	}
+
+	public static CustomManager getManager(){
+		return _manager;
+	}
 
 	@FXML
 	public void handlePressReturn(MouseEvent event) {

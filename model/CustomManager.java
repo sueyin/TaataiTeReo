@@ -46,7 +46,7 @@ public class CustomManager {
                     e.printStackTrace();
                 }
                 //Read the question suite file
-                String name = f.getName();
+                String id = f.getName();
                 //Read abstraction
                 ArrayList<String> abs = new ArrayList<>();
                 String author = sc.nextLine().split("#")[1];
@@ -56,23 +56,22 @@ public class CustomManager {
                 abs.add(desp);
                 abs.add(total);
                 sc.close();
-                suite.put(name, abs);
+                suite.put(id, abs);
             }
         }
     }
 
-    private void generateID(){
-
-
-    }
-
 
     /**
-     * Write a new Private Question Suite
+     * Write a new Question Suite
      */
-    public void writePrivateSuite(String id, ArrayList<String> qs){
-        String name = id.split("#")[0];
-        File newSuite = new File(_private.getPath() + "/" + name + ".txt" );
+    public void writeCustomSuite(String id, String desp, ArrayList<String> qs, boolean isPublic){
+        File newSuite;
+        if (isPublic){
+            newSuite = new File(_public.getPath() + "/" + id + ".txt" );
+        }else{
+            newSuite = new File(_private.getPath() + "/" + id + ".txt" );
+        }
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(newSuite, "UTF-8");
@@ -82,38 +81,13 @@ public class CustomManager {
             e.printStackTrace();
         }
         writer.println( "author#" + _usr.getName());
-        writer.println( "disp#" + id.split("#")[1]);
-        writer.println( "total#" + id.split("#")[2]);
-        int index = 1;
-        for (String s : qs){
-            writer.println(index + "#" + s);
-            index++;
-        }
-        writer.close();
-    }
-
-    /**
-     * Write a new Public Question Suite
-     */
-    public void writePublicSuite(String name, ArrayList<String> qs){
-        File newSuite = new File(_public.getPath() + "/name.txt" );
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter(newSuite, "UTF-8");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        writer.println( "author#" + qs.get(0));
-        writer.println( "disp#" + qs.get(1));
-        writer.println( "total#" + qs.get(2));
+        writer.println( "disp#" + desp);
+        writer.println( "total#" + qs.size());
         for (String s : qs){
             writer.println(s);
         }
         writer.close();
     }
-
 
 
     public Map<String, ArrayList<String>> getPublicSuites() {
