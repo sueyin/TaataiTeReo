@@ -1,31 +1,26 @@
 package application.controller;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import application.model.CustomManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.confirmation.QuitConfirmationController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -56,17 +51,28 @@ public class CustomDoPageController {
 	private ObservableList<TableList> _publicData= FXCollections.observableArrayList();
 	private ObservableList<TableList> _privateData= FXCollections.observableArrayList();
 
+	//Grace's part
+	private CustomManager _manager = CustomInstructionPageController.getManager();
+
 	public void initialize() {
-		_privateData = FXCollections.observableArrayList(
-				new TableList("a1","b","d","e",false), //TODO import private question suite in this format (name, author, description, number of question, isPublic)
-				new TableList("a1","b","d","e",false),
-				new TableList("a1","b","d","e",false)
-				);
-		_publicData = FXCollections.observableArrayList(
-				new TableList("a2","b","d","e",true),//TODO import public question suite in this format (name, author, description, number of question)
-				new TableList("a2","b","d","e",true),
-				new TableList("a2","b","d","e",true)
-				);
+		_privateData = FXCollections.observableArrayList();
+		Map<String, ArrayList<String>> privateSuites =  _manager.getPrivateSuites();
+		for (String s : privateSuites.keySet()){
+			String author = privateSuites.get(s).get(0);
+			String desp = privateSuites.get(s).get(1);
+			String total = privateSuites.get(s).get(2);
+			TableList object = new TableList (s, author, desp, total, false);
+			_privateData.add(object);
+		}
+		_publicData = FXCollections.observableArrayList();
+		Map<String, ArrayList<String>> publicSuites =  _manager.getPublicSuites();
+		for (String s : publicSuites.keySet()){
+			String author = publicSuites.get(s).get(0);
+			String desp = publicSuites.get(s).get(1);
+			String total = publicSuites.get(s).get(2);
+			TableList object = new TableList (s, author, desp, total, true);
+			_publicData.add(object);
+		}
 		setTable(_publicList, _publicData);
 		setTable(_privateList, _privateData);
 	}
@@ -156,8 +162,5 @@ public class CustomDoPageController {
 				}
 			}
 		}
-
-
-
 	}
 }

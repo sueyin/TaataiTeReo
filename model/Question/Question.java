@@ -62,7 +62,8 @@ public abstract class Question {
 	 */
 	public void test(){
 
-/*		
+
+/*
 		//TODO start bar
 
 		//Create a Task to implement Record in the background thread
@@ -150,6 +151,7 @@ public abstract class Question {
 		new Thread(_compareTask).start();
 
 
+
 */
 
 
@@ -177,7 +179,7 @@ public abstract class Question {
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
 	private String computeRead() {
-
+		/*
 		String read = null;
 		//Read the mlx file produced by HTK command.
 		File recout = new File(RECOUT);
@@ -198,8 +200,9 @@ public abstract class Question {
 		}else{
 			return "";
 		}
+		*/
 
-		//return "dd";
+		return "dd";
 	}
 
 
