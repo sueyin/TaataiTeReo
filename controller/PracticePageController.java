@@ -59,6 +59,12 @@ public class PracticePageController extends TestPageController {
 	
 	@FXML
 	private Label _title;
+	
+	@FXML
+	private Label _instruction;
+	
+	@FXML
+	private Button _play;
 
 	private Question _q;
 
@@ -69,6 +75,7 @@ public class PracticePageController extends TestPageController {
 	public void initialize() {
 		_disabledButton.setVisible(false);
 		beforeTestGUI();
+		_play.setVisible(false);
 	}
 	
 
@@ -220,6 +227,8 @@ public class PracticePageController extends TestPageController {
 		_mainReturn.setVisible(false);
 		_testReturn.setVisible(true);
 		_message.setText("");
+		_play.setVisible(false);
+		_instruction.setVisible(false);
 		//TODO set statistic invisible
 	}
 
@@ -241,6 +250,7 @@ public class PracticePageController extends TestPageController {
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
 		_message.setText("Congratulations");
+		_play.setVisible(true);
 		//TODO set statistic visible
 	}
 
@@ -262,6 +272,7 @@ public class PracticePageController extends TestPageController {
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
 		_message.setText("BUBU");
+		_play.setVisible(true);
 		//TODO set statistic visible
 	}
 
@@ -273,6 +284,7 @@ public class PracticePageController extends TestPageController {
 	public void tryAgainGUI(){
 		_message.setText("Plz Try Again");
 		_record.setText("Try Again");
+		_play.setVisible(true);
 	}
 
 	/**
