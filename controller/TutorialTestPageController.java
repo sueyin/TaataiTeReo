@@ -58,6 +58,7 @@ public class TutorialTestPageController extends TestPageController {
 
 		_record.setStyle("-fx-effect: dropshadow(one-pass-box, lightgrey, 50, 0.6, 0.1, 0.1);-fx-background-color:#929292;-fx-background-radius:30");
 		_recordInstr.setStyle("-fx-effect: dropshadow(one-pass-box, lightgrey, 50, 0.6, 0.1, 0.1);-fx-background-color:#696969;-fx-background-radius:30");
+
 	}
 
 	@FXML
@@ -67,7 +68,29 @@ public class TutorialTestPageController extends TestPageController {
 		_loading.setVisible(true);
 		_loadInstr.setVisible(true);
 		_mainInstr.setVisible(false);
+		PracticeQuestion q = new PracticeQuestion("1",this);
+		q.test();
 	}
+
+	public void rightGUI(){
+		_message.setText("You got it Right ! XD");
+		_record.setVisible(false);
+		//TODO back to main
+	}
+
+	public void tryAgainGUI(){
+		_message.setText("Not really.. One more chance");
+		_record.setText("Try Again");
+	}
+
+	public void wrongGUI(){
+		_message.setText("You have used up your chance :(");
+		_record.setVisible(false);
+		//TODO back to main
+	}
+
+
+
 
 
 
