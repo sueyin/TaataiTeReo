@@ -160,7 +160,7 @@ public class LoginPageController {
 		
 		//check if user selected a user, if not, then shows warning message
 		if (_selectedUser == null) {
-			Service delay = new DelayDisappear();
+			Service delay = new TimedMessage();
 			_selectUserMessage.setVisible(true);
 			//disable the message after a few seconds
 			if (!delay.isRunning()){
@@ -265,7 +265,7 @@ public class LoginPageController {
 	}
 	
 	private void performAfterPressEnter() {
-	Service delay = new DelayDisappear();
+	Service delay = new TimedMessage();
 		
 		//check if the entered name exist already 
 		_selectedUser = _textField.getText();
@@ -319,21 +319,3 @@ public class LoginPageController {
 	}
 }
 
-/**
- * This class is a background thread for displaying warning message for a period of time and then disable the message
- */
-class DelayDisappear extends Service<Void> {
-	private static final int MESSAGE_DISPLAY_TIME = 1500;
-	
-    @Override
-    protected Task<Void> createTask() {
-        return new Task<Void>() {
-            @Override
-            protected Void call() throws Exception {
-            	//delay the disable warning message from a period of time 
-                Thread.sleep(MESSAGE_DISPLAY_TIME);
-                return null;
-            }
-        };
-    }
-}

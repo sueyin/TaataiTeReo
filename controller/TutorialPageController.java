@@ -62,7 +62,7 @@ public class TutorialPageController {
 	@FXML
 	public void handlePressButton3(MouseEvent event) {
         try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
+        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/TutorialTestPage.fxml"));
         	Scene scene = new Scene(parent);
         	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	stage.setScene(scene);

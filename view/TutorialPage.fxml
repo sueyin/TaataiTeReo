@@ -6,13 +6,22 @@
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="application.controller.TutorialPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TutorialPageController">
    <children>
+         <ImageView fx:id="_background" fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="63.0" />
+         </effect>
+      </ImageView>
       <Label layoutX="437.0" layoutY="37.0" text="Tutorial Page" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="50.0" />
@@ -37,7 +46,7 @@
             <DropShadow color="#9a8f8f" height="78.68" radius="37.322500000000005" spread="0.45" width="72.61" />
          </effect>
       </ImageView>
-      <JFXButton fx:id="_button1" layoutX="1044.0" layoutY="127.0" onMouseClicked ="#handlePressButton1" prefHeight="67.0" prefWidth="44.0">
+      <JFXButton fx:id="_button1" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton1" prefHeight="67.0" prefWidth="44.0">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,7 +74,7 @@
             <Insets left="30.0" />
          </padding>
       </Label>
-      <JFXButton fx:id="_button2" layoutX="1044.0" layoutY="127.0" onMouseClicked ="#handlePressButton2" prefHeight="67.0" prefWidth="44.0">
+      <JFXButton fx:id="_button2" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton2" prefHeight="67.0" prefWidth="44.0">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -93,7 +102,7 @@
             <Insets left="30.0" />
          </padding>
       </Label>
-      <JFXButton fx:id="_button3" layoutX="1044.0" layoutY="127.0" onMouseClicked ="#handlePressButton3"  prefHeight="67.0" prefWidth="44.0">
+      <JFXButton fx:id="_button3" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton3" prefHeight="67.0" prefWidth="44.0">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>

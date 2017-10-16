@@ -8,7 +8,7 @@ import javafx.concurrent.Task;
  */
 public class TimedMessage extends Service<Void>{
 
-	private static final int MESSAGE_DISPLAY_TIME = 1500;
+	private static final int MESSAGE_DISPLAY_TIME = 1000;
 
 	@Override
 	protected Task<Void> createTask() {
