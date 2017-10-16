@@ -61,6 +61,11 @@ public class CustomManager {
         }
     }
 
+    private void generateID(){
+
+
+    }
+
 
     /**
      * Write a new Private Question Suite
@@ -79,8 +84,10 @@ public class CustomManager {
         writer.println( "author#" + _usr.getName());
         writer.println( "disp#" + id.split("#")[1]);
         writer.println( "total#" + id.split("#")[2]);
+        int index = 1;
         for (String s : qs){
-            writer.println(s);
+            writer.println(index + "#" + s);
+            index++;
         }
         writer.close();
     }

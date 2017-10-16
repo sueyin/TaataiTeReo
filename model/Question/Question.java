@@ -62,11 +62,8 @@ public abstract class Question {
 	 */
 	public void test(){
 
-<<<<<<< HEAD
-	/*
-=======
-/*		
->>>>>>> 35ddcdc1fdbae1a214678772296bef8dea0809b7
+
+/*
 		//TODO start bar
 
 		//Create a Task to implement Record in the background thread
@@ -152,7 +149,7 @@ public abstract class Question {
 		//ToDO stop bar
 		//_page.getBar().progressProperty().bind(_compareTask.progressProperty());
 		new Thread(_compareTask).start();
-		*/
+
 
 
 */
