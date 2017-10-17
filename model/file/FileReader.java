@@ -41,11 +41,13 @@ public class FileReader {
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
             String key = line.split("#")[0];
-            String content = line.split("#")[1];
+            String content = translate(line.split("#")[1]);
                 _data.put(key, content);
             }
         sc.close();
     }
+
+
 
 
     /*
@@ -54,4 +56,28 @@ public class FileReader {
     public Map<String, String> getData(){
         return _data;
     }
+
+
+    /*
+		Additional
+	 */
+    /**
+     * Translate multiplication and division signs to UTF code
+     */
+    private String translate(String raw){
+        String translated = "";
+        if (raw.length() > 1) {
+            for (char i : raw.toCharArray()) {
+                if (i == '*') {
+                    translated = translated + MULTIPLE;
+                } else if (i == '/') {
+                    translated = translated + DIVIDE;
+                } else {
+                    translated = translated + i;
+                }
+            }
+        }
+        return translated;
+    }
+
 }

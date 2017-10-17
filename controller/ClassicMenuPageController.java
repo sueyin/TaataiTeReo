@@ -78,7 +78,7 @@ public class ClassicMenuPageController {
 		for (int level = 1; level < 16; level++) {
 			String result = MainPageController.getUser().getClassicRecord(Integer.toString(level));
 			System.out.println(result);
-			if (result.equals("-")) {
+			if (result.equals("")) {
 				Star.add(0);
 			}
 			else{

@@ -2,45 +2,54 @@ package application.model;
 
 
 import application.TataiApp;
-import application.controller.ClassicTestPageController;
+import application.model.file.FileReader;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class User {
+    private File _practiceRecord;
     private File _classicRecord;
     private File _survivalRecord;
-    private File _practiceRecord;
     //TODO add exp and acheivement systems
     private File _e;
     private File _achivs;
+
+    private String _practiceRecPath;
+    private String _classicRecPath;
+    private String _survivalRecPath;
 
 
     private String _dir;
     private String _name;
 
+    private FileReader _reader;
+
     private Map<String, ArrayList<Boolean>> _practiceStatistic = new HashMap<>();
     private Map<String, String> _classicStatistic = new HashMap<>();
-    private String _suivivalRecord;
+    private String _survivalScore;
 
     private int _exp;
 
     public User(String name){
         _name = name;
         _dir = TataiApp.getUserDir() + name + "/";
-        _practiceRecord = new File(_dir+"practice.txt");
+        _practiceRecPath = _dir + "practice.txt";
+        _classicRecPath = _dir + "classic.txt";
+        _survivalRecPath = _dir + "survival.txt";
+        _practiceRecord = new File(_practiceRecPath);
         initializePracticeRecord();
-        _classicRecord = new File(_dir + "classic.txt");
+        _classicRecord = new File(_classicRecPath);
         initializeClassicRecord();
-        _survivalRecord = new File(_dir + "survival.txt");
+        _survivalRecord = new File(_survivalRecPath);
         initializeSurvivalRecord();
     }
 
+    //==================================================================================================================
+    //==================================================================================================================
 
     /*
         Initialization
@@ -107,6 +116,9 @@ public class User {
         if(!_survivalRecord.exists()){
             try {
                 _survivalRecord.createNewFile();
+                PrintWriter writer = new PrintWriter(_classicRecord, "UTF-8");
+                writer.println("0");
+                writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -114,6 +126,8 @@ public class User {
     }
 
 
+    //==================================================================================================================
+    //==================================================================================================================
 
     /*
             Practice Mode
@@ -123,26 +137,46 @@ public class User {
      * Read the current practice Statistic of the user
      */
     private void readPracticeStatistic(){
-        //Create a scanner
-        Scanner sc = null;
-        try {
-            sc = new Scanner(_practiceRecord);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        //Read the record file
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
-            String number = line.split("#")[0];
-            //Put null when there is no record
-            if(line.split("#")[1].equals("-")){
-                _practiceStatistic.put(number, null);
+        _reader = new FileReader(_practiceRecPath);
+        Map<String, String> record = _reader.getData();
+        for (String s : record.keySet()){
+            if (s.equals("-")){
+                //Put null if there is no record
+                _practiceStatistic.put(s, null);
             }else{
-                //Put the corresponding boolean value when there are records
-                _practiceStatistic.put(number, stringTranslate(line.split("#")[1]));
+                //Put true or false if there is a record
+                _practiceStatistic.put(s, stringTranslate(record.get(s)));
             }
         }
-        sc.close();
+    }
+
+    /**
+     * Write the newest record to the local record file
+     */
+    public void updatePractiseRecord(String number, boolean result){
+        readPracticeStatistic();
+
+        //Update the new statistic
+        _practiceStatistic.get(number).add(result);
+
+        //Write the newest statistic
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(_practiceRecord, "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        for (String s : _practiceStatistic.keySet()) {
+            if (_practiceStatistic.get(s) != null) {
+                String binary = booleanTranslate(_practiceStatistic.get(s));
+                writer.println(s + "#" + binary);
+            } else {
+                writer.println(s + "#" + "-");
+            }
+        }
+        writer.close();
     }
 
     /**
@@ -162,48 +196,9 @@ public class User {
 
     }
 
-    /**
-     * Write the newest record to the local record file
-     */
-    public void updatePractiseRecord(String number, boolean result){
-        readPracticeStatistic();
-        //Update the new statistic
-        Map<String, ArrayList<Boolean>> newStats = new HashMap<>();
-        for (String n : _practiceStatistic.keySet()) {
-            //Update the corresponding record
-            if (n.equals(number)) {
-                ArrayList<Boolean> newRecord = new ArrayList<>();
-                if (_practiceStatistic.get(n) != null) {
-                    newRecord = _practiceStatistic.get(n);
-                }
-                newRecord.add(result);
-                newStats.put(n, newRecord);
-            } else {
-                newStats.put(n, _practiceStatistic.get(n));
-            }
-        }
-        _practiceStatistic = newStats;
 
-        //Write the newest statistic
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter(_practiceRecord, "UTF-8");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        for (String s : _practiceStatistic.keySet()) {
-            //Write the newest record
-            if (_practiceStatistic.get(s) != null) {
-                String binary = booleanTranslate(_practiceStatistic.get(s));
-                writer.println(s + "#" + binary);
-            } else {
-                writer.println(s + "#" + "-");
-            }
-        }
-            writer.close();
-    }
+
+    //==================================================================================================================
 
     /**
      * Supports the updatePractiseRecord() method. Translate the ArrayList<Boolean> to a String
@@ -237,6 +232,11 @@ public class User {
 
 
 
+    //==================================================================================================================
+    //==================================================================================================================
+
+
+
     /*
         Classic Mode
      */
@@ -245,22 +245,8 @@ public class User {
      * Read the current Classic record of the user
      */
     private void readClassicRecord(){
-        //Read the current score
-        try {
-            Scanner sc = new Scanner(new File(_dir + "classic.txt"));
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                String level = line.split("#")[0];
-                String score = "-";
-                if (line.split("#").length > 1){
-                    score = line.split("#")[1];
-                }
-                _classicStatistic.put(level, score);
-            }
-            sc.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        _reader = new FileReader(_classicRecPath);
+        _classicStatistic = _reader.getData();
     }
 
     /**
@@ -309,6 +295,8 @@ public class User {
 
 
 
+    //==================================================================================================================
+    //==================================================================================================================
 
 
 
@@ -316,30 +304,29 @@ public class User {
         Survival Mode
      */
 
-    /**
-     * Read the current highest score, compare with the latest attempt. Update the highest if the score of the latest
-     * attempt is higher.
-     * @param mode a String representing which record to update
-     * @param score a int representing the score of the latest attempt
-     */
-    private void updateSurvivalRecord(String mode, String score){
-        //Check if the file exist (if it is the first try)
-        File target = new File(_dir + "survival.txt");
-        //Read the current score
-        int current = 0;
+    private void readSurvivalScore(){
         try {
-            Scanner sc = new Scanner(target);
-            while (sc.hasNextLine()) {
-                current = Integer.parseInt(sc.nextLine());
-            }
+            Scanner sc = new Scanner(_survivalRecord);
+            _survivalScore = sc.nextLine();
             sc.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Read the current highest score, compare with the latest attempt. Update the highest if the score of the latest
+     * attempt is higher.
+     * @param score a int representing the score of the latest attempt
+     */
+    private void updateSurvivalScore(String score){
+        readSurvivalScore();
         //Update the score if it is higher
-        if (current <= Integer.parseInt(score)) {
+        int before = Integer.parseInt(_survivalScore);
+        int now = Integer.parseInt(score);
+        if (before < now ) {
             try {
-                PrintWriter writer = new PrintWriter(target, "UTF-8");
+                PrintWriter writer = new PrintWriter(_survivalRecord, "UTF-8");
                 writer.println(score);
                 writer.close();
             } catch (FileNotFoundException e) {
@@ -350,7 +337,14 @@ public class User {
         }
     }
 
+    public String getSurvivalScore() {
+        readSurvivalScore();
+        return _survivalScore;
+    }
 
+
+    //==================================================================================================================
+    //==================================================================================================================
 
 
 

@@ -26,7 +26,6 @@ public class ClassicTestPageController extends TestPageController {
 
 	@FXML
 	private Label _question;
-
 	@FXML
 	private JFXRadioButton _q1;
 	@FXML
@@ -62,10 +61,7 @@ public class ClassicTestPageController extends TestPageController {
 		_question.setText(_qs.getQuestion());
 		_score = 0;
 
-		_question.setStyle("-fx-text-size: 100");
 		//Initialize GUI
-		_message.setVisible(false);
-
 		if (Integer.parseInt(_selectedLevel) > 12){
 			//Change font size for Strings
 			_question.setStyle("-fx-font-size: 24");
@@ -73,13 +69,13 @@ public class ClassicTestPageController extends TestPageController {
 			//Change font size for numbers
 			_question.setStyle("-fx-font-size: 130");
 		}
+		_message.setVisible(false);
 		_q1.setId("onQuestion");
 		_level.setText("Level "+_selectedLevel);
 		_record.setVisible(true);
 		_record.setText("Record");
 		_next.setVisible(false);
 		_next.setText("Next");
-
 	}
 	
 
@@ -100,7 +96,6 @@ public class ClassicTestPageController extends TestPageController {
 	public void handlePressNext(MouseEvent event) {
 		
 		if (_next.getText() == "Completed"){
-			System.out.println(_score);
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
 			try {
 				//Count the score (how many right attempts)

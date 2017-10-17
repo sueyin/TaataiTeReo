@@ -8,10 +8,6 @@ import javafx.concurrent.Task;
 import java.io.File;
 
 public abstract class Question {
-	private static final String MULTIPLE = "\u00D7";
-	private static final String DIVIDE = "\u00F7";
-
-
 	protected final int MAX = 10;
 
 	protected static final String TEMPWAV = TataiApp.getTempDir() + "/temp.wav";
@@ -247,26 +243,4 @@ public abstract class Question {
 		}
 	}
 
-
-	/*
-		Additional
-	 */
-	/**
-	 * Translate multiplication and division signs to UTF code
-	 */
-	public static String translate(String raw){
-		String translated = "";
-		if (raw.length() > 1) {
-			for (char i : raw.toCharArray()) {
-				if (i == '*') {
-					translated = translated + MULTIPLE;
-				} else if (i == '/') {
-					translated = translated + DIVIDE;
-				} else {
-					translated = translated + i;
-				}
-			}
-		}
-		return translated;
-	}
 }

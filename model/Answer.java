@@ -55,7 +55,6 @@ public class Answer {
         }
     }
 
-
     public String getAnswer() {
         return _answer;
     }

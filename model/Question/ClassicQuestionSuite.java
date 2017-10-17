@@ -1,28 +1,34 @@
 package application.model.question;
 
+import application.controller.MainPageController;
+import application.model.file.FileReader;
+import com.sun.org.apache.regexp.internal.RE;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ClassicQuestionSuite {
-	private static final String BANKDIR = "./src/application/bank/classic/";
+    private static final String BANKDIR = "./src/application/bank/classic/";
     //private static final String BANKDIR = "./bank/classic/";
     private static final int TOTAL = 10;
+
     private String _level;
-    private HashMap<String, String> _questionSuite = new HashMap<>();
-
     private int _index;
-    private List<String> _answerList = new ArrayList<>();
 
+    private FileReader _reader;
+    private List<String> _answers = new ArrayList<>();
+    private Map<String , String> _questionSuite = new HashMap<>();
     private boolean[] _results = new boolean[TOTAL];
 
+
+    //==================================================================================================================
     public ClassicQuestionSuite(String level) {
         _level = level;
         _index = 0;
         readQuestionBank();
-        Arrays.fill(_results, Boolean.FALSE);
     }
-
+    //==================================================================================================================
 
     /*
         Manage Questions
@@ -32,23 +38,12 @@ public class ClassicQuestionSuite {
      * Read the corresponding question bank and shuffle the questions randomly.
      */
     protected void readQuestionBank() {
-        File bank = new File(BANKDIR + _level + ".txt");
-        try {
-            Scanner sc = new Scanner(bank);
-            String line;
-            while (sc.hasNextLine()) {
-                line = sc.nextLine();
-                String answer = line.split("#")[0];
-                String question = Question.translate(line.split("#")[1]);
-                _questionSuite.put(answer, question);
-                _answerList.add(answer);
-            }
-            sc.close();
-            Collections.shuffle(_answerList);
+       _reader = new FileReader(BANKDIR + _level + ".txt");
+        _questionSuite = _reader.getData();
+        for (String s : _questionSuite.keySet()){
+            _answers.add(s);
         }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        Collections.shuffle(_answers);
     }
 
     /**
@@ -62,6 +57,8 @@ public class ClassicQuestionSuite {
 
 
 
+
+
     /*
         Getters
      */
@@ -71,7 +68,7 @@ public class ClassicQuestionSuite {
      * @return a String representing the current math question
      */
     public String getQuestion(){
-        return _questionSuite.get(_answerList.get(_index));
+        return _questionSuite.get(_answers.get(_index));
     }
 
     /**
@@ -79,7 +76,7 @@ public class ClassicQuestionSuite {
      * @return the correct answer for the current math question
      */
     public String getAnswer(){
-        return _answerList.get(_index);
+        return _answers.get(_index);
     }
 
     /**
@@ -110,7 +107,7 @@ public class ClassicQuestionSuite {
      * @param result a boolean value indication the result of a question.
      */
     public void collectResult(boolean result){
-        _results[_index] = result;
+        _results[_index]= result;
     }
 
 
@@ -128,7 +125,7 @@ public class ClassicQuestionSuite {
      * @return _results an array of boolean values indicating the result from each quesiton.
      */
     public List<String> getAnswers(){
-        return _answerList;
+        return _answers;
     }
 
 
