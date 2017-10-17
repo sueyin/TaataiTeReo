@@ -1,11 +1,15 @@
 package application.controller;
 
+import application.TataiApp;
 import com.jfoenix.controls.JFXButton;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+
+import javax.sound.sampled.*;
+import java.io.File;
 
 public abstract class TestPageController {
     @FXML
@@ -30,6 +34,7 @@ public abstract class TestPageController {
 
     public void addScore(){
         _score = _score + 1;
+        System.out.println("Score is " +_score);
     }
 
     //Change GUI methods
@@ -54,8 +59,17 @@ public abstract class TestPageController {
     
 	@FXML
 	public void handlePressPlay(MouseEvent event) {
-		//TODO function for play recording 
-		System.out.println("play");
+        try {
+            File audio = new File(TataiApp.getTempDir() + "temp.wav");
+            AudioInputStream stream = AudioSystem.getAudioInputStream(audio);
+            AudioFormat format = stream.getFormat();
+            DataLine.Info  info = new DataLine.Info(Clip.class, format);
+            Clip clip = (Clip) AudioSystem.getLine(info);
+            clip.open(stream);
+            clip.start();
+        }catch (Exception e){
+            System.out.println("erorr" + e);
+        }
 	}
 
 }

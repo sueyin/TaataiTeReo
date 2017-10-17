@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.model.question.ClassicQuestion;
+import application.model.question.ClassicQuestionSuite;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,7 +80,7 @@ public class ClassicMenuPageController {
 		for (int level = 1; level < 16; level++) {
 			String result = MainPageController.getUser().getClassicRecord(Integer.toString(level));
 			System.out.println(result);
-			if (result.equals("")) {
+			if (result.equals("-")) {
 				Star.add(0);
 			}
 			else{

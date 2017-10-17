@@ -110,7 +110,7 @@ public class CustomCreatePageController {
 						delivery.add(s);
 					}
 				}
-				//Create a new question suite
+				//Create a new Question suite
 				_manager.writeCustomSuite(_id, description, delivery, _public.isSelected());
 
 				//Update GUI

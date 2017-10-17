@@ -2,7 +2,6 @@ package application.controller;
 
 import java.io.IOException;
 
-import application.model.question.SurvivalQuestionSuite;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -29,16 +28,7 @@ public class SurvivalTestPageController {
 	
 	@FXML
 	private Label _message;
-
-	private SurvivalQuestionSuite _qs;
-
-	@FXML
-	public void initialize() {
-		_qs = new SurvivalQuestionSuite();
-
-	}
-
-
+	
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
         try {
