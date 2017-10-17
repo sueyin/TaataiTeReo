@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomLeaderBoardPageController">
+   <children>
+      <ImageView fitHeight="633.0" fitWidth="1126.0" layoutX="183.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="63.0" />
+         </effect>
+      </ImageView>
+      <Label layoutX="426.0" layoutY="40.0" text="Leader Board" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="50.0" />
+         </font>
+      </Label>
+      <TableView fx:id="_expTable" layoutX="93.0" layoutY="142.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: transparent;" />
+      <TableView fx:id="_starTable" layoutX="426.0" layoutY="142.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: transparent;" />
+      <TableView fx:id="_survivalTable" layoutX="765.0" layoutY="142.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: transparent;" />
+      <JFXButton fx:id="_return" layoutX="25.0" layoutY="26.0" onMouseClicked="#handlePressReturn" text=" ">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/custom/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
 </AnchorPane>
-
