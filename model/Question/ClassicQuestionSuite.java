@@ -1,4 +1,4 @@
-package application.model.Question;
+package application.model.question;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,7 +40,6 @@ public class ClassicQuestionSuite {
                 line = sc.nextLine();
                 String answer = line.split("#")[0];
                 String question = Question.translate(line.split("#")[1]);
-                System.out.println(answer +" " + question);
                 _questionSuite.put(answer, question);
                 _answerList.add(answer);
             }

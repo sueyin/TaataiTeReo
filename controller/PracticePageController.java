@@ -2,8 +2,8 @@ package application.controller;
 
 import java.io.IOException;
 
-import application.model.Question.PracticeQuestion;
-import application.model.Question.Question;
+import application.model.question.PracticeQuestion;
+import application.model.question.Question;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

@@ -1,16 +1,11 @@
-package application.model.Question;
+package application.model.question;
 
 import application.TataiApp;
 import application.controller.TestPageController;
 import application.model.Answer;
 import javafx.concurrent.Task;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Scanner;
 
 public abstract class Question {
 	private static final String MULTIPLE = "\u00D7";
@@ -82,7 +77,7 @@ public abstract class Question {
 			}
 		};
 
-		//When the Record process is completed, update the status of the Question and switch GUI to show progressing.
+		//When the Record process is completed, update the status of the question and switch GUI to show progressing.
 		//Invoke the next Compare step
 		_recordTask.setOnSucceeded(new EventHandler<Event>() {
 			@Override
@@ -138,7 +133,7 @@ public abstract class Question {
 				return null;
 			}
 		};
-		//When the Compare process finished, update Question status and GUI.
+		//When the Compare process finished, update question status and GUI.
 		_compareTask.setOnSucceeded(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
@@ -213,19 +208,13 @@ public abstract class Question {
         return _result;
     }
 
-
     public String getQuestion(){
     	return _question;
 	}
 
-	/**
-	 * TODO When the user said the number wrong, should use this method to show the correct answer (optional??)
-	 * @return a String indicating the correct answer.
-	 */
 	public String getAnswer() {
 		return _answer;
 	}
-
 
 	public String getRead(){
 		return _read;

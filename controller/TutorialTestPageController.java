@@ -6,14 +6,11 @@ import com.jfoenix.controls.JFXButton;
 
 import javafx.scene.control.Label;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
 
 import com.jfoenix.controls.JFXSpinner;
 
-import application.model.Question.PracticeQuestion;
-import application.model.Question.Question;
+import application.model.question.PracticeQuestion;
 
 public class TutorialTestPageController extends TestPageController {
 	@FXML

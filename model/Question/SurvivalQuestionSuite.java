@@ -1,6 +1,4 @@
-package application.model.Question;
-
-import application.controller.MainPageController;
+package application.model.question;
 
 import java.util.*;
 

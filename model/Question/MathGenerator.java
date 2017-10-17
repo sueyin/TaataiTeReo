@@ -1,4 +1,4 @@
-package application.model.Question;
+package application.model.question;
 
 import java.io.File;
 import java.io.FileNotFoundException;

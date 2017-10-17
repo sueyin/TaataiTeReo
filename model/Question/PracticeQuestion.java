@@ -1,4 +1,4 @@
-package application.model.Question;
+package application.model.question;
 
 import application.controller.MainPageController;
 import application.controller.TestPageController;

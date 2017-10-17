@@ -1,8 +1,8 @@
 package application.controller;
 
 
-import application.model.Question.ClassicQuestion;
-import application.model.Question.ClassicQuestionSuite;
+import application.model.question.ClassicQuestion;
+import application.model.question.ClassicQuestionSuite;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXRadioButton;
-import com.sun.javafx.geom.Shape;
 
 public class ClassicTestPageController extends TestPageController {
 

@@ -63,7 +63,7 @@ public class CustomManager {
 
 
     /**
-     * Write a new Question Suite
+     * Write a new question Suite
      */
     public void writeCustomSuite(String id, String desp, ArrayList<String> qs, boolean isPublic){
         File newSuite;
