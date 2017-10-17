@@ -3,77 +3,68 @@ package application.model.question;
 import java.util.*;
 
 public class SurvivalQuestionSuite {
-    private Map<String, String> _set = new HashMap<>();
     private ArrayList<String> _questions = new ArrayList<>();
-    private int index;
+    private MathGenerator _generator;
+    private int _phase;
+    private int _index;
 
     public SurvivalQuestionSuite(){
-        index = 0;
-        for (int i = 1; i <= 99; i++){
-            _questions.add(Integer.toString(i));
-        }
+        _generator = new MathGenerator();
+        _phase = 1;
     }
 
-
-    public void renewQuestionSuite(){
-        generateRandomQuestions();
+    private void renewQuestions() {
+        _questions.clear();
+       if (_phase == 1){  //6
+           for (int i = 0; i < 3; i++){
+               _questions.add(_generator.generateBasicA());
+               _questions.add(_generator.generateBasicB());
+           }
+       }else if (_phase == 2){ //8
+           for (int i = 0; i < 2; i++){
+               _questions.add(_generator.generateBasicA());
+               _questions.add(_generator.generateBasicB());
+               _questions.add(_generator.generateBasicAH());
+               _questions.add(_generator.generateBasicBH());
+           }
+       }else if (_phase == 3){  //9
+            for (int i = 0; i < 3; i++){
+                _questions.add(_generator.generateBasicAH());
+                _questions.add(_generator.generateBasicBH());
+                _questions.add(_generator.generateCompA());
+                _questions.add(_generator.generateCompC());
+            }
+       }else{   //10
+           _questions.add(_generator.generateCompA());
+           _questions.add(_generator.generateCompB());
+           _questions.add(_generator.generateCompC());
+           _questions.add(_generator.generateCompD());
+           _questions.add(_generator.generateCompE());
+           _questions.add(_generator.generateCompF());
+           _questions.add(_generator.generateCompG());
+           _questions.add(_generator.generateCompH());
+           _questions.add(_generator.generateCompI());
+           _questions.add(_generator.generateCompJ());
+       }
         Collections.shuffle(_questions);
     }
 
-
-    private void generateRandomQuestions(){
-        int i = 0;
-        for (int j = 0; j < 10; j++) {
-                //A+B
-                _set.put(Integer.toString(i), MathGenerator.generateAddition(i));
-                i++;
-                //A-B
-                _set.put(Integer.toString(i), MathGenerator.generateSubstraction(i, 99));
-                i++;
+    public void nextQuestion(){
+        if (_index == _questions.size() - 1){
+            _phase++;
+            _index = 0;
+            renewQuestions();
+        }else{
+            _index++;
         }
-        //i=20
-        for (int j = 0; j < 8; j++ ){
-
-        }
-
-
-        /*
-        type1  A+B 20
-        type2   A-B 20
-        type8   A+B+C 5
-        type9   A-B+C 5
-        type10  A+B-C 5
-        type11  A-B-C 5
-        type3   A*B+A*B
-        type12  A*B+C 8
-        type13  A/B+C 8
-        type14  A*B-C 5
-        type15  A/B-C 5
-        type16  C-A*B 5
-        type17  C-A/B 5
-        type4   A*B-A*B 5
-        type5   A/B+A*B 5
-        type6   A*B-A/B 5
-        type7   A/B-A/B 3
-
-
-
-
-         */
-
     }
 
-
-    private void type1(){
-
+    public String  getQuestion(){
+        return _questions.get(_index).split("#")[1];
     }
 
-
-
-
-
-
-
-
+    public String getAnswer(){
+        return _questions.get(_index).split("#")[0];
+    }
 
 }
