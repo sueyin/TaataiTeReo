@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.jfoenix.controls.JFXRadioButton;
-import com.sun.javafx.geom.Shape;
 
 public class ClassicTestPageController extends TestPageController {
 

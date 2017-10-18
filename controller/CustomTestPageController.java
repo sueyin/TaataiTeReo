@@ -1,6 +1,11 @@
 package application.controller;
 
+<<<<<<< HEAD
 import application.model.question.CustomeQuestion;
+=======
+import application.model.Question.CustomeQuestion;
+import application.model.Question.CustomeQuestionSuite;
+>>>>>>> 9e4fc4fdcf73a878e467970a4a6019addb77ff33
 import application.tableModel.TableList;
 import javafx.fxml.FXML;
 
@@ -32,12 +37,21 @@ public class CustomTestPageController {
 
 	private boolean _isPublic;
 
+<<<<<<< HEAD
+=======
+	private CustomeQuestionSuite _qs;
+
+>>>>>>> 9e4fc4fdcf73a878e467970a4a6019addb77ff33
 	private CustomeQuestion _q;
 
 	@FXML
 	public void initialize() {
 		_selectedQS = CustomDoPageController.getSelected();
 		_id = _selectedQS.getName();
+<<<<<<< HEAD
+=======
+		_qs = new CustomeQuestionSuite(_id, _selectedQS.getPublic());
+>>>>>>> 9e4fc4fdcf73a878e467970a4a6019addb77ff33
 	}
 
 

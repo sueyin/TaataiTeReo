@@ -12,7 +12,7 @@ public class TataiApp extends Application {
     private static final String ROOTDIR = "./Tatai/";
     private static final String USR = ROOTDIR +"usr/";
     private static final String CUSTOM = ROOTDIR + "custom/";
-    private static final String CUSTOMPUBLIC = ROOTDIR + "custom/.publicpool";
+    private static final String CUSTOMPUBLIC = ROOTDIR + "custom/.publicpool/";
     private static final String TEMP = ROOTDIR + "temp/";
 
     @Override
