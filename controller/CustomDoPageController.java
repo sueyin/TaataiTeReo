@@ -1,7 +1,9 @@
 package application.controller;
 
+import application.confirmation.ConfirmationModel;
 import application.model.CustomManager;
 import application.tableModel.TableList;
+import application.viewModel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -161,30 +163,14 @@ public class CustomDoPageController {
 	
 	@FXML
 	public void handlePressAdd(MouseEvent event) {
-		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomCreatePage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/CustomCreatePage.fxml");
 	}
 	
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/MainPage.fxml");
 	}
 	
 	@FXML
@@ -213,21 +199,8 @@ public class CustomDoPageController {
 
 		}
 		else {
-			try {
-				Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/DeleteTableListConfirmation.fxml"));
-				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				Scene scene = new Scene(parent);
-				_popUp = new Stage();
-				_popUp.setScene(scene);
-				_popUp.initOwner(stage);
-				_popUp.initModality(Modality.WINDOW_MODAL);
-
-				_popUp.showAndWait();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			//get user result, if the user does want to delete, then delete
-			boolean confirm = application.confirmation.DeleteTableListConfirmationController.getDeleteConfirm();
+			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to delete selected question suite?", "Delete", "Cancel");
+			boolean confirm = confirmation.createPopUp();
 			System.out.println(""+confirm);
 			if (confirm){
 				setSelected();

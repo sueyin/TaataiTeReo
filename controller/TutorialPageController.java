@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 
+import application.viewModel.SceneSwitch;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -61,16 +62,8 @@ public class TutorialPageController {
 	
 	@FXML
 	public void handlePressButton3(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/TutorialTestPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/TutorialTestPage.fxml");
 	}
 
 	private void setFirstPage(boolean show) {

@@ -2,6 +2,7 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -31,16 +32,8 @@ public class SurvivalTestPageController {
 	
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/MainPage.fxml");
 	}
 	
 	@FXML

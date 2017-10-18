@@ -13,16 +13,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticePageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticePageController">
 	<children>
-      <ImageView fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/background.png" />
-         </image>
-         <effect>
-            <GaussianBlur radius="63.0" />
-         </effect>
-      </ImageView>
 		<Label fx:id="_title" alignment="CENTER" layoutX="405.0" layoutY="49.0" prefHeight="85.0" prefWidth="316.0" text="Practice" textFill="WHITE">
 			<font>
 				<Font name="Yuanti SC Regular" size="60.0" />

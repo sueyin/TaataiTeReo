@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import application.viewModel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -103,16 +104,8 @@ public class PracticeStatisticPageController {
 	
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/PracticePage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/PracticePage.fxml");
 	}
 
 	//sort the numbers according to correct answers

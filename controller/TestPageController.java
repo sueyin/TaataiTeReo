@@ -34,7 +34,6 @@ public abstract class TestPageController {
 
     public void addScore(){
         _score = _score + 1;
-        System.out.println("Score is " +_score);
     }
 
     //Change GUI methods

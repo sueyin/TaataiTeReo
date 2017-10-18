@@ -3,6 +3,7 @@ package application.controller;
 
 import application.model.question.ClassicQuestion;
 import application.model.question.ClassicQuestionSuite;
+import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -29,26 +30,7 @@ public class ClassicTestPageController extends TestPageController {
 	private Label _question;
 
 	@FXML
-	private JFXRadioButton _q1;
-	@FXML
-	private JFXRadioButton _q2;
-	@FXML
-	private JFXRadioButton _q3;
-	@FXML
-	private JFXRadioButton _q4;
-	@FXML
-	private JFXRadioButton _q5;
-	@FXML
-	private JFXRadioButton _q6;
-	@FXML
-	private JFXRadioButton _q7;
-	@FXML
-	private JFXRadioButton _q8;
-	@FXML
-	private JFXRadioButton _q9;
-	@FXML
-	private JFXRadioButton _q10;
-
+	private JFXRadioButton _q1, _q2, _q3, _q4, _q5, _q6, _q7, _q8, _q9, _q10;
 
 	@FXML
 	public void initialize() {
@@ -103,25 +85,18 @@ public class ClassicTestPageController extends TestPageController {
 		if (_next.getText() == "Completed"){
 			System.out.println(_score);
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
-			try {
-				//Count the score (how many right attempts)
-				int score = 0;
-				for (boolean b : _qs.getResults()){
-					if (b){
-						score++;
-					}
+			
+			//Count the score (how many right attempts)
+			int score = 0;
+			for (boolean b : _qs.getResults()){
+				if (b){
+					score++;
 				}
-				//MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(score));
-				Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicFeedbackPage.fxml"));
-				Scene scene = new Scene(parent);
-				Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				stage.setScene(scene);
-				stage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/ClassicFeedbackPage.fxml");
 		}else {
-			//Update GUI
+			//Update GUI	
 			boolean result = _q.getResult();
 			int index = _qs.getIndexNumber();
 			if (result) {
@@ -258,16 +233,8 @@ public class ClassicTestPageController extends TestPageController {
 
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicMenuPage.fxml"));
-			Scene scene = new Scene(parent);
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/ClassicMenuPage.fxml");
 	}
 
 

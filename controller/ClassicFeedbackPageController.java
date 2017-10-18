@@ -2,6 +2,7 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -83,51 +84,35 @@ public class ClassicFeedbackPageController {
 		}
 	}
 	
+	/**
+	 * Switch to classic mode menu page when user press menu button
+	 */
 	@FXML
 	public void handlePressMenu(MouseEvent event) {
-		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicMenuPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/ClassicMenuPage.fxml");
 	}
 	
+	/**
+	 * Switch to next level
+	 */
 	@FXML
 	public void handlePressNextLevel(MouseEvent event) {
-		try {
-			int nextLevel = Integer.parseInt(_levelNum) + 1;
-			ClassicMenuPageController.setSelectedLevel(Integer.toString(nextLevel));
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicTestPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		int nextLevel = Integer.parseInt(_levelNum) + 1;
+		ClassicMenuPageController.setSelectedLevel(Integer.toString(nextLevel));
+		
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/ClassicTestPage.fxml");
 	}
-	
+	/**
+	 * replay this level again
+	 */
 	@FXML
 	public void handlePressReplay(MouseEvent event) {
-		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/ClassicTestPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/ClassicTestPage.fxml");
 		
 	}
-
 
 	/*
 		Private method about GUI

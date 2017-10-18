@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+import application.viewModel.SceneSwitch;
+
 public class TataiApp extends Application {
     private static final String ROOTDIR = "./Tatai/";
     private static final String USR = ROOTDIR +"usr/";

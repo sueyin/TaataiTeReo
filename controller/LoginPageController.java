@@ -8,8 +8,10 @@ import java.util.List;
 
 
 import application.TataiApp;
-import application.confirmation.DeleteConfirmationController;
+import application.confirmation.ConfirmationModel;
 import application.model.User;
+import application.viewModel.SceneSwitch;
+
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 
@@ -123,20 +125,8 @@ public class LoginPageController {
 	@FXML
 	public void handlePressDeleteUser(MouseEvent event) {
 		//opens a window that confirms if the user want to delete the user
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/DeleteConfirmation.fxml"));
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(parent);
-			_deleteConfirm = new Stage();
-			_deleteConfirm.setScene(scene);
-			_deleteConfirm.initOwner(stage);
-			_deleteConfirm.initModality(Modality.WINDOW_MODAL);
-			_deleteConfirm.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		//get user result, if the user does want to delete, then delete
-		boolean confirm = DeleteConfirmationController.getDeleteConfirm();
+		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to delete the user?", "Delete", "Cancel");
+		boolean confirm = confirmation.createPopUp();
 		if (confirm){
 			System.out.println("delete user");
 			String toDelete = _userList.getSelectionModel().getSelectedItem();
@@ -174,16 +164,8 @@ public class LoginPageController {
 		//if a user is selected, then save the choice and continue to main page
 		else {
 			saveNewUserName(_selectedUser);
-			try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-	        	Scene scene = new Scene(parent);
-	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        	stage.setScene(scene);
-	        	stage.show();
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/MainPage.fxml");
 		}
 	}
 	

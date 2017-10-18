@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import application.confirmation.QuitConfirmationController;
+import application.confirmation.ConfirmationModel;
+import application.confirmation.PopUpModel;
 import application.model.CustomManager;
+import application.viewModel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
@@ -115,29 +117,12 @@ public class CustomCreatePageController {
 
 				//Update GUI
 				//Return to custom page
-				try {
-		        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomDoPage.fxml"));
-		        	Scene scene = new Scene(parent);
-		        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		        	stage.setScene(scene);
-		        	stage.show();
-
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		        }
+				Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				SceneSwitch load = new SceneSwitch(currentStage);
+				load.switchScene("/application/view/CustomDoPage.fxml");
 				//Successfully created message
-				try {
-					Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/CustomCreateSuccessConfirmation.fxml"));
-					Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-					Scene scene = new Scene(parent);
-					_popUp = new Stage();
-					_popUp.setScene(scene);
-					_popUp.initOwner(stage);
-					_popUp.initModality(Modality.WINDOW_MODAL);
-					_popUp.showAndWait();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				PopUpModel popUp = new PopUpModel(currentStage, "Question List Successfully created!");
+				popUp.createPopUp();
 			}
 		}
 	}
@@ -259,32 +244,12 @@ public class CustomCreatePageController {
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		//opens a window that confirms if the user wants to quit 
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/confirmation/QuitConfirmation.fxml"));
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(parent);
-			_popUp = new Stage();
-			_popUp.setScene(scene);
-			_popUp.initOwner(stage);
-			_popUp.initModality(Modality.WINDOW_MODAL);
-
-			_popUp.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		//get user result, if the user does want to quit, then quit
-		boolean confirm = QuitConfirmationController.getQuit();
+		
+		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to return?", "Return", "Stay on this Page");
+		boolean confirm = confirmation.createPopUp();
 		if (confirm){
-			try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomDoPage.fxml"));
-	        	Scene scene = new Scene(parent);
-	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        	stage.setScene(scene);
-	        	stage.show();
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/CustomDoPage.fxml");
 		}
 	}
 

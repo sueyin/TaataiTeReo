@@ -9,16 +9,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomLeaderBoardPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0"  style="-fx-background-image: url(/application/image/background.png);"  stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomLeaderBoardPageController">
    <children>
-      <ImageView fitHeight="633.0" fitWidth="1126.0" layoutX="183.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/background.png" />
-         </image>
-         <effect>
-            <GaussianBlur radius="63.0" />
-         </effect>
-      </ImageView>
       <Label layoutX="426.0" layoutY="40.0" text="Leader Board" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="50.0" />

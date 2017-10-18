@@ -15,16 +15,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);"  stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomDoPageController">
    <children>
-            <ImageView fitHeight="633.0" fitWidth="1126.0" layoutX="-22.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/background.png" />
-         </image>
-         <effect>
-            <GaussianBlur radius="63.0" />
-         </effect>
-      </ImageView>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b3b3bc0" height="290.0" layoutX="150.0" layoutY="220.0" stroke="BLACK" strokeType="INSIDE" width="826.0" />
       <TabPane fx:id="_tab" layoutX="150.0" layoutY="160.0" prefHeight="337.0" prefWidth="826.0" style="-fx-background-color: transparent;" stylesheets="@../application.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>

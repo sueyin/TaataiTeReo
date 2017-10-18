@@ -12,16 +12,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TutorialPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TutorialPageController">
    <children>
-         <ImageView fx:id="_background" fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/background.png" />
-         </image>
-         <effect>
-            <GaussianBlur radius="63.0" />
-         </effect>
-      </ImageView>
       <Label layoutX="437.0" layoutY="37.0" text="Tutorial Page" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="50.0" />

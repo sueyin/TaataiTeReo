@@ -11,16 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0"  style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
 	<children>
-		<ImageView fitHeight="633.0" fitWidth="1126.0" pickOnBounds="true">
-			<image>
-				<Image url="@../image/background.png" />
-			</image>
-         <effect>
-            <GaussianBlur radius="19.99" />
-         </effect>
-		</ImageView>
 		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="379.0" layoutY="88.0" prefHeight="184.0" prefWidth="410.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
 			<font>
 				<Font name="Yuanti SC Regular" size="130.0" />

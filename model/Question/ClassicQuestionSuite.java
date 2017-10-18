@@ -2,7 +2,6 @@ package application.model.question;
 
 import application.controller.MainPageController;
 import application.model.file.FileReader;
-import com.sun.org.apache.regexp.internal.RE;
 
 import java.io.File;
 import java.io.FileNotFoundException;

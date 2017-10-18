@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import application.model.question.PracticeQuestion;
 import application.model.question.Question;
+import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -121,16 +122,8 @@ public class PracticePageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressMainReturn(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/MainPage.fxml");
 	}
 	
 	/**
@@ -138,16 +131,8 @@ public class PracticePageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressStats(MouseEvent event) {
-        try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/PracticeStatisticPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/PracticeStatisticPage.fxml");
 	}
 
 	@FXML

@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXButton;
 import application.tableModel.ExpModel;
 import application.tableModel.StarModel;
 import application.tableModel.SurvivalModel;
+import application.viewModel.SceneSwitch;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -91,16 +92,8 @@ public class CustomLeaderBoardPageController {
 	
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		try {
-        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomDoPage.fxml"));
-        	Scene scene = new Scene(parent);
-        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        	stage.setScene(scene);
-        	stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/CustomDoPage.fxml");
 	}
 
 }
