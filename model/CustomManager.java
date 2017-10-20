@@ -73,6 +73,9 @@ public class CustomManager {
         }
         FileReader reader = new FileReader(path);
         Map<String, String> questionSuite = reader.getData();
+        System.out.println("try"+questionSuite.get("author"));
+        System.out.println("try"+questionSuite.get("disp"));
+        System.out.println("try"+questionSuite.get("total"));
         questionSuite.remove("author");
         questionSuite.remove("disp");
         questionSuite.remove("total");

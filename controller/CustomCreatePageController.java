@@ -95,39 +95,6 @@ public class CustomCreatePageController {
 	}
 
 	@FXML
-	public void handlePressCreate(MouseEvent event) {
-		String description = _description.getText();
-		if (description.equals("")) {
-			errorMsg("Please enter a description before continuing");
-		} else {
-			if (_data.isEmpty()) {
-				errorMsg("The question list cannot be empty");
-			}
-			else {
-				//TODO confirmation ask
-				//Store _data in the file and report question suite created.
-				ArrayList<String> delivery = new ArrayList<>();
-				for (String s : _qs){
-					if (s.length() > 1){
-						delivery.add(s);
-					}
-				}
-				//Create a new Question suite
-				_manager.writeCustomSuite(_id, description, delivery, _public.isSelected());
-
-				//Update GUI
-				//Return to custom page
-				Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				SceneSwitch load = new SceneSwitch(currentStage);
-				load.switchScene("/application/view/CustomDoPage.fxml");
-				//Successfully created message
-				PopUpModel popUp = new PopUpModel(currentStage, "Question List Successfully created!");
-				popUp.createPopUp();
-			}
-		}
-	}
-
-	@FXML
 	public void handlePressAdd(MouseEvent event) {
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");
@@ -166,80 +133,41 @@ public class CustomCreatePageController {
 				}
 			}
 		}
-
-
-/*
-
-		if (equation.length() > 0){
-			try {
-				int value = Integer.parseInt(engine.eval(equation).toString());
-			} catch (ScriptException e) {
-				//e.printStackTrace();
-				// wrong format, equation cant run
-				Service delay = new TimedMessage();
-				_equationMessage.setText("Please enter an equation");
-				_equationMessage.setVisible(true);
-				//disable the message after a few seconds
-				if (!delay.isRunning()){
-					delay.start();
-				}
-				delay.setOnSucceeded(b -> {
-					_equationMessage.setVisible(false);
-					delay.reset();
-				});
-
-
-				//Ensure the given input is within the range
-				if( value < 1 || value > 99){
-					Service delay = new TimedMessage();
-					_equationMessage.setText("Result is out of range (1~99)");
-					_equationMessage.setVisible(true);
-					//disable the message after a few seconds
-					if (!delay.isRunning()){
-						delay.start();
-					}
-					delay.setOnSucceeded(ec -> {
-			            _equationMessage.setVisible(false);
-			            delay.reset();
-			        });
-				}else{
-					//If valid equation, then add it to data
-					_questionIndex++;
-					_qs.add(_questionIndex + "#" + value + "#"+ equation);
-					//TODO format is 1#32#2+30
-					_data.add(new ListCell(equation));
-				}
-
-				} catch (NumberFormatException e){
-					//TODO wrong answer, not int
-					Service delay = new TimedMessage();
-					_equationMessage.setText("Please enter numbers");
-					_equationMessage.setVisible(true);
-					//disable the message after a few seconds
-					if (!delay.isRunning()){
-						delay.start();
-					}
-					delay.setOnSucceeded(a -> {
-			            _equationMessage.setVisible(false);
-			            delay.reset();
-			        });
-				}
-			}else{
-				//TODO empty input notification
-				Service delay = new TimedMessage();
-				_equationMessage.setText("Please enter an equation before add");
-				_equationMessage.setVisible(true);
-				//disable the message after a few seconds
-				if (!delay.isRunning()){
-					delay.start();
-				}
-				delay.setOnSucceeded(eg -> {
-		            _equationMessage.setVisible(false);
-		            delay.reset();
-		        });
-			}
-			*/
 	}
+
+	@FXML
+	public void handlePressCreate(MouseEvent event) {
+		String description = _description.getText();
+		if (description.equals("")) {
+			errorMsg("Please enter a description before continuing");
+		} else {
+			if (_data.isEmpty()) {
+				errorMsg("The question list cannot be empty");
+			}
+			else {
+				//TODO confirmation ask
+				//Store _data in the file and report question suite created.
+				ArrayList<String> delivery = new ArrayList<>();
+				for (String s : _qs){
+					if (s.length() > 0){
+						delivery.add(s);
+					}
+				}
+				//Create a new Question suite
+				_manager.writeCustomSuite(_id, description, delivery, _public.isSelected());
+
+				//Update GUI
+				//Return to custom page
+				Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				SceneSwitch load = new SceneSwitch(currentStage);
+				load.switchScene("/application/view/CustomDoPage.fxml");
+				//Successfully created message
+				PopUpModel popUp = new PopUpModel(currentStage, "Question List Successfully created!");
+				popUp.createPopUp();
+			}
+		}
+	}
+
 
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
@@ -276,11 +204,15 @@ public class CustomCreatePageController {
 		public void clickDelete(MouseEvent event) {
 			System.out.println("delete");
 			//TODO get the row number and remove the corresponding question
-			_qs[_data.indexOf(this)]= "-";
+			_qs[_data.indexOf(this)]= "";
 			_data.remove(this);
 		}
 
 	}
+
+
+
+
 
 
 	/*
