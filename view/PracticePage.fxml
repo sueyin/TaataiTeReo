@@ -4,7 +4,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,25 +21,17 @@
 				<Glow level="1.0" />
 			</effect>
 		</Label>
-		<Label fx:id="_hardInstruction" layoutX="401.0" layoutY="272.0" prefHeight="178.0" prefWidth="186.0" text="Randomly generated between 1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		<Label fx:id="_hardInstruction" layoutX="412.0" layoutY="441.0" prefHeight="178.0" prefWidth="186.0" text="Randomly generated between 1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
 			<font>
 				<Font name="Yuanti SC Regular" size="24.0" />
 			</font>
 		</Label>
-		<Label fx:id="_easyInstruction" layoutX="179.0" layoutY="252.0" prefHeight="220.0" prefWidth="167.0" text="Randomly generated between 1 ~ 9" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		<Label fx:id="_easyInstruction" layoutX="170.0" layoutY="403.0" prefHeight="220.0" prefWidth="167.0" text="Randomly generated between 1 ~ 9" textAlignment="CENTER" textFill="WHITE" wrapText="true">
 			<font>
 				<Font name="Yuanti SC Regular" size="24.0" />
 			</font>
 		</Label>
-		<JFXButton fx:id="_testReturn" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressTestReturn" stylesheets="@../application.css" text=" ">
-			<graphic>
-				<ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../image/practice/return.png" />
-					</image>
-				</ImageView>
-			</graphic>
-		</JFXButton>
+
 		<JFXButton fx:id="_mainReturn" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressMainReturn" stylesheets="@../application.css" text=" ">
 			<graphic>
 				<ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
@@ -50,51 +41,40 @@
 				</ImageView>
 			</graphic>
 		</JFXButton>
-		<Label fx:id="_customInstruction" layoutX="664.0" layoutY="296.0" prefHeight="129.0" prefWidth="219.0" text="Select a Specific Number To Practice   1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		<Label fx:id="_customInstruction" layoutX="691.0" layoutY="465.0" prefHeight="129.0" prefWidth="219.0" text="Select a Specific Number To Practice   1 ~ 99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
 			<font>
 				<Font name="Yuanti SC Regular" size="24.0" />
 			</font>
 		</Label>
-		<HBox alignment="BOTTOM_CENTER" layoutX="89.0" layoutY="355.0" prefHeight="207.0" prefWidth="954.0" spacing="120.0">
+		<HBox alignment="BOTTOM_CENTER" layoutX="106.0" layoutY="145.0" prefHeight="207.0" prefWidth="954.0" spacing="120.0">
 			<children>
-				<JFXButton fx:id="_easy" onMouseClicked="#handlePressEasy" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text=" ">
-					<graphic>
-						<ImageView fitHeight="73.0" fitWidth="73.0" pickOnBounds="true" translateX="4.0">
-							<image>
-								<Image url="@../image/practice/shuffle.png" />
-							</image>
-						</ImageView>
-					</graphic>
+				<JFXButton fx:id="_easy" onMouseClicked="#handlePressEasy" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text="Basic" textFill="WHITE">
+               <font>
+                  <Font name="Yuanti SC Regular" size="25.0" />
+               </font>
 				</JFXButton>
-				<JFXButton fx:id="_hard" onMouseClicked="#handlePressHard" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text=" ">
-					<graphic>
-						<ImageView fitHeight="77.0" fitWidth="69.0" pickOnBounds="true" translateX="4.0">
-							<image>
-								<Image url="@../image/practice/shuffle.png" />
-							</image>
-							<effect>
-								<ColorAdjust hue="0.3" saturation="1.0" />
-							</effect>
-						</ImageView>
-					</graphic>
+				<JFXButton fx:id="_hard" onMouseClicked="#handlePressHard" prefHeight="33.0" prefWidth="150.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text="Advance" textFill="WHITE">
 					<HBox.margin>
 						<Insets right="40.0" />
 					</HBox.margin>
+               <font>
+                  <Font name="Yuanti SC Regular" size="25.0" />
+               </font>
 				</JFXButton>
 				<TextField fx:id="_textField" alignment="CENTER" onKeyReleased="#handleTextChange" prefHeight="58.0" prefWidth="86.0" promptText="#" style="-fx-background-color: #929292;">
 					<font>
 						<Font name="Yuanti SC Regular" size="40.0" />
 					</font>
 					<HBox.margin>
-						<Insets left="-30.0" right="-80.0" />
+						<Insets left="-30.0" right="-90.0" />
 					</HBox.margin>
 					<padding>
 						<Insets right="2.0" />
 					</padding>
 				</TextField>
-				<JFXButton fx:id="_custom" onMouseClicked="#handlePressCustom" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text="#" textFill="WHITE">
+				<JFXButton fx:id="_custom" onMouseClicked="#handlePressCustom" prefHeight="54.0" prefWidth="150.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text="#" textFill="WHITE">
 					<font>
-						<Font name="Yuanti SC Regular" size="57.0" />
+						<Font name="Yuanti SC Regular" size="25.0" />
 					</font>
                <padding>
                   <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
@@ -102,88 +82,18 @@
 				</JFXButton>
 			</children>
 		</HBox>
-		<JFXButton fx:id="_disabledButton" layoutX="804.0" layoutY="463.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text=" " textFill="WHITE">
-			<font>
-				<Font name="Yuanti SC Regular" size="57.0" />
-			</font>
-			<graphic>
-				<ImageView fitHeight="73.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../image/practice/questionMark.png" />
-					</image>
-					<effect>
-						<ColorAdjust contrast="1.0" hue="-0.1" saturation="1.0" />
-					</effect>
-				</ImageView>
-			</graphic>
-			<padding>
-				<Insets left="20.0" top="10.0" />
-			</padding>
-		</JFXButton>
-		<Label fx:id="_question" alignment="CENTER" layoutX="489.0" layoutY="258.0" prefHeight="142.0" prefWidth="157.0" text="99" textFill="WHITE">
-			<font>
-				<Font name="Yuanti SC Regular" size="96.0" />
-			</font>
-		</Label>
-		<JFXButton fx:id="_record" layoutX="510.0" layoutY="511.0" onMouseClicked="#handlePressRecord" prefHeight="45.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
-			<font>
-				<Font name="Yuanti SC Regular" size="25.0" />
-			</font>
-         <padding>
-            <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
-         </padding>
-		</JFXButton>
-      <JFXButton fx:id="_repeat" layoutX="230.0" layoutY="288.0" onMouseClicked="#handlePressRepeat" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text=" " textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="29.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="66.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/practice/repeat.png" />
-               </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
-            </ImageView>
-         </graphic>
-         <padding>
-            <Insets right="-6.0" />
-         </padding>
-      </JFXButton>
-		<Label fx:id="_message" alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="110.0" prefHeight="142.0" prefWidth="568.0" text=" Message" textAlignment="CENTER" textFill="#aeaeae">
-			<font>
-				<Font name="Yuanti SC Regular" size="36.0" />
-			</font>
-		</Label>
-      <JFXButton fx:id="_stats" layoutX="1020.0" layoutY="42.0" onMouseClicked="#handlePressStats" stylesheets="@../application.css" text=" ">
-         <graphic>
-            <ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/practice/stats.png" />
-               </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="_play" layoutX="820.0" layoutY="360.0" onMouseClicked="#handlePressPlay" prefHeight="58.0" prefWidth="51.0">
-         <graphic>
-            <ImageView fitHeight="103.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/play.png" />
-               </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <Label fx:id="_instruction" alignment="CENTER" layoutX="155.0" layoutY="180.0" prefHeight="76.0" prefWidth="869.0" text="Please select from one of the options below to generate a question" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+		 <Label fx:id="_instruction" alignment="CENTER" layoutX="155.0" layoutY="180.0" prefHeight="76.0" prefWidth="869.0" text="Please select from one of the options below to generate a question" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
       </Label>
+      <JFXButton fx:id="_disabledButton" layoutX="841.0" layoutY="298.0" prefHeight="54.0" prefWidth="150.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" stylesheets="@../application.css" text="input undefined" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Yuanti SC Regular" size="15.0" />
+         </font>
+         <padding>
+            <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+         </padding>
+      </JFXButton>
 	</children>
 </AnchorPane>

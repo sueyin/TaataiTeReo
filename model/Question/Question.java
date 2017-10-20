@@ -181,6 +181,7 @@ public abstract class Question {
 		}else{
 			_result = true;
 		}
+		System.out.println("before updategui");
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
 
