@@ -7,21 +7,32 @@ import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXRadioButton;
 
 public class ClassicTestPageController extends TestPageController {
 
 	@FXML
-	private JFXRadioButton _q1, _q2, _q3, _q4, _q5, _q6, _q7, _q8, _q9, _q10;
+	private JFXRadioButton _q1;
 
 	private static String _selectedLevel;
 
 	private ClassicQuestionSuite _qs;
+	
+	private List<JFXRadioButton> nodeList = new ArrayList<JFXRadioButton>();
+	
+	@FXML
+	private VBox _questionProgress;
 
 	@FXML
 	public void initialize() {
+		
+		super.initialize();
 		//Decide the which level the user chose
 		_selectedLevel = ClassicMenuPageController.getSelectedLevel();
 
@@ -41,11 +52,8 @@ public class ClassicTestPageController extends TestPageController {
 			_question.setStyle("-fx-font-size: 24");
 		}else{
 			//Change font size for numbers
-			_question.setStyle("-fx-font-size: 130");
+			_question.setStyle("-fx-font-size: 50");
 		}
-		_rightOrWrong.setVisible(false);
-		_youSaid.setVisible(false);
-		_answerIs.setVisible(false);
 		_topRight.setText("Level "+_selectedLevel);
 
 		_q1.setId("onQuestion");
@@ -53,6 +61,10 @@ public class ClassicTestPageController extends TestPageController {
 		_record.setText("Record");
 		_next.setVisible(false);
 		_next.setText("Next");
+		
+		for (Node b: _questionProgress.getChildren()) {
+			nodeList.add((JFXRadioButton) b);
+		}
 	}
 	
 
@@ -75,127 +87,20 @@ public class ClassicTestPageController extends TestPageController {
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/ClassicFeedbackPage.fxml");
 		}else {
-			//Update GUI	
+			//update the GUI showing the question the user is currently on
 			boolean result = _q.getResult();
 			int index = _qs.getIndexNumber();
 			if (result) {
-				if (index ==1) {
-					_q1.setSelected(true);
-					_q1.setId("radio_correct");
-
-					_q2.setId("onQuestion");
-				}
-				else if (index == 2) {
-					_q2.setSelected(true);
-					_q2.setId("radio_correct");
-
-					_q3.setId("onQuestion");
-				}
-				else if (index == 3) {
-					_q3.setSelected(true);
-					_q3.setId("radio_correct");
-					
-					_q4.setId("onQuestion");
-				}
-				else if (index == 4) {
-					_q4.setSelected(true);
-					_q4.setId("radio_correct");
-					
-					_q5.setId("onQuestion");
-				}
-				else if (index == 5) {
-					_q5.setSelected(true);
-					_q5.setId("radio_correct");
-					
-					_q6.setId("onQuestion");
-				}
-				else if (index == 6) {
-					_q6.setSelected(true);
-					_q6.setId("radio_correct");
-					
-					_q7.setId("onQuestion");
-				}
-				else if (index == 7) {
-					_q7.setSelected(true);
-					_q7.setId("radio_correct");
-					
-					_q8.setId("onQuestion");
-				}
-				else if (index == 8) {
-					_q8.setSelected(true);
-					_q8.setId("radio_correct");
-					
-					_q9.setId("onQuestion");
-				}
-				else if (index == 9) {
-					_q9.setSelected(true);
-					_q9.setId("radio_correct");
-					
-					_q10.setId("onQuestion");
-				}
-				else if (index == 10) {
-					_q10.setSelected(true);
-					_q10.setId("radio_correct");
+				nodeList.get(index-1).setSelected(true);
+				nodeList.get(index-1).setId("radio_correct");
+				if (index < 9) {
+					nodeList.get(index).setId("onQuestion");
 				}
 			}
 			else {
-				if (index ==1) {
-			
-					_q1.setId("radio_incorrect");
-					
-					_q2.setId("onQuestion");
-				}
-				else if (index == 2) {
-				
-					_q2.setId("radio_incorrect");
-					
-					_q3.setId("onQuestion");
-				}
-				else if (index == 3) {
-					
-					_q3.setId("radio_incorrect");
-					
-					_q4.setId("onQuestion");
-				}
-				else if (index == 4) {
-				
-					_q4.setId("radio_incorrect");
-
-					_q5.setId("onQuestion");
-				}
-				else if (index == 5) {
-					
-					_q5.setId("radio_incorrect");
-
-					_q6.setId("onQuestion");
-				}
-				else if (index == 6) {
-		
-					_q6.setId("radio_incorrect");
-
-					_q7.setId("onQuestion");
-				}
-				else if (index == 7) {
-				
-					_q7.setId("radio_incorrect");
-
-					_q8.setId("onQuestion");
-				}
-				else if (index == 8) {
-				
-					_q8.setId("radio_incorrect");
-
-					_q9.setId("onQuestion");
-				}
-				else if (index == 9) {
-				
-					_q9.setId("radio_incorrect");
-
-					_q10.setId("onQuestion");
-				}
-				else if (index == 10) {
-				
-					_q10.setId("radio_incorrect");
+				nodeList.get(index-1).setId("radio_correct");
+				if (index < 9) {
+					nodeList.get(index).setId("onQuestion");
 				}
 			}
 			//Change to the next question

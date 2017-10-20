@@ -5,7 +5,6 @@ import application.model.question.Question;
 import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXSpinner;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.QDecoderStream;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -64,6 +63,15 @@ public abstract class TestPageController {
         _score = _score + 1;
     }
 
+    @FXML
+    public void initialize() {
+    	_play.setVisible(false);
+    	_loading.setVisible(false);
+    	_process.setVisible(false);
+    	_rightOrWrong.setVisible(false);
+    	_youSaid.setVisible(false);
+    	_answerIs.setVisible(false);
+    }
 
     @FXML
     public void handlePressRecord(MouseEvent event) {
@@ -80,6 +88,12 @@ public abstract class TestPageController {
 
     //Change GUI methods
     public void rightGUI(){
+    	_process.setVisible(false);
+    	_loading.setVisible(false);
+    	_play.setVisible(true);
+    	_rightOrWrong.setVisible(true);
+    	_youSaid.setVisible(true);
+    	_answerIs.setVisible(true);
         _rightOrWrong.setText("Correct");
         _rightOrWrong.setVisible(true);
         _youSaid.setText("You said " + _q.getAnswer());
@@ -89,6 +103,12 @@ public abstract class TestPageController {
     }
 
     public void tryAgainGUI(){
+    	_process.setVisible(false);
+    	_loading.setVisible(false);
+    	_play.setVisible(true);
+    	_rightOrWrong.setVisible(true);
+    	_youSaid.setVisible(true);
+    	_answerIs.setVisible(true);
         _rightOrWrong.setText("Not really. You can try again");
         _rightOrWrong.setVisible(true);
         _youSaid.setText("You sounds like " + _q.getRead());
@@ -98,6 +118,12 @@ public abstract class TestPageController {
     }
 
     public void wrongGUI(){
+    	_process.setVisible(false);
+    	_loading.setVisible(false);
+    	_play.setVisible(true);
+    	_rightOrWrong.setVisible(true);
+    	_youSaid.setVisible(true);
+    	_answerIs.setVisible(true);
         _rightOrWrong.setText("Not really. You have used up the chance");
         _rightOrWrong.setVisible(true);
         _youSaid.setText("You sounds like " + _q.getRead());
