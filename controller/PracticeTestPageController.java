@@ -2,7 +2,6 @@ package application.controller;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.model.question.PracticeQuestion;
 import application.model.question.Question;
 import application.model.question.TwoChancesQuestion;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 
 public class PracticeTestPageController extends TestPageController{
 
-	private Question _q;
 	
 	@FXML
 	private Label _question;
