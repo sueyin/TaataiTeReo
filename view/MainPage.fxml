@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0"  style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
 	<children>
 		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="379.0" layoutY="88.0" prefHeight="184.0" prefWidth="410.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
 			<font>
@@ -151,10 +149,13 @@
 				</VBox>
 			</graphic>
 		</Button>
-		<Label fx:id="_notification" alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" prefHeight="104.0" prefWidth="202.0" style="-fx-background-color: grey;" text="Welcome!" textAlignment="CENTER" textFill="WHITE">
-			<effect>
-				<DropShadow color="#ae7e7e" height="96.89" radius="30.4925" spread="0.18" width="27.08" />
-			</effect>
+		<Label fx:id="_notification" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="76.0" prefWidth="306.0" text="Welcome!" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <Glow level="0.37" />
+         </effect>
 		</Label>
 	</children>
 </AnchorPane>

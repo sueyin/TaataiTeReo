@@ -28,15 +28,18 @@ public class MainPageController {
 	
 	@FXML
 	public void initialize() {
-		//display pop up message "welcome user", auto disappear after 3 seconds
+		//display pop up message "welcome user", auto disappear after 5 seconds
 		String username = LoginPageController.getSelectedUser();
 		_notification.setText("Welcome, " + username + "!");
 		if (_user == null){
 			_user = new User(username);
-			FadeTransition ft = new FadeTransition(Duration.seconds(3), _notification);
+			FadeTransition ft = new FadeTransition(Duration.seconds(5), _notification);
 			ft.setFromValue(1.0);
 			ft.setToValue(0.0);
 			ft.play();
+		}
+		else {
+			_notification.setVisible(false);
 		}
 	}
 	

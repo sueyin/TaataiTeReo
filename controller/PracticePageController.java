@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.model.question.PracticeQuestion;
 import application.model.question.Question;
 import application.viewModel.SceneSwitch;
 import javafx.scene.control.TextField;
@@ -97,6 +96,11 @@ public class PracticePageController {
 	}
 
 
+	@FXML
+	public void handlePressStatistic(MouseEvent event) {
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/PracticeStatisticPage.fxml");
+	}
 
 	/**
 	 * checks if a string consists of only numbers 

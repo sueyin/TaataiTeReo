@@ -27,12 +27,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+
+import com.jfoenix.controls.JFXButton;
 
 public class CustomCreatePageController {
 
@@ -44,16 +47,16 @@ public class CustomCreatePageController {
 	private ListView<ListCell> _list;
 
 	@FXML
-	private Button _preview;
+	private JFXButton _preview;
 
 	@FXML
-	private Button _add;
+	private JFXButton _add;
 
 	@FXML
-	private Button _create;
+	private JFXButton _create;
 
 	@FXML
-	private Button _return;
+	private JFXButton _return;
 
 	@FXML
 	private TextField _description;
@@ -66,6 +69,15 @@ public class CustomCreatePageController {
 	
 	@FXML
 	private Label _equationMessage;
+	
+	@FXML
+	private JFXButton _help;
+	
+	@FXML
+	private Label _helpPanel;
+	
+	@FXML
+	private Label _maxMessage;
 
 	private ObservableList<ListCell> _data;
 
@@ -82,18 +94,37 @@ public class CustomCreatePageController {
 
 	@FXML
 	public void initialize() {
+		//set up list view
 		_data= FXCollections.observableArrayList ();
 		_list.setItems(_data);
+		
+		//disable warning message initially
 		_warningMessage.setVisible(false);
 		_equationMessage.setVisible(false);
-		//TODO if private limit, force public & versa vice
+
+		//generate ID for this new created question suite
 		_qs = new String[10];
 		for (int i = 0; i<_qs.length; i++){
 			_qs[i] = "";
 		}
 		generateID();
+		
+		
+		//set up help button, every time mouse hover over it, the help manual appears
+		_helpPanel.setVisible(false);
+		_maxMessage.setVisible(false);
+		_help.hoverProperty().addListener((ov, oldValue, newValue) -> {
+		    if (newValue) {
+		        _helpPanel.setVisible(true);
+		    } else {
+		    	 _helpPanel.setVisible(false);
+		    }
+		});
 	}
 
+	/**
+	 * When user press create, checks if the input is valid, if so, create question suite and then return to menu page, if not, display warning
+	 */
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
 		String description = _description.getText();
@@ -159,10 +190,13 @@ public class CustomCreatePageController {
 					_qs[_data.size()] = value + "#" + equation;
 					//TODO format is 32#2+30
 					_data.add(new ListCell(equation));
+					//set text field to empty again 
+					_equation.setText("");
 				}
-				if (_qs[9].length() > 0){
-					//Disable add btn when the list is full
-					_add.setDisable(true);
+				if (_data.size()==10){
+					//when the number of questions reachs maximum, disable add button
+					_add.setVisible(false);
+					_maxMessage.setVisible(true);
 				}
 			}
 		}
@@ -261,6 +295,7 @@ public class CustomCreatePageController {
 			super();
 			label.setText(equation);
 			label.setMaxWidth(Double.MAX_VALUE);
+			label.setTextFill(Color.WHITE);
 			HBox.setHgrow(label, Priority.ALWAYS);
 
 			delete.setOnMouseClicked(this::clickDelete);
@@ -278,6 +313,8 @@ public class CustomCreatePageController {
 			//TODO get the row number and remove the corresponding question
 			_qs[_data.indexOf(this)]= "-";
 			_data.remove(this);
+			_add.setVisible(true);
+			_maxMessage.setVisible(false);
 		}
 
 	}

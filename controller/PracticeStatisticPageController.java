@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import application.TataiApp;
 import application.viewModel.SceneSwitch;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -36,84 +41,58 @@ public class PracticeStatisticPageController {
 	private int _overallCorrect;
 
 	@FXML
-	private Button _h1;
-
-	@FXML
-	private Button _h2;
-
-	@FXML
-	private Button _h3;
-
-	@FXML
-	private Button _h4;
-
-	@FXML
-	private Button _h5;
-
-	@FXML
-	private Button _h6;
-
-	@FXML
-	private Button _h7;
-
-	@FXML
-	private Button _h8;
-
-	@FXML
-	private Button _l1;
-
-	@FXML
-	private Button _l2;
-
-	@FXML
-	private Button _l3;
-
-	@FXML
-	private Button _l4;
-
-	@FXML
-	private Button _l5;
-
-	@FXML
-	private Button _l6;
-	@FXML
-	private Button _l7;
+	private ListView<Item> _top;
 	
 	@FXML
-	private Button _l8;
+	private ListView<Item> _bottom;
 	
 	@FXML
 	private Label _null;
 
 	@FXML
 	private PieChart _pie;
+	
+	private ObservableList<Item> _topData; 
+	
+	private ObservableList<Item> _bottomData; 
 
+	
 	@FXML
 	public void initialize() {
 		//TODO change to User
 		_result = MainPageController.getUser().getOverallStatistic();
 		//_result = application.model.PractiseSomething.getResult();
+		//sort numbers 1-99 in order of correctness from user's result history
 		_list = sortResult();
-		setCircles();
+		//calculate overall number of correctness and attempts
 		setOverallData();
+		//set pie chart to present the overall result
 		setPieChart();
-		
+		//set twos tables to show the most well done 8 and most poorly done 8 numbers 
+		setTable();
+		//initialize the "no attempt" message to false
 		_null.setVisible(false);
 
 	}
 	
+	/**
+	 * return to practice page when user press return
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticePage.fxml");
 	}
 
-	//sort the numbers according to correct answers
+	/**
+	 * sort the numbers according to correct answers, returns a sorted array of items
+	 */
 	private Item[] sortResult() {
+		//get the numbers 1-99 and their corresponding result history
 		List<String> keys = new ArrayList<>(_result.keySet()); 
 		List<ArrayList<Boolean>> values = new ArrayList<>(_result.values());
 
-		System.out.println(keys);
+		//create an array of items based on the data from previous lines 
 		Item[] list = new Item[keys.size()];
 
 		for (int i = 0; i < keys.size(); i++) {
@@ -123,31 +102,17 @@ public class PracticeStatisticPageController {
 			list[i] = a;
 		}
 
+		//sort the array 
 		Arrays.sort(list);
 		for (Item e: list) {
 			System.out.println(e.toString());
 		}
 		return list;
 	}
-	private void setCircles() {
-		_h1.setText(_list[0]._num);
-		_h2.setText(_list[1]._num);
-		_h3.setText(_list[2]._num);
-		_h4.setText(_list[3]._num);
-		_h5.setText(_list[4]._num);
-		_h6.setText(_list[5]._num);
-		_h7.setText(_list[6]._num);
-		_h8.setText(_list[7]._num);
-		_l1.setText(_list[_list.length-1]._num);
-		_l2.setText(_list[_list.length-2]._num);
-		_l3.setText(_list[_list.length-3]._num);
-		_l4.setText(_list[_list.length-4]._num);
-		_l5.setText(_list[_list.length-5]._num);
-		_l6.setText(_list[_list.length-6]._num);
-		_l7.setText(_list[_list.length-7]._num);
-		_l8.setText(_list[_list.length-8]._num);
-	}
 
+	/**
+	 * calculate overall correctness and attempts done by the user
+	 */
 	private void setOverallData() {
 		_overallCorrect = 0;
 		_overallAttempt = 0;
@@ -157,6 +122,9 @@ public class PracticeStatisticPageController {
 		}
 	}
 
+	/**
+	 * set pie chart value to overall data statistic
+	 */
 	private void setPieChart() {
 		ObservableList<PieChart.Data> pieChartData =
 				FXCollections.observableArrayList(
@@ -167,41 +135,57 @@ public class PracticeStatisticPageController {
 		_pie.setLegendVisible(true);
 	}
 
-	@FXML
-	public void enter(MouseEvent event) {
-		Item item = null;
-		Button select = (Button) event.getSource();
-		String text = select.getText();
-		//System.out.println(text);
-		List<Boolean> row = _result.get(text);
-		System.out.println(row);
-		int correct = 0;
-		int attempt = 0;
-		if (row == null) {
-			_pie.setVisible(false);
-			_null.setVisible(true);
+	/**
+	 * set the table to show 8 most well done and 8 worst done numbers
+	 */
+	private void setTable() {
+		//get the 8 most well done numbers from the sorted array
+		List<Item> topData = new ArrayList<Item>(8);
+		for (int i = 0; i < 8; i++) {
+			topData.add(_list[i]);
 		}
-		else {	
-			_pie.setVisible(true);
-			_null.setVisible(false);
-			for (boolean b: row) {
-				attempt++;
-				if (b == true) {
-					correct++;	
-				}
-			}
+		//set up the list view
+		_topData = FXCollections.observableArrayList (topData);
+		_top.setItems(_topData);
+		
+		//call the changeInfo method every time user selects something from the list
+		_top.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Item>() {
+		    @Override
+		    public void changed(ObservableValue<? extends Item> observable, Item oldValue, Item newValue) {
+		        changeInfo(_top);
+		    }
+		});
+		//get the 8 worst numbers from the sorted array
+		List<Item> bottomData = new ArrayList<Item>(8);
+		for (int i = 0; i < 8; i++) {
+			topData.add(_list[_list.length-i]);
 		}
-		System.out.println(correct);
-		System.out.println(attempt-correct);
+		//set up the list view
+		_bottomData = FXCollections.observableArrayList (bottomData);
+		_bottom.setItems(_bottomData);
+		
+		//call the changeInfo method every time user selects something from the list
+		_bottom.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Item>() {
+		    @Override
+		    public void changed(ObservableValue<? extends Item> observable, Item oldValue, Item newValue) {
+		    	changeInfo(_bottom);
+		    }
+		});
+	}
+	
+	/**
+	 * update the pie chart to show result of the number that user has selected from the list
+	 */
+	private void changeInfo(ListView<Item> list) {
+		Item selected = (Item) list.getSelectionModel().getSelectedItem();
 		ObservableList<PieChart.Data> pieChartData =
 				FXCollections.observableArrayList(
-						new PieChart.Data("Correct", correct),
-						new PieChart.Data("Incorrect", attempt-correct));
+						new PieChart.Data("Correct", selected._correct),
+						new PieChart.Data("Incorrect", selected._attempt-selected._correct));
 		_pie.setData(pieChartData);
 		_pie.setLabelsVisible(true);
 		_pie.setLegendVisible(true);
 	}
-
 }
 
 

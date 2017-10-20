@@ -223,7 +223,6 @@ public class LoginPageController {
 		_userList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-		        System.out.println("Selected item: " + newValue);
 		        _delete.setVisible(true);
 		    }
 		});
@@ -262,6 +261,18 @@ public class LoginPageController {
 			_addUserMessage.setText("Please enter a username");
 			_addUserMessage.setVisible(true);
 			//disable the warning message after a few seconds
+			if (!delay.isRunning()){
+				delay.start();
+			}
+			delay.setOnSucceeded(e -> {
+	            _addUserMessage.setVisible(false);
+	            delay.reset();
+	        });
+		}
+		//check if the text field only contains numbers and letters, if not then display warning message
+		else if (!_selectedUser.matches("\\w+")) {
+			_addUserMessage.setText("Username could only contain numbers and letters");
+			_addUserMessage.setVisible(true);
 			if (!delay.isRunning()){
 				delay.start();
 			}

@@ -23,19 +23,23 @@ public class TutorialPageController {
 	@FXML
 	private ImageView _img1;
 	@FXML
-	private JFXButton _button1;
+	private JFXButton _right1;
 	@FXML
 	private ImageView _img2;
 	@FXML
 	private Label _label2;
 	@FXML
-	private JFXButton _button2;
+	private JFXButton _right2;
+	@FXML
+	private JFXButton _left1;
 	@FXML
 	private ImageView _img3;
 	@FXML
 	private Label _label31;
 	@FXML
-	private JFXButton _button3;
+	private JFXButton _right3;
+	@FXML
+	private JFXButton _left2;
 	@FXML
 	private Label _label32;
 	@FXML
@@ -65,17 +69,30 @@ public class TutorialPageController {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/TutorialTestPage.fxml");
 	}
+	
+	@FXML
+	public void handlePressLeft1(MouseEvent event) {
+		setFirstPage(true);
+		setSecondPage(false);
+	}
+	
+	@FXML
+	public void handlePressLeft2(MouseEvent event) {
+		setSecondPage(true);
+		setThirdPage(false);
+	}
 
 	private void setFirstPage(boolean show) {
 		_label1.setVisible(show);
 		_img1.setVisible(show);
-		_button1.setVisible(show);
+		_right1.setVisible(show);
 	}
 	
 	private void setSecondPage(boolean show) {
 		_label2.setVisible(show);
 		_img2.setVisible(show);
-		_button2.setVisible(show);
+		_right2.setVisible(show);
+		_left1.setVisible(show);
 	}
 	
 	private void setThirdPage(boolean show) {
@@ -83,6 +100,7 @@ public class TutorialPageController {
 		_label32.setVisible(show);
 		_label33.setVisible(show);
 		_img3.setVisible(show);
-		_button3.setVisible(show);
+		_right3.setVisible(show);
+		_left2.setVisible(show);
 	}
 }

@@ -79,9 +79,6 @@
                <font>
                   <Font name="Yuanti SC Regular" size="50.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="60.0" />
-               </VBox.margin>
             </Label>
             <Label fx:id="_youSaid" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
                <font>

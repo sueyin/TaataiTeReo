@@ -6,7 +6,6 @@
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,7 +21,7 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      <Label fx:id="_label1" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="Welcome to Tātai! The Dedicated Educational Application for Maori Numerical Pronouncation" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_label1" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="Welcome to Tātai! The Dedicated Educational Application for Maori Numerical Pronouncation" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>
@@ -38,7 +37,7 @@
             <DropShadow color="#9a8f8f" height="78.68" radius="37.322500000000005" spread="0.45" width="72.61" />
          </effect>
       </ImageView>
-      <JFXButton fx:id="_button1" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton1" prefHeight="67.0" prefWidth="44.0">
+      <JFXButton fx:id="_right1" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton1" prefHeight="67.0" prefWidth="44.0" text=" ">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -58,7 +57,7 @@
             <DropShadow color="#9a8f8f" height="78.68" radius="37.322500000000005" spread="0.45" width="72.61" />
          </effect>
       </ImageView>
-      <Label fx:id="_label2" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="This is a typical question page. You will be given two chances to answer it." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_label2" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="This is a typical question page. You will be given two chances to answer it." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>
@@ -66,11 +65,23 @@
             <Insets left="30.0" />
          </padding>
       </Label>
-      <JFXButton fx:id="_button2" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton2" prefHeight="67.0" prefWidth="44.0">
+      <JFXButton fx:id="_right2" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton2" prefHeight="67.0" prefWidth="44.0" text=" ">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/tutorial/next.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="_left1" layoutX="34.0" layoutY="128.0" onMouseClicked="#handlePressLeft1" prefHeight="67.0" prefWidth="44.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/tutorial/left.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -86,7 +97,7 @@
             <DropShadow color="#9a8f8f" height="78.68" radius="37.322500000000005" spread="0.45" width="72.61" />
          </effect>
       </ImageView>
-      <Label fx:id="_label31" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="There are four modes to choose from; classic, survival, practice and custom" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_label31" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="There are four modes to choose from; classic, survival, practice and custom" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>
@@ -94,11 +105,23 @@
             <Insets left="30.0" />
          </padding>
       </Label>
-      <JFXButton fx:id="_button3" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton3" prefHeight="67.0" prefWidth="44.0">
+      <JFXButton fx:id="_right3" layoutX="1044.0" layoutY="127.0" onMouseClicked="#handlePressButton3" prefHeight="67.0" prefWidth="44.0" text=" ">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/tutorial/next.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="_left2" layoutX="34.0" layoutY="128.0" onMouseClicked="#handlePressLeft2" prefHeight="67.0" prefWidth="44.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/tutorial/left.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
