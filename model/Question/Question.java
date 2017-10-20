@@ -47,6 +47,39 @@ public abstract class Question {
 	/*
 		Functionality
 	 */
+
+
+	/**
+	 * Read mlx file produced by HTK and get what were recognized.
+	 */
+	private String computeRead() {
+		/*
+		String read = null;
+		//Read the mlx file produced by HTK command.
+		File recout = new File(RECOUT);
+		try {
+			//Read the file into a String
+			Scanner sc = new Scanner(recout);
+			while (sc.hasNextLine()) {
+				read = read + " " + sc.nextLine();
+			}
+			sc.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		//If something is recognized, the String should contain "sil"
+		//Find what the user said if anything is recognized. Otherwise return null.
+		if (read.contains("sil")){
+			return read.split("sil")[1].trim();
+		}else{
+			return "";
+		}
+		*/
+
+		return "dd";
+	}
+
+
 	/**
 	 * Record by bash command, create a temporary wav file in the hidden root folder. Call method from the TestPageController
 	 * field to change GUI respectively. (record -> recording)
@@ -161,37 +194,6 @@ public abstract class Question {
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
 
-	}
-
-
-	/**
-	 * Read mlx file produced by HTK and get what were recognized.
-	 */
-	private String computeRead() {
-		/*
-		String read = null;
-		//Read the mlx file produced by HTK command.
-		File recout = new File(RECOUT);
-		try {
-			//Read the file into a String
-			Scanner sc = new Scanner(recout);
-			while (sc.hasNextLine()) {
-				read = read + " " + sc.nextLine();
-			}
-			sc.close();
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		//If something is recognized, the String should contain "sil"
-		//Find what the user said if anything is recognized. Otherwise return null.
-		if (read.contains("sil")){
-			return read.split("sil")[1].trim();
-		}else{
-			return "";
-		}
-		*/
-
-		return "dd";
 	}
 
 

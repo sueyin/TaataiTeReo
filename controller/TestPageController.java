@@ -132,6 +132,21 @@ public abstract class TestPageController {
         _record.setVisible(false);
         _next.setVisible(true);
     }
+
+    public void emptyRecordGUI(){
+        _process.setVisible(false);
+        _loading.setVisible(false);
+        _play.setVisible(true);
+        _rightOrWrong.setVisible(true);
+        _youSaid.setVisible(true);
+        _answerIs.setVisible(true);
+        _rightOrWrong.setText("Nothing was recorded.");
+        _rightOrWrong.setVisible(true);
+        _youSaid.setText("Please check your microphone");
+        _youSaid.setVisible(false);
+        _record.setVisible(false);
+        _next.setVisible(true);
+    }
     
 	@FXML
 	public void handlePressPlay(MouseEvent event) {
