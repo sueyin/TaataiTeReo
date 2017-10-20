@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -20,11 +19,6 @@
             <Font name="Yuanti SC Regular" size="29.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="_next" layoutX="473.0" layoutY="502.0" onMouseClicked="#handlePressNext" prefHeight="61.0" prefWidth="190.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Next" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="29.0" />
-         </font>
-      </JFXButton>
 
       <JFXButton fx:id="_return" layoutX="19.0" layoutY="17.0" onMouseClicked="#handlePressReturn" prefHeight="65.0" prefWidth="65.0" text=" ">
          <graphic>
@@ -39,7 +33,6 @@
             <Font name="Yuanti SC Regular" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="1013.0" layoutY="118.0" prefHeight="431.0" prefWidth="69.0" text=" " />
       <JFXButton fx:id="_play" layoutX="739.0" layoutY="507.0" onMouseClicked="#handlePressPlay" prefHeight="58.0" prefWidth="51.0">
          <graphic>
             <ImageView fitHeight="103.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -93,5 +86,15 @@
             <Font name="Yuanti SC Regular" size="29.0" />
          </font>
       </Label>
+      <JFXButton fx:id="_statistic" layoutX="623.0" layoutY="502.0" onMouseClicked="#handlePressStatistic" prefHeight="61.0" prefWidth="190.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Statistic" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="29.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="_next" layoutX="306.0" layoutY="502.0" onMouseClicked="#handlePressNext" prefHeight="61.0" prefWidth="190.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Retry" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="29.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

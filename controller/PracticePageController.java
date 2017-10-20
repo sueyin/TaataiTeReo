@@ -108,4 +108,8 @@ public class PracticePageController {
 		return value.matches("^[0-9]+$");
 	}
 
+	public static String getQuestion() {
+		return _question;
+	}
+
 }

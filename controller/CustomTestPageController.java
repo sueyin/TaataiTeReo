@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import sun.util.resources.cldr.rm.CalendarData_rm_CH;
 
 import java.util.ArrayList;
 import java.util.Collections;
