@@ -80,11 +80,7 @@ public abstract class TestPageController {
         _process.setVisible(true);
         _loading.setVisible(true);
         _q.test();
-        collectResult();
     }
-
-    public abstract void collectResult();
-
 
     //Change GUI methods
     public void rightGUI(){

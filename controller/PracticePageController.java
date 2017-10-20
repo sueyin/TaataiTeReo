@@ -143,10 +143,6 @@ public class PracticePageController extends TestPageController {
 
 
 
-	@Override
-	public void collectResult() {
-
-	}
 
 	/**
 	 * This method switches to easy practice page when easy button is pressed

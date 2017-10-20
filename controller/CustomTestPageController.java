@@ -55,6 +55,11 @@ public class CustomTestPageController extends TestPageController {
 	// Event Listener on JFXButton[#_next].onMouseClicked
 	@FXML
 	public void handlePressNext(MouseEvent event) {
+
+		if (_q.getResult()){
+			_score++;
+		}
+		_reportList.put(_q.getAnswer(), _q.getRead());
 		if (_next.getText().equals("Finish")){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/CustomResultPage.fxml");
@@ -77,14 +82,6 @@ public class CustomTestPageController extends TestPageController {
 		load.switchScene("/application/view/CustomDoPage.fxml");
 	}
 
-
-	@Override
-	public void collectResult() {
-		if (_q.getResult()){
-			_score++;
-		}
-		_reportList.put(_q.getAnswer(), _q.getRead());
-	}
 
 
 	private void nextQuestion(){

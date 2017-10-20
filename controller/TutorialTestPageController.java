@@ -72,10 +72,6 @@ public class TutorialTestPageController extends TestPageController {
 		q.test();
 	}
 
-	@Override
-	public void collectResult() {
-
-	}
 
 	public void rightGUI(){
 		_message.setText("You got it Right ! XD");

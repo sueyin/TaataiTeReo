@@ -20,14 +20,17 @@ public class ClassicTestPageController extends TestPageController {
 	@FXML
 	private JFXRadioButton _q1;
 
+	@FXML
+	private VBox _questionProgress;
+
+	private List<JFXRadioButton> nodeList = new ArrayList<JFXRadioButton>();
+
+
 	private static String _selectedLevel;
 
 	private ClassicQuestionSuite _qs;
-	
-	private List<JFXRadioButton> nodeList = new ArrayList<JFXRadioButton>();
-	
-	@FXML
-	private VBox _questionProgress;
+
+
 
 	@FXML
 	public void initialize() {
@@ -81,7 +84,11 @@ public class ClassicTestPageController extends TestPageController {
 
 	@FXML
 	public void handlePressNext(MouseEvent event) {
-		if (_next.getText() == "Completed"){
+		_qs.collectResult(_q.getResult());
+		if (_q.getResult()){
+			_score++;
+		}
+		if (_next.getText().equals("Completed")){
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
 
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
@@ -121,16 +128,6 @@ public class ClassicTestPageController extends TestPageController {
 	public void handlePressReturn(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/ClassicMenuPage.fxml");
-	}
-
-
-
-	@Override
-	public void collectResult() {
-		 _qs.collectResult(_q.getResult());
-		 if (_q.getResult()){
-		 	_score++;
-		 }
 	}
 
 	public static String getLevel(){

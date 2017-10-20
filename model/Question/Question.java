@@ -87,6 +87,7 @@ public abstract class Question {
 	public void test(){
 
 
+
 /*
 		//TODO start bar
 
@@ -119,10 +120,6 @@ public abstract class Question {
 		new Thread(_recordTask).start();
 
 */
-
-		System.out.println("Deleted last recording");
-		System.out.println("Recording");
-		System.out.println("Recorded");
 		compare();
 
 	}
@@ -151,10 +148,7 @@ public abstract class Question {
 				//Read the result from HTK command and get what the user said.
 				_read = computeRead();
 				//Determine whether the user said the correct answer.
-				if (_read.equals("")){
-					_result = false;
-					//TODO change a label or something to indicate the user nothing has been recorded
-				}else if(_read.equals(_answer)){
+				if(_read.equals(_answer)){
 					_result = true;
 				}else{
 					_result = false;
@@ -181,16 +175,12 @@ public abstract class Question {
 
 
 
-		System.out.println("Comparing");
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
 			_result = false;
-			System.out.println("Compared. Result set to false");
 		}else{
 			_result = true;
-			System.out.println("Compared. Result set to true");
 		}
-
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
 

@@ -42,7 +42,7 @@ public class FileReader {
             String line = sc.nextLine();
             String key = line.split("#")[0];
             String content = translate(line.split("#")[1]);
-                _data.put(key, content);
+            _data.put(key, content);
             }
         sc.close();
     }
@@ -66,7 +66,7 @@ public class FileReader {
      */
     private String translate(String raw){
         String translated = "";
-        if (raw.length() > 1) {
+        if (raw.length() > 0) {
             for (char i : raw.toCharArray()) {
                 if (i == '*') {
                     translated = translated + MULTIPLE;
