@@ -146,6 +146,11 @@ public class PracticePageController extends TestPageController {
 		_q.test();
 	}
 
+	@Override
+	public void collectResult() {
+
+	}
+
 	/**
 	 * This method switches to easy practice page when easy button is pressed
 	 */
@@ -211,7 +216,7 @@ public class PracticePageController extends TestPageController {
 		_customInstruction.setVisible(false);
 		_mainReturn.setVisible(false);
 		_testReturn.setVisible(true);
-		_message.setText("");
+		//_message.setText("");
 		_play.setVisible(false);
 		_instruction.setVisible(false);
 		//TODO set statistic invisible
@@ -234,7 +239,7 @@ public class PracticePageController extends TestPageController {
 		_customInstruction.setVisible(false);
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
-		_message.setText("Congratulations");
+		//_message.setText("Congratulations");
 		_play.setVisible(true);
 		//TODO set statistic visible
 	}
@@ -256,7 +261,7 @@ public class PracticePageController extends TestPageController {
 		_customInstruction.setVisible(false);
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
-		_message.setText("BUBU");
+		//_message.setText("BUBU");
 		_play.setVisible(true);
 		//TODO set statistic visible
 	}
@@ -267,7 +272,7 @@ public class PracticePageController extends TestPageController {
 	 */
 	@Override
 	public void tryAgainGUI(){
-		_message.setText("Plz Try Again");
+		//_message.setText("Plz Try Again");
 		_record.setText("Try Again");
 		_play.setVisible(true);
 	}
@@ -288,7 +293,7 @@ public class PracticePageController extends TestPageController {
 		_customInstruction.setVisible(true);
 		_mainReturn.setVisible(true);
 		_testReturn.setVisible(false);
-		_message.setText("");
+		//_message.setText("");
 		//TODO set statistic invisible
 	}
 

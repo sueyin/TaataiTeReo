@@ -5,32 +5,20 @@ import application.model.question.ClassicQuestion;
 import application.model.question.ClassicQuestionSuite;
 import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 import com.jfoenix.controls.JFXRadioButton;
-import com.sun.javafx.geom.Shape;
 
 public class ClassicTestPageController extends TestPageController {
+
+	@FXML
+	private JFXRadioButton _q1, _q2, _q3, _q4, _q5, _q6, _q7, _q8, _q9, _q10;
 
 	private static String _selectedLevel;
 
 	private ClassicQuestionSuite _qs;
-
-	private ClassicQuestion _q;
-
-	@FXML
-	private Label _question;
-
-	@FXML
-	private JFXRadioButton _q1, _q2, _q3, _q4, _q5, _q6, _q7, _q8, _q9, _q10;
 
 	@FXML
 	public void initialize() {
@@ -47,7 +35,9 @@ public class ClassicTestPageController extends TestPageController {
 
 		_question.setStyle("-fx-text-size: 100");
 		//Initialize GUI
-		_message.setVisible(false);
+		_rightOrWrong.setVisible(false);
+		_youSaid.setVisible(false);
+		_answerIs.setVisible(false);
 
 		if (Integer.parseInt(_selectedLevel) > 12){
 			//Change font size for Strings
@@ -57,12 +47,11 @@ public class ClassicTestPageController extends TestPageController {
 			_question.setStyle("-fx-font-size: 130");
 		}
 		_q1.setId("onQuestion");
-		_level.setText("Level "+_selectedLevel);
+		_topRight.setText("Level "+_selectedLevel);
 		_record.setVisible(true);
 		_record.setText("Record");
 		_next.setVisible(false);
 		_next.setText("Next");
-
 	}
 	
 
@@ -70,10 +59,8 @@ public class ClassicTestPageController extends TestPageController {
 	 *This method handles event when the button is pressed (button => "record", "next question")
 	 */
 	@FXML
-	public void handlePressButton(MouseEvent event) {
-		_message.setVisible(true);
-		_q.test();
-		_qs.collectResult(_q.getResult());
+	public void handlePressRecord(MouseEvent event) {
+		super.handlePressRecord(event);
 		if (_qs.getIndexNumber() == 10){
 			_next.setText("Completed");
 		}
@@ -81,18 +68,10 @@ public class ClassicTestPageController extends TestPageController {
 
 	@FXML
 	public void handlePressNext(MouseEvent event) {
-		
 		if (_next.getText() == "Completed"){
 			System.out.println(_score);
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
-			
-			//Count the score (how many right attempts)
-			int score = 0;
-			for (boolean b : _qs.getResults()){
-				if (b){
-					score++;
-				}
-			}
+
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/ClassicFeedbackPage.fxml");
 		}else {
@@ -227,7 +206,9 @@ public class ClassicTestPageController extends TestPageController {
 			_next.setVisible(false);
 			_record.setVisible(true);
 			_record.setText("Record");
-			_message.setText("");
+			_rightOrWrong.setVisible(false);
+			_youSaid.setVisible(false);
+			_answerIs.setVisible(false);
 		}
 	}
 
@@ -238,6 +219,15 @@ public class ClassicTestPageController extends TestPageController {
 	}
 
 
+
+	@Override
+	public void collectResult() {
+		 _qs.collectResult(_q.getResult());
+		 if (_q.getResult()){
+		 	_score++;
+		 }
+	}
+
 	public static String getLevel(){
 		return _selectedLevel;
 	}
@@ -245,5 +235,4 @@ public class ClassicTestPageController extends TestPageController {
 	public static String getScore(){
 		return Integer.toString(_score);
 	}
-
 }
