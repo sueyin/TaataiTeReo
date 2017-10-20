@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomResultPageController">
+   <children>
+      <TableView fx:id="_tableView" layoutX="161.0" layoutY="159.0" prefHeight="262.0" prefWidth="768.0" stylesheets="@../application.css" />
+      <JFXButton fx:id="_return" layoutX="489.0" layoutY="483.0" onMouseClicked="#handlePressReturn" text="Back To Menu" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="517.0" layoutY="53.0" text="Result" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

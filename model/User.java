@@ -14,7 +14,7 @@ public class User {
     private File _practiceRecord;
     private File _classicRecord;
     private File _survivalRecord;
-    //TODO add exp and acheivement systems
+    //TODO add exp and achievement systems
     private File _e;
     private File _achivs;
 
