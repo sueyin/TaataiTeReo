@@ -4,7 +4,7 @@ import application.controller.MainPageController;
 import application.controller.TestPageController;
 
 
-public class PracticeQuestion extends ClassicQuestion {
+public class PracticeQuestion extends TwoChancesQuestion {
 
     public PracticeQuestion(String number, TestPageController page) {
         super(number, number, page);

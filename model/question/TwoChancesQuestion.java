@@ -2,10 +2,10 @@ package application.model.question;
 
 import application.controller.TestPageController;
 
-public class ClassicQuestion extends Question {
+public class TwoChancesQuestion extends Question {
     protected boolean _tested;
 
-    public ClassicQuestion(String question, String answer, TestPageController page) {
+    public TwoChancesQuestion(String question, String answer, TestPageController page) {
         super(question, answer, page);
         _tested = false;
     }

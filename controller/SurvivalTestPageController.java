@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class SurvivalTestPageController {
+public class SurvivalTestPageController extends TestPageController{
 
 	@FXML
 	private Button _record;
@@ -37,12 +37,12 @@ public class SurvivalTestPageController {
 	}
 	
 	@FXML
-	public void handlePressRecord(MouseEvent event) {
-		
-	}
-	
-	@FXML
 	public void handlePressNext(MouseEvent event) {
 		
+	}
+
+	@Override
+	public void collectResult() {
+
 	}
 }

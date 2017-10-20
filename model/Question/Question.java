@@ -164,8 +164,6 @@ public abstract class Question {
 	}
 
 
-	protected abstract void updateGUI();
-
 	/**
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
@@ -195,6 +193,13 @@ public abstract class Question {
 
 		return "dd";
 	}
+
+
+
+	protected abstract void updateGUI();
+
+
+
 
 
 	/*

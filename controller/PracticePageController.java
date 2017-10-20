@@ -141,10 +141,7 @@ public class PracticePageController extends TestPageController {
 		//TODO _q.cancel();
 	}
 
-	@FXML
-	public void handlePressRecord(MouseEvent event){
-		_q.test();
-	}
+
 
 	@Override
 	public void collectResult() {

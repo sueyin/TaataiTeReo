@@ -1,7 +1,7 @@
 package application.controller;
 
 
-import application.model.question.ClassicQuestion;
+import application.model.question.TwoChancesQuestion;
 import application.model.question.ClassicQuestionSuite;
 import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
@@ -29,15 +29,12 @@ public class ClassicTestPageController extends TestPageController {
 		_qs = new ClassicQuestionSuite(_selectedLevel);
 
 		//Set the first question
-		_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
+		_q = new TwoChancesQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
 		_question.setText(_qs.getQuestion());
 		_score = 0;
 
-		_question.setStyle("-fx-text-size: 100");
 		//Initialize GUI
-		_rightOrWrong.setVisible(false);
-		_youSaid.setVisible(false);
-		_answerIs.setVisible(false);
+		_question.setStyle("-fx-text-size: 100");
 
 		if (Integer.parseInt(_selectedLevel) > 12){
 			//Change font size for Strings
@@ -46,8 +43,12 @@ public class ClassicTestPageController extends TestPageController {
 			//Change font size for numbers
 			_question.setStyle("-fx-font-size: 130");
 		}
-		_q1.setId("onQuestion");
+		_rightOrWrong.setVisible(false);
+		_youSaid.setVisible(false);
+		_answerIs.setVisible(false);
 		_topRight.setText("Level "+_selectedLevel);
+
+		_q1.setId("onQuestion");
 		_record.setVisible(true);
 		_record.setText("Record");
 		_next.setVisible(false);
@@ -69,7 +70,6 @@ public class ClassicTestPageController extends TestPageController {
 	@FXML
 	public void handlePressNext(MouseEvent event) {
 		if (_next.getText() == "Completed"){
-			System.out.println(_score);
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
 
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
@@ -201,7 +201,7 @@ public class ClassicTestPageController extends TestPageController {
 			//Change to the next question
 			_qs.nextQuestion();
 			_question.setText(_qs.getQuestion());
-			_q = new ClassicQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
+			_q = new TwoChancesQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
 			//Update GUI
 			_next.setVisible(false);
 			_record.setVisible(true);
