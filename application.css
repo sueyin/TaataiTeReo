@@ -48,6 +48,10 @@
     -fx-text-family: Yuanti SC;
 }
 
+.table-view {
+	-fx-background-color: transparent;
+}
+
 .table-view .column-header {
     -fx-background-color: #3c3c3c;
 }
