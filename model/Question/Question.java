@@ -47,11 +47,45 @@ public abstract class Question {
 	/*
 		Functionality
 	 */
+
+
+	/**
+	 * Read mlx file produced by HTK and get what were recognized.
+	 */
+	private String computeRead() {
+		/*
+		String read = null;
+		//Read the mlx file produced by HTK command.
+		File recout = new File(RECOUT);
+		try {
+			//Read the file into a String
+			Scanner sc = new Scanner(recout);
+			while (sc.hasNextLine()) {
+				read = read + " " + sc.nextLine();
+			}
+			sc.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		//If something is recognized, the String should contain "sil"
+		//Find what the user said if anything is recognized. Otherwise return null.
+		if (read.contains("sil")){
+			return read.split("sil")[1].trim();
+		}else{
+			return "";
+		}
+		*/
+
+		return "dd";
+	}
+
+
 	/**
 	 * Record by bash command, create a temporary wav file in the hidden root folder. Call method from the TestPageController
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
+
 
 
 /*
@@ -86,10 +120,6 @@ public abstract class Question {
 		new Thread(_recordTask).start();
 
 */
-
-		System.out.println("Deleted last recording");
-		System.out.println("Recording");
-		System.out.println("Recorded");
 		compare();
 
 	}
@@ -118,10 +148,7 @@ public abstract class Question {
 				//Read the result from HTK command and get what the user said.
 				_read = computeRead();
 				//Determine whether the user said the correct answer.
-				if (_read.equals("")){
-					_result = false;
-					//TODO change a label or something to indicate the user nothing has been recorded
-				}else if(_read.equals(_answer)){
+				if(_read.equals(_answer)){
 					_result = true;
 				}else{
 					_result = false;
@@ -148,50 +175,15 @@ public abstract class Question {
 
 
 
-		System.out.println("Comparing");
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
 			_result = false;
-			System.out.println("Compared. Result set to false");
 		}else{
 			_result = true;
-			System.out.println("Compared. Result set to true");
 		}
-
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
 
-	}
-
-
-	/**
-	 * Read mlx file produced by HTK and get what were recognized.
-	 */
-	private String computeRead() {
-		/*
-		String read = null;
-		//Read the mlx file produced by HTK command.
-		File recout = new File(RECOUT);
-		try {
-			//Read the file into a String
-			Scanner sc = new Scanner(recout);
-			while (sc.hasNextLine()) {
-				read = read + " " + sc.nextLine();
-			}
-			sc.close();
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		//If something is recognized, the String should contain "sil"
-		//Find what the user said if anything is recognized. Otherwise return null.
-		if (read.contains("sil")){
-			return read.split("sil")[1].trim();
-		}else{
-			return "";
-		}
-		*/
-
-		return "dd";
 	}
 
 

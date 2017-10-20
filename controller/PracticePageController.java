@@ -38,14 +38,14 @@ public class PracticePageController {
 	private Label _instruction;
 	@FXML
 	private JFXButton _disabledButton;
-	
+
 	private static String _question;
 
 	@FXML
 	public void initialize() {
 		_disabledButton.setVisible(false);
 	}
-	
+
 	// Event Listener on JFXButton[#_mainReturn].onMouseClicked
 	@FXML
 	public void handlePressMainReturn(MouseEvent event) {
@@ -89,15 +89,15 @@ public class PracticePageController {
 		}
 	}
 
-	
+
 	// Event Listener on JFXButton[#_custom].onMouseClicked
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
 		_question = _textField.getText();
 	}
-	
-	
-	
+
+
+
 	/**
 	 * checks if a string consists of only numbers 
 	 */
@@ -105,11 +105,7 @@ public class PracticePageController {
 		if (value == null || value.equals("")){
 			return false;
 		}
-	    return value.matches("^[0-9]+$");
-	}
-	
-	public static String getQuestion(){
-		return _question;
+		return value.matches("^[0-9]+$");
 	}
 
 }

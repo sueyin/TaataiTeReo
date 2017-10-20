@@ -41,8 +41,4 @@ public class SurvivalTestPageController extends TestPageController{
 		
 	}
 
-	@Override
-	public void collectResult() {
-
-	}
 }

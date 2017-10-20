@@ -69,8 +69,8 @@ public class User {
             //Write default format
             try {
                 PrintWriter writer = new PrintWriter(_dir + "practice.txt", "UTF-8");
-                for (int i = 1; i<=99; i++){
-                    writer.println(i+"#-");
+                for (int i = 1; i<= 99; i++){
+                    writer.println(i + "#-");
                 }
                 writer.close();
             } catch (FileNotFoundException e) {
@@ -93,19 +93,17 @@ public class User {
                 e.printStackTrace();
             }
             //Write the default format
-            PrintWriter writer = null;
             try {
-                writer = new PrintWriter(_classicRecord, "UTF-8");
+                PrintWriter writer = new PrintWriter(_classicRecord, "UTF-8");
+                for (int i = 1; i <= 15; i++){
+                    writer.println(i + "#-");
+                }
+                writer.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            for (int i = 1; i <= 15; i++){
-                String line = i + "#-";
-                writer.println(line);
-            }
-            writer.close();
         }
     }
 
@@ -116,7 +114,7 @@ public class User {
         if(!_survivalRecord.exists()){
             try {
                 _survivalRecord.createNewFile();
-                PrintWriter writer = new PrintWriter(_classicRecord, "UTF-8");
+                PrintWriter writer = new PrintWriter(_survivalRecord, "UTF-8");
                 writer.println("0");
                 writer.close();
             } catch (IOException e) {
@@ -265,9 +263,12 @@ public class User {
         readClassicRecord();
         boolean flag = false;
         //Decide whether the current score is greater than the last record
-        if (_classicStatistic.get(level).equals("-")){
+        System.out.println("level is "+level);
+        System.out.println("empty?"+_classicStatistic.get(level));
+        if (_classicStatistic.get(level).equals("-") || _classicStatistic.get(level).length()<1){
             flag = true;
         }else{
+            System.out.println("into parseInt");
             int last = Integer.parseInt(_classicStatistic.get(level));
             if (Integer.parseInt(score) > last){
                 flag = true;

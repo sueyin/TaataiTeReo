@@ -80,11 +80,7 @@ public abstract class TestPageController {
         _process.setVisible(true);
         _loading.setVisible(true);
         _q.test();
-        collectResult();
     }
-
-    public abstract void collectResult();
-
 
     //Change GUI methods
     public void rightGUI(){
@@ -129,6 +125,21 @@ public abstract class TestPageController {
         _youSaid.setText("You sounds like " + _q.getRead());
         _youSaid.setVisible(true);
         _answerIs.setText("The answer is " +  _q.getAnswer());
+        _record.setVisible(false);
+        _next.setVisible(true);
+    }
+
+    public void emptyRecordGUI(){
+        _process.setVisible(false);
+        _loading.setVisible(false);
+        _play.setVisible(true);
+        _rightOrWrong.setVisible(true);
+        _youSaid.setVisible(true);
+        _answerIs.setVisible(true);
+        _rightOrWrong.setText("Nothing was recorded.");
+        _rightOrWrong.setVisible(true);
+        _youSaid.setText("Please check your microphone");
+        _youSaid.setVisible(false);
         _record.setVisible(false);
         _next.setVisible(true);
     }

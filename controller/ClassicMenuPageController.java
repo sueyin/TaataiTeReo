@@ -43,7 +43,7 @@ public class ClassicMenuPageController {
 			System.out.println(result);
 			
 			//determine number of stars awarded to each level
-			if (result.equals("")) {
+			if (result.equals("-")) {
 				Star.add(0);
 			}
 			else{

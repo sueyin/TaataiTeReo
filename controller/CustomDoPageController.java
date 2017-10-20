@@ -67,7 +67,7 @@ public class CustomDoPageController {
 
 	@FXML
 	public void initialize() {
-		_manager = new CustomManager(MainPageController.getUser());
+		_manager = new CustomManager();
 		
 		_privateData = FXCollections.observableArrayList();
 		Map<String, ArrayList<String>> privateSuites =  _manager.getPrivateSuites();
