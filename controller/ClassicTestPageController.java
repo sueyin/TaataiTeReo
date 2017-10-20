@@ -85,9 +85,6 @@ public class ClassicTestPageController extends TestPageController {
 	@FXML
 	public void handlePressNext(MouseEvent event) {
 		_qs.collectResult(_q.getResult());
-		if (_q.getResult()){
-			_score++;
-		}
 		if (_next.getText().equals("Completed")){
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
 

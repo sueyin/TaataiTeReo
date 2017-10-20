@@ -48,21 +48,30 @@ public class CustomTestPageController extends TestPageController {
 		}
 		Collections.shuffle(_answerList);
 		_index = 0;
+
+		String answer = _answerList.get(_index);
+		_q = new TwoChancesQuestion(answer, answer,this);
+
+		//Setup GUI
+		_question.setText(_q.getQuestion());
+		_record.setVisible(true);
+		_next.setVisible(false);
+		_play.setVisible(false);
+		_process.setVisible(false);
+		_loading.setVisible(false);
+		_rightOrWrong.setVisible(false);
+		_answerIs.setVisible(false);
+		_youSaid.setVisible(false);
 	}
 
 
 	// Event Listener on JFXButton[#_next].onMouseClicked
 	@FXML
 	public void handlePressNext(MouseEvent event) {
-
-		if (_q.getResult()){
-			_score++;
-		}
 		_reportList.put(_q.getAnswer(), _q.getRead());
-		if (_next.getText().equals("Finish")){
+		if (_index + 1 == _answerList.size()){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/CustomResultPage.fxml");
-
 		}else{
 			_index++;
 			nextQuestion();

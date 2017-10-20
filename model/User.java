@@ -263,12 +263,9 @@ public class User {
         readClassicRecord();
         boolean flag = false;
         //Decide whether the current score is greater than the last record
-        System.out.println("level is "+level);
-        System.out.println("empty?"+_classicStatistic.get(level));
-        if (_classicStatistic.get(level).equals("-") || _classicStatistic.get(level).length()<1){
+        if (_classicStatistic.get(level).equals("-")){
             flag = true;
         }else{
-            System.out.println("into parseInt");
             int last = Integer.parseInt(_classicStatistic.get(level));
             if (Integer.parseInt(score) > last){
                 flag = true;
