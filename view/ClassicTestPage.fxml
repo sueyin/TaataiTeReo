@@ -17,7 +17,7 @@
             <Font name="Yuanti SC Regular" size="96.0" />
          </font>
       </Label>
-      <JFXButton fx:id="_record" layoutX="429.0" layoutY="468.0" onMouseClicked="#handlePressButton" prefHeight="78.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
+      <JFXButton fx:id="_record" layoutX="429.0" layoutY="468.0" onMouseClicked="#handlePressRecord" prefHeight="78.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="29.0" />
          </font>
@@ -30,7 +30,7 @@
 
       <JFXButton fx:id="_return" layoutX="19.0" layoutY="17.0" onMouseClicked="#handlePressReturn" prefHeight="65.0" prefWidth="65.0" text=" ">
          <graphic>
-            <ImageView fx:id="_return" fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/testpage/return.png" />
                </image>
