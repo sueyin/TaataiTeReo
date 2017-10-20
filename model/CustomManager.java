@@ -1,11 +1,11 @@
 package application.model;
 
 import application.TataiApp;
+import application.controller.MainPageController;
+import application.model.file.FileReader;
+import application.model.question.MathGenerator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,10 +18,10 @@ public class CustomManager {
     private Map<String, ArrayList<String>> _privateSuites = new HashMap<>();
     private User _usr;
 
-    public CustomManager(User usr){
-        _usr = usr;
+    public CustomManager(){
+        _usr = MainPageController.getUser();
         _public = new File(TataiApp.getPublicCustomDir());
-        _private = new File(TataiApp.getCustomDir()+ usr.getName() + "/");
+        _private = new File(TataiApp.getCustomDir()+ _usr.getName() + "/");
         readStorage(_public, _publicSuites);
         readStorage(_private, _privateSuites);
     }
@@ -61,6 +61,23 @@ public class CustomManager {
         }
     }
 
+
+
+
+    public Map<String, String> readQuestionSuite(String id, boolean isPublic){
+        String path;
+        if (isPublic){
+            path = _public.getPath() + id + ".txt";
+        }else{
+            path = _private.getPath() + id + ".txt";
+        }
+        FileReader reader = new FileReader(path);
+        Map<String, String> questionSuite = reader.getData();
+        questionSuite.remove("author");
+        questionSuite.remove("disp");
+        questionSuite.remove("total");
+        return questionSuite;
+    }
 
     /**
      * Write a new question Suite
