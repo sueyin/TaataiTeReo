@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.model.question.PracticeQuestion;
-import application.model.question.Question;
 import application.viewModel.SceneSwitch;
 import javafx.scene.control.TextField;
 import javafx.scene.Node;

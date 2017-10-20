@@ -14,14 +14,18 @@ import java.util.Scanner;
 public class CustomManager {
     private File _public;
     private File _private;
+    private String _publicPath;
+    private String _privatePath;
     private Map<String, ArrayList<String>> _publicSuites = new HashMap<>();
     private Map<String, ArrayList<String>> _privateSuites = new HashMap<>();
     private User _usr;
 
     public CustomManager(){
         _usr = MainPageController.getUser();
-        _public = new File(TataiApp.getPublicCustomDir());
-        _private = new File(TataiApp.getCustomDir()+ _usr.getName() + "/");
+        _publicPath = TataiApp.getPublicCustomDir();
+        _privatePath = TataiApp.getCustomDir()+ _usr.getName() + "/";
+        _public = new File(_publicPath);
+        _private = new File(_privatePath);
         readStorage(_public, _publicSuites);
         readStorage(_private, _privateSuites);
     }
@@ -67,18 +71,18 @@ public class CustomManager {
     public Map<String, String> readQuestionSuite(String id, boolean isPublic){
         String path;
         if (isPublic){
-            path = _public.getPath() + id + ".txt";
+            path = _publicPath + id + ".txt";
         }else{
-            path = _private.getPath() + id + ".txt";
+            path = _privatePath + id + ".txt";
         }
         FileReader reader = new FileReader(path);
         Map<String, String> questionSuite = reader.getData();
-        System.out.println("try"+questionSuite.get("author"));
-        System.out.println("try"+questionSuite.get("disp"));
-        System.out.println("try"+questionSuite.get("total"));
         questionSuite.remove("author");
         questionSuite.remove("disp");
         questionSuite.remove("total");
+        for (String s: questionSuite.keySet()){
+            System.out.println(questionSuite.get(s));
+        }
         return questionSuite;
     }
 
@@ -107,6 +111,16 @@ public class CustomManager {
             writer.println(s);
         }
         writer.close();
+    }
+
+    public void deleteQuestionSuite(String id, boolean isPublic){
+        File newSuite;
+        if (isPublic){
+            newSuite = new File(_public.getPath() + "/" + id + ".txt" );
+        }else{
+            newSuite = new File(_private.getPath() + "/" + id + ".txt" );
+        }
+        newSuite.delete();
     }
 
 

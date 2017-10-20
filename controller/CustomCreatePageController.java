@@ -71,8 +71,6 @@ public class CustomCreatePageController {
 
 	private String[] _qs;
 
-	//private ArrayList<String> _qs = new ArrayList<>();
-
 	private String _id;
 
 	private CustomManager _manager = CustomDoPageController.getManager();

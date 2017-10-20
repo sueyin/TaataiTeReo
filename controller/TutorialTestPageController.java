@@ -12,7 +12,6 @@ import javafx.scene.shape.Rectangle;
 
 import com.jfoenix.controls.JFXSpinner;
 
-import application.model.question.PracticeQuestion;
 import application.model.question.Question;
 
 public class TutorialTestPageController extends TestPageController {
@@ -68,8 +67,6 @@ public class TutorialTestPageController extends TestPageController {
 		_loading.setVisible(true);
 		_loadInstr.setVisible(true);
 		_mainInstr.setVisible(false);
-		PracticeQuestion q = new PracticeQuestion("1",this);
-		q.test();
 	}
 
 

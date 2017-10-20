@@ -125,7 +125,6 @@ public class CustomDoPageController {
 
 		}
 		if (_selected == null) {
-			System.out.println("select one first");
 			TimedMessage delay = new TimedMessage();
 			_message.setVisible(true);
 			//disable the message after a few seconds
@@ -201,19 +200,19 @@ public class CustomDoPageController {
 		else {
 			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to delete selected question suite?", "Delete", "Cancel");
 			boolean confirm = confirmation.createPopUp();
-			System.out.println(""+confirm);
 			if (confirm){
 				setSelected();
-
 				boolean isPublic = _selected.getPublic();
 				System.out.println("isPublic "+isPublic);
 				if (isPublic){
 					System.out.println("public");
+					_manager.deleteQuestionSuite(_selected.getName(), isPublic);
 					_publicData.remove(_selected);
 					//TODO remove selected question suite (Public)
 				}
 				else {
 					System.out.println("private");
+					_manager.deleteQuestionSuite(_selected.getName(), isPublic);
 					_privateData.remove(_selected);
 					//TODO remove selected question suite (private)
 				}
