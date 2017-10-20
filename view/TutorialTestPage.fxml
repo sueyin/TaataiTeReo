@@ -4,11 +4,10 @@
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TutorialTestPageController">
@@ -21,11 +20,6 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <Label fx:id="_message" alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="132.0" prefHeight="72.0" prefWidth="716.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
-         <font>
-            <Font name="Yuanti SC Regular" size="36.0" />
-         </font>
-      </Label>
       <JFXButton fx:id="_play" layoutX="708.0" layoutY="480.0" text=" ">
          <graphic>
             <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
@@ -38,12 +32,12 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label fx:id="_questionInstr" alignment="CENTER" layoutX="615.0" layoutY="260.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="This is the question you need to answer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_questionInstr" alignment="CENTER" layoutX="740.0" layoutY="230.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="This is the question you need to answer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="_title" alignment="CENTER" layoutX="396.0" layoutY="33.0" prefHeight="100.0" prefWidth="334.0" text="Tutorial Page" textFill="WHITE">
+      <Label fx:id="_mode" alignment="CENTER" layoutX="396.0" layoutY="33.0" prefHeight="100.0" prefWidth="334.0" text="Tutorial Page" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="50.0" />
          </font>
@@ -64,7 +58,7 @@
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="_messageInstr" alignment="CENTER" layoutX="235.0" layoutY="195.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="This message shows information about your answer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_messageInstr" alignment="CENTER" layoutX="30.0" layoutY="320.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="These messages show information about your answer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
@@ -79,15 +73,43 @@
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="_question" alignment="CENTER" layoutX="456.0" layoutY="240.0" prefHeight="136.0" prefWidth="238.0" text="1" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="96.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="_record" layoutX="455.0" layoutY="483.0" prefHeight="54.0" prefWidth="230.0" style="-fx-background-color: #929292; -fx-background-radius: 30;" text="Record" textFill="WHITE" onMouseClicked="#handlePressRecord">
+                  <VBox alignment="CENTER" layoutX="193.0" layoutY="188.0" prefHeight="299.0" prefWidth="764.0" spacing="5.0">
+         <children>
+            <Label fx:id="_question" alignment="CENTER" prefHeight="70.0" prefWidth="766.0" text="fgdshkfadfa" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Yuanti SC Regular" size="50.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="60.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="_youSaid" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
+               <font>
+                  <Font name="Yuanti SC Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="_rightOrWrong" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
+               <font>
+                  <Font name="Yuanti SC Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="_answerIs" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
+               <font>
+                  <Font name="Yuanti SC Regular" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <JFXButton fx:id="_record" layoutX="455.0" layoutY="483.0" onMouseClicked="#handlePressRecord" prefHeight="54.0" prefWidth="230.0" style="-fx-background-color: #929292; -fx-background-radius: 30;" text="Record" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="25.0" />
          </font>
       </JFXButton>
+                  <JFXSpinner fx:id="_loading" layoutX="752.0" layoutY="519.0" />
+      <Label fx:id="_process" alignment="CENTER" layoutX="457.0" layoutY="512.0" prefHeight="41.0" prefWidth="224.0" text="processing..." textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="29.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
