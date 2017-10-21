@@ -97,13 +97,13 @@ public class ClassicTestPageController extends TestPageController {
 			if (result) {
 				nodeList.get(index-1).setSelected(true);
 				nodeList.get(index-1).setId("radio_correct");
-				if (index < 9) {
+				if (index < 10) {
 					nodeList.get(index).setId("onQuestion");
 				}
 			}
 			else {
 				nodeList.get(index-1).setId("radio_correct");
-				if (index < 9) {
+				if (index < 10) {
 					nodeList.get(index).setId("onQuestion");
 				}
 			}
