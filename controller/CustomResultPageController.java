@@ -15,6 +15,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class CustomResultPageController {
 
 	@FXML
@@ -29,11 +33,20 @@ public class CustomResultPageController {
 	@FXML
 	public void initialize() {
 		_data = FXCollections.observableArrayList();
+		ArrayList<String> report = CustomTestPageController.getReport();
+		for (String s : report){
+			String[] individualRep = s.split("#");
+			CustomResultModel a = new CustomResultModel(individualRep[0],individualRep[1],individualRep[2],individualRep[3]);
+			_data.add(a);
+			_tableView.setItems(_data);
+			_tableView.setEditable(true);
+		}
+		/*
 		CustomResultModel a = new CustomResultModel("question","answer","yourAnswer","score");
 		_data.add(a);
 		_tableView.setItems(_data);
 		_tableView.setEditable(true);
-		
+		*/
 
 		TableColumn<CustomResultModel, String> questionCol = new TableColumn<CustomResultModel, String>("Question");
 		questionCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("question"));

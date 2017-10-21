@@ -29,7 +29,7 @@ public class CustomTestPageController extends TestPageController {
 
 	private ArrayList<String> _answerList = new ArrayList<>();
 
-	private static Map<String, String>  _reportList = new HashMap<>();
+	private static ArrayList<String>  _reportList = new ArrayList<>();
 
 	private int _index;
 
@@ -50,7 +50,7 @@ public class CustomTestPageController extends TestPageController {
 		_index = 0;
 
 		String answer = _answerList.get(_index);
-		_q = new TwoChancesQuestion(answer, answer,this);
+		_q = new TwoChancesQuestion(_qs.get(answer), answer,this);
 
 		//Setup GUI
 		_question.setText(_q.getQuestion());
@@ -68,7 +68,19 @@ public class CustomTestPageController extends TestPageController {
 	// Event Listener on JFXButton[#_next].onMouseClicked
 	@FXML
 	public void handlePressNext(MouseEvent event) {
-		_reportList.put(_q.getAnswer(), _q.getRead());
+		//Create report
+		String result;
+		if(_q.getResult()){
+			result = "Right";
+		}else{
+			result = "Wrong";
+		}
+		String rep = _q.getQuestion()+"#"+_q.getAnswer()+"#"+_q.getRead()+"#"+ result;
+		_reportList.add(rep);
+		System.out.println("created rep for "+ _q.getQuestion());
+
+
+
 		if (_index + 1 == _answerList.size()){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/CustomResultPage.fxml");
@@ -96,10 +108,11 @@ public class CustomTestPageController extends TestPageController {
 		String answer = _answerList.get(_index);
 		String question = _qs.get(answer);
 		_q = new TwoChancesQuestion(question, answer, this);
+		_question.setText(question);
 	}
 
 
-	public static Map<String, String>  getReport(){
+	public static ArrayList<String>  getReport(){
 		return _reportList;
 	}
 
