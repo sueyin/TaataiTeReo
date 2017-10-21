@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import application.viewModel.SceneSwitch;
 
@@ -20,11 +22,18 @@ public class TataiApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("view/LoginPage.fxml"));
+       /* Parent root = FXMLLoader.load(getClass().getResource("view/LoginPage.fxml"));
+        primaryStage.setTitle("Tatai Te Reo");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();*/
+    
+        ResourceBundle bundle = ResourceBundle.getBundle("lang.bundle");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/LoginPage.fxml"),bundle);
+        Parent root = loader.load();
+        
         primaryStage.setTitle("Tatai Te Reo");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-    
     }
 
 

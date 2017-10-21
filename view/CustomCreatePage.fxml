@@ -14,35 +14,35 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomCreatePageController">
    <children>
-      <Label layoutX="338.0" layoutY="53.0" text="Create Question Suite" textFill="WHITE">
+      <Label layoutX="338.0" layoutY="53.0" text="%keyCustomCreateTitle" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="46.0" />
          </font>
       </Label>
       <JFXTextField fx:id="_description" layoutX="246.0" layoutY="150.0" prefHeight="36.0" prefWidth="545.0" style="-fx-background-color: grey;" />
-      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="136.0" prefHeight="65.0" prefWidth="166.0" text="description" textFill="WHITE">
+      <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="136.0" prefHeight="65.0" prefWidth="166.0" text="%keyDescription" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="27.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="_public" layoutX="807.0" layoutY="148.0" text="public" textFill="WHITE">
+      <JFXCheckBox fx:id="_public" layoutX="807.0" layoutY="148.0" text="%keyPublic" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="27.0" />
          </font>
       </JFXCheckBox>
       <ListView fx:id="_list" layoutX="247.0" layoutY="272.0" prefHeight="260.0" prefWidth="663.0" stylesheets="@../application.css" />
       <JFXTextField fx:id="_equation" layoutX="244.0" layoutY="211.0" prefHeight="36.0" prefWidth="334.0" style="-fx-background-color: grey;" />
-      <Label alignment="CENTER_RIGHT" layoutX="58.0" layoutY="198.0" prefHeight="65.0" prefWidth="178.0" text="equation" textFill="WHITE">
+      <Label alignment="CENTER_RIGHT" layoutX="58.0" layoutY="198.0" prefHeight="65.0" prefWidth="178.0" text="%keyEquation" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="27.0" />
          </font>
       </Label>
-      <JFXButton fx:id="_add" layoutX="582.0" layoutY="203.0" onMouseClicked="#handlePressAdd" text="Add" textFill="WHITE">
+      <JFXButton fx:id="_add" layoutX="582.0" layoutY="203.0" onMouseClicked="#handlePressAdd" text="%keyAdd" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="27.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="_create" layoutX="481.0" layoutY="541.0" onMouseClicked="#handlePressCreate" text="create" textFill="WHITE">
+      <JFXButton fx:id="_create" layoutX="481.0" layoutY="541.0" onMouseClicked="#handlePressCreate" text="%keyCreate" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="36.0" />
          </font>

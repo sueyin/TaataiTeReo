@@ -12,6 +12,7 @@ import application.confirmation.ConfirmationModel;
 import application.model.User;
 import application.viewModel.SceneSwitch;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 
@@ -36,46 +37,51 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoginPageController {
-	
+
 	@FXML
 	private Stage _deleteConfirm;
-	
+
 	@FXML
 	private JFXListView<String> _userList; // the list displayed on select user page with all existing user names
-	
+
 	@FXML
 	private Button _add;  //add user button
-	
+
 	@FXML
 	private Button _delete;  //delete user button
-	
+
 	@FXML
 	private Button _selectUserContinue;  //continue to main page button from the select user page 
-	
+
 	@FXML
 	private Label _selectUserMessage;  // warning message displayed on select user page if the user press continue without selecting a user 
-	
+
 	@FXML
 	private JFXTextField _textField;  //text field on add user page for entering new user name 
-	
+
 	@FXML
 	private Button _addUserContinue; //continue to main page button from the add user page 
-	
+
 	@FXML
 	private Label _addUserMessage;// warning message displayed on add user page if the user press continue without entering a name or the name already exists  
-	
+
 	@FXML
 	private Button _return; //return button that switch from add user page to select user page 
-	
+
+	@FXML
+	private JFXComboBox<String> _pickLanguage;
+
 	private List<String> _data = new ArrayList<String>(); //data extracted from txt file............................
-	
+
 	private ObservableList<String> _items; 
-	
+
 	private boolean _toDelete;
-	
+
 	private static String _selectedUser; //the user that is going to be used in the game
-	
-	
+
+	ObservableList<String> options = FXCollections.observableArrayList("English","中文");
+
+
 	/**
 	 * initialize the select user page
 	 */
@@ -83,42 +89,58 @@ public class LoginPageController {
 	public void initialize() {
 		//show the select user page first
 		showSelectUserPage(true);
-		
+
 		//initialize list
 		initialiseUserList();
-		
+
 		//initially set the delete button to be invisible until a user is selected in the list
 		_delete.setVisible(false);
-		
-		//initially set the warning message to invisible, only displayed when user attemp to continue without select user
+
+		//initially set the warning message to invisible, only displayed when user attempt to continue without select user
 		_selectUserMessage.setVisible(false);
+
+		_pickLanguage.setItems(options);
+		_pickLanguage.valueProperty().addListener(new ChangeListener<String>() {
+			@Override public void changed(ObservableValue ov, String t, String newLang) {
+				if (t== null) {
+					SceneSwitch.setLanguage(newLang);
+					SceneSwitch load = new SceneSwitch((Stage) _pickLanguage.getScene().getWindow());
+					load.switchScene("/application/view/LoginPage.fxml");
+				}
+				else if(!t.equals(newLang)){
+					SceneSwitch.setLanguage(newLang);
+					SceneSwitch load = new SceneSwitch((Stage) _pickLanguage.getScene().getWindow());
+					load.switchScene("/application/view/LoginPage.fxml");
+				}
+			}     
+		});
 	}
-	
+
 	/**
 	 * This method changes from select user page to add user page
 	 */
 	@FXML
 	public void handlePressAddUser(MouseEvent event) {
 		System.out.println("add user");
-		
+
 		//initialize the text field for entering use name and warning message to empty 
 		_addUserMessage.setText("");
 		_textField.setText("");
-		
+
 		//switch to add user page
 		showSelectUserPage(false);
-		
+
 		_textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-		    @Override
-		    public void handle(KeyEvent keyEvent) {
-		        if (keyEvent.getCode() == KeyCode.ENTER)  {
-		        	performAfterPressEnter();
-		        }
-		    }
+			@Override
+			public void handle(KeyEvent keyEvent) {
+				if (keyEvent.getCode() == KeyCode.ENTER)  {
+					performAfterPressEnter();
+				}
+			}
 		});
 	}
-	
-	
+
+
 	/**
 	 * This method deletes the selected user when delete button is pressed
 	 */
@@ -141,20 +163,20 @@ public class LoginPageController {
 			_items.remove(toDelete);
 		}
 	}
-	
 
 
-	
+
+
 	/**
 	 * This method switches from select user page to main page when user presses continue button and a user if selected
 	 */
 	@FXML
 	public void handlePressContinueFromSelectUser(MouseEvent event) {
 		System.out.println("Enter Main page from Select User Page");
-			
+
 		//get current selected user from the list
 		_selectedUser = _userList.getSelectionModel().getSelectedItem();
-		
+
 		//check if user selected a user, if not, then shows warning message
 		if (_selectedUser == null) {
 			TimedMessage delay = new TimedMessage();
@@ -164,9 +186,9 @@ public class LoginPageController {
 				delay.start();
 			}
 			delay.setOnSucceeded(e -> {
-	            _selectUserMessage.setVisible(false);
-	            delay.reset();
-	        });
+				_selectUserMessage.setVisible(false);
+				delay.reset();
+			});
 		}
 		//if a user is selected, then save the choice and continue to main page
 		else {
@@ -175,7 +197,7 @@ public class LoginPageController {
 			load.switchScene("/application/view/MainPage.fxml");
 		}
 	}
-	
+
 	/**
 	 * This method changes from add user page to main page if the entered user name is valid 
 	 */
@@ -183,9 +205,9 @@ public class LoginPageController {
 	public void handlePressContinueFromAddUser(MouseEvent event) {
 		performAfterPressEnter();
 	}
-	
-	
-	
+
+
+
 	/**
 	 * This method changes from the add user page to select user page when the return button is pressed
 	 */
@@ -193,13 +215,13 @@ public class LoginPageController {
 	public void handlePressReturn(MouseEvent event) {
 		System.out.println("return");
 		showSelectUserPage(true);
-		
+
 		//when switch back to select user page, if nothing is selected from the list, then disable delete user button
 		if (_userList.getSelectionModel().getSelectedItem() == null) {
 			_delete.setVisible(false);
 		}
 	}
-	
+
 	/**
 	 * This methods takes in boolean parameter, and displays the select user page when true, displays the add user page when fslse.
 	 */
@@ -213,7 +235,7 @@ public class LoginPageController {
 		_addUserContinue.setVisible(!show);
 		_addUserMessage.setVisible(!show);
 	}
-	
+
 	/**
 	 * This method initializes the user list when launching this page. It gets data on existing users from txt file
 	 */
@@ -222,20 +244,20 @@ public class LoginPageController {
 		for (String user : Arrays.asList(usrDir.list())){
 			_data.add(user);
 		}
-		
+
 		_items =FXCollections.observableArrayList (_data);
 		_userList.setItems(_items); 
-		
+
 		//Enables the delete button when an item is selected from the user list
 		_userList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-		    @Override
-		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-		        _delete.setVisible(true);
-		    }
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				_delete.setVisible(true);
+			}
 		});
 	}
-	
-	
+
+
 	/**
 	 * saves a user name to the list and also file containing all the user name
 	 */
@@ -246,15 +268,15 @@ public class LoginPageController {
 			newUser.mkdir();
 		}
 	}
-	
+
 	public static String getSelectedUser() {
 
 		return _selectedUser;
 	}
-	
+
 	private void performAfterPressEnter() {
-	Service delay = new TimedMessage();
-		
+		Service delay = new TimedMessage();
+
 		//check if the entered name exist already 
 		_selectedUser = _textField.getText();
 		boolean repeated = false;
@@ -272,9 +294,9 @@ public class LoginPageController {
 				delay.start();
 			}
 			delay.setOnSucceeded(e -> {
-	            _addUserMessage.setVisible(false);
-	            delay.reset();
-	        });
+				_addUserMessage.setVisible(false);
+				delay.reset();
+			});
 		}
 		//check if the text field only contains numbers and letters, if not then display warning message
 		else if (!_selectedUser.matches("\\w+")) {
@@ -284,9 +306,9 @@ public class LoginPageController {
 				delay.start();
 			}
 			delay.setOnSucceeded(e -> {
-	            _addUserMessage.setVisible(false);
-	            delay.reset();
-	        });
+				_addUserMessage.setVisible(false);
+				delay.reset();
+			});
 		}
 		//check if the entered user name already exists, if so, then asks the user to enter another one
 		else if (repeated == true) {
@@ -297,24 +319,23 @@ public class LoginPageController {
 				delay.start();
 			}
 			delay.setOnSucceeded(e -> {
-	            _addUserMessage.setVisible(false);
-	            delay.reset();
-	        });
+				_addUserMessage.setVisible(false);
+				delay.reset();
+			});
 		}
 		//if the user name entered is valid, then proceed to next page and save user name
 		else {
 			saveNewUserName(_selectedUser);
-	        try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-	        	Scene scene = new Scene(parent);
-	        	Stage stage = (Stage) _textField.getScene().getWindow();
-	        	stage.setScene(scene);
-	        	stage.show();
+			try {
+				Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
+				Scene scene = new Scene(parent);
+				Stage stage = (Stage) _textField.getScene().getWindow();
+				stage.setScene(scene);
+				stage.show();
 
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-			System.out.println("Enter Main page from Add User Page");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
