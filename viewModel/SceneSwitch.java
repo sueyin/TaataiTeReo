@@ -29,7 +29,7 @@ public class SceneSwitch {
 	
 	public void switchScene(String file){
 	    try {
-	        ResourceBundle bundle = ResourceBundle.getBundle("lang.bundle", _locale);
+	        ResourceBundle bundle = ResourceBundle.getBundle("application/lang.bundle", _locale);
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource(file),bundle);
 	        Parent parent = loader.load();
 	    	Scene scene = new Scene(parent);

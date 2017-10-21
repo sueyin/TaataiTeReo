@@ -27,7 +27,7 @@ public class TataiApp extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();*/
     
-        ResourceBundle bundle = ResourceBundle.getBundle("lang.bundle");
+        ResourceBundle bundle = ResourceBundle.getBundle("application/lang.bundle");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/LoginPage.fxml"),bundle);
         Parent root = loader.load();
         
