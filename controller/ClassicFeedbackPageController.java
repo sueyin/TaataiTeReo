@@ -71,16 +71,19 @@ public class ClassicFeedbackPageController {
 		else if (_result < 5) {
 			setOneStar();
 			_message.setText("Achieved~");
+			MainPageController.getUser().increaseExp(2);
 		}
 		//display 2 stars if between 5 -8
 		else if (_result < 9) {
 			setTwoStar();
 			_message.setText("Merit!");
+			MainPageController.getUser().increaseExp(5);
 		}
 		//display 3 stars if between 9-10
 		else {
 			setThreeStar();
 			_message.setText("Excellence!");
+			MainPageController.getUser().increaseExp(10);
 		}
 	}
 	
