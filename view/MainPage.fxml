@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_1.jpeg);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_1.jpeg); -fx-background-color: black;" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
 	<children>
 		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="126.0" prefHeight="153.0" prefWidth="369.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
 			<font>
@@ -29,9 +30,9 @@
             <Glow level="0.37" />
          </effect>
 		</Label>
-      <JFXButton alignment="CENTER" layoutX="906.0" layoutY="15.0" onMouseClicked="#handlePressAchievement" prefHeight="80.0" prefWidth="116.0" text=" ">
+      <JFXButton alignment="CENTER" layoutX="860.0" layoutY="13.0" onMouseClicked="#handlePressAchievement" text=" ">
          <graphic>
-				<VBox alignment="CENTER" prefHeight="92.0" prefWidth="114.0">
+				<VBox alignment="CENTER">
 					<children>
 						<ImageView fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" translateX="30.0">
 							<image>
@@ -41,16 +42,16 @@
                         <Insets left="-60.0" />
                      </VBox.margin>
 						</ImageView>
-						<Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="163.0" text="Achievement" textAlignment="CENTER" textFill="WHITE">
+						<Label alignment="CENTER" contentDisplay="CENTER" text="Achievement" textAlignment="CENTER" textFill="WHITE">
 							<font>
-								<Font size="15.0" />
+								<Font name="Yuanti SC Regular" size="15.0" />
 							</font>
 						</Label>
 					</children>
 				</VBox>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="1019.0" layoutY="12.0" onMouseClicked="#handlePressLogout" prefHeight="65.0" prefWidth="62.0" text=" ">
+      <JFXButton alignment="CENTER" layoutX="10.0" layoutY="12.0" onMouseClicked="#handlePressLogout" prefHeight="65.0" prefWidth="62.0" text=" ">
          <graphic>
       				<VBox alignment="CENTER" prefHeight="74.0" prefWidth="74.0">
       					<children>
@@ -162,6 +163,30 @@
       						</Label>
                </children>
             </HBox>
+         </graphic>
+      </JFXButton>
+            <JFXButton fx:id="_leaderBoard" layoutX="989.0" layoutY="13.0" onMouseClicked="#handlePressLeaderBoard" text=" " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="24.0" />
+         </font>
+         <graphic>
+            <VBox alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/custom/leaderboard.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+                  </ImageView>
+                  <Label alignment="CENTER" text="Leaderboard" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Yuanti SC Regular" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </graphic>
       </JFXButton>
 	</children>

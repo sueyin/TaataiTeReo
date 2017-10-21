@@ -24,6 +24,6 @@ public class AchievementPageController {
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
-		load.switchScene("/application/view/ClassicTestPage.fxml");
+		load.switchScene("/application/view/MainPage.fxml");
 	}
 }

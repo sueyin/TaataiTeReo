@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
    <children>
-      <Label alignment="CENTER" layoutX="467.0" layoutY="54.0" prefHeight="85.0" prefWidth="276.0" text="Feedback" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="646.0" layoutY="45.0" prefHeight="85.0" prefWidth="276.0" text="Feedback" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="60.0" />
          </font>

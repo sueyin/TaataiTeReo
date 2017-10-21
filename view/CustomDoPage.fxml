@@ -109,20 +109,5 @@
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="_delete1" layoutX="905.0" layoutY="14.0" onMouseClicked="#handlePressLeaderBoard" text="LeaderBoard" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="24.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="50.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/custom/leaderboard.png" />
-               </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
-            </ImageView>
-         </graphic>
-      </JFXButton>
    </children>
 </AnchorPane>

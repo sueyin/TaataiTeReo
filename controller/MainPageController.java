@@ -106,6 +106,15 @@ public class MainPageController {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/LoginPage.fxml");
 	}
+	
+	/**
+	 * this method changes from main page to leader board page 
+	 */
+	@FXML
+	public void handlePressLeaderBoard(MouseEvent event) {
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/CustomLeaderBoardPage.fxml");
+	}
 
 	/**
 	 * Pass the current user
