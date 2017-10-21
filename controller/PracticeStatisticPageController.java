@@ -94,9 +94,6 @@ public class PracticeStatisticPageController {
 
 		//sort the array 
 		Arrays.sort(list);
-		for (Item e: list) {
-			System.out.println(e.toString());
-		}
 		return list;
 	}
 

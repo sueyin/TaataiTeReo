@@ -11,6 +11,7 @@ public class SurvivalQuestionSuite {
     public SurvivalQuestionSuite(){
         _generator = new MathGenerator();
         _phase = 1;
+        renewQuestions();
     }
 
     private void renewQuestions() {

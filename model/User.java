@@ -248,7 +248,6 @@ public class User {
     public Map<String, ArrayList<Boolean>> getOverallStatistic(){
     	readPracticeStatistic();
         return _practiceStatistic;
-
     }
 
     //==================================================================================================================
