@@ -100,9 +100,13 @@
 }
 
 .button:hover {
-	-fx-effect: dropshadow(one-pass-box, grey, 7, 1, 0.1, 0.1);
+	-fx-effect: dropshadow(one-pass-box, lightgrey, 4, 0.6, 0.1, 0.1);
+	-fx-background-color: transparent;
 }
 
+.button:pressed {
+	-fx-background-color: transparent;
+}
 #group:hover {
     -fx-scale-x: 1.5;
     -fx-scale-y: 1.5;
