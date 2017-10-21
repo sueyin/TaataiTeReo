@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class User {
+    private static int ACHIV_NUM = 8;
     private File _practiceRecord;
     private File _classicRecord;
     private File _survivalRecord;
@@ -21,6 +22,8 @@ public class User {
     private String _practiceRecPath;
     private String _classicRecPath;
     private String _survivalRecPath;
+    private String _expRecPath;
+    private String _achivRecPath;
 
 
     private String _dir;
@@ -33,6 +36,7 @@ public class User {
     private String _survivalScore;
 
     private int _exp;
+    private boolean[] _achivList = new boolean[ACHIV_NUM - 1];
 
     public User(String name){
         _name = name;
@@ -40,16 +44,24 @@ public class User {
         _practiceRecPath = _dir + "practice.txt";
         _classicRecPath = _dir + "classic.txt";
         _survivalRecPath = _dir + "survival.txt";
+        _expRecPath = _dir + "exp.txt";
+        _achivRecPath = _dir + "achivs.txt";
         _practiceRecord = new File(_practiceRecPath);
         initializePracticeRecord();
         _classicRecord = new File(_classicRecPath);
         initializeClassicRecord();
         _survivalRecord = new File(_survivalRecPath);
         initializeSurvivalRecord();
+        _e = new File(_expRecPath);
+        initializeExpRecord();
+        _achivs = new File(_achivRecPath);
+        initializeAchivsRecord();
     }
+
 
     //==================================================================================================================
     //==================================================================================================================
+
 
     /*
         Initialization
@@ -123,9 +135,44 @@ public class User {
         }
     }
 
+    /**
+     * Create the Exp record file if not exists
+     */
+    private void initializeExpRecord() {
+        if(!_e.exists()){
+            try {
+                _e.createNewFile();
+                PrintWriter writer = new PrintWriter(_e, "UTF-8");
+                writer.println("0");
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Create the Achievement record file if not exists and write the default format
+     */
+    private void initializeAchivsRecord() {
+        if(!_achivs.exists()){
+            try {
+                _achivs.createNewFile();
+                PrintWriter writer = new PrintWriter(_achivs, "UTF-8");
+                for (int i = 1; i <= ACHIV_NUM; i++){
+                    writer.println(i + "#-");
+                }
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     //==================================================================================================================
     //==================================================================================================================
+
 
     /*
             Practice Mode
@@ -138,7 +185,7 @@ public class User {
         _reader = new FileReader(_practiceRecPath);
         Map<String, String> record = _reader.getData();
         for (String s : record.keySet()){
-            if (s.equals("-")){
+            if (record.get(s).equals("-")){
                 //Put null if there is no record
                 _practiceStatistic.put(s, null);
             }else{
@@ -155,7 +202,13 @@ public class User {
         readPracticeStatistic();
 
         //Update the new statistic
-        _practiceStatistic.get(number).add(result);
+        if (_practiceStatistic.get(number) == null){
+            ArrayList<Boolean> temp = new ArrayList<>();
+            temp.add(result);
+            _practiceStatistic.put(number, temp);
+        }else {
+            _practiceStatistic.get(number).add(result);
+        }
 
         //Write the newest statistic
         PrintWriter writer = null;
@@ -168,6 +221,11 @@ public class User {
         }
         for (String s : _practiceStatistic.keySet()) {
             if (_practiceStatistic.get(s) != null) {
+                ////////////////
+                for (boolean b :_practiceStatistic.get(s)){
+                    System.out.println(b);
+                }
+                ///////////////
                 String binary = booleanTranslate(_practiceStatistic.get(s));
                 writer.println(s + "#" + binary);
             } else {
@@ -193,8 +251,6 @@ public class User {
         return _practiceStatistic;
 
     }
-
-
 
     //==================================================================================================================
 
@@ -229,10 +285,8 @@ public class User {
     }
 
 
-
     //==================================================================================================================
     //==================================================================================================================
-
 
 
     /*
@@ -292,10 +346,8 @@ public class User {
     }
 
 
-
     //==================================================================================================================
     //==================================================================================================================
-
 
 
     /*
@@ -345,6 +397,64 @@ public class User {
     //==================================================================================================================
 
 
+    /*
+        Exp System
+     */
+
+    /**
+     * Return the current exp value of the user
+     */
+    public int getExp() {
+        try {
+            Scanner sc = new Scanner(_e);
+            _exp = Integer.parseInt(sc.nextLine());
+            sc.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return _exp;
+    }
+
+    /**
+     * Increase the exp value of the user
+     */
+    public void increaseExp(int exp){
+        _exp = _exp + exp;
+        try {
+            _e.createNewFile();
+            PrintWriter writer = new PrintWriter(_e, "UTF-8");
+            writer.println(_exp);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //==================================================================================================================
+    //==================================================================================================================
+
+
+    /*
+        Achievement System
+     */
+
+    /**
+     * Return the current exp value of the user
+     */
+    public boolean[] getAchiv() {
+        return _achivList;
+    }
+
+
+    //==================================================================================================================
+    //==================================================================================================================
+
+
+
+
+
+
 
     /*
         Administration
@@ -375,20 +485,6 @@ public class User {
      */
     public String getName(){
         return _name;
-    }
-
-    /**
-     * Return the current exp value of the user
-     */
-    public int getExp() {
-        return _exp;
-    }
-
-    /**
-     * Increase the exp value of the user
-     */
-    public void increaseExp(int exp){
-        _exp = _exp + exp;
     }
 
 

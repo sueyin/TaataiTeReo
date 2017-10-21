@@ -36,6 +36,6 @@ public class CustomResultModel {
 	public void setScore(String value) {
 	}
 	public String getScore(){
-		return yourAnswer.get();
+		return score.get();
 	}
 }
