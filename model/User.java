@@ -185,7 +185,7 @@ public class User {
         _reader = new FileReader(_practiceRecPath);
         Map<String, String> record = _reader.getData();
         for (String s : record.keySet()){
-            if (s.equals("-")){
+            if (record.get(s).equals("-")){
                 //Put null if there is no record
                 _practiceStatistic.put(s, null);
             }else{
@@ -202,7 +202,13 @@ public class User {
         readPracticeStatistic();
 
         //Update the new statistic
-        _practiceStatistic.get(number).add(result);
+        if (_practiceStatistic.get(number) == null){
+            ArrayList<Boolean> temp = new ArrayList<>();
+            temp.add(result);
+            _practiceStatistic.put(number, temp);
+        }else {
+            _practiceStatistic.get(number).add(result);
+        }
 
         //Write the newest statistic
         PrintWriter writer = null;
@@ -215,6 +221,11 @@ public class User {
         }
         for (String s : _practiceStatistic.keySet()) {
             if (_practiceStatistic.get(s) != null) {
+                ////////////////
+                for (boolean b :_practiceStatistic.get(s)){
+                    System.out.println(b);
+                }
+                ///////////////
                 String binary = booleanTranslate(_practiceStatistic.get(s));
                 writer.println(s + "#" + binary);
             } else {

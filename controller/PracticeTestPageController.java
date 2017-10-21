@@ -28,8 +28,8 @@ public class PracticeTestPageController extends TestPageController{
 		_question.setText(question);
 		_next.setVisible(false);
 		_statistic.setVisible(false);
+		_topRight.setVisible(false);
 		_q = new TwoChancesQuestion(question,question, this);
-		
 	}
 	
 	
@@ -62,24 +62,19 @@ public class PracticeTestPageController extends TestPageController{
 	@Override
 	public void rightGUI() {
 		super.rightGUI();
+		MainPageController.getUser().updatePractiseRecord(_q.getQuestion(), _q.getResult());
 		_statistic.setVisible(true);
 	}
 	
 	@Override
 	public void wrongGUI() {
 		super.wrongGUI();
+		MainPageController.getUser().updatePractiseRecord(_q.getQuestion(), _q.getResult());
 		_statistic.setVisible(true);
 	}
 	
 	@Override
 	public void tryAgainGUI() {
 		super.tryAgainGUI();
-	}
-
-
-
-	
-	private void collectResult(){
-
 	}
 }
