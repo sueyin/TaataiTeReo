@@ -3,16 +3,16 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1184.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
    <children>
-      <Label alignment="CENTER" layoutX="646.0" layoutY="45.0" prefHeight="85.0" prefWidth="276.0" text="Feedback" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="446.0" layoutY="41.0" prefHeight="85.0" prefWidth="276.0" text="Feedback" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="60.0" />
          </font>
@@ -29,13 +29,23 @@
 				</ImageView>
 			</graphic>
 		</JFXButton>
-      <PieChart fx:id="_pie" layoutX="622.0" layoutY="175.0" prefHeight="360.0" prefWidth="911.0" stylesheets="@../application.css" />
+      <PieChart fx:id="_pie" layoutX="569.0" layoutY="177.0" prefHeight="360.0" prefWidth="507.0" stylesheets="@../application.css" />
       <Label fx:id="_null" layoutX="743.0" layoutY="305.0" text="No Attempt" textFill="#757575">
          <font>
             <Font name="Yuanti SC Regular" size="36.0" />
          </font>
       </Label>
-      <ListView fx:id="_top" layoutX="52.0" layoutY="175.0" prefHeight="153.0" prefWidth="371.0" stylesheets="@../application.css" />
-      <ListView fx:id="_bottom" layoutX="52.0" layoutY="355.0" prefHeight="153.0" prefWidth="371.0" stylesheets="@../application.css" />
+      <TableView fx:id="_top" layoutX="154.0" layoutY="212.0" prefHeight="153.0" prefWidth="371.0" stylesheets="@../application.css" />
+      <TableView fx:id="_bottom" layoutX="154.0" layoutY="394.0" prefHeight="153.0" prefWidth="371.0" stylesheets="@../application.css" />
+      <JFXButton fx:id="_overall" alignment="CENTER" layoutX="158.0" layoutY="163.0" onMouseClicked="#handlePressOverall" prefHeight="42.0" prefWidth="350.0" text="overall" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="_selected" layoutX="744.0" layoutY="157.0" text="Selected" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

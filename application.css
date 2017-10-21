@@ -146,3 +146,10 @@
 	-fx-fill: white;
 	-fx-stroke: white;
 }
+
+.default-color0.chart-pie {
+	 -fx-pie-color: #628462;
+}
+.default-color1.chart-pie {
+	 -fx-pie-color: #555e55;
+}

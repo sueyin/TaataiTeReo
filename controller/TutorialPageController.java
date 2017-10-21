@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -40,43 +42,60 @@ public class TutorialPageController {
 	private AnchorPane _page3;
 	@FXML
 	private AnchorPane _page4;
+	@FXML
+	private AnchorPane _page5;
+	@FXML
+	private AnchorPane _page6;
 	
+	private List<AnchorPane> pages;
+	
+	private int _currentPage;
 	
 	@FXML
 	public void initialize() {
-		_page2.setVisible(false);
-		_page3.setVisible(false);
-		_page4.setVisible(false);
-	}
-	
-	@FXML
-	public void handlePressButton1(MouseEvent event) {
-		System.out.println("p");
-		_page1.setVisible(false);
-		_page2.setVisible(true);
-	}
-	
-	@FXML
-	public void handlePressButton2(MouseEvent event) {
-		_page2.setVisible(false);
-		_page3.setVisible(true);
-	}
-	
-	@FXML
-	public void handlePressButton3(MouseEvent event) {
-		_page3.setVisible(false);
-		_page4.setVisible(true);
-	}
-	
-	@FXML
-	public void handlePressLeft1(MouseEvent event) {
+		//initialize to put all pages into array list, and set initial status to be at position 0 
+		_currentPage = 0;
+		pages = new ArrayList(6);
+		pages.add(_page1);
+		pages.add(_page2);
+		pages.add(_page3);
+		pages.add(_page4);
+		pages.add(_page5);
+		pages.add(_page6);
+		for (AnchorPane p: pages) {
+			p.setVisible(false);
+		}
+		//only set page 1 to be visible
 		_page1.setVisible(true);
-		_page2.setVisible(false);
+		
 	}
 	
+	/**
+	 * every time user press next, the scene switch to the next anchor pane in the array list
+	 */
 	@FXML
-	public void handlePressLeft2(MouseEvent event) {
-		_page2.setVisible(true);
-		_page3.setVisible(false);
+	public void handlePressButton(MouseEvent event) {
+		pages.get(_currentPage+1).setVisible(true);
+		pages.get(_currentPage).setVisible(false);
+		_currentPage++;
+	}
+	
+	/**
+	 * every time user press back, the scene switch to the previous anchor pane in the array list
+	 */
+	@FXML
+	public void handlePressLeft(MouseEvent event) {
+		pages.get(_currentPage).setVisible(false);
+		pages.get(_currentPage-1).setVisible(true);
+		_currentPage--;
+	}
+
+	/**
+	 * When user press "finish tutorial", switch back to main page
+	 */
+	@FXML
+	public void handlePressFinish(MouseEvent event) {
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/MainPage.fxml");
 	}
 }
