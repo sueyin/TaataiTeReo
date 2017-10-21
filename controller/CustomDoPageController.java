@@ -172,22 +172,6 @@ public class CustomDoPageController {
 		load.switchScene("/application/view/MainPage.fxml");
 	}
 	
-	@FXML
-	public void handlePressLeaderBoard(MouseEvent event) {
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomLeaderBoardPage.fxml"));
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(parent);
-			_popUp = new Stage();
-			_popUp.setScene(scene);
-			_popUp.initOwner(stage);
-			_popUp.initModality(Modality.WINDOW_MODAL);
-
-			_popUp.showAndWait();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	// Event Listener on JFXButton[#_delete].onMouseClicked
 	@FXML
