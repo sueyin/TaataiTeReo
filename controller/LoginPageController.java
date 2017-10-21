@@ -129,8 +129,15 @@ public class LoginPageController {
 		boolean confirm = confirmation.createPopUp();
 		if (confirm){
 			System.out.println("delete user");
+			//Delete the User records
 			String toDelete = _userList.getSelectionModel().getSelectedItem();
 			new User(toDelete).deleteUser();
+			//Delete private custom questions
+			File custom = new File(TataiApp.getCustomDir() + toDelete);
+			for (File f : custom.listFiles()){
+				f.delete();
+			}
+			custom.delete();
 			_items.remove(toDelete);
 		}
 	}

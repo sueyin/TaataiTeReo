@@ -77,6 +77,7 @@ public class SurvivalTestPageController extends TestPageController{
 			_rightOrWrong.setVisible(false);
 			_answerIs.setVisible(false);
 			_play.setVisible(false);
+			MainPageController.getUser().updateSurvivalScore(_score);
 		}
 	}
 
