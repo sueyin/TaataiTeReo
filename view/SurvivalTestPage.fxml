@@ -9,7 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="application.controller.SurvivalTestPageController">
+<?import javafx.scene.effect.Glow?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.ColorAdjust?>
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SurvivalTestPageController">
    <children>
       <JFXButton fx:id="_record" layoutX="472.0" layoutY="502.0" onMouseClicked="#handlePressRecord" prefHeight="61.0" prefWidth="190.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="Record" textFill="WHITE">
          <font>

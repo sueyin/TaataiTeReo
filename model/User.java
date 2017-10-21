@@ -15,7 +15,6 @@ public class User {
     private File _practiceRecord;
     private File _classicRecord;
     private File _survivalRecord;
-    //TODO add exp and achievement systems
     private File _e;
     private File _achivs;
 
@@ -33,7 +32,7 @@ public class User {
 
     private Map<String, ArrayList<Boolean>> _practiceStatistic = new HashMap<>();
     private Map<String, String> _classicStatistic = new HashMap<>();
-    private String _survivalScore;
+    private int _survivalScore;
 
     private int _exp;
     private boolean[] _achivList = new boolean[ACHIV_NUM - 1];
@@ -249,7 +248,6 @@ public class User {
     public Map<String, ArrayList<Boolean>> getOverallStatistic(){
     	readPracticeStatistic();
         return _practiceStatistic;
-
     }
 
     //==================================================================================================================
@@ -345,6 +343,18 @@ public class User {
         }
     }
 
+    public Integer getStars() {
+        readClassicRecord();
+        int stars = 0;
+        for (String s : _classicStatistic.keySet()){
+            String record = _classicStatistic.get(s);
+            if (!record.equals("-")){
+                stars = stars + Integer.parseInt(record);
+            }
+        }
+        return stars;
+    }
+
 
     //==================================================================================================================
     //==================================================================================================================
@@ -357,7 +367,7 @@ public class User {
     private void readSurvivalScore(){
         try {
             Scanner sc = new Scanner(_survivalRecord);
-            _survivalScore = sc.nextLine();
+            _survivalScore = Integer.parseInt(sc.nextLine());
             sc.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -369,12 +379,10 @@ public class User {
      * attempt is higher.
      * @param score a int representing the score of the latest attempt
      */
-    private void updateSurvivalScore(String score){
+    public void updateSurvivalScore(int score){
         readSurvivalScore();
         //Update the score if it is higher
-        int before = Integer.parseInt(_survivalScore);
-        int now = Integer.parseInt(score);
-        if (before < now ) {
+        if (_survivalScore < score ) {
             try {
                 PrintWriter writer = new PrintWriter(_survivalRecord, "UTF-8");
                 writer.println(score);
@@ -387,7 +395,7 @@ public class User {
         }
     }
 
-    public String getSurvivalScore() {
+    public int getSurvivalScore() {
         readSurvivalScore();
         return _survivalScore;
     }

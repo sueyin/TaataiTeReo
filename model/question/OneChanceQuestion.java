@@ -11,10 +11,10 @@ public class OneChanceQuestion extends Question {
     @Override
     protected void updateGUI() {
         if (_result){
-            _page.rightGUI();
             _page.addScore();
-        }else if (_read.length() < 1){
-            _page.emptyRecordGUI();
+            _page.rightGUI();
+        //}else if (_read.length() < 1){
+           // _page.emptyRecordGUI();
         }else{
             _page.wrongGUI();
         }
