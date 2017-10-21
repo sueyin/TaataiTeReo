@@ -39,7 +39,6 @@ public class PracticeTestPageController extends TestPageController{
 	@FXML
 	public void handlePressRecord(MouseEvent event) {
 		super.handlePressRecord(event);
-		System.out.println("after super");
 	}
 	
 	@FXML
@@ -75,5 +74,12 @@ public class PracticeTestPageController extends TestPageController{
 	@Override
 	public void tryAgainGUI() {
 		super.tryAgainGUI();
+	}
+
+
+
+	
+	private void collectResult(){
+
 	}
 }

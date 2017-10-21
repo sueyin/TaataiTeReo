@@ -34,19 +34,17 @@ public class CustomResultPageController {
 	public void initialize() {
 		_data = FXCollections.observableArrayList();
 		ArrayList<String> report = CustomTestPageController.getReport();
-		for (String s : report){
+		for (String s : report) {
 			String[] individualRep = s.split("#");
-			CustomResultModel a = new CustomResultModel(individualRep[0],individualRep[1],individualRep[2],individualRep[3]);
+			System.out.println(s);
+			for (int i = 0; i< individualRep.length; i++){
+				System.out.println(individualRep[i]);
+			}
+			CustomResultModel a = new CustomResultModel(individualRep[0], individualRep[1], individualRep[2], individualRep[3]);
 			_data.add(a);
 			_tableView.setItems(_data);
 			_tableView.setEditable(true);
 		}
-		/*
-		CustomResultModel a = new CustomResultModel("question","answer","yourAnswer","score");
-		_data.add(a);
-		_tableView.setItems(_data);
-		_tableView.setEditable(true);
-		*/
 
 		TableColumn<CustomResultModel, String> questionCol = new TableColumn<CustomResultModel, String>("Question");
 		questionCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("question"));
@@ -54,7 +52,7 @@ public class CustomResultPageController {
 		answerCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("answer"));
 		TableColumn<CustomResultModel, String> yourAnswerCol = new TableColumn<CustomResultModel, String>("Your Answer");
 		yourAnswerCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("yourAnswer"));
-		TableColumn<CustomResultModel, String> scoreCol = new TableColumn<CustomResultModel, String>("Score");
+		TableColumn<CustomResultModel, String> scoreCol = new TableColumn<CustomResultModel, String>("Result");
 		scoreCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("score"));
 
 		_tableView.getColumns().setAll(questionCol, answerCol, yourAnswerCol, scoreCol);
