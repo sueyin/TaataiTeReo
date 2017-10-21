@@ -411,10 +411,20 @@
             </JFXButton>
          </children>
       </GridPane>
-      <ImageView fx:id="_return" fitHeight="51.0" fitWidth="36.0" layoutX="19.0" layoutY="19.0" onMouseClicked="#handlePressReturn" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/classic/return.png" />
-         </image>
-      </ImageView>
+      <JFXButton fx:id="_return" layoutX="13.0" layoutY="9.0" onMouseClicked="#handlePressReturn" prefHeight="112.0" prefWidth="124.0" text=" " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="36.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="82.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/custom/return.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

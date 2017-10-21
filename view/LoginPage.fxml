@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0"  style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="114.0" prefHeight="166.0" prefWidth="486.0" text="Tātai!" textFill="WHITE">
          <font>
