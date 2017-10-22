@@ -18,7 +18,7 @@
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="114.0" prefHeight="166.0" prefWidth="486.0" text="Tātai!" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="100.0" />
+            <Font name="System" size="100.0" />
          </font>
          <effect>
             <Bloom />
@@ -26,7 +26,7 @@
       </Label>
       <Label alignment="CENTER" layoutX="733.0" layoutY="332.0" text="%keyLogin" textFill="#d3d3d3">
          <font>
-            <Font name="Yuanti SC Regular" size="30.0" />
+            <Font name="System" size="30.0" />
          </font>
       </Label>
       <JFXListView fx:id="_userList" blendMode="SRC_ATOP" fixedCellSize="34.0" layoutX="657.0" layoutY="395.0" prefHeight="94.0" prefWidth="232.0" stylesheets="@../application.css" verticalGap="1.0">
@@ -35,7 +35,7 @@
          </padding></JFXListView>
       <JFXTextField fx:id="_textField" alignment="CENTER" focusColor="#e1e4ee" layoutX="654.0" layoutY="409.0" prefHeight="43.0" prefWidth="232.0" promptText="User Name" style="-fx-text-fill: white;" unFocusColor="#e1e4ee">
          <font>
-            <Font name="Yuanti SC Regular" size="30.0" />
+            <Font name="System" size="30.0" />
          </font></JFXTextField>
       <JFXButton fx:id="_add" layoutX="906.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
@@ -89,18 +89,18 @@
       </JFXButton>
       <Label fx:id="_addUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="544.0" layoutY="475.0" prefHeight="28.0" prefWidth="479.0" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="20.0" />
+            <Font name="System" size="20.0" />
          </font>
       </Label>
       <Label fx:id="_selectUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="496.0" prefHeight="28.0" prefWidth="536.0" text="Please select a user from the list above before continuing" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="20.0" />
+            <Font name="System" size="20.0" />
          </font>
       </Label>
       <JFXComboBox fx:id="_pickLanguage" layoutX="941.0" layoutY="27.0" />
       <Label alignment="CENTER_RIGHT" layoutX="814.0" layoutY="26.0" prefHeight="26.0" prefWidth="109.0" text="%keyLanguage" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="15.0" />
+            <Font name="System" size="15.0" />
          </font>
       </Label>
    </children>
