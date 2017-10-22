@@ -78,6 +78,7 @@ public class SurvivalTestPageController extends TestPageController{
 			_answerIs.setVisible(false);
 			_play.setVisible(false);
 			MainPageController.getUser().updateSurvivalScore(_score);
+			calculateExp();
 		}
 	}
 
@@ -88,6 +89,19 @@ public class SurvivalTestPageController extends TestPageController{
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore") +" " + _score);
 	}
 
+
+	//Calculate exp
+	private void calculateExp(){
+		int exp;
+		if (_score < 10){
+			exp = _score;
+		}else if (_score < 25){
+			exp = 10 + (_score - 10) * 2;
+		}else{
+			exp = 10 + 30 + (_score - 25) * 3;
+		}
+		MainPageController.getUser().increaseExp(exp);
+	}
 
 	/*
 		Support methods
