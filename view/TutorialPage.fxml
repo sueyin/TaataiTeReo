@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TutorialPageController">
    <children>
-      <Label layoutX="437.0" layoutY="37.0" text="Tutorial Page" textFill="WHITE">
+      <Label layoutX="437.0" layoutY="37.0" text="%keyTutorial" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="50.0" />
          </font>
@@ -25,9 +25,9 @@
       </Label>
       <AnchorPane fx:id="_page1" prefHeight="633.0" prefWidth="1126.0">
          <children>
-            <Label fx:id="_label1" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="Welcome to Tātai! The Dedicated Educational Application for Maori Numerical Pronouncation" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_label1" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="%keyTutorialPage1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font size="22.0" />
+                  <Font name="Yuanti SC Regular" size="22.0" />
                </font>
                <padding>
                   <Insets left="30.0" />
@@ -65,7 +65,7 @@
                   <DropShadow color="#9a8f8f" height="78.68" radius="37.322500000000005" spread="0.45" width="72.61" />
                </effect>
             </ImageView>
-            <Label fx:id="_label2" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="This is a typical question page. You will be given two chances to answer it." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_label2" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="%keyTutorialPage2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="22.0" />
                </font>
@@ -109,7 +109,7 @@
                   <DropShadow color="#9a8f8f" height="78.68" radius="37.322500000000005" spread="0.45" width="72.61" />
                </effect>
             </ImageView>
-            <Label fx:id="_label31" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="There are four modes to choose from; classic, survival, practice and custom" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_label31" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1143.0" style="-fx-background-color: #696969;" text="%keyTutorialPage3" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="22.0" />
                </font>
@@ -141,12 +141,12 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Label fx:id="_label32" alignment="TOP_LEFT" layoutX="830.0" layoutY="260.0" prefHeight="291.0" prefWidth="260.0" text="Classic Mode:&#10;15 challenging levels to enjoy&#10;&#10;&#10;&#10;Survival Mode:&#10;Exciting timed levels to push your own limit&#10;" textFill="WHITE" wrapText="true">
+            <Label fx:id="_label32" alignment="TOP_LEFT" layoutX="830.0" layoutY="260.0" prefHeight="291.0" prefWidth="260.0" text="%keyTutorialPage3-1" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Yuanti SC Regular" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="_label33" alignment="TOP_LEFT" layoutX="30.0" layoutY="260.0" prefHeight="291.0" prefWidth="260.0" text="Practice Mode:&#10;numbers from 1 - 99 for practice hen needed&#10;&#10;&#10;&#10;Custom Mode:&#10;Possible to make your very own questions suite and compete against other users" textFill="WHITE" wrapText="true">
+            <Label fx:id="_label33" alignment="TOP_LEFT" layoutX="30.0" layoutY="260.0" prefHeight="291.0" prefWidth="260.0" text="%keyTutorialPage3-2" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Yuanti SC Regular" size="20.0" />
                </font>
@@ -163,12 +163,12 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <Label fx:id="_questionInstr" alignment="CENTER" layoutX="210.0" layoutY="230.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="This is the question you need to answer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_questionInstr" alignment="CENTER" layoutX="210.0" layoutY="230.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage4-1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="_returnInstr" alignment="CENTER" layoutX="94.0" layoutY="25.0" prefHeight="83.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="return button where you can exit from the question" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_returnInstr" alignment="CENTER" layoutX="94.0" layoutY="25.0" prefHeight="83.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage4-2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
@@ -178,7 +178,7 @@
                   <Font name="Yuanti SC Regular" size="50.0" />
                </font>
             </Label>
-      <Label fx:id="_mainInstr" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1126.0" style="-fx-background-color: #696969;" text="Let's learn how to navigate throw a question page!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_mainInstr" alignment="CENTER" layoutY="131.0" prefHeight="60.0" prefWidth="1126.0" style="-fx-background-color: #696969;" text="%keyTutorialPage4-3" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="22.0" />
          </font>
@@ -207,12 +207,12 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Label fx:id="_recordInstr" alignment="CENTER" layoutX="725.0" layoutY="452.0" prefHeight="125.0" prefWidth="374.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="Now let's get to the questions! Press Record when you are ready to answer the question" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_recordInstr" alignment="CENTER" layoutX="725.0" layoutY="452.0" prefHeight="125.0" prefWidth="374.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage4-4" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="_record" layoutX="455.0" layoutY="483.0" prefHeight="54.0" prefWidth="230.0" style="-fx-background-color: #929292; -fx-background-radius: 30;" text="Record" textFill="WHITE">
+      <JFXButton fx:id="_record" layoutX="455.0" layoutY="483.0" prefHeight="54.0" prefWidth="230.0" style="-fx-background-color: #929292; -fx-background-radius: 30;" text="%keyRecord" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="25.0" />
          </font>
@@ -221,7 +221,7 @@
             </AnchorPane>
       <AnchorPane fx:id="_page5" layoutX="0.0" layoutY="0.0" prefHeight="633.0" prefWidth="1126.0">
          <children>
-               <Label fx:id="_loadInstr" alignment="CENTER" layoutX="776.0" layoutY="450.0" prefHeight="127.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="The load icon shows when the answer is being recorded and processed" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <Label fx:id="_loadInstr" alignment="CENTER" layoutX="776.0" layoutY="450.0" prefHeight="127.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage5-1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
@@ -241,12 +241,12 @@
                </font>
             </Label>
             <JFXSpinner fx:id="_loading" layoutX="715.0" layoutY="495.0" />
-      <Label fx:id="_process" alignment="CENTER" layoutX="437.0" layoutY="502.0" prefHeight="41.0" prefWidth="224.0" text="processing..." textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="_process" alignment="CENTER" layoutX="437.0" layoutY="502.0" prefHeight="41.0" prefWidth="224.0" text="%keyProcess" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="29.0" />
          </font>
       </Label>
-            <Label fx:id="_mainInstr1" alignment="CENTER" layoutY="127.0" prefHeight="60.0" prefWidth="1126.0" style="-fx-background-color: #696969;" text="This is the recording page where you answer the question" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_mainInstr1" alignment="CENTER" layoutY="127.0" prefHeight="60.0" prefWidth="1126.0" style="-fx-background-color: #696969;" text="%keyTutorialPage5-2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="22.0" />
                </font>
@@ -293,7 +293,7 @@
                   <Font name="Yuanti SC Regular" size="50.0" />
                </font>
             </Label>
-            <Label fx:id="_mainInstr1" alignment="CENTER" layoutY="127.0" prefHeight="60.0" prefWidth="1126.0" style="-fx-background-color: #696969;" text="This pages shows the result when answer has been processed" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_mainInstr1" alignment="CENTER" layoutY="127.0" prefHeight="60.0" prefWidth="1126.0" style="-fx-background-color: #696969;" text="%keyTutorialPage6-1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="22.0" />
                </font>
@@ -310,24 +310,24 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-           <JFXButton fx:id="_finish" layoutX="1012.0" layoutY="121.0" onMouseClicked="#handlePressFinish" prefHeight="67.0" prefWidth="91.0" text="Finish Tutorial" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+           <JFXButton fx:id="_finish" layoutX="1012.0" layoutY="121.0" onMouseClicked="#handlePressFinish" prefHeight="67.0" prefWidth="91.0" text="%keyFinishTutorial" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Yuanti SC Regular" size="15.0" />
                </font>
             </JFXButton>
                               <VBox alignment="CENTER" layoutX="186.0" layoutY="362.0" prefHeight="102.0" prefWidth="764.0" spacing="5.0">
          <children>
-            <Label fx:id="_youSaid" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="You said tahi" textAlignment="CENTER" textFill="#aeaeae">
+            <Label fx:id="_youSaid" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="%keyTutorialPage6-2" textAlignment="CENTER" textFill="#aeaeae">
                <font>
                   <Font name="Yuanti SC Regular" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="_rightOrWrong" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="This is incorrect" textAlignment="CENTER" textFill="#aeaeae">
+            <Label fx:id="_rightOrWrong" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="%keyTutorialPage6-3" textAlignment="CENTER" textFill="#aeaeae">
                <font>
                   <Font name="Yuanti SC Regular" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="_answerIs" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="The answer is rima" textAlignment="CENTER" textFill="#aeaeae">
+            <Label fx:id="_answerIs" contentDisplay="CENTER" prefHeight="43.0" prefWidth="500.0" text="%keyTutorialPage6-4" textAlignment="CENTER" textFill="#aeaeae">
                <font>
                   <Font name="Yuanti SC Regular" size="25.0" />
                </font>
@@ -335,12 +335,12 @@
 
                </children>
       </VBox>
-            <Label fx:id="_playInstr" alignment="CENTER" layoutX="776.0" layoutY="448.0" prefHeight="127.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="After recording, you can hear your own recording by clicking this button" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="_playInstr" alignment="CENTER" layoutX="776.0" layoutY="448.0" prefHeight="127.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage6-5" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-     <Label fx:id="_messageInstr" alignment="CENTER" layoutX="9.0" layoutY="347.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="These messages show information about your answer" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+     <Label fx:id="_messageInstr" alignment="CENTER" layoutX="9.0" layoutY="347.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage6-6" textAlignment="CENTER" textFill="WHITE" wrapText="true">
       <font>
          <Font name="Yuanti SC Regular" size="18.0" />
       </font>
@@ -357,7 +357,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-            <JFXButton fx:id="_record" layoutX="445.0" layoutY="496.0" prefHeight="54.0" prefWidth="230.0" style="-fx-background-color: #929292; -fx-background-radius: 30;" text="Next" textFill="WHITE">
+            <JFXButton fx:id="_record" layoutX="445.0" layoutY="496.0" prefHeight="54.0" prefWidth="230.0" style="-fx-background-color: #929292; -fx-background-radius: 30;" text="%keyNext" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="25.0" />
          </font>

@@ -100,6 +100,7 @@ public class LoginPageController {
 		_selectUserMessage.setVisible(false);
 
 		_pickLanguage.setItems(options);
+		_pickLanguage.setValue("English");
 		_pickLanguage.valueProperty().addListener(new ChangeListener<String>() {
 			@Override public void changed(ObservableValue ov, String t, String newLang) {
 				if (t== null) {

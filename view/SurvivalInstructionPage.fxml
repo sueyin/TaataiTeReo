@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SurvivalInstructionPageController">
    <children>
-      <Label alignment="CENTER" layoutX="440.0" layoutY="60.0" prefHeight="69.0" prefWidth="271.0" text="Instruction" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="375.0" layoutY="47.0" text="%keyInstruction" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="49.0" />
          </font>
       </Label>
-      <Label layoutX="650.0" layoutY="359.0" prefHeight="177.0" prefWidth="288.0" text=" 10 seconds for 1 question" textFill="#9c9c9c">
+      <Label alignment="CENTER" layoutX="650.0" layoutY="359.0" prefHeight="177.0" prefWidth="288.0" text="%keySurvivalTime" textAlignment="CENTER" textFill="#9c9c9c" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
@@ -25,7 +25,7 @@
             <Image url="@../image/survivalpage/10seconds.png" />
          </image>
       </ImageView>
-      <Label layoutX="792.0" layoutY="147.0" prefHeight="102.0" prefWidth="241.0" text="You will have 3 lives" textFill="#9c9c9c">
+      <Label alignment="CENTER" layoutX="753.0" layoutY="164.0" prefHeight="125.0" prefWidth="284.0" text="%keySurvivalLives" textAlignment="CENTER" textFill="#9c9c9c" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
@@ -49,7 +49,7 @@
             </ImageView>
          </children>
       </HBox>
-      <Label layoutX="174.0" layoutY="220.0" prefHeight="131.0" prefWidth="387.0" text="Contains addition, subtraction, multiplication, and subtraction" textFill="#9c9c9c" wrapText="true">
+      <Label alignment="CENTER" layoutX="174.0" layoutY="220.0" prefHeight="131.0" prefWidth="387.0" text="%keySurvivalMaths" textAlignment="CENTER" textFill="#9c9c9c" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
@@ -59,7 +59,7 @@
             <Image url="@../image/survivalpage/maths_sign.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="_start" layoutX="521.0" layoutY="527.0" onMouseClicked="#handlePressStart" text="Start" textFill="WHITE">
+      <JFXButton fx:id="_start" alignment="CENTER" layoutX="490.0" layoutY="527.0" onMouseClicked="#handlePressStart" text="%keyStart" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="30.0" />
          </font>
