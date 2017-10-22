@@ -347,11 +347,11 @@ public class User {
         readClassicRecord();
         int stars = 0;
         for (String s : _classicStatistic.keySet()){
-            String record = _classicStatistic.get(s);
-            if (!record.equals("-")){
-                stars = stars + Integer.parseInt(record);
-            }
-        }
+       		String record = _classicStatistic.get(s);
+       		if (!record.equals("-")){
+       			stars = stars + Integer.parseInt(record);
+       		}
+       	}
         return stars;
     }
 
