@@ -100,9 +100,10 @@ public class LoginPageController {
 		_selectUserMessage.setVisible(false);
 
 		_pickLanguage.setItems(options);
-		_pickLanguage.setValue("English");
+		//_pickLanguage.setValue("English");
 		_pickLanguage.valueProperty().addListener(new ChangeListener<String>() {
 			@Override public void changed(ObservableValue ov, String t, String newLang) {
+				_pickLanguage.setValue(newLang);
 				if (t== null) {
 					SceneSwitch.setLanguage(newLang);
 					SceneSwitch load = new SceneSwitch((Stage) _pickLanguage.getScene().getWindow());
@@ -122,8 +123,6 @@ public class LoginPageController {
 	 */
 	@FXML
 	public void handlePressAddUser(MouseEvent event) {
-		System.out.println("add user");
-
 		//initialize the text field for entering use name and warning message to empty 
 		_addUserMessage.setText("");
 		_textField.setText("");
@@ -148,10 +147,9 @@ public class LoginPageController {
 	@FXML
 	public void handlePressDeleteUser(MouseEvent event) {
 		//opens a window that confirms if the user want to delete the user
-		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to delete the user?", "Delete", "Cancel");
+		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), SceneSwitch.getBundle().getString("keyDeleteUser"), SceneSwitch.getBundle().getString("keyDelete"),SceneSwitch.getBundle().getString("keyCancel"));
 		boolean confirm = confirmation.createPopUp();
 		if (confirm){
-			System.out.println("delete user");
 			//Delete the User records
 			String toDelete = _userList.getSelectionModel().getSelectedItem();
 			new User(toDelete).deleteUser();
@@ -173,7 +171,6 @@ public class LoginPageController {
 	 */
 	@FXML
 	public void handlePressContinueFromSelectUser(MouseEvent event) {
-		System.out.println("Enter Main page from Select User Page");
 
 		//get current selected user from the list
 		_selectedUser = _userList.getSelectionModel().getSelectedItem();
@@ -288,7 +285,7 @@ public class LoginPageController {
 		}
 		//check if the text field is empty, if so then display warning message
 		if (_selectedUser.equals("")) {
-			_addUserMessage.setText("Please enter a username");
+			_addUserMessage.setText(SceneSwitch.getBundle().getString("keyEnterUsername"));
 			_addUserMessage.setVisible(true);
 			//disable the warning message after a few seconds
 			if (!delay.isRunning()){
@@ -301,7 +298,7 @@ public class LoginPageController {
 		}
 		//check if the text field only contains numbers and letters, if not then display warning message
 		else if (!_selectedUser.matches("\\w+")) {
-			_addUserMessage.setText("Username could only contain numbers and letters");
+			_addUserMessage.setText(SceneSwitch.getBundle().getString("keyUsernameType"));
 			_addUserMessage.setVisible(true);
 			if (!delay.isRunning()){
 				delay.start();
@@ -313,7 +310,7 @@ public class LoginPageController {
 		}
 		//check if the entered user name already exists, if so, then asks the user to enter another one
 		else if (repeated == true) {
-			_addUserMessage.setText("Username already exist, please choose another one");
+			_addUserMessage.setText(SceneSwitch.getBundle().getString("keyUsernameRepeat"));
 			_addUserMessage.setVisible(true);
 			//disable the warning message after a few seconds
 			if (!delay.isRunning()){

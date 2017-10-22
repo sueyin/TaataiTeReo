@@ -52,7 +52,7 @@ public class ClassicFeedbackPageController {
 		MainPageController.getUser().updateClassicRecord(_levelNum, ClassicTestPageController.getScore());
 
 		//Change GUI correspondingly
-		_level.setText("Level "+_levelNum);
+		_level.setText(SceneSwitch.getBundle().getString("keyLevel")+_levelNum);
 		_number.setText(_result + "/10");
 		if (_levelNum.equals("15")){
 			_nextLevel.setVisible(false);
@@ -64,25 +64,25 @@ public class ClassicFeedbackPageController {
 		//display no star if between 0-2
 		if (_result < 2) {
 			setNoStar();
-			_message.setText("Not Achieved..");
+			_message.setText(SceneSwitch.getBundle().getString("keyNotAchieved"));
 			_nextLevel.setVisible(false);
 		}
 		//display 1 star is between 2-4
 		else if (_result < 5) {
 			setOneStar();
-			_message.setText("Achieved~");
+			_message.setText(SceneSwitch.getBundle().getString("keyAchieved"));
 			MainPageController.getUser().increaseExp(2);
 		}
 		//display 2 stars if between 5 -8
 		else if (_result < 9) {
 			setTwoStar();
-			_message.setText("Merit!");
+			_message.setText(SceneSwitch.getBundle().getString("keyMerit"));
 			MainPageController.getUser().increaseExp(5);
 		}
 		//display 3 stars if between 9-10
 		else {
 			setThreeStar();
-			_message.setText("Excellence!");
+			_message.setText(SceneSwitch.getBundle().getString("keyExcellence"));
 			MainPageController.getUser().increaseExp(10);
 		}
 	}

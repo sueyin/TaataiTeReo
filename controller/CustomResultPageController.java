@@ -46,13 +46,13 @@ public class CustomResultPageController {
 			_tableView.setEditable(true);
 		}
 
-		TableColumn<CustomResultModel, String> questionCol = new TableColumn<CustomResultModel, String>("Question");
+		TableColumn<CustomResultModel, String> questionCol = new TableColumn<CustomResultModel, String>(SceneSwitch.getBundle().getString("keyQuestion"));
 		questionCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("question"));
-		TableColumn<CustomResultModel, String> answerCol = new TableColumn<CustomResultModel, String>("Answer");
+		TableColumn<CustomResultModel, String> answerCol = new TableColumn<CustomResultModel, String>(SceneSwitch.getBundle().getString("keyAnswer"));
 		answerCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("answer"));
-		TableColumn<CustomResultModel, String> yourAnswerCol = new TableColumn<CustomResultModel, String>("Your Answer");
+		TableColumn<CustomResultModel, String> yourAnswerCol = new TableColumn<CustomResultModel, String>(SceneSwitch.getBundle().getString("keyRightAnswer"));
 		yourAnswerCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("yourAnswer"));
-		TableColumn<CustomResultModel, String> scoreCol = new TableColumn<CustomResultModel, String>("Result");
+		TableColumn<CustomResultModel, String> scoreCol = new TableColumn<CustomResultModel, String>(SceneSwitch.getBundle().getString("keyResult"));
 		scoreCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("score"));
 
 		_tableView.getColumns().setAll(questionCol, answerCol, yourAnswerCol, scoreCol);

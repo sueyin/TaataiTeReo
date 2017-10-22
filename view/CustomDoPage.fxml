@@ -103,7 +103,7 @@
             </JFXButton>
          </children>
       </HBox>
-      <Label fx:id="_message" layoutX="738.0" layoutY="537.0" prefHeight="28.0" prefWidth="307.0" text="Please select one from above " textFill="WHITE">
+      <Label fx:id="_message" layoutX="738.0" layoutY="537.0" prefHeight="28.0" prefWidth="307.0" text="%keySelectOneAbove" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>

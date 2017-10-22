@@ -57,13 +57,11 @@ public class ClassicTestPageController extends TestPageController {
 			//Change font size for numbers
 			_question.setStyle("-fx-font-size: 50");
 		}
-		_topRight.setText("Level "+_selectedLevel);
+		_topRight.setText(SceneSwitch.getBundle().getString("keyLevel") +" "+_selectedLevel);
 
 		_q1.setId("onQuestion");
-		_record.setVisible(true);
-		_record.setText("Record");
 		_next.setVisible(false);
-		_next.setText("Next");
+
 		
 		for (Node b: _questionProgress.getChildren()) {
 			nodeList.add((JFXRadioButton) b);
@@ -78,7 +76,7 @@ public class ClassicTestPageController extends TestPageController {
 	public void handlePressRecord(MouseEvent event) {
 		super.handlePressRecord(event);
 		if (_qs.getIndexNumber() == 10){
-			_next.setText("Completed");
+			_next.setText(SceneSwitch.getBundle().getString("keyCompleted"));
 		}
 	}
 
@@ -102,7 +100,7 @@ public class ClassicTestPageController extends TestPageController {
 				}
 			}
 			else {
-				nodeList.get(index-1).setId("radio_correct");
+				nodeList.get(index-1).setId("radio_incorrect");
 				if (index < 10) {
 					nodeList.get(index).setId("onQuestion");
 				}
@@ -114,7 +112,7 @@ public class ClassicTestPageController extends TestPageController {
 			//Update GUI
 			_next.setVisible(false);
 			_record.setVisible(true);
-			_record.setText("Record");
+			_record.setText(SceneSwitch.getBundle().getString("keyRecord"));
 			_rightOrWrong.setVisible(false);
 			_youSaid.setVisible(false);
 			_answerIs.setVisible(false);

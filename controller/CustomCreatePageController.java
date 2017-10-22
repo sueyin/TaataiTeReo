@@ -131,7 +131,7 @@ public class CustomCreatePageController {
 		String equation = _equation.getText();
 		if (equation.length() < 1){
 			//Empty input notification
-			errorMsg("Please enter an equation before add");
+			errorMsg(SceneSwitch.getBundle().getString("keyEmptyEquation"));
 		}else {
 			boolean validEquation = true;
 			int value = -1;
@@ -140,7 +140,7 @@ public class CustomCreatePageController {
 			} catch (ScriptException e) {
 				validEquation = false;
 				// Wrong format, equation can not be evaluated
-				errorMsg("Please enter an equation");
+				errorMsg(SceneSwitch.getBundle().getString("keyWrongEquation"));
 			} catch (NumberFormatException e) {
 				validEquation = false;
 				//Answer is not an integer
@@ -148,7 +148,7 @@ public class CustomCreatePageController {
 			}
 			if (validEquation) {
 				if (value < 1 || value > 99) {
-					errorMsg("Result is out of range (1~99)");
+					errorMsg(SceneSwitch.getBundle().getString("keyOutofRange"));
 				} else {
 					//If valid equation, then add it to data
 					//int index = _data.size() + 1;
@@ -171,10 +171,10 @@ public class CustomCreatePageController {
 	public void handlePressCreate(MouseEvent event) {
 		String description = _description.getText();
 		if (description.equals("")) {
-			errorMsg("Please enter a description before continuing");
+			errorMsg(SceneSwitch.getBundle().getString("keyNoDescription"));
 		} else {
 			if (_data.isEmpty()) {
-				errorMsg("The question list cannot be empty");
+				errorMsg(SceneSwitch.getBundle().getString("keyEmptyQuestionSuite"));
 			}
 			else {
 				//TODO confirmation ask
@@ -194,7 +194,7 @@ public class CustomCreatePageController {
 				SceneSwitch load = new SceneSwitch(currentStage);
 				load.switchScene("/application/view/CustomDoPage.fxml");
 				//Successfully created message
-				PopUpModel popUp = new PopUpModel(currentStage, "Question List Successfully created!");
+				PopUpModel popUp = new PopUpModel(currentStage, SceneSwitch.getBundle().getString("keySuccessQuestionList"));
 				popUp.createPopUp();
 			}
 		}
@@ -205,7 +205,7 @@ public class CustomCreatePageController {
 	public void handlePressReturn(MouseEvent event) {
 		//opens a window that confirms if the user wants to quit 
 		
-		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to return?", "Return", "Stay on this Page");
+		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(),SceneSwitch.getBundle().getString("keySureReturn"), SceneSwitch.getBundle().getString("keyReturn"), SceneSwitch.getBundle().getString("keyStay"));
 		boolean confirm = confirmation.createPopUp();
 		if (confirm){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());

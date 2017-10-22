@@ -32,7 +32,7 @@ public class SurvivalTestPageController extends TestPageController{
 	public void initialize(){
 		super.initialize();
 		_next.setVisible(false);
-		_topRight.setText("Score: 0");
+		_topRight.setText(SceneSwitch.getBundle().getString("keyScore0"));
 		_live = 3;
 		fullHeart();
 
@@ -73,7 +73,7 @@ public class SurvivalTestPageController extends TestPageController{
 			oneHeart();
 		}else{
 			noHeart();
-			_youSaid.setText("Game Over");
+			_youSaid.setText(SceneSwitch.getBundle().getString("keyGameOver"));
 			_rightOrWrong.setVisible(false);
 			_answerIs.setVisible(false);
 			_play.setVisible(false);
@@ -85,7 +85,7 @@ public class SurvivalTestPageController extends TestPageController{
 	public void rightGUI(){
 		super.rightGUI();
 		System.out.println(_score);
-		_topRight.setText("Score: " + _score);
+		_topRight.setText(SceneSwitch.getBundle().getString("keyScore") +" " + _score);
 	}
 
 

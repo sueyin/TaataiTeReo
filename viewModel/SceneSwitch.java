@@ -40,5 +40,10 @@ public class SceneSwitch {
 	        e.printStackTrace();
 	    }
 	}
+	
+	public static ResourceBundle getBundle() {
+		ResourceBundle bundle = ResourceBundle.getBundle("application/lang.bundle", _locale);
+		return bundle;
+	}
 
 }

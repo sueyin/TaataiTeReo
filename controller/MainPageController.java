@@ -1,12 +1,15 @@
 package application.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import application.model.User;
 import application.viewModel.SceneSwitch;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class MainPageController {
+public class MainPageController{
 
 	@FXML
 	private Label _notification;
@@ -25,12 +28,13 @@ public class MainPageController {
 	
 	private Button _classic;
 	
+
 	
 	@FXML
 	public void initialize() {
 		//display pop up message "welcome user", auto disappear after 5 seconds
 		String username = LoginPageController.getSelectedUser();
-		_notification.setText("Welcome, " + username + "!");
+		_notification.setText(SceneSwitch.getBundle().getString("keyWelcome")+", " + username + "!");
 		if (_user == null){
 			_user = new User(username);
 			FadeTransition ft = new FadeTransition(Duration.seconds(5), _notification);
@@ -123,4 +127,5 @@ public class MainPageController {
 	public static User getUser(){
 		return _user;
 	}
+
 }

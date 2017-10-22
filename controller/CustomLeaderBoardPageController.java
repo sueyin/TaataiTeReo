@@ -70,7 +70,7 @@ public class CustomLeaderBoardPageController {
 		_expTable.setItems(_expData);
 		_expTable.setEditable(true);
 		
-		TableColumn<ExpModel, String> userCol = new TableColumn<ExpModel, String>("User");
+		TableColumn<ExpModel, String> userCol = new TableColumn<ExpModel, String>(SceneSwitch.getBundle().getString("keyUser"));
 		userCol.setCellValueFactory(new PropertyValueFactory<ExpModel, String>("user"));
 		TableColumn<ExpModel, String> expCol = new TableColumn<ExpModel, String>("EXP");
 		expCol.setCellValueFactory(new PropertyValueFactory<ExpModel, String>("exp"));
@@ -89,7 +89,7 @@ public class CustomLeaderBoardPageController {
 		_starTable.setItems(_starData);
 		_starTable.setEditable(true);
 		
-		TableColumn<StarModel, String> userCol = new TableColumn<StarModel, String>("User");
+		TableColumn<StarModel, String> userCol = new TableColumn<StarModel, String>(SceneSwitch.getBundle().getString("keyUser"));
 		userCol.setCellValueFactory(new PropertyValueFactory<StarModel, String>("user"));
 		TableColumn<StarModel, String> starCol = new TableColumn<StarModel, String>("Star");
 		starCol.setCellValueFactory(new PropertyValueFactory<StarModel, String>("star"));
@@ -108,9 +108,9 @@ public class CustomLeaderBoardPageController {
 		_survivalTable.setItems(_survivalData);
 		_survivalTable.setEditable(true);
 		
-		TableColumn<SurvivalModel, String> userCol = new TableColumn<SurvivalModel, String>("User");
+		TableColumn<SurvivalModel, String> userCol = new TableColumn<SurvivalModel, String>(SceneSwitch.getBundle().getString("keyUser"));
 		userCol.setCellValueFactory(new PropertyValueFactory<SurvivalModel, String>("user"));
-		TableColumn<SurvivalModel, String> survivalCol = new TableColumn<SurvivalModel, String>("Survival");
+		TableColumn<SurvivalModel, String> survivalCol = new TableColumn<SurvivalModel, String>(SceneSwitch.getBundle().getString("keySurvival"));
 		survivalCol.setCellValueFactory(new PropertyValueFactory<SurvivalModel, String>("survival"));
 		
 		_survivalTable.getColumns().setAll(userCol, survivalCol);

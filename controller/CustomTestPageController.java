@@ -77,7 +77,6 @@ public class CustomTestPageController extends TestPageController {
 		}
 		String rep = _q.getQuestion()+"#"+_q.getAnswer()+"#"+_q.getRead()+"#"+ result;
 		_reportList.add(rep);
-		System.out.println("created rep for "+ _q.getQuestion());
 
 
 
@@ -90,7 +89,7 @@ public class CustomTestPageController extends TestPageController {
 			_next.setVisible(false);
 			_record.setVisible(true);
 			if (_index + 1 == _answerList.size() - 1){
-				_next.setText("Finish");
+				_next.setText(SceneSwitch.getBundle().getString("keyFinish"));
 			}
 		}
 	}

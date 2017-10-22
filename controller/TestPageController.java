@@ -2,6 +2,8 @@ package application.controller;
 
 import application.TataiApp;
 import application.model.question.Question;
+import application.viewModel.SceneSwitch;
+
 import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXSpinner;
@@ -87,7 +89,7 @@ public abstract class TestPageController {
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        _rightOrWrong.setText("Correct");
+        _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyCorrect"));
     	_rightOrWrong.setVisible(true);
         _youSaid.setText("You said " + _q.getAnswer());
     	_youSaid.setVisible(true);
@@ -100,12 +102,12 @@ public abstract class TestPageController {
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        _rightOrWrong.setText("Not really. You can try again");
+        _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyNotReally"));
     	_rightOrWrong.setVisible(true);
-        _youSaid.setText("You sounds like " + _q.getRead());
+        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSoundsLike")+" " + _q.getRead());
     	_youSaid.setVisible(true);
     	_answerIs.setVisible(false);
-        _record.setText("Try Again");
+        _record.setText(SceneSwitch.getBundle().getString("keyTryAgain"));
         _record.setVisible(true);
     }
 
@@ -113,11 +115,11 @@ public abstract class TestPageController {
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        _rightOrWrong.setText("Not really. You have used up the chance");
+        _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyUseUpChance"));
     	_rightOrWrong.setVisible(true);
-        _youSaid.setText("You sounds like " + _q.getRead());
+        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSoundsLike")+" " + _q.getRead());
     	_youSaid.setVisible(true);
-        _answerIs.setText("The answer is " +  _q.getAnswer());
+        _answerIs.setText(SceneSwitch.getBundle().getString("keyAnswerIs")+" " +  _q.getAnswer());
     	_answerIs.setVisible(true);
         _record.setVisible(false);
         _next.setVisible(true);
@@ -127,9 +129,9 @@ public abstract class TestPageController {
         _process.setVisible(false);
         _loading.setVisible(false);
         _play.setVisible(true);
-        _rightOrWrong.setText("Nothing was recorded.");
+        _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyNothingRecorded"));
         _rightOrWrong.setVisible(true);
-        _youSaid.setText("Please check your microphone");
+        _youSaid.setText(SceneSwitch.getBundle().getString("keyCheckMicrophone"));
         _youSaid.setVisible(true);
         _answerIs.setVisible(false);
         _record.setVisible(false);

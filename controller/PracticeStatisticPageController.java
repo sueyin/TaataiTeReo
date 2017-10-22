@@ -75,8 +75,8 @@ public class PracticeStatisticPageController {
 		setTable();
 		//initialize the "no attempt" message to false
 		_null.setVisible(false);
-		_overall.setText("Overall: Correct: "+_overallCorrect+", Attempts: "+_overallAttempt);
-		_selected.setText("Overall Data");
+		_overall.setText(SceneSwitch.getBundle().getString("keyOverallCorrect")+" "+_overallCorrect+SceneSwitch.getBundle().getString("keyOverallAttempts")+ ""+_overallAttempt);
+		_selected.setText(SceneSwitch.getBundle().getString("keyOverallData"));
 
 	}
 	
@@ -91,7 +91,7 @@ public class PracticeStatisticPageController {
 
 	@FXML
 	public void handlePressOverall(MouseEvent event) {
-		_selected.setText("Overall Data");
+		_selected.setText(SceneSwitch.getBundle().getString("keyOverallData"));
 		if (_overallAttempt == 0) {
 			_null.setVisible(true);
 			_pie.setVisible(false);
@@ -172,8 +172,8 @@ public class PracticeStatisticPageController {
 	
 	private void setPie(int correctNum, int totalNum){
 		ObservableList<PieChart.Data> pieChartData =FXCollections.observableArrayList();
-		PieChart.Data correct = new PieChart.Data("Correct", correctNum);
-		PieChart.Data total = new PieChart.Data("Incorrect", totalNum);		
+		PieChart.Data correct = new PieChart.Data(SceneSwitch.getBundle().getString("keyCorrect"), correctNum);
+		PieChart.Data total = new PieChart.Data(SceneSwitch.getBundle().getString("keyIncorrect"), totalNum);		
 		pieChartData.addAll(correct, total);
 		_pie.setData(pieChartData);
 		_pie.setLabelsVisible(true);
@@ -186,11 +186,11 @@ public class PracticeStatisticPageController {
 	 * Initialize the table view passed in as parameters, creates three columns: Number, Correct Attempts, and total attempts
 	 */
 	private void setTableList(TableView<PracticeResultModel> table) {
-		TableColumn<PracticeResultModel, String> numCol = new TableColumn<PracticeResultModel, String>("Number");
+		TableColumn<PracticeResultModel, String> numCol = new TableColumn<PracticeResultModel, String>(SceneSwitch.getBundle().getString("keyNumber"));
 		numCol.setCellValueFactory(new PropertyValueFactory("num"));
-		TableColumn<PracticeResultModel, Integer> correctCol = new TableColumn<PracticeResultModel, Integer>("Correct Attempts");
+		TableColumn<PracticeResultModel, Integer> correctCol = new TableColumn<PracticeResultModel, Integer>(SceneSwitch.getBundle().getString("keyCorrectAttempts"));
 		correctCol.setCellValueFactory(new PropertyValueFactory("correct"));
-		TableColumn<PracticeResultModel, Integer> attemptCol = new TableColumn<PracticeResultModel, Integer>("Total Attempts");
+		TableColumn<PracticeResultModel, Integer> attemptCol = new TableColumn<PracticeResultModel, Integer>(SceneSwitch.getBundle().getString("keyIncorrectAttempts"));
 		attemptCol.setCellValueFactory(new PropertyValueFactory("attempt"));
 
 
@@ -211,7 +211,7 @@ public class PracticeStatisticPageController {
 	 */
 	private void changeInfo(TableView<PracticeResultModel> list) {
 		PracticeResultModel selected = (PracticeResultModel) list.getSelectionModel().getSelectedItem();
-		_selected.setText("Result from Number "+ selected.getName());
+		_selected.setText(SceneSwitch.getBundle().getString("keyResultsFor")+ selected.getName());
 		if (selected.getAttempt().intValue()==0) {
 			_null.setVisible(true);
 			_pie.setVisible(false);

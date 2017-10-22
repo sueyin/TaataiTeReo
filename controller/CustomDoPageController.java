@@ -96,13 +96,13 @@ public class CustomDoPageController {
 	private void setTable(TableView table, ObservableList<TableList> data) {
 		table.setEditable(true);
 		table.setItems(data);
-		TableColumn<TableList, String> nameCol = new TableColumn<TableList, String>("Name");
+		TableColumn<TableList, String> nameCol = new TableColumn<TableList, String>(SceneSwitch.getBundle().getString("keyName"));
 		nameCol.setCellValueFactory(new PropertyValueFactory("name"));
-		TableColumn<TableList, String> authorCol = new TableColumn<TableList, String>("Author");
+		TableColumn<TableList, String> authorCol = new TableColumn<TableList, String>(SceneSwitch.getBundle().getString("keyAuthor"));
 		authorCol.setCellValueFactory(new PropertyValueFactory("author"));
-		TableColumn<TableList, String> descriptionCol = new TableColumn<TableList, String>("Description");
+		TableColumn<TableList, String> descriptionCol = new TableColumn<TableList, String>(SceneSwitch.getBundle().getString("keyDescription"));
 		descriptionCol.setCellValueFactory(new PropertyValueFactory("description"));
-		TableColumn<TableList, String> questionNumCol = new TableColumn<TableList, String>("Number of Questions");
+		TableColumn<TableList, String> questionNumCol = new TableColumn<TableList, String>(SceneSwitch.getBundle().getString("keyNumQuestion"));
 		questionNumCol.setCellValueFactory(new PropertyValueFactory("questionNum"));
 
 		nameCol.setMaxWidth(150);
@@ -182,20 +182,18 @@ public class CustomDoPageController {
 
 		}
 		else {
-			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), "Are you sure to delete selected question suite?", "Delete", "Cancel");
+			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), SceneSwitch.getBundle().getString("keyDeleteQuestionSuite"), SceneSwitch.getBundle().getString("keyCancel"), SceneSwitch.getBundle().getString("keyCancel"));
 			boolean confirm = confirmation.createPopUp();
 			if (confirm){
 				setSelected();
 				boolean isPublic = _selected.getPublic();
 				System.out.println("isPublic "+isPublic);
 				if (isPublic){
-					System.out.println("public");
 					_manager.deleteQuestionSuite(_selected.getName(), isPublic);
 					_publicData.remove(_selected);
 					//TODO remove selected question suite (Public)
 				}
 				else {
-					System.out.println("private");
 					_manager.deleteQuestionSuite(_selected.getName(), isPublic);
 					_privateData.remove(_selected);
 					//TODO remove selected question suite (private)
