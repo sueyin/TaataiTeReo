@@ -5,10 +5,7 @@ import application.TataiApp;
 import application.model.file.FileReader;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class User {
     private static int ACHIV_NUM = 8;
@@ -35,7 +32,7 @@ public class User {
     private int _survivalScore;
 
     private int _exp;
-    private boolean[] _achivList = new boolean[ACHIV_NUM - 1];
+    private boolean[] _achivList = new boolean[ACHIV_NUM ];
 
     public User(String name){
         _name = name;
@@ -158,7 +155,7 @@ public class User {
             try {
                 _achivs.createNewFile();
                 PrintWriter writer = new PrintWriter(_achivs, "UTF-8");
-                for (int i = 1; i <= ACHIV_NUM; i++){
+                for (int i = 0; i < ACHIV_NUM; i++){
                     writer.println(i + "#-");
                 }
                 writer.close();
@@ -459,6 +456,7 @@ public class User {
 
 
     private void readAchiv(){
+        Arrays.fill(_achivList, false);
         _reader = new FileReader(_achivRecPath);
         Map<String, String> achivs = _reader.getData();
         for (String s : achivs.keySet()){
@@ -485,10 +483,9 @@ public class User {
     public void unlockAchiv(int index){
         if (!_achivList[index]){
             _achivList[index] = true;
-
             try {
                 PrintWriter writer = new PrintWriter(_achivs, "UTF-8");
-                for (int i = 1; i <= ACHIV_NUM; i++){
+                for (int i = 0; i < ACHIV_NUM; i++){
                     if (_achivList[i]){
                         writer.println(i + "#1");
                     }else{
