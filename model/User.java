@@ -200,13 +200,19 @@ public class User {
     public void updatePractiseRecord(String number, boolean result){
         readPracticeStatistic();
 
+        //Exp + 2 when first time read a number right
+        ArrayList<Boolean> currentRec = _practiceStatistic.get(number);
+        if ((result) && (!currentRec.contains(true))){
+            increaseExp(2);
+        }
+
         //Update the new statistic
-        if (_practiceStatistic.get(number) == null){
+        if (currentRec == null){
             ArrayList<Boolean> temp = new ArrayList<>();
             temp.add(result);
             _practiceStatistic.put(number, temp);
         }else {
-            _practiceStatistic.get(number).add(result);
+            currentRec.add(result);
         }
 
         //Write the newest statistic
@@ -220,11 +226,6 @@ public class User {
         }
         for (String s : _practiceStatistic.keySet()) {
             if (_practiceStatistic.get(s) != null) {
-                ////////////////
-                for (boolean b :_practiceStatistic.get(s)){
-                    System.out.println(b);
-                }
-                ///////////////
                 String binary = booleanTranslate(_practiceStatistic.get(s));
                 writer.println(s + "#" + binary);
             } else {
@@ -451,7 +452,57 @@ public class User {
      * Return the current exp value of the user
      */
     public boolean[] getAchiv() {
+        readAchiv();
         return _achivList;
+    }
+
+
+
+    private void readAchiv(){
+        _reader = new FileReader(_achivRecPath);
+        Map<String, String> achivs = _reader.getData();
+        for (String s : achivs.keySet()){
+            int index = Integer.parseInt(s);
+            if (achivs.get(s).equals("1")){
+                _achivList[index] = true;
+            }else{
+                _achivList[index] = false;
+            }
+        }
+    }
+
+    /**
+     * 0.Complete one Level
+     * 1.Complete one Level with 3 stars
+     * 2.Collect 45 stars
+     * 3.Read 1-99
+     * 4.Survival 50+
+     * 5.Upgrade Bronze
+     * 6.Upgrade Sliver
+     * 7.Upgrade Gold
+     *
+     */
+    public void unlockAchiv(int index){
+        if (!_achivList[index]){
+            _achivList[index] = true;
+
+            try {
+                PrintWriter writer = new PrintWriter(_achivs, "UTF-8");
+                for (int i = 1; i <= ACHIV_NUM; i++){
+                    if (_achivList[i]){
+                        writer.println(i + "#1");
+                    }else{
+                        writer.println(i + "#-");
+                    }
+                }
+                writer.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
 
