@@ -147,16 +147,8 @@ public class CustomDoPageController {
 			//TODO pop up window
 		}
 		else {
-			try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomTestPage.fxml"));
-	        	Scene scene = new Scene(parent);
-	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        	stage.setScene(scene);
-	        	stage.show();
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/CustomTestPage.fxml");
 		}
 	}
 	
@@ -182,7 +174,7 @@ public class CustomDoPageController {
 
 		}
 		else {
-			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), SceneSwitch.getBundle().getString("keyDeleteQuestionSuite"), SceneSwitch.getBundle().getString("keyCancel"), SceneSwitch.getBundle().getString("keyCancel"));
+			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), SceneSwitch.getBundle().getString("keyDeleteQuestionSuite"), SceneSwitch.getBundle().getString("keyDelete"), SceneSwitch.getBundle().getString("keyCancel"));
 			boolean confirm = confirmation.createPopUp();
 			if (confirm){
 				setSelected();

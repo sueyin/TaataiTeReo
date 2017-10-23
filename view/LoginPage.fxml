@@ -6,7 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,30 +14,35 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png); -fx-background-color: black;" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="114.0" prefHeight="166.0" prefWidth="486.0" text="Tātai!" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="100.0" />
-         </font>
-         <effect>
-            <Bloom />
-         </effect>
-      </Label>
-      <Label alignment="CENTER" layoutX="733.0" layoutY="332.0" text="%keyLogin" textFill="#d3d3d3">
+		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="126.0" prefHeight="153.0" prefWidth="426.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
+			<font>
+				<Font name="Yuanti SC Regular" size="100.0" />
+			</font>
+			<effect>
+				<Glow level="1.0" />
+			</effect>
+		</Label>
+      <Label alignment="CENTER" layoutX="450.0" layoutY="298.0" prefHeight="43.0" prefWidth="226.0" text="%keyLogin" textFill="#d3d3d3">
          <font>
             <Font name="Yuanti SC Regular" size="30.0" />
          </font>
       </Label>
-      <JFXListView fx:id="_userList" blendMode="SRC_ATOP" fixedCellSize="34.0" layoutX="657.0" layoutY="395.0" prefHeight="94.0" prefWidth="232.0" stylesheets="@../application.css" verticalGap="1.0">
+      <Line endX="350.0" fill="WHITE" layoutX="385.0" layoutY="345.0" stroke="WHITE" strokeWidth="2.0">
+         <effect>
+            <MotionBlur angle="175.61" radius="45.34" />
+         </effect>
+      </Line>
+      <JFXListView fx:id="_userList" blendMode="SRC_ATOP" fixedCellSize="34.0" layoutX="443.0" layoutY="362.0" prefHeight="94.0" prefWidth="232.0" stylesheets="@../application.css" verticalGap="1.0">
          <padding>
             <Insets bottom="-1.0" />
          </padding></JFXListView>
-      <JFXTextField fx:id="_textField" alignment="CENTER" focusColor="#e1e4ee" layoutX="654.0" layoutY="409.0" prefHeight="43.0" prefWidth="232.0" promptText="User Name" style="-fx-text-fill: white;" unFocusColor="#e1e4ee">
+      <JFXTextField fx:id="_textField" alignment="CENTER" focusColor="#e1e4ee" layoutX="440.0" layoutY="376.0" prefHeight="43.0" prefWidth="232.0" promptText="User Name" style="-fx-text-fill: white;" unFocusColor="#e1e4ee">
          <font>
             <Font name="Yuanti SC Regular" size="30.0" />
          </font></JFXTextField>
-      <JFXButton fx:id="_add" layoutX="906.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_add" layoutX="678.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
@@ -46,7 +51,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="_delete" layoutX="906.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#handlePressDeleteUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_delete" layoutX="678.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#handlePressDeleteUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
@@ -55,12 +60,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Line endX="350.0" fill="WHITE" layoutX="618.0" layoutY="379.0" stroke="WHITE" strokeWidth="2.0">
-         <effect>
-            <MotionBlur angle="175.61" radius="45.34" />
-         </effect>
-      </Line>
-      <JFXButton fx:id="_selectUserContinue" layoutX="744.0" layoutY="524.0" mnemonicParsing="false" onMouseClicked="#handlePressContinueFromSelectUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_addUserContinue" layoutX="675.0" layoutY="377.0" mnemonicParsing="false" onMouseClicked="#handlePressContinueFromAddUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="62.0" pickOnBounds="true">
                <image>
@@ -69,7 +69,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="_addUserContinue" layoutX="889.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#handlePressContinueFromAddUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_selectUserContinue" layoutX="516.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#handlePressContinueFromSelectUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="62.0" pickOnBounds="true">
                <image>
@@ -78,7 +78,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="_return" layoutX="753.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#handlePressReturn" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_return" layoutX="525.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#handlePressReturn" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true">
                <image>
@@ -87,12 +87,12 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label fx:id="_addUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="544.0" layoutY="475.0" prefHeight="28.0" prefWidth="479.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="_addUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="324.0" layoutY="440.0" prefHeight="28.0" prefWidth="479.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="_selectUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="516.0" layoutY="496.0" prefHeight="28.0" prefWidth="536.0" text="Please select a user from the list above before continuing" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="_selectUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="302.0" layoutY="463.0" prefHeight="28.0" prefWidth="536.0" text="Please select a user from the list above before continuing" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>

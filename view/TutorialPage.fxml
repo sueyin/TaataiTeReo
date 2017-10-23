@@ -364,5 +364,20 @@
       </JFXButton>
          </children>
       </AnchorPane>  
+          <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="36.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/custom/return.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
