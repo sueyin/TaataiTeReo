@@ -51,7 +51,7 @@ public class ClassicTestPageController extends TestPageController {
 		if (Integer.parseInt(_selectedLevel) == 15){
 			//Change font size for Strings
 			_question.setStyle("-fx-font-size: 24");
-		}else if (Integer.parseInt(_selectedLevel) > 12){
+		}else if (Integer.parseInt(_selectedLevel) > 11){
 			//Change font size for numbers
 			_question.setStyle("-fx-font-size: 50");
 		}

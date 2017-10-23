@@ -69,10 +69,13 @@ public class LoginPageController {
 	private Button _return; //return button that switch from add user page to select user page 
 
 	@FXML
-	private JFXComboBox<String> _pickLanguage;
+	private Label _languageLabel;
 	
 	@FXML
-	private Label _languageLabel;
+	private Button _chinese;
+	
+	@FXML
+	private Button _english;
 
 	private List<String> _data = new ArrayList<String>(); //data extracted from txt file............................
 
@@ -101,26 +104,24 @@ public class LoginPageController {
 
 		//initially set the warning message to invisible, only displayed when user attempt to continue without select user
 		_selectUserMessage.setVisible(false);
-
-		_pickLanguage.setItems(options);
-		//_pickLanguage.setValue("English");
-		_pickLanguage.valueProperty().addListener(new ChangeListener<String>() {
-			@Override public void changed(ObservableValue ov, String t, String newLang) {
-				_pickLanguage.setValue(newLang);
-				if (t== null) {
-					SceneSwitch.setLanguage(newLang);
-					SceneSwitch load = new SceneSwitch((Stage) _pickLanguage.getScene().getWindow());
-					load.switchScene("/application/view/LoginPage.fxml");
-				}
-				else if(!t.equals(newLang)){
-					SceneSwitch.setLanguage(newLang);
-					SceneSwitch load = new SceneSwitch((Stage) _pickLanguage.getScene().getWindow());
-					load.switchScene("/application/view/LoginPage.fxml");
-				}
-			}     
-		});
 	}
 
+	
+	@FXML
+	public void handlePressChinese(MouseEvent event) {
+		SceneSwitch.setLanguage("中文");
+		SceneSwitch load = new SceneSwitch((Stage) _languageLabel.getScene().getWindow());
+		load.switchScene("/application/view/LoginPage.fxml");
+	}
+	
+	@FXML
+	public void handlePressEnglish(MouseEvent event) {
+		SceneSwitch.setLanguage("English");
+		SceneSwitch load = new SceneSwitch((Stage) _languageLabel.getScene().getWindow());
+		load.switchScene("/application/view/LoginPage.fxml");
+	}
+	
+	
 	/**
 	 * This method changes from select user page to add user page
 	 */
@@ -235,7 +236,8 @@ public class LoginPageController {
 		_textField.setVisible(!show);
 		_addUserContinue.setVisible(!show);
 		_addUserMessage.setVisible(!show);
-		_pickLanguage.setVisible(show);
+		_chinese.setVisible(show);
+		_english.setVisible(show);
 		_languageLabel.setVisible(show);
 	}
 

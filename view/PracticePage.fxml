@@ -42,7 +42,7 @@
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
       </Label>
-      <JFXButton fx:id="_statistic" layoutX="901.0" layoutY="27.0" onMouseClicked="#handlePressStatistic" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_statistic" layoutX="901.0" layoutY="47.0" onMouseClicked="#handlePressStatistic" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -53,6 +53,11 @@
                </effect>
             </ImageView>
          </graphic></JFXButton>
+               <Label fx:id="_statisticLabel" layoutX="976.0" layoutY="66.0" text="%keyStatistic" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="20.0" />
+         </font>
+      </Label>
 				<TextField fx:id="_textField" alignment="CENTER" layoutX="719.0" layoutY="334.0" onKeyReleased="#handleTextChange" prefHeight="34.0" prefWidth="76.0" promptText="#" style="-fx-background-color: #929292;">
 					<font>
 						<Font name="Yuanti SC Regular" size="25.0" />

@@ -95,7 +95,7 @@
       </Label>
       <Label fx:id="_question" alignment="CENTER" layoutX="181.0" layoutY="180.0" prefHeight="152.0" prefWidth="764.0" text="1+1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Yuanti SC Regular" size="135.0" />
+            <Font name="Yuanti SC Regular" size="125.0" />
          </font>
       </Label>
       <VBox layoutX="366.0" layoutY="358.0" prefWidth="423.0">

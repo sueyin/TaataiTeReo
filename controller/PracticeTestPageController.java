@@ -20,6 +20,8 @@ public class PracticeTestPageController extends TestPageController{
 	private JFXButton _next;
 	@FXML
 	private JFXButton _statistic;
+	@FXML
+	private Label _statisticLabel;
 	
 	@FXML
 	public void initialize() {	
@@ -28,6 +30,7 @@ public class PracticeTestPageController extends TestPageController{
 		_question.setText(question);
 		_next.setVisible(false);
 		_statistic.setVisible(false);
+		_statisticLabel.setVisible(false);
 		_topRight.setVisible(false);
 		_q = new TwoChancesQuestion(question,question, this);
 	}
@@ -64,6 +67,7 @@ public class PracticeTestPageController extends TestPageController{
 		super.rightGUI();
 		MainPageController.getUser().updatePractiseRecord(_q.getQuestion(), _q.getResult());
 		_statistic.setVisible(true);
+		_statisticLabel.setVisible(true);
 	}
 	
 	@Override
@@ -71,6 +75,7 @@ public class PracticeTestPageController extends TestPageController{
 		super.wrongGUI();
 		MainPageController.getUser().updatePractiseRecord(_q.getQuestion(), _q.getResult());
 		_statistic.setVisible(true);
+		_statisticLabel.setVisible(true);
 	}
 	
 	@Override

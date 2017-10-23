@@ -215,7 +215,7 @@ public class CustomCreatePageController {
 
 	class ListCell extends HBox {
 		Label label = new Label();
-		Button delete = new Button();
+		Button delete = new Button("delete");
 
 		ListCell(String equation) {
 			super();
@@ -225,11 +225,8 @@ public class CustomCreatePageController {
 			HBox.setHgrow(label, Priority.ALWAYS);
 
 			delete.setOnMouseClicked(this::clickDelete);
-			Image deleteImage = new Image(getClass().getResourceAsStream("../image/custom/delete.png"));
-			ImageView img = new ImageView(deleteImage);
-			img.setFitWidth(20);
-			img.setFitHeight(20);
-			delete.setGraphic(img);
+			delete.setStyle("-fx-text-fill: white");
+			
 
 			this.getChildren().addAll(label, delete);
 		}
