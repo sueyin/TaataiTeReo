@@ -174,7 +174,7 @@ public class CustomDoPageController {
 
 		}
 		else {
-			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), SceneSwitch.getBundle().getString("keyDeleteQuestionSuite"), SceneSwitch.getBundle().getString("keyCancel"), SceneSwitch.getBundle().getString("keyCancel"));
+			ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(), SceneSwitch.getBundle().getString("keyDeleteQuestionSuite"), SceneSwitch.getBundle().getString("keyDelete"), SceneSwitch.getBundle().getString("keyCancel"));
 			boolean confirm = confirmation.createPopUp();
 			if (confirm){
 				setSelected();

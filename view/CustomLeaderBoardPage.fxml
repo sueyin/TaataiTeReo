@@ -6,6 +6,7 @@
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,12 +20,18 @@
       <TableView fx:id="_expTable" layoutX="93.0" layoutY="142.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: transparent;" />
       <TableView fx:id="_starTable" layoutX="426.0" layoutY="142.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: transparent;" />
       <TableView fx:id="_survivalTable" layoutX="765.0" layoutY="142.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: transparent;" />
-      <JFXButton fx:id="_return" layoutX="25.0" layoutY="26.0" onMouseClicked="#handlePressReturn" text=" ">
+ <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="36.0" />
+         </font>
          <graphic>
-            <ImageView fitHeight="39.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
             </ImageView>
          </graphic>
       </JFXButton>

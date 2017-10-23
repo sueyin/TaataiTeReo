@@ -20,15 +20,21 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      		<JFXButton fx:id="_return" layoutX="12.0" layoutY="15.0" onMouseClicked="#handlePressReturn" stylesheets="@../application.css" text=" ">
-			<graphic>
-				<ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../image/practice/return.png" />
-					</image>
-				</ImageView>
-			</graphic>
-		</JFXButton>
+ <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="36.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/custom/return.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
       <PieChart fx:id="_pie" layoutX="569.0" layoutY="177.0" prefHeight="360.0" prefWidth="507.0" stylesheets="@../application.css" />
       <Label fx:id="_null" layoutX="743.0" layoutY="305.0" text="No Attempt" textFill="#757575">
          <font>
