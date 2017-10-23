@@ -43,12 +43,9 @@ public class FileReader {
             String key = line.split("#")[0];
             String content = translate(line.split("#")[1]);
             _data.put(key, content);
-            }
+        }
         sc.close();
     }
-
-
-
 
     /*
         Getters
@@ -64,7 +61,7 @@ public class FileReader {
     /**
      * Translate multiplication and division signs to UTF code
      */
-    private String translate(String raw){
+    public static String translate(String raw){
         String translated = "";
         if (raw.length() > 0) {
             for (char i : raw.toCharArray()) {

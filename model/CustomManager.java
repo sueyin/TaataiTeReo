@@ -65,24 +65,34 @@ public class CustomManager {
         }
     }
 
-
-
-
-    public Map<String, String> readQuestionSuite(String id, boolean isPublic){
+    public Map<Integer, String> readQuestionSuite(String id, boolean isPublic){
         String path;
         if (isPublic){
             path = _publicPath + id + ".txt";
         }else{
             path = _privatePath + id + ".txt";
         }
-        FileReader reader = new FileReader(path);
-        Map<String, String> questionSuite = reader.getData();
-        questionSuite.remove("author");
-        questionSuite.remove("disp");
-        questionSuite.remove("total");
-        for (String s: questionSuite.keySet()){
-            System.out.println(questionSuite.get(s));
+
+        //Create a scanner
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new File(path));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+        //Ignore first three line
+        sc.nextLine();
+        sc.nextLine();
+        sc.nextLine();
+
+        //Read the Record
+        Map<Integer, String> questionSuite = new HashMap<>();
+        int index = 0;
+        while (sc.hasNextLine()) {
+            questionSuite.put(index, sc.nextLine());
+            index++;
+        }
+        sc.close();
         return questionSuite;
     }
 
