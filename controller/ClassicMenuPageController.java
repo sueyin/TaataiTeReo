@@ -40,7 +40,6 @@ public class ClassicMenuPageController {
 			
 			//get result from each level
 			String result = MainPageController.getUser().getClassicRecord(Integer.toString(level));
-			System.out.println(result);
 			
 			//determine number of stars awarded to each level
 			if (result.equals("-")) {

@@ -36,10 +36,6 @@ public class CustomResultPageController {
 		ArrayList<String> report = CustomTestPageController.getReport();
 		for (String s : report) {
 			String[] individualRep = s.split("#");
-			System.out.println(s);
-			for (int i = 0; i< individualRep.length; i++){
-				System.out.println(individualRep[i]);
-			}
 			CustomResultModel a = new CustomResultModel(individualRep[0], individualRep[1], individualRep[2], individualRep[3]);
 			_data.add(a);
 			_tableView.setItems(_data);

@@ -179,7 +179,6 @@ public class CustomDoPageController {
 			if (confirm){
 				setSelected();
 				boolean isPublic = _selected.getPublic();
-				System.out.println("isPublic "+isPublic);
 				if (isPublic){
 					_manager.deleteQuestionSuite(_selected.getName(), isPublic);
 					_publicData.remove(_selected);

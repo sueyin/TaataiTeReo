@@ -232,7 +232,6 @@ public class CustomCreatePageController {
 		}
 
 		public void clickDelete(MouseEvent event) {
-			System.out.println("delete");
 			//TODO get the row number and remove the corresponding question
 			_qs[_data.indexOf(this)]= "";
 			_data.remove(this);

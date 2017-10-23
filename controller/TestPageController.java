@@ -149,8 +149,12 @@ public abstract class TestPageController {
             clip.open(stream);
             clip.start();
         }catch (Exception e){
-            System.out.println("erorr" + e);
+            ;
         }
 	}
+
+	protected void cancelQuestion(){
+        _q.cancel();
+    }
 
 }

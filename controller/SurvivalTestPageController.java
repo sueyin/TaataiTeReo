@@ -58,6 +58,7 @@ public class SurvivalTestPageController extends TestPageController{
 
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
+		super.cancelQuestion();
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/MainPage.fxml");
 	}

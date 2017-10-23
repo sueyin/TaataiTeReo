@@ -99,6 +99,7 @@ public class CustomTestPageController extends TestPageController {
 	// Event Listener on JFXButton[#_return].onMouseClicked
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
+		super.cancelQuestion();
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/CustomDoPage.fxml");
 	}
