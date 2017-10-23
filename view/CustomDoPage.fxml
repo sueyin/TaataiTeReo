@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,10 +40,13 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label alignment="CENTER" layoutX="340.0" layoutY="25.0" prefHeight="116.0" prefWidth="440.0" text="%keyCustomDoTitle" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyCustomDoTitle" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="34.0" />
+            <Font name="Yuanti SC Regular" size="40.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Label>
  <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
          <font>

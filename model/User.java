@@ -197,19 +197,23 @@ public class User {
     public void updatePractiseRecord(String number, boolean result){
         readPracticeStatistic();
 
-        //Exp + 2 when first time read a number right
-        ArrayList<Boolean> currentRec = _practiceStatistic.get(number);
-        if ((result) && (!currentRec.contains(true))){
-            increaseExp(2);
-        }
-
         //Update the new statistic
-        if (currentRec == null){
+        //Exp + 2 when first time read a number right
+        if (_practiceStatistic.get(number) == null){
+        	if (result){
+        		increaseExp(2);
+        	}
             ArrayList<Boolean> temp = new ArrayList<>();
             temp.add(result);
             _practiceStatistic.put(number, temp);
-        }else {
+        }else{
+            ArrayList<Boolean> currentRec = _practiceStatistic.get(number);
+            if (!currentRec.contains(true)){
+        		increaseExp(2);
+            }
             currentRec.add(result);
+            _practiceStatistic.remove(number);
+            _practiceStatistic.put(number, currentRec);
         }
 
         //Write the newest statistic

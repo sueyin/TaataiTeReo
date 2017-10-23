@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
@@ -15,10 +16,13 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CustomCreatePageController">
    <children>
-      <Label layoutX="338.0" layoutY="53.0" text="%keyCustomCreateTitle" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyCustomCreateTitle" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="46.0" />
+            <Font name="Yuanti SC Regular" size="40.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Label>
       <JFXTextField fx:id="_description" layoutX="246.0" layoutY="150.0" prefHeight="36.0" prefWidth="545.0" style="-fx-background-color: grey;" />
       <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="136.0" prefHeight="65.0" prefWidth="166.0" text="%keyDescription" textFill="WHITE">

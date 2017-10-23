@@ -4,6 +4,7 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,9 +13,9 @@
 
 <AnchorPane prefHeight="633.0" prefWidth="1184.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
    <children>
-      <Label alignment="CENTER" layoutX="446.0" layoutY="41.0" prefHeight="85.0" prefWidth="276.0" text="Feedback" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyStatistic" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="60.0" />
+            <Font name="Yuanti SC Regular" size="40.0" />
          </font>
          <effect>
             <Glow level="1.0" />

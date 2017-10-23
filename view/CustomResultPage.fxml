@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -14,10 +15,13 @@
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
       </JFXButton>
-      <Label layoutX="517.0" layoutY="53.0" text="%keyResult" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyResult" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="31.0" />
+            <Font name="Yuanti SC Regular" size="40.0" />
          </font>
+         <effect>
+            <Glow level="1.0" />
+         </effect>
       </Label>
    </children>
 </AnchorPane>

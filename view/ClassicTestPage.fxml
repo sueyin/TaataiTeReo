@@ -100,9 +100,9 @@
             </Label>
          </children>
       </VBox>
-      <Label fx:id="_mode" alignment="CENTER" layoutX="450.0" layoutY="55.0" prefWidth="226.0" text="%keyClassic" textAlignment="CENTER" textFill="WHITE">
+       <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyClassic" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="35.0" />
+            <Font name="Yuanti SC Regular" size="40.0" />
          </font>
          <effect>
             <Glow level="1.0" />
