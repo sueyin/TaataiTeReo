@@ -155,14 +155,6 @@
       </AnchorPane>
       <AnchorPane fx:id="_page4" prefHeight="633.0" prefWidth="1126.0">
       <children>
-         <JFXButton fx:id="_return" layoutX="19.0" layoutY="17.0" prefHeight="65.0" prefWidth="65.0" text=" ">
-         <graphic>
-            <ImageView fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/testpage/return.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
       <Label fx:id="_questionInstr" alignment="CENTER" layoutX="210.0" layoutY="230.0" prefHeight="99.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage4-1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
@@ -226,15 +218,7 @@
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-            <JFXButton fx:id="_return1" layoutX="19.0" layoutY="17.0" prefHeight="65.0" prefWidth="65.0" text=" ">
-               <graphic>
-                  <ImageView fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/testpage/return.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
+
       <Label fx:id="_question" alignment="CENTER" layoutX="540.0" layoutY="280.0" text="3+2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Yuanti SC Regular" size="50.0" />
@@ -279,15 +263,7 @@
       </AnchorPane>
           <AnchorPane fx:id="_page6" layoutX="0.0" layoutY="0.0" prefHeight="633.0" prefWidth="1126.0">
          <children>
-            <JFXButton fx:id="_return1" layoutX="19.0" layoutY="17.0" prefHeight="65.0" prefWidth="65.0" text=" ">
-               <graphic>
-                  <ImageView fitHeight="97.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/testpage/return.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
+
       <Label fx:id="_question" alignment="CENTER" layoutX="540.0" layoutY="280.0" text="3+2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Yuanti SC Regular" size="50.0" />

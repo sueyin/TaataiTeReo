@@ -100,7 +100,7 @@
             </Label>
          </children>
       </VBox>
-      <Label fx:id="_mode" alignment="CENTER" layoutX="476.0" layoutY="55.0" text="%keyClassic" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="_mode" alignment="CENTER" layoutX="450.0" layoutY="55.0" prefWidth="226.0" text="%keyClassic" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="35.0" />
          </font>

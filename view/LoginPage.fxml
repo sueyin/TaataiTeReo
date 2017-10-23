@@ -92,7 +92,7 @@
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="_selectUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="302.0" layoutY="463.0" prefHeight="28.0" prefWidth="536.0" text="Please select a user from the list above before continuing" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="_selectUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="302.0" layoutY="463.0" prefHeight="28.0" prefWidth="536.0" text="%keySelectUser" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
