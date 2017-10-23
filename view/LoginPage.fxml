@@ -12,10 +12,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png); -fx-background-color: black;" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a1a1a9e" height="94.0" layoutX="443.0" layoutY="362.0" stroke="#ffffff00" strokeType="INSIDE" width="232.0" />
 		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="126.0" prefHeight="153.0" prefWidth="426.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
 			<font>
 				<Font name="Yuanti SC Regular" size="100.0" />

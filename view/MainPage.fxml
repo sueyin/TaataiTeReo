@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_1.jpeg); -fx-background-color: black;" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
@@ -30,12 +29,12 @@
             <Glow level="0.37" />
          </effect>
 		</Label>
-            <JFXButton fx:id="_leaderBoard" layoutX="989.0" layoutY="13.0" onMouseClicked="#handlePressLeaderBoard" text=" " textFill="WHITE">
+            <JFXButton fx:id="_leaderBoard" layoutX="920.0" layoutY="40.0" onMouseClicked="#handlePressLeaderBoard" text=" " textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="24.0" />
          </font>
          <graphic>
-            <VBox alignment="CENTER">
+            <HBox alignment="CENTER">
                <children>
                   <ImageView fitHeight="50.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -51,62 +50,59 @@
                      </font>
                   </Label>
                </children>
-            </VBox>
+            </HBox>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="860.0" layoutY="13.0" onMouseClicked="#handlePressAchievement" text=" ">
+      <JFXButton alignment="CENTER" layoutX="925.0" layoutY="107.0" onMouseClicked="#handlePressAchievement" text=" ">
          <graphic>
-				<VBox alignment="CENTER">
-					<children>
-						<ImageView fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" translateX="30.0">
-							<image>
-								<Image url="@../image/mainpage/achievement.png" />
-							</image>
-                     <VBox.margin>
-                        <Insets left="-60.0" />
-                     </VBox.margin>
-						</ImageView>
-						<Label alignment="CENTER" contentDisplay="CENTER" text="%keyAchievement" textAlignment="CENTER" textFill="WHITE">
-							<font>
-								<Font name="Yuanti SC Regular" size="15.0" />
-							</font>
-						</Label>
-					</children>
-				</VBox>
-         </graphic>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="10.0" layoutY="12.0" onMouseClicked="#handlePressLogout" text=" ">
-         <graphic>
-      				<VBox alignment="CENTER">
-      					<children>
-      						<ImageView fitHeight="52.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+            <HBox alignment="CENTER">
+               <children>
+      						<ImageView fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
       							<image>
-      								<Image url="@../image/mainpage/logout.png" />
+      								<Image url="@../image/mainpage/achievement.png" />
       							</image>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
       						</ImageView>
-      						<Label alignment="CENTER" contentDisplay="CENTER" text="%keyLogout" textAlignment="CENTER" textFill="WHITE" translateY="-6.0">
+      						<Label alignment="CENTER" contentDisplay="CENTER" text="%keyAchievement" textAlignment="CENTER" textFill="WHITE">
       							<font>
       								<Font name="Yuanti SC Regular" size="15.0" />
       							</font>
       						</Label>
-      					</children>
-      				</VBox>
+               </children>
+            </HBox>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="56.0" layoutY="40.0" onMouseClicked="#handlePressLogout" text=" ">
+         <graphic>
+            <HBox alignment="CENTER">
+               <children>
+      						<ImageView fitHeight="52.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+      							<image>
+      								<Image url="@../image/mainpage/logout.png" />
+      							</image>
+      						</ImageView>
+            						<Label alignment="CENTER" contentDisplay="CENTER" text="%keyLogout" textAlignment="CENTER" textFill="WHITE">
+            							<font>
+            								<Font name="Yuanti SC Regular" size="15.0" />
+            							</font>
+            						</Label>
+               </children>
+            </HBox>
          </graphic>
       </JFXButton>
       <JFXButton alignment="CENTER" layoutX="487.0" layoutY="312.0" onMouseClicked="#handlePressPractice" text=" ">
          <graphic>
             <HBox alignment="CENTER">
                <children>
-            								<ImageView fitHeight="48.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+            								<ImageView fitHeight="40.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
             									<image>
-            										<Image url="@../image/mainpage/endless.png" />
+            										<Image url="@../image/achievement/unknown.png" />
             									</image>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
             								</ImageView>
             								<Label alignment="CENTER" text="%keyPractice" textFill="WHITE">
             									<font>
@@ -141,7 +137,7 @@
                <children>
                   <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/mainpage/survival.png" />
+                        <Image url="@../image/mainpage/endless.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" text="%keySurvival" textAlignment="CENTER" textFill="WHITE">

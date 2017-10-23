@@ -115,7 +115,7 @@
 }
 
 .list-view .list-cell {
-	-fx-background-color: #232323;
+	-fx-background-color: transparent;
 	-fx-text-fill: white;
 	-fx-alignment: center;
 }
@@ -126,7 +126,7 @@
 }
 
 .list-view {
-	-fx-background-color: #232323;
+	-fx-background-color: transparent;
 }
 
 .list-view .scroll-bar:vertical {

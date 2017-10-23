@@ -48,12 +48,10 @@ public class ClassicTestPageController extends TestPageController {
 		_score = 0;
 
 		//Initialize GUI
-		_question.setStyle("-fx-text-size: 100");
-
-		if (Integer.parseInt(_selectedLevel) > 12){
+		if (Integer.parseInt(_selectedLevel) == 15){
 			//Change font size for Strings
 			_question.setStyle("-fx-font-size: 24");
-		}else{
+		}else if (Integer.parseInt(_selectedLevel) > 12){
 			//Change font size for numbers
 			_question.setStyle("-fx-font-size: 50");
 		}
