@@ -93,6 +93,9 @@ public class PracticePageController {
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
 		_question = _textField.getText();
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/PracticeTestPage.fxml");
+		
 	}
 
 

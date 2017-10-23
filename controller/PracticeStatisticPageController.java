@@ -141,7 +141,7 @@ public class PracticeStatisticPageController {
 	 * set pie chart value to overall data statistic
 	 */
 	private void setPieOverall() {
-		setPie(_overallCorrect, _overallAttempt);
+		setPie(_overallCorrect, _overallAttempt-_overallCorrect);
 	}
 	
 	/**

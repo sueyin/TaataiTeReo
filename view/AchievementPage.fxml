@@ -3,15 +3,15 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AchievementPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg); -fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AchievementPageController">
    <children>
       <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyAchievement" textFill="WHITE">
          <font>
@@ -21,34 +21,29 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="58.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="157.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/classic/classic.png" />
          </image>
       </ImageView>
-      <Label fx:id="_star" layoutX="138.0" layoutY="235.0" text="12/45" textFill="WHITE">
+      <Label fx:id="_star" alignment="CENTER_RIGHT" layoutX="213.0" layoutY="238.0" prefHeight="30.0" prefWidth="48.0" text="45" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="341.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="157.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/mainpage/survival.png" />
          </image>
       </ImageView>
-      <Label fx:id="_highScore" layoutX="403.0" layoutY="240.0" text="Highest score: 123" textFill="WHITE">
+      <Label fx:id="_highScore" layoutX="396.0" layoutY="343.0" prefHeight="30.0" prefWidth="164.0" text="123" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="_exp" layoutX="784.0" layoutY="234.0" text="EXP: 1234" textFill="WHITE">
+      <Label fx:id="_exp" layoutX="225.0" layoutY="445.0" prefHeight="30.0" prefWidth="197.0" text="123" textFill="WHITE">
          <font>
             <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="528.0" layoutY="322.0" text="Medal" textFill="WHITE">
-         <font>
-            <Font name="Yuanti SC Regular" size="30.0" />
          </font>
       </Label>
  <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
@@ -66,7 +61,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <HBox fx:id="_star1" layoutX="65.0" layoutY="400.0" prefHeight="100.0" prefWidth="878.0" spacing="200.0">
+      <VBox fx:id="_star2" layoutX="772.0" layoutY="194.0" prefHeight="322.0" prefWidth="101.0" spacing="40.0">
          <children>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -89,8 +84,8 @@
                </image>
             </ImageView>
          </children>
-      </HBox>
-      <HBox fx:id="_null1" layoutX="65.0" layoutY="400.0" prefHeight="100.0" prefWidth="859.0" spacing="200.0">
+      </VBox>
+      <VBox fx:id="_null1" layoutX="492.0" layoutY="194.0" prefHeight="332.0" prefWidth="65.0" spacing="40.0">
          <children>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -125,107 +120,110 @@
                </effect>
             </ImageView>
          </children>
-      </HBox>
-      <HBox layoutX="139.0" layoutY="387.0" prefHeight="100.0" prefWidth="973.0" spacing="90.0">
+      </VBox>
+      <VBox layoutX="572.0" layoutY="203.0" prefHeight="355.0" prefWidth="181.0" spacing="60.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="160.0" text="Complete level 1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Complete level 1" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
                   <Insets top="4.0" />
                </padding>
             </Label>
-            <Label prefHeight="94.0" prefWidth="160.0" text="Complete one level with 3 stars" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Complete one level with 3 stars" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
                   <Insets top="4.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" prefHeight="89.0" prefWidth="160.0" text="Collect 45 Stars" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Collect 45 Stars" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
-                  <Insets left="30.0" top="4.0" />
+                  <Insets top="4.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" prefHeight="92.0" prefWidth="160.0" text="practice level complete all 99 numbers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="practice level complete all 99 numbers" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
-                  <Insets left="30.0" top="4.0" />
+                  <Insets top="4.0" />
                </padding>
             </Label>
          </children>
-      </HBox>
-      <HBox layoutX="132.0" layoutY="484.0" prefHeight="100.0" prefWidth="933.0" spacing="90.0">
+      </VBox>
+      <VBox accessibleRole="PROGRESS_INDICATOR" layoutX="859.0" layoutY="194.0" prefHeight="339.0" prefWidth="181.0" spacing="65.0">
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="160.0" text="Practice Level complete 1-99" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Practice Level complete 1-99" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
                   <Insets top="4.0" />
                </padding>
             </Label>
-            <Label prefHeight="72.0" prefWidth="160.0" text="Upgrade to Bronze Medal" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Upgrade to Bronze Medal" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
+               </font>
+               <padding>
+                  <Insets top="4.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="-3.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Upgrade to Silver Medal" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
                   <Insets top="4.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" prefHeight="76.0" prefWidth="160.0" text="Upgrade to Silver Medal" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label alignment="CENTER" text="Upgrade to Gold Medal" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
+                  <Font name="Yuanti SC Regular" size="15.0" />
                </font>
                <padding>
                   <Insets top="4.0" />
-               </padding>
-            </Label>
-            <Label alignment="CENTER" prefHeight="76.0" prefWidth="160.0" text="Upgrade to Gold Medal" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="Yuanti SC Regular" size="20.0" />
-               </font>
-               <padding>
-                  <Insets left="30.0" top="4.0" />
                </padding>
             </Label>
          </children>
-      </HBox>
-      <HBox fx:id="_star2" layoutX="65.0" layoutY="500.0" prefHeight="100.0" prefWidth="878.0" spacing="200.0">
-         <children>
-            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/classic/classic.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/classic/classic.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/classic/classic.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/classic/classic.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox fx:id="_null2" layoutX="65.0" layoutY="500.0" prefHeight="100.0" prefWidth="859.0" spacing="200.0">
+      </VBox>
+      <VBox fx:id="_star1" layoutX="492.0" layoutY="194.0" prefHeight="332.0" prefWidth="67.0" spacing="40.0">
          <children>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
+                  <Image url="@../image/classic/classic.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/classic/classic.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/classic/classic.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/classic/classic.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox fx:id="_null2" layoutX="772.0" layoutY="194.0" prefHeight="332.0" prefWidth="82.0" spacing="40.0">
+         <children>
+            <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
                   <Image url="@../image/achievement/unknown.png" />
                </image>
                <effect>
@@ -257,6 +255,21 @@
                </effect>
             </ImageView>
          </children>
-      </HBox>
+      </VBox>
+      <Label fx:id="_highScore1" layoutX="219.0" layoutY="343.0" text="Highest score:" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="_exp1" layoutX="159.0" layoutY="445.0" text="EXP: " textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="_star3" layoutX="269.0" layoutY="238.0" text="/45" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

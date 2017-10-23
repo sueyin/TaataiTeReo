@@ -12,7 +12,7 @@ import javafx.scene.control.ProgressBar;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -28,13 +28,13 @@ public class AchievementPageController {
 	@FXML
 	private ProgressBar _expBar;
 	@FXML
-	private HBox _star1;
+	private VBox _star1;
 	@FXML
-	private HBox _star2;
+	private VBox _star2;
 	@FXML
-	private HBox _null1;
+	private VBox _null1;
 	@FXML
-	private HBox _null2;
+	private VBox _null2;
 	
 	private boolean[] _medalResult;
 
