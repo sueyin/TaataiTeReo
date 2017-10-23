@@ -25,9 +25,9 @@ public class CustomTestPageController extends TestPageController {
 
 	private CustomManager _manager;
 
-	private Map<String, String> _qs = new HashMap<>();
+	private Map<Integer, String> _qs = new HashMap<>();
 
-	private ArrayList<String> _answerList = new ArrayList<>();
+	private ArrayList<Integer> _indexList = new ArrayList<>();
 
 	private static ArrayList<String>  _reportList = new ArrayList<>();
 
@@ -43,14 +43,16 @@ public class CustomTestPageController extends TestPageController {
 		_manager = new CustomManager();
 		_qs = _manager.readQuestionSuite(_id, _isPublic);
 
-		for (String s : _qs.keySet()) {
-			_answerList.add(s);
+		for (Integer i : _qs.keySet()) {
+			_indexList.add(i);
 		}
-		Collections.shuffle(_answerList);
+		Collections.shuffle(_indexList);
 		_index = 0;
 
-		String answer = _answerList.get(_index);
-		_q = new TwoChancesQuestion(_qs.get(answer), answer,this);
+		String custom = _qs.get(_indexList.get(_index));
+		String answer = custom.split("#")[0];
+		String question = custom.split("#")[1];
+		_q = new TwoChancesQuestion(question, answer,this);
 
 		//Setup GUI
 		_question.setText(_q.getQuestion());
@@ -80,7 +82,7 @@ public class CustomTestPageController extends TestPageController {
 
 
 
-		if (_index + 1 == _answerList.size()){
+		if (_index + 1 == _indexList.size()){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/CustomResultPage.fxml");
 		}else{
@@ -88,7 +90,7 @@ public class CustomTestPageController extends TestPageController {
 			nextQuestion();
 			_next.setVisible(false);
 			_record.setVisible(true);
-			if (_index + 1 == _answerList.size() - 1){
+			if (_index + 1 == _indexList.size() - 1){
 				_next.setText(SceneSwitch.getBundle().getString("keyFinish"));
 			}
 		}
@@ -104,9 +106,10 @@ public class CustomTestPageController extends TestPageController {
 
 
 	private void nextQuestion(){
-		String answer = _answerList.get(_index);
-		String question = _qs.get(answer);
-		_q = new TwoChancesQuestion(question, answer, this);
+		String custom = _qs.get(_indexList.get(_index));
+		String answer = custom.split("#")[0];
+		String question = custom.split("#")[1];
+		_q = new TwoChancesQuestion(question, answer,this);
 		_question.setText(question);
 	}
 
