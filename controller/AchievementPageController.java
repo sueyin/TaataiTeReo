@@ -71,8 +71,6 @@ public class AchievementPageController {
 		}
 	}
 
-
-
 	private void checkAchivs(){
 		// * 0.Complete one Level
 		if (!_achivs[0]){
@@ -134,8 +132,6 @@ public class AchievementPageController {
 			_usr.unlockAchiv(7);
 		}
 	}
-
-
 
 	// Event Listener on JFXButton.onMouseClicked
 	@FXML

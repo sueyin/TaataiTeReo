@@ -147,16 +147,8 @@ public class CustomDoPageController {
 			//TODO pop up window
 		}
 		else {
-			try {
-	        	Parent parent = FXMLLoader.load(getClass().getResource("/application/view/CustomTestPage.fxml"));
-	        	Scene scene = new Scene(parent);
-	        	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        	stage.setScene(scene);
-	        	stage.show();
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/CustomTestPage.fxml");
 		}
 	}
 	
