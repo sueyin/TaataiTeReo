@@ -70,6 +70,9 @@ public class LoginPageController {
 
 	@FXML
 	private JFXComboBox<String> _pickLanguage;
+	
+	@FXML
+	private Label _languageLabel;
 
 	private List<String> _data = new ArrayList<String>(); //data extracted from txt file............................
 
@@ -211,8 +214,8 @@ public class LoginPageController {
 	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		System.out.println("return");
 		showSelectUserPage(true);
+		
 
 		//when switch back to select user page, if nothing is selected from the list, then disable delete user button
 		if (_userList.getSelectionModel().getSelectedItem() == null) {
@@ -232,6 +235,8 @@ public class LoginPageController {
 		_textField.setVisible(!show);
 		_addUserContinue.setVisible(!show);
 		_addUserMessage.setVisible(!show);
+		_pickLanguage.setVisible(show);
+		_languageLabel.setVisible(show);
 	}
 
 	/**
@@ -324,16 +329,8 @@ public class LoginPageController {
 		//if the user name entered is valid, then proceed to next page and save user name
 		else {
 			saveNewUserName(_selectedUser);
-			try {
-				Parent parent = FXMLLoader.load(getClass().getResource("/application/view/MainPage.fxml"));
-				Scene scene = new Scene(parent);
-				Stage stage = (Stage) _textField.getScene().getWindow();
-				stage.setScene(scene);
-				stage.show();
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) _textField).getScene().getWindow());
+			load.switchScene("/application/view/MainPage.fxml");
 		}
 	}
 }

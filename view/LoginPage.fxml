@@ -97,8 +97,8 @@
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="_pickLanguage" layoutX="941.0" layoutY="27.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="814.0" layoutY="26.0" prefHeight="26.0" prefWidth="109.0" text="%keyLanguage" textFill="WHITE">
+      <JFXComboBox fx:id="_pickLanguage" layoutX="941.0" layoutY="27.0" style="-fx-text-fill: white;" />
+      <Label fx:id="_languageLabel" alignment="CENTER_RIGHT" layoutX="814.0" layoutY="26.0" prefHeight="26.0" prefWidth="109.0" text="%keyLanguage" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="15.0" />
          </font>

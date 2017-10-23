@@ -42,7 +42,7 @@
                         <Insets left="-60.0" />
                      </VBox.margin>
 						</ImageView>
-						<Label alignment="CENTER" contentDisplay="CENTER" text="%keyWelcome" textAlignment="CENTER" textFill="WHITE">
+						<Label alignment="CENTER" contentDisplay="CENTER" text="%keyAchievement" textAlignment="CENTER" textFill="WHITE">
 							<font>
 								<Font name="Yuanti SC Regular" size="15.0" />
 							</font>
