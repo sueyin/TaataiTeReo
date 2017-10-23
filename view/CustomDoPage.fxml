@@ -59,7 +59,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <HBox layoutX="161.0" layoutY="521.0" prefHeight="61.0" prefWidth="562.0" spacing="50.0">
+      <HBox layoutX="161.0" layoutY="521.0" spacing="50.0">
          <children>
             <JFXButton fx:id="_do" onMouseClicked="#handlePressDo" text="%keyDoQuestion" textFill="WHITE">
                <font>
