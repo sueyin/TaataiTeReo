@@ -25,7 +25,6 @@ public class ClassicFeedbackPageController {
 	@FXML
 	private Label _level;
 	
-	
 	@FXML
 	private ImageView _full1;
 	

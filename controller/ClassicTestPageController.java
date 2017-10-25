@@ -55,11 +55,11 @@ public class ClassicTestPageController extends TestPageController {
 			//Change font size for numbers
 			_question.setStyle("-fx-font-size: 50");
 		}
+		
+		//configure the labels and buttons 
 		_topRight.setText(SceneSwitch.getBundle().getString("keyLevel") +" "+_selectedLevel);
-
 		_q1.setId("onQuestion");
 		_next.setVisible(false);
-
 		
 		for (Node b: _questionProgress.getChildren()) {
 			nodeList.add((JFXRadioButton) b);
@@ -68,28 +68,35 @@ public class ClassicTestPageController extends TestPageController {
 	
 
 	/**
-	 *This method handles event when the button is pressed (button => "record", "next question")
+	 *This method handles event when the button is pressed (button => "record")
 	 */
 	@FXML
 	public void handlePressRecord(MouseEvent event) {
 		super.handlePressRecord(event);
+		//if user is on the 10th question, then switch the button text to complete
 		if (_qs.getIndexNumber() == 10){
 			_next.setText(SceneSwitch.getBundle().getString("keyCompleted"));
 		}
 	}
 
+	/**
+	 *This method handles event when the button is pressed (button => "next question")
+	 */
 	@FXML
 	public void handlePressNext(MouseEvent event) {
 		_qs.collectResult(_q.getResult());
+		// if the user has ended the 10th question, then switch to result page
 		if (_next.getText().equals("Completed")){
+			//record the result of this level 
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
-
+			//switch to result page 
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/ClassicFeedbackPage.fxml");
 		}else {
 			//update the GUI showing the question the user is currently on
 			boolean result = _q.getResult();
 			int index = _qs.getIndexNumber();
+			// if previous question is correct, then display it as correct on the side bar 
 			if (result) {
 				nodeList.get(index-1).setSelected(true);
 				nodeList.get(index-1).setId("radio_correct");
@@ -97,6 +104,7 @@ public class ClassicTestPageController extends TestPageController {
 					nodeList.get(index).setId("onQuestion");
 				}
 			}
+			// if previous question is incorrect, then display it as incorrect on the side bar 
 			else {
 				nodeList.get(index-1).setId("radio_incorrect");
 				if (index < 10) {
@@ -117,8 +125,12 @@ public class ClassicTestPageController extends TestPageController {
 		}
 	}
 
+	/**
+	 * This method returns to the main page when user presses return 
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
+		//cancel the recording and compare task 
 		super.cancelQuestion();
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/ClassicMenuPage.fxml");

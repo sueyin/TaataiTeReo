@@ -132,6 +132,7 @@ public class CustomCreatePageController {
 		if (equation.length() < 1){
 			//Empty input notification
 			errorMsg(SceneSwitch.getBundle().getString("keyEmptyEquation"));
+			
 		}else {
 			boolean validEquation = true;
 			int value = -1;
@@ -146,6 +147,7 @@ public class CustomCreatePageController {
 				//Answer is not an integer
 				errorMsg("Please ensure the answer is an integer");
 			}
+			
 			if (validEquation) {
 				if (value < 1 || value > 99) {
 					errorMsg(SceneSwitch.getBundle().getString("keyOutofRange"));
@@ -158,8 +160,9 @@ public class CustomCreatePageController {
 					//set text field to empty again 
 					_equation.setText("");
 				}
+				
 				if (_data.size()==10){
-					//when the number of questions reachs maximum, disable add button
+					//when the number of questions reaches maximum, disable add button
 					_add.setVisible(false);
 					_maxMessage.setVisible(true);
 				}
@@ -167,17 +170,22 @@ public class CustomCreatePageController {
 		}
 	}
 
+	/**
+	 * This method checks if the user has entered a valid question suite, and all mandatory fields have been filled. if so, the page switches back to the table view of question suite. Otherwise, the 
+	 */
 	@FXML
 	public void handlePressCreate(MouseEvent event) {
 		String description = _description.getText();
+		//if user has not entered a description for the questions suite, then display warning message
 		if (description.equals("")) {
 			errorMsg(SceneSwitch.getBundle().getString("keyNoDescription"));
+		//if the user has not entered any questions, then display warning message
 		} else {
 			if (_data.isEmpty()) {
 				errorMsg(SceneSwitch.getBundle().getString("keyEmptyQuestionSuite"));
 			}
+			//if all fields are filled, then create the question suite and return to custom page 
 			else {
-				//TODO confirmation ask
 				//Store _data in the file and report question suite created.
 				ArrayList<String> delivery = new ArrayList<>();
 				for (String s : _qs){
@@ -200,19 +208,26 @@ public class CustomCreatePageController {
 		}
 	}
 
-
+	/**
+	 * If the user decides to return in the middle of creating a question suite, then first a confirmation window is shown, if confirmed existing, switch to custom page
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		//opens a window that confirms if the user wants to quit 
-		
 		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(),SceneSwitch.getBundle().getString("keySureReturn"), SceneSwitch.getBundle().getString("keyReturn"), SceneSwitch.getBundle().getString("keyStay"));
 		boolean confirm = confirmation.createPopUp();
+		//if user confirm existing this page, then switch page
 		if (confirm){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/CustomDoPage.fxml");
 		}
 	}
 
+	/**
+	 * 
+	 * This is an inner class for the model of the table containing equations added by the user. The class has two fields, a label that displays equation, and a button for deleting the particular equation 
+	 *
+	 */
 	class ListCell extends HBox {
 		Label label = new Label();
 		Button delete = new Button("delete");
@@ -231,8 +246,11 @@ public class CustomCreatePageController {
 			this.getChildren().addAll(label, delete);
 		}
 
+		
+		/**
+		 * when user clicks the delete button of a specific row, the equation is removed from the table
+		 */
 		public void clickDelete(MouseEvent event) {
-			//TODO get the row number and remove the corresponding question
 			_qs[_data.indexOf(this)]= "";
 			_data.remove(this);
 			_add.setVisible(true);
@@ -244,11 +262,9 @@ public class CustomCreatePageController {
 
 
 
-
-
-	/*
-    Support methods
- */
+	/**
+	 * This method display warning message of the string passed in as parameter
+	 */
 	private void errorMsg(String msg){
 		Service delay = new TimedMessage();
 		_equationMessage.setText(msg);
@@ -264,7 +280,7 @@ public class CustomCreatePageController {
 	}
 
 	/**
-	 * Generate a unique ID
+	 * Generate a unique ID for the question suite
 	 */
 	private void generateID(){
 		String root = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";

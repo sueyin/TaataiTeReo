@@ -44,6 +44,7 @@ public class AchievementPageController {
 
 	@FXML
 	public void initialize() {
+		//get information on user, exp, stars and high scores
 		_usr = MainPageController.getUser();
 		_achivs = _usr.getAchiv();
 		_star.setText(Integer.toString(_usr.getStars()));
@@ -54,6 +55,9 @@ public class AchievementPageController {
 		setMedals();
 	}
 	
+	/**
+	 * this method checks which medals the user has acquired and display relative graphics
+	 */
 	private void setMedals() {
 		for (int i = 0; i<4;i++) {
 			if(_medalResult[i]) {
@@ -71,6 +75,9 @@ public class AchievementPageController {
 		}
 	}
 
+	/**
+	 * the method calculates the medals earned by user based on his/her data
+	 */
 	private void checkAchivs(){
 		// * 0.Complete one Level
 		if (!_achivs[0]){

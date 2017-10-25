@@ -73,17 +73,19 @@ public class ClassicMenuPageController {
 			box[i].setId(""+num);
 		}
 		for (HBox b: box){
+			//if the level has 0 stars, disable all stars
 			if (b.getId().equals("0")){
 				b.setVisible(false);
-				ObservableList list = b.getChildren();
 				
 			}
+			//if the level has 1 star, disable the other two
 			else if (b.getId().equals("1")) {
 				Node node = b.getChildren().get(1);
 				node.setVisible(false);
 				node = b.getChildren().get(2);
 				node.setVisible(false);
 			}
+			//if the level has 2 stars, then disable one star
 			else if (b.getId().equals("2")) {
 				Node node = b.getChildren().get(2);
 				node.setVisible(false);
