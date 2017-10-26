@@ -58,7 +58,7 @@ public abstract class Question {
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
 	private String computeRead() {
-	/*	
+	/*
 		String read = null;
 		//Read the mlx file produced by HTK command.
 		File recout = new File(RECOUT);
@@ -120,8 +120,9 @@ public abstract class Question {
 		});
 
 		new Thread(_recordTask).start();
+		*/
 
-*/
+
 		compare();
 
 	}
@@ -164,17 +165,14 @@ public abstract class Question {
 				updateGUI();
 			}
 		});
-
-		//ToDO stop bar
-		//_page.getBar().progressProperty().bind(_compareTask.progressProperty());
 		new Thread(_compareTask).start();
+		*/
 
 
 
 
 
-*/
-		
+
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
 			_result = false;
@@ -184,7 +182,7 @@ public abstract class Question {
 		System.out.println("before updategui");
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
-		 
+
 
 	}
 
