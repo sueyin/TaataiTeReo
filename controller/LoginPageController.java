@@ -157,10 +157,14 @@ public class LoginPageController {
 			new User(toDelete).deleteUser();
 			//Delete private custom questions
 			File custom = new File(TataiApp.getCustomDir() + toDelete);
-			for (File f : custom.listFiles()){
-				f.delete();
+			if (custom.exists()) {
+				if (custom.listFiles() != null) {
+					for (File f : custom.listFiles()) {
+						f.delete();
+					}
+				}
+				custom.delete();
 			}
-			custom.delete();
 			_items.remove(toDelete);
 		}
 	}

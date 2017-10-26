@@ -46,7 +46,7 @@ public class ClassicFeedbackPageController {
 		MainPageController.getUser().updateClassicRecord(_levelNum, ClassicTestPageController.getScore());
 
 		//Change GUI correspondingly
-		_level.setText(SceneSwitch.getBundle().getString("keyLevel")+_levelNum);
+		_level.setText(SceneSwitch.getBundle().getString("keyLevel") + " " + _levelNum);
 		_number.setText(_result + "/10");
 		if (_levelNum.equals("15")){
 			_nextLevel.setVisible(false);

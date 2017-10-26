@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicTestPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicTestPageController">
    <children>
       <JFXButton fx:id="_record" layoutX="478.0" layoutY="481.0" onMouseClicked="#handlePressRecord" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="%keyRecord" textFill="WHITE">
          <font>
@@ -64,7 +64,7 @@
             <JFXRadioButton fx:id="_q10" stylesheets="@../application.css" text=" " />
          </children>
       </VBox>
-      <Label fx:id="_topRight" alignment="CENTER" layoutX="939.0" layoutY="95.0" prefHeight="40.0" prefWidth="148.0" text="Label" textFill="WHITE">
+      <Label fx:id="_topRight" alignment="CENTER" layoutX="939.0" layoutY="55.0" prefHeight="40.0" prefWidth="148.0" text="Label" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="28.0" />
          </font>

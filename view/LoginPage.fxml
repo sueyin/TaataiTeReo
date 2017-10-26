@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background.png);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginPageController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a1a1a9e" height="94.0" layoutX="443.0" layoutY="362.0" stroke="#ffffff00" strokeType="INSIDE" width="232.0" />
 		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="126.0" prefHeight="153.0" prefWidth="426.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
@@ -42,9 +42,9 @@
          </padding></JFXListView>
       <JFXTextField fx:id="_textField" alignment="CENTER" focusColor="#e1e4ee" layoutX="440.0" layoutY="376.0" prefHeight="43.0" prefWidth="232.0" promptText="User Name" style="-fx-text-fill: white;" unFocusColor="#e1e4ee">
          <font>
-            <Font name="Yuanti SC Regular" size="30.0" />
+            <Font size="20.0" />
          </font></JFXTextField>
-      <JFXButton fx:id="_add" layoutX="678.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_add" layoutX="678.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#handlePressAddUser" prefWidth="53.0" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
@@ -71,7 +71,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="_selectUserContinue" layoutX="516.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#handlePressContinueFromSelectUser" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_selectUserContinue" layoutX="504.0" layoutY="480.0" mnemonicParsing="false" onMouseClicked="#handlePressContinueFromSelectUser" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
             <ImageView fitHeight="58.0" fitWidth="62.0" pickOnBounds="true">
                <image>
@@ -79,15 +79,21 @@
                </image>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="-10.0" top="-10.0" />
+         </padding>
       </JFXButton>
-      <JFXButton fx:id="_return" layoutX="525.0" layoutY="473.0" mnemonicParsing="false" onMouseClicked="#handlePressReturn" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
+      <JFXButton fx:id="_return" layoutX="504.0" layoutY="480.0" mnemonicParsing="false" onMouseClicked="#handlePressReturn" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: transparent;" stylesheets="@../application.css" text=" ">
          <graphic>
-            <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true">
+            <ImageView fitHeight="63.0" fitWidth="63.0" pickOnBounds="true">
                <image>
                   <Image url="@../image/login/return.png" />
                </image>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="-10.0" top="-10.0" />
+         </padding>
       </JFXButton>
       <Label fx:id="_addUserMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="324.0" layoutY="440.0" prefHeight="28.0" prefWidth="479.0" textAlignment="CENTER" textFill="WHITE">
          <font>
