@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="_message" alignment="CENTER" layoutX="37.0" layoutY="43.0" prefHeight="67.0" prefWidth="421.0" text="" textFill="WHITE">
+      <Label fx:id="_message" alignment="CENTER" layoutX="50.0" layoutY="43.0" prefHeight="67.0" prefWidth="300.0" text="" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="22.0" />
          </font>
       </Label>
-      <JFXButton fx:id="_ok" layoutX="214.0" layoutY="132.0" onMouseClicked="#handlePressConfirm" text="Ok" textFill="WHITE">
+      <JFXButton fx:id="_ok" layoutX="100.0" layoutY="132.0" onMouseClicked="#handlePressConfirm" prefWidth="200.0" text="Ok" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>

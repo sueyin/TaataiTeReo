@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -47,9 +46,6 @@
                      <image>
                         <Image url="@../image/tutorial/next.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -79,9 +75,6 @@
                      <image>
                         <Image url="@../image/tutorial/next.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -91,9 +84,6 @@
                      <image>
                         <Image url="@../image/tutorial/left.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -123,9 +113,6 @@
                      <image>
                         <Image url="@../image/tutorial/next.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -135,9 +122,6 @@
                      <image>
                         <Image url="@../image/tutorial/left.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -181,9 +165,6 @@
                      <image>
                         <Image url="@../image/tutorial/next.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -193,9 +174,6 @@
                      <image>
                         <Image url="@../image/tutorial/left.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -241,9 +219,6 @@
                      <image>
                         <Image url="@../image/tutorial/next.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -253,9 +228,6 @@
                      <image>
                         <Image url="@../image/tutorial/left.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -280,9 +252,6 @@
                      <image>
                         <Image url="@../image/tutorial/left.png" />
                      </image>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -327,9 +296,6 @@
                <image>
                   <Image url="@../image/play.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic>
       </JFXButton>
@@ -349,9 +315,6 @@
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic>
          <padding>

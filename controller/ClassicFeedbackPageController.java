@@ -32,6 +32,9 @@ public class ClassicFeedbackPageController {
 	@FXML
 	private Button _nextLevel;
 	
+	@FXML
+	private Label _exp;
+	
 	private int _result;
 	
 	private String _levelNum;
@@ -60,24 +63,28 @@ public class ClassicFeedbackPageController {
 			setNoStar();
 			_message.setText(SceneSwitch.getBundle().getString("keyNotAchieved"));
 			_nextLevel.setVisible(false);
+			_exp.setVisible(false);
 		}
 		//display 1 star is between 2-4
 		else if (_result < 5) {
 			setOneStar();
 			_message.setText(SceneSwitch.getBundle().getString("keyAchieved"));
 			MainPageController.getUser().increaseExp(2);
+			_exp.setText("+EXP 2");
 		}
 		//display 2 stars if between 5 -8
 		else if (_result < 9) {
 			setTwoStar();
 			_message.setText(SceneSwitch.getBundle().getString("keyMerit"));
 			MainPageController.getUser().increaseExp(5);
+			_exp.setText("+EXP 5");
 		}
 		//display 3 stars if between 9-10
 		else {
 			setThreeStar();
 			_message.setText(SceneSwitch.getBundle().getString("keyExcellence"));
 			MainPageController.getUser().increaseExp(10);
+			_exp.setText("+EXP 10");
 		}
 	}
 	

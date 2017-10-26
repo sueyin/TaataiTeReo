@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicFeedbackPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_3.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicFeedbackPageController">
    <children>
       <Label fx:id="_message" alignment="CENTER" layoutX="220.0" layoutY="82.0" prefHeight="113.0" prefWidth="686.0" text="Execellent!" textFill="WHITE">
          <font>
@@ -76,6 +76,11 @@
       <Label fx:id="_level" alignment="CENTER" layoutX="900.0" layoutY="55.0" prefHeight="40.0" prefWidth="148.0" text="Level #" textFill="WHITE">
          <font>
             <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="_exp" layoutX="751.0" layoutY="220.0" text="+EXP 2" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="45.0" />
          </font>
       </Label>
    </children>

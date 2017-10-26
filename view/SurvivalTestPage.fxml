@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SurvivalTestPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_3.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SurvivalTestPageController">
    <children>
          <JFXButton fx:id="_record" layoutX="478.0" layoutY="481.0" onMouseClicked="#handlePressRecord" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="%keyRecord" textFill="WHITE">
          <font>
@@ -40,9 +39,6 @@
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic>
          <padding>
@@ -54,7 +50,7 @@
             <Font name="Yuanti SC Regular" size="28.0" />
          </font>
       </Label>
-       <Label fx:id = "_title" alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keySurvival" textFill="WHITE">
+       <Label fx:id="_title" alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keySurvival" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="40.0" />
          </font>
@@ -68,9 +64,6 @@
                <image>
                   <Image url="@../image/play.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic>
       </JFXButton>
@@ -132,5 +125,10 @@
             <Insets top="1.0" />
          </padding>
       </JFXButton>
+      <Label fx:id="_exp" alignment="CENTER" layoutX="735.0" layoutY="242.0" prefHeight="40.0" prefWidth="148.0" text="+EXP 2" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="45.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

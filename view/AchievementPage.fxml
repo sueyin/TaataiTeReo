@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg); -fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AchievementPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AchievementPageController">
    <children>
       <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyAchievement" textFill="WHITE">
          <font>
@@ -21,7 +21,7 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="147.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="149.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/classic/classic.png" />
          </image>
@@ -31,12 +31,12 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="61.0" fitWidth="64.0" layoutX="145.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="61.0" fitWidth="64.0" layoutX="147.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/mainpage/endless.png" />
          </image>
       </ImageView>
-      <Label fx:id="_highScore" layoutX="381.0" layoutY="344.0" prefHeight="30.0" prefWidth="164.0" text="123" textFill="WHITE">
+      <Label fx:id="_highScore" layoutX="218.0" layoutY="345.0" prefHeight="30.0" prefWidth="164.0" text="123" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -259,12 +259,7 @@
             </ImageView>
          </children>
       </VBox>
-      <Label fx:id="_highScore1" layoutX="207.0" layoutY="343.0" text="Highest score:" textFill="WHITE">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="_exp1" layoutX="159.0" layoutY="445.0" text="EXP: " textFill="WHITE">
+      <Label fx:id="_exp1" layoutX="159.0" layoutY="445.0" text="EXP" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>

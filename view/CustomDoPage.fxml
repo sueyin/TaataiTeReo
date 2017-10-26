@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -57,9 +56,6 @@
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic>
          <padding>

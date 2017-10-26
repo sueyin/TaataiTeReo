@@ -4,14 +4,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg); -fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticePageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticePageController">
 	<children>
       <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyPractice" textFill="WHITE">
          <font>
@@ -31,9 +30,6 @@
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic>
          <padding>
@@ -51,9 +47,6 @@
                <image>
                   <Image url="@../image/practice/stats.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="1.0" />
-               </effect>
             </ImageView>
          </graphic></JFXButton>
                <Label fx:id="_statisticLabel" layoutX="976.0" layoutY="66.0" text="%keyStatistic" textFill="WHITE">

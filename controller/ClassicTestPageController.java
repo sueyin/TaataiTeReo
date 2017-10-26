@@ -2,6 +2,7 @@ package application.controller;
 
 
 import application.model.question.TwoChancesQuestion;
+import application.confirmation.ConfirmationModel;
 import application.model.classic.ClassicQuestionSuite;
 import application.viewmodel.SceneSwitch;
 import javafx.fxml.FXML;
@@ -130,10 +131,16 @@ public class ClassicTestPageController extends TestPageController {
 	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		//cancel the recording and compare task 
-		super.cancelQuestion();
-		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
-		load.switchScene("/application/view/ClassicMenuPage.fxml");
+		//opens a window that confirms if the user wants to quit 
+		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(),SceneSwitch.getBundle().getString("keySureReturnClassic"), SceneSwitch.getBundle().getString("keyReturn"), SceneSwitch.getBundle().getString("keyStay"));
+		boolean confirm = confirmation.createPopUp();
+		//if user confirm existing this page, then switch page
+		if (confirm){
+			//cancel the recording and compare task 
+			super.cancelQuestion();
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/ClassicMenuPage.fxml");
+		}
 	}
 
 	public static String getLevel(){

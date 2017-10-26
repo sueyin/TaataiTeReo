@@ -126,7 +126,7 @@ public abstract class TestPageController {
     	_play.setVisible(true);
         _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyCorrect"));
     	_rightOrWrong.setVisible(true);
-        _youSaid.setText("You said " + _q.getRead());
+        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSaid")+" " + _q.getRead());
     	_youSaid.setVisible(true);
     	_answerIs.setVisible(false);
         _record.setVisible(false);
@@ -163,6 +163,7 @@ public abstract class TestPageController {
     	_play.setVisible(true);
         if (_q.getRead() == null){
             nothingRecordedMsg();
+            _answerIs.setText(SceneSwitch.getBundle().getString("keyAnswerIs")+" " +  _q.getAnswer());
         }else{
             _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyUseUpChance"));
             _rightOrWrong.setVisible(true);

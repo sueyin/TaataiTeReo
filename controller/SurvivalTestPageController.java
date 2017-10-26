@@ -2,6 +2,7 @@ package application.controller;
 
 import com.jfoenix.controls.JFXButton;
 
+import application.confirmation.ConfirmationModel;
 import application.model.question.OneChanceQuestion;
 import application.model.survival.SurvivalQuestionSuite;
 import application.viewmodel.SceneSwitch;
@@ -32,6 +33,9 @@ public class SurvivalTestPageController extends TestPageController{
 	
 	@FXML
 	private Label _title;
+	
+	@FXML
+	private Label _exp;
 
 	//Functionality
 	private SurvivalQuestionSuite _qs;
@@ -49,6 +53,7 @@ public class SurvivalTestPageController extends TestPageController{
 		_next.setVisible(false);
 		_gameOver.setVisible(false);
 		_backToMain.setVisible(false);
+		_exp.setVisible(false);
 		//set score to 0
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore0"));
 		
@@ -87,9 +92,17 @@ public class SurvivalTestPageController extends TestPageController{
 	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
-		super.cancelQuestion();
-		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
-		load.switchScene("/application/view/MainPage.fxml");
+		//opens a window that confirms if the user wants to quit 
+		ConfirmationModel confirmation = new ConfirmationModel((Stage) ((Node) event.getSource()).getScene().getWindow(),SceneSwitch.getBundle().getString("keySureReturnClassic"), SceneSwitch.getBundle().getString("keyReturn"), SceneSwitch.getBundle().getString("keyStay"));
+		boolean confirm = confirmation.createPopUp();
+		//if user confirm existing this page, then switch page
+		if (confirm){
+			//cancel the recording and compare task 
+			super.cancelQuestion();
+			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+			load.switchScene("/application/view/MainPage.fxml");
+		}
+
 	}
 
 
@@ -97,6 +110,7 @@ public class SurvivalTestPageController extends TestPageController{
 	public void handlePressReturnToMain(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/MainPage.fxml");
+
 	}
 	/**
 	 * call method wrongGUI() in TestPage Controller, and minus one life. If no lift, then switch to game over
@@ -116,7 +130,10 @@ public class SurvivalTestPageController extends TestPageController{
 			_backToMain.setVisible(true);
 			_title.setVisible(false);
 			_play.setVisible(false);
+			//calculate EXP point earned and display it to the user
 			MainPageController.getUser().updateSurvivalScore(_score);
+			_exp.setText("+EXP "+_score);
+			_exp.setVisible(true);
 			calculateExp();
 		}
 	}
