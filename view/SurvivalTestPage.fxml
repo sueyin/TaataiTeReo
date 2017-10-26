@@ -125,7 +125,7 @@
             <Insets top="1.0" />
          </padding>
       </JFXButton>
-      <Label fx:id="_exp" alignment="CENTER" layoutX="735.0" layoutY="242.0" prefHeight="40.0" prefWidth="148.0" text="+EXP 2" textFill="WHITE">
+      <Label fx:id="_exp" layoutX="735.0" layoutY="242.0" prefHeight="40.0" prefWidth="300.0" text="+EXP 2" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="45.0" />
          </font>
