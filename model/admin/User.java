@@ -198,22 +198,23 @@ public class User {
     /**
      * Write the newest record to the local record file
      */
-    public void updatePractiseRecord(String number, boolean result){
+    public boolean updatePractiseRecord(String number, boolean result){
         readPracticeStatistic();
+        boolean firstRight = false;
 
         //Update the new statistic
         //Exp + 2 when first time read a number right
         if (_practiceStatistic.get(number) == null){
-        	if (result){
-        		increaseExp(2);
-        	}
+           if (result){
+               firstRight = true;
+           }
             ArrayList<Boolean> temp = new ArrayList<>();
             temp.add(result);
             _practiceStatistic.put(number, temp);
         }else{
             ArrayList<Boolean> currentRec = _practiceStatistic.get(number);
             if (!currentRec.contains(true)){
-        		increaseExp(2);
+                firstRight = true;
             }
             currentRec.add(result);
             _practiceStatistic.remove(number);
@@ -238,6 +239,8 @@ public class User {
             }
         }
         writer.close();
+
+        return firstRight;
     }
 
     /**

@@ -114,6 +114,11 @@
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
       </Label>
+      <Label fx:id="_exp" alignment="CENTER" layoutX="669.0" layoutY="242.0" prefHeight="64.0" prefWidth="186.0" text=" +EXP 2" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="45.0" />
+         </font>
+      </Label>
 
    </children>
 </AnchorPane>

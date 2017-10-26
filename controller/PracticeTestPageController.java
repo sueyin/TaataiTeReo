@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class PracticeTestPageController extends TestPageController{
 
-	
+
 	@FXML
 	private Label _question;
 	@FXML
@@ -21,7 +21,9 @@ public class PracticeTestPageController extends TestPageController{
 	private JFXButton _statistic;
 	@FXML
 	private Label _statisticLabel;
-	
+	@FXML
+	private Label _exp;
+
 	@FXML
 	public void initialize() {	
 		super.initialize();
@@ -30,11 +32,12 @@ public class PracticeTestPageController extends TestPageController{
 		_next.setVisible(false);
 		_statistic.setVisible(false);
 		_statisticLabel.setVisible(false);
+		_exp.setVisible(false);
 		_topRight.setVisible(false);
 		_q = new TwoChancesQuestion(question,question, this);
 	}
-	
-	
+
+
 	/**
 	 *This method handles event when the button is pressed (button => "record", "next question")
 	 */
@@ -42,7 +45,7 @@ public class PracticeTestPageController extends TestPageController{
 	public void handlePressRecord(MouseEvent event) {
 		super.handlePressRecord(event);
 	}
-	
+
 	/**
 	 * this method switches to statistic page
 	 * @param event
@@ -52,7 +55,7 @@ public class PracticeTestPageController extends TestPageController{
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticeStatisticPage.fxml");
 	}
-	
+
 	/**
 	 * this method switch to practice page 
 	 * @param event
@@ -63,7 +66,7 @@ public class PracticeTestPageController extends TestPageController{
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticePage.fxml");
 	}
-	
+
 	/**
 	 * this page repeats the current question again
 	 * @param event
@@ -73,18 +76,23 @@ public class PracticeTestPageController extends TestPageController{
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticeTestPage.fxml");
 	}
-	
+
 	/**
 	 * this method calls the rightGUI() method in TestPageControler and also format the statistic button
 	 */
 	@Override
 	public void rightGUI() {
 		super.rightGUI();
-		MainPageController.getUser().updatePractiseRecord(_q.getQuestion(), _q.getResult());
+		//if the user got the question right on the first time, then add 2 exp points
+		boolean firstRight = MainPageController.getUser().updatePractiseRecord(_q.getQuestion(), _q.getResult());
+		if (firstRight){
+			MainPageController.getUser().increaseExp(2);
+			_exp.setVisible(true);
+		}
 		_statistic.setVisible(true);
 		_statisticLabel.setVisible(true);
 	}
-	
+
 	/**
 	 * this method calls the wrongGUI() method in TestPageControler and also format the statistic button
 	 */
@@ -95,7 +103,7 @@ public class PracticeTestPageController extends TestPageController{
 		_statistic.setVisible(true);
 		_statisticLabel.setVisible(true);
 	}
-	
+
 	/**
 	 * this method calls the tryAgainGUI() method in TestPageControler
 	 */
