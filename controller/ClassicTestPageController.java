@@ -3,7 +3,7 @@ package application.controller;
 
 import application.model.question.TwoChancesQuestion;
 import application.model.classic.ClassicQuestionSuite;
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;

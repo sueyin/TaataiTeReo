@@ -1,7 +1,7 @@
 package application.controller;
 
 import application.model.admin.User;
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

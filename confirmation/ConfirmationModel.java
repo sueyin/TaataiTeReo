@@ -10,6 +10,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
+/**
+ * This class is used to create a confirmation pop up, any pop up window with two options (eg. ok and cancel)
+ *
+ */
 public class ConfirmationModel {
 
 	private Stage _parentStage;
@@ -26,9 +31,14 @@ public class ConfirmationModel {
 		_cancel = cancel;
 	}
 	
+	/**
+	 * this method is called when need to create a pop up window 
+	 * @return
+	 */
 	public boolean createPopUp(){
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/confirmation/Confirmation.fxml"));
+			//creates a new window and controller 
 			ConfirmationController controller = new ConfirmationController(_text,_ok,_cancel);
 			loader.setController(controller);
 			AnchorPane pane = loader.load();

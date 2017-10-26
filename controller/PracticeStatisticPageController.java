@@ -8,9 +8,8 @@ import java.util.Map;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.tableModel.PracticeResultModel;
-import application.tableModel.PracticeResultModel;
-import application.viewModel.SceneSwitch;
+import application.tablemodel.PracticeResultModel;
+import application.viewmodel.SceneSwitch;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,7 +18,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;

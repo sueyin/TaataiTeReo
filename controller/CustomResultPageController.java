@@ -2,9 +2,8 @@ package application.controller;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.tableModel.CustomResultModel;
-import application.viewModel.SceneSwitch;
-import application.tableModel.CustomResultModel;
+import application.tablemodel.CustomResultModel;
+import application.viewmodel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,8 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CustomResultPageController {
 

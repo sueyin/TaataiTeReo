@@ -10,14 +10,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * this class is responsible for all scene switches and language switches
+ * @author shenhong
+ *
+ */
 public class SceneSwitch {
 	private Stage _stage;
-	private static Locale _locale = new Locale("en");
+	private static Locale _locale = new Locale("en");  // English is the default language
 	
 	public SceneSwitch(Stage stage) {
 		_stage = stage;
 	}
 	
+	/**
+	 * setLanguage is called when user choose a different language from what is currently showing
+	 * @param lang
+	 */
 	public static void setLanguage(String lang) {
 		if (lang.equals("English")){
 			_locale = new Locale("en");
@@ -27,6 +36,9 @@ public class SceneSwitch {
 		}
 	}
 	
+	/**
+	 * This method is called whenever need to switch scene, @param file is the FXML switching to 
+	 */
 	public void switchScene(String file){
 	    try {
 	        ResourceBundle bundle = ResourceBundle.getBundle("application/lang.bundle", _locale);
@@ -41,6 +53,10 @@ public class SceneSwitch {
 	    }
 	}
 	
+	/**
+	 * This method returns the current language resource bundle for text reference
+	 * @return
+	 */
 	public static ResourceBundle getBundle() {
 		ResourceBundle bundle = ResourceBundle.getBundle("application/lang.bundle", _locale);
 		return bundle;

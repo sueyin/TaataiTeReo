@@ -9,7 +9,7 @@ import java.util.List;
 import application.TataiApp;
 import application.confirmation.ConfirmationModel;
 import application.model.admin.User;
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;

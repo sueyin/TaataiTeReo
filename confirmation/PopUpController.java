@@ -10,6 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * this class is a controller for all information pop up windows
+ *
+ */
+
 public class PopUpController {
 
 	private String _text;
@@ -17,12 +22,11 @@ public class PopUpController {
 	@FXML
 	private Label _message;
 
-
+	//takes in the message to be displayed as parameter
 	public PopUpController(String text) {
 		_text =text;
 
 	}
-
 	@FXML
 	public void initialize() {
 		_message.setText(_text);

@@ -1,17 +1,12 @@
 package application.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.viewModel.SceneSwitch;
-import javafx.collections.ObservableList;
+import application.viewmodel.SceneSwitch;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;

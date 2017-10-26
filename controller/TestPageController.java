@@ -2,9 +2,7 @@ package application.controller;
 
 import application.TataiApp;
 import application.model.question.Question;
-import application.viewModel.SceneSwitch;
-
-import com.jfoenix.controls.JFXButton;
+import application.viewmodel.SceneSwitch;
 
 import com.jfoenix.controls.JFXSpinner;
 import javafx.fxml.FXML;
@@ -142,7 +140,7 @@ public abstract class TestPageController {
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        if (_q.getRead().length() < 1){
+        if (_q.getRead() == null){
             nothingRecordedMsg();
         }else {
             _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyNotReally"));
@@ -163,7 +161,7 @@ public abstract class TestPageController {
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        if (_q.getRead().length() < 1){
+        if (_q.getRead() == null){
             nothingRecordedMsg();
         }else{
             _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyUseUpChance"));

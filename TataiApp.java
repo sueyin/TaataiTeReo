@@ -5,13 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import application.viewModel.SceneSwitch;
 
 public class TataiApp extends Application {
     private static final String ROOTDIR = "./Tatai/";

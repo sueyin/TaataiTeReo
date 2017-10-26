@@ -2,9 +2,8 @@ package application.controller;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.model.question.Question;
 import application.model.question.TwoChancesQuestion;
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;

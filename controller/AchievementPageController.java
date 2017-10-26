@@ -2,12 +2,10 @@ package application.controller;
 
 import application.model.admin.User;
 import application.model.admin.FileReader;
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-
-import javafx.scene.control.ProgressBar;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;

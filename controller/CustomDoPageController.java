@@ -2,8 +2,8 @@ package application.controller;
 
 import application.confirmation.ConfirmationModel;
 import application.model.admin.CustomManager;
-import application.tableModel.TableList;
-import application.viewModel.SceneSwitch;
+import application.tablemodel.TableList;
+import application.viewmodel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

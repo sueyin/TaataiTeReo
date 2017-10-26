@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
 
 
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 import javafx.scene.control.TextField;
 import javafx.scene.Node;
 import javafx.scene.control.Label;

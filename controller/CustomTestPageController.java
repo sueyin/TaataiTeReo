@@ -2,8 +2,8 @@ package application.controller;
 
 import application.model.admin.CustomManager;
 import application.model.question.TwoChancesQuestion;
-import application.tableModel.TableList;
-import application.viewModel.SceneSwitch;
+import application.tablemodel.TableList;
+import application.viewmodel.SceneSwitch;
 import javafx.fxml.FXML;
 
 import javafx.scene.Node;

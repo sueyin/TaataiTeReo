@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import application.confirmation.ConfirmationModel;
 import application.confirmation.PopUpModel;
 import application.model.admin.CustomManager;
-import application.viewModel.SceneSwitch;
+import application.viewmodel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;

@@ -21,12 +21,12 @@
             <Glow level="1.0" />
          </effect>
       </Label>
- <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+      <JFXButton fx:id="_return" layoutX="33.0" layoutY="55.0" onMouseClicked="#handlePressReturn" prefHeight="44.0" prefWidth="121.0" stylesheets="@../application.css" text=" " textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="36.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
+            <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" translateX="5.0">
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
@@ -35,6 +35,9 @@
                </effect>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="-10.0" top="-10.0" />
+         </padding>
       </JFXButton>
       <PieChart fx:id="_pie" layoutX="569.0" layoutY="177.0" prefHeight="360.0" prefWidth="507.0" stylesheets="@../application.css" />
       <Label fx:id="_null" layoutX="743.0" layoutY="305.0" text="No Attempt" textFill="#757575">
