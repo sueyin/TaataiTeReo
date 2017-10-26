@@ -1,34 +1,26 @@
 package application.controller;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import application.confirmation.ConfirmationModel;
 import application.confirmation.PopUpModel;
-import application.model.CustomManager;
+import application.model.admin.CustomManager;
 import application.viewModel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.paint.Color;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.script.ScriptEngine;

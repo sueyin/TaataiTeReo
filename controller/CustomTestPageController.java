@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.model.CustomManager;
+import application.model.admin.CustomManager;
 import application.model.question.TwoChancesQuestion;
 import application.tableModel.TableList;
 import application.viewModel.SceneSwitch;

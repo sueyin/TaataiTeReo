@@ -1,8 +1,10 @@
-package application.model;
+package application.model.question;
 
 import java.util.HashMap;
 
-
+/**
+ * This class provides the functionality of converting integers (1 - 99) to String in Maori.
+ */
 public class Answer {
 
     private enum Number {

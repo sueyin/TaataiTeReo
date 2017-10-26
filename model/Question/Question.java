@@ -2,30 +2,25 @@ package application.model.question;
 
 import application.TataiApp;
 import application.controller.TestPageController;
-import application.model.Answer;
 import javafx.concurrent.Task;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Scanner;
 
+/**
+ * This class is an abstract model of the questions in the Taatai application. It contains methods to recording, marking
+ * and calling the corresponding GUI changing methods. It is intended to be extended to questions of specified modes.
+ */
 public abstract class Question {
 	protected final int MAX = 10;
 
 	protected static final String TEMPWAV = TataiApp.getTempDir() + "/temp.wav";
     protected static final String RECOUT = TataiApp.getTempDir() + "/recout.mlf";
-
 	protected static final String RECORD_CMD = "ffmpeg -f alsa -i default -t 3 -acodec pcm_s16le -ar 22050 -ac 1 " + TEMPWAV ;
-	
 	protected static final String HTK_CMD = "HVite -H ~/Documents/HTK/MaoriNumbers/HMMs/hmm15/macros " +
 			"-H ~/Documents/HTK/MaoriNumbers/HMMs/hmm15/hmmdefs -C ~/Documents/HTK/MaoriNumbers/user/configLR  " +
 			"-w ~/Documents/HTK/MaoriNumbers/user/wordNetworkNum -o SWT -l '*' " +
 			"-i " + RECOUT + " -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumbers/user/dictionaryD " +
 			"~/Documents/HTK/MaoriNumbers/user/tiedList " + TEMPWAV;
-
 
 	//protected static final String HTK_CMD  = "HVite -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/macros -H ~/Documents/HTK/MaoriNumers/HMMs/hmm15/hmmdefs -C user/configLR  -w ~/Documents/HTK/MaoriNumers/user/wordNetworkNum -o SWT -l '*' -i "+RECOUT+" -p 0.0 -s 5.0  ~/Documents/HTK/MaoriNumers/user/dictionaryD user/tiedList "+TEMPWAV;
 	protected static final String PLAY_CMD = "aplay " + TEMPWAV + " &> /dev/null";
@@ -48,11 +43,11 @@ public abstract class Question {
 		_page = page;
 	}
 
+	//==================================================================================================================
 
 	/*
 		Functionality
 	 */
-
 
 	/**
 	 * Read mlx file produced by HTK and get what were recognized.
@@ -73,14 +68,13 @@ public abstract class Question {
 			e1.printStackTrace();
 		}
 		//If something is recognized, the String should contain "sil"
-		//Find what the user said if anything is recognized. Otherwise return null.
+		//Find what the user said if anything is recognized. Otherwise return empty.
 		if (read.contains("sil")){
 			return read.split("sil")[1].trim();
 		}else{
 			return "";
 		}
 		*/
-
 		return "dd";
 	}
 
@@ -91,8 +85,6 @@ public abstract class Question {
 	 */
 	public void test(){
 /*
-		//TODO start bar
-
 		//Create a Task to implement Record in the background thread
 		_recordTask = new Task<Void>() {
 			@Override public Void call() throws IOException {
@@ -121,10 +113,7 @@ public abstract class Question {
 
 		new Thread(_recordTask).start();
 		*/
-
-
 		compare();
-
 	}
 
 
@@ -170,33 +159,30 @@ public abstract class Question {
 
 
 
-
-
-
+		//Randomly set the result to be true or false.
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
 			_result = false;
 		}else{
 			_result = true;
 		}
-		System.out.println("before updategui");
 		updateGUI();
-		//TODO compare完了之后在done()里叫 updateGUI()
-
 
 	}
 
 
-
+	/**
+	 * Called by the Template method compare(). Set the GUI according to the result and the question type, question
+	 * mode correspondingly.
+ 	 */
 	protected abstract void updateGUI();
 
-
-
-
+	//==================================================================================================================
 
 	/*
 		Getters
 	 */
+
     public boolean getResult(){
         return _result;
     }
@@ -217,8 +203,9 @@ public abstract class Question {
 	/*
 		Management
 	 */
+
 	/**
-	 * Delete the temp wav file if there is one.
+	 * Delete the previous temp wav file if there is one.
 	 */
 	private void deleteWAV(){
     	File wav = new File(TEMPWAV);
@@ -226,7 +213,6 @@ public abstract class Question {
     		wav.delete();
 		}
     }
-
 
 	/**
 	 * This method cancels the running task if there is one.

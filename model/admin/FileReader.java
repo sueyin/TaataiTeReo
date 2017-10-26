@@ -1,4 +1,4 @@
-package application.model.file;
+package application.model.admin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * This is a customized class that reads files and extract information in a standard way.
+ */
 public class FileReader {
     private static final String MULTIPLE = "\u00D7";
     private static final String DIVIDE = "\u00F7";
@@ -28,6 +31,9 @@ public class FileReader {
         }
     }
 
+    /**
+     * Read the specified data and store information in a standard way.
+     */
     private void readData(){
         //Create a scanner
         Scanner sc = null;
@@ -46,6 +52,7 @@ public class FileReader {
         }
         sc.close();
     }
+
 
     /*
         Getters

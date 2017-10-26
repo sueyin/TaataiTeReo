@@ -1,9 +1,7 @@
-package application.model;
+package application.model.admin;
 
 import application.TataiApp;
 import application.controller.MainPageController;
-import application.model.file.FileReader;
-import application.model.question.MathGenerator;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * This class manages the write and read of custom questions
+ */
 public class CustomManager {
     private File _public;
     private File _private;
@@ -65,6 +66,9 @@ public class CustomManager {
         }
     }
 
+    /**
+     * Read a specified question suite and return the question suite in a standard format
+     */
     public Map<Integer, String> readQuestionSuite(String id, boolean isPublic){
         String path;
         if (isPublic){
@@ -122,6 +126,7 @@ public class CustomManager {
         }
         writer.close();
     }
+
 
     public void deleteQuestionSuite(String id, boolean isPublic){
         File newSuite;

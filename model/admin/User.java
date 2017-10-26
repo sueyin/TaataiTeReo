@@ -1,14 +1,16 @@
-package application.model;
+package application.model.admin;
 
 
 import application.TataiApp;
-import application.controller.MainPageController;
-import application.model.file.FileReader;
-import application.viewModel.SceneSwitch;
+import application.model.admin.FileReader;
 
 import java.io.*;
 import java.util.*;
 
+/**
+ * This class models a user of Taatai. It manages a user's records (classic, practise, survival) and administrative
+ * information (exp).
+ */
 public class User {
     private static int ACHIV_NUM = 8;
     private File _practiceRecord;
@@ -27,7 +29,7 @@ public class User {
     private String _dir;
     private String _name;
 
-    private FileReader _reader;
+    private application.model.admin.FileReader _reader;
 
     private Map<String, ArrayList<Boolean>> _practiceStatistic = new HashMap<>();
     private Map<String, String> _classicStatistic = new HashMap<>();
@@ -180,7 +182,7 @@ public class User {
      * Read the current practice Statistic of the user
      */
     private void readPracticeStatistic(){
-        _reader = new FileReader(_practiceRecPath);
+        _reader = new application.model.admin.FileReader(_practiceRecPath);
         Map<String, String> record = _reader.getData();
         for (String s : record.keySet()){
             if (record.get(s).equals("-")){
@@ -299,7 +301,7 @@ public class User {
      * Read the current Classic record of the user
      */
     private void readClassicRecord(){
-        _reader = new FileReader(_classicRecPath);
+        _reader = new application.model.admin.FileReader(_classicRecPath);
         _classicStatistic = _reader.getData();
     }
 
@@ -347,6 +349,10 @@ public class User {
         }
     }
 
+    /**
+     * Read the user's classic record file and count how many stars the user has collected.
+     * @return an Integer representing the number of stars the user has collected.
+     */
     public Integer getStars() {
         readClassicRecord();
         int stars = 0;
@@ -355,19 +361,17 @@ public class User {
        		int highestScore = 0;
        		if (!record.equals("-")){
        			highestScore = Integer.parseInt(record);
+       			//Count stars respectively
        			if (highestScore > 8) {
            			stars = stars + 3;
         		}
-        		//display 1 star is between 2-4
         		else if (highestScore > 4) {
         			stars = stars + 2;
         		}
-        		//display 2 stars if between 5 -8
         		else if (highestScore > 1) {
         			stars = stars+ 1;
         		}
        		}
-       		
        	}
         return stars;
     }
@@ -472,8 +476,6 @@ public class User {
         return _achivList;
     }
 
-
-
     private void readAchiv(){
         Arrays.fill(_achivList, false);
         _reader = new FileReader(_achivRecPath);
@@ -488,7 +490,7 @@ public class User {
         }
     }
 
-    /**
+    /*
      * 0.Complete one Level
      * 1.Complete one Level with 3 stars
      * 2.Collect 45 stars
@@ -497,7 +499,11 @@ public class User {
      * 5.Upgrade Bronze
      * 6.Upgrade Sliver
      * 7.Upgrade Gold
-     *
+     */
+
+    /**
+     * Take an index number representing the specific achievement to unlock, rewrite the achivement file to update
+     * the achievement status.
      */
     public void unlockAchiv(int index){
         if (!_achivList[index]){
@@ -517,19 +523,12 @@ public class User {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
 
     //==================================================================================================================
     //==================================================================================================================
-
-
-
-
-
-
 
     /*
         Administration

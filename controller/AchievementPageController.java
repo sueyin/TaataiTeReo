@@ -1,9 +1,8 @@
 package application.controller;
 
-import application.model.User;
-import application.model.file.FileReader;
+import application.model.admin.User;
+import application.model.admin.FileReader;
 import application.viewModel.SceneSwitch;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -11,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -25,8 +23,6 @@ public class AchievementPageController {
 	private Label _highScore;
 	@FXML
 	private Label _exp;
-	@FXML
-	private ProgressBar _expBar;
 	@FXML
 	private VBox _star1;
 	@FXML

@@ -1,12 +1,13 @@
-package application.model.question;
+package application.model.classic;
 
-import application.controller.MainPageController;
-import application.model.file.FileReader;
+import application.model.admin.FileReader;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * This class provides the functionality of reading the question suite files and extract information to create Question
+ * objects.
+ */
 public class ClassicQuestionSuite {
     private static final String BANKDIR = "./src/application/bank/classic/";
     //private static final String BANKDIR = "./bank/classic/";
@@ -111,7 +112,6 @@ public class ClassicQuestionSuite {
         _results[_index]= result;
     }
 
-
     /**
      * Return the results of the set of questions
      * @return _results an array of boolean values indicating the result from each quesiton.
@@ -120,7 +120,6 @@ public class ClassicQuestionSuite {
         return _results;
     }
 
-
     /**
      * Return the results of the set of questions
      * @return _results an array of boolean values indicating the result from each quesiton.
@@ -128,6 +127,5 @@ public class ClassicQuestionSuite {
     public List<String> getAnswers(){
         return _answers;
     }
-
 
 }

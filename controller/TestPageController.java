@@ -58,12 +58,10 @@ public abstract class TestPageController {
     @FXML
     protected Button _return;
 
-
     //Functionality
     protected Question _q;
 
     protected static int _score;
-
 
     //Method
     public void addScore(){
@@ -83,6 +81,7 @@ public abstract class TestPageController {
     	_answerIs.setVisible(false);
     }
 
+    //==================================================================================================================
     /**
      * this method is called when user press record, shows the recording page
      * @param event
@@ -97,6 +96,30 @@ public abstract class TestPageController {
     }
 
     /**
+     * this method is called when user press the play button to hear recording
+     * @param event
+     */
+    @FXML
+    public void handlePressPlay(MouseEvent event) {
+        try {
+            File audio = new File(TataiApp.getTempDir() + "temp.wav");
+            AudioInputStream stream = AudioSystem.getAudioInputStream(audio);
+            AudioFormat format = stream.getFormat();
+            DataLine.Info  info = new DataLine.Info(Clip.class, format);
+            Clip clip = (Clip) AudioSystem.getLine(info);
+            clip.open(stream);
+            clip.start();
+        }catch (Exception e){
+            ;
+        }
+    }
+
+    //==================================================================================================================
+    /*
+        Update GUI methods
+     */
+
+    /**
      * this method is called when the question is answered correctly, update to GUI to display correct
      */
     public void rightGUI(){
@@ -105,7 +128,7 @@ public abstract class TestPageController {
     	_play.setVisible(true);
         _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyCorrect"));
     	_rightOrWrong.setVisible(true);
-        _youSaid.setText("You said " + _q.getAnswer());
+        _youSaid.setText("You said " + _q.getRead());
     	_youSaid.setVisible(true);
     	_answerIs.setVisible(false);
         _record.setVisible(false);
@@ -119,66 +142,52 @@ public abstract class TestPageController {
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyNotReally"));
-    	_rightOrWrong.setVisible(true);
-        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSoundsLike")+" " + _q.getRead());
-    	_youSaid.setVisible(true);
-    	_answerIs.setVisible(false);
+        if (_q.getRead().length() < 1){
+            nothingRecordedMsg();
+        }else {
+            _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyNotReally"));
+            _rightOrWrong.setVisible(true);
+            _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSoundsLike") + " " + _q.getRead());
+            _youSaid.setVisible(true);
+            _answerIs.setVisible(false);
+        }
         _record.setText(SceneSwitch.getBundle().getString("keyTryAgain"));
         _record.setVisible(true);
     }
 
     /**
-     * this method is called when the question is answered incorrectly two times, update to GUI to display incorrect, and runs out of chances
+     * this method is called when the question is answered incorrectly two times, update to GUI to display incorrect,
+     * and runs out of chances
      */
     public void wrongGUI(){
     	_process.setVisible(false);
     	_loading.setVisible(false);
     	_play.setVisible(true);
-        _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyUseUpChance"));
-    	_rightOrWrong.setVisible(true);
-        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSoundsLike")+" " + _q.getRead());
-    	_youSaid.setVisible(true);
-        _answerIs.setText(SceneSwitch.getBundle().getString("keyAnswerIs")+" " +  _q.getAnswer());
+        if (_q.getRead().length() < 1){
+            nothingRecordedMsg();
+        }else{
+            _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyUseUpChance"));
+            _rightOrWrong.setVisible(true);
+            _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSoundsLike")+" " + _q.getRead());
+            _youSaid.setVisible(true);
+            _answerIs.setText(SceneSwitch.getBundle().getString("keyAnswerIs")+" " +  _q.getAnswer());
+        }
     	_answerIs.setVisible(true);
         _record.setVisible(false);
         _next.setVisible(true);
     }
 
-    /**
-     * this method is called when nothing has been recorded
-     */
-    public void emptyRecordGUI(){
-        _process.setVisible(false);
-        _loading.setVisible(false);
-        _play.setVisible(true);
+    //Inform the user to check the microphone as nothing was recorded.
+    private void nothingRecordedMsg() {
         _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyNothingRecorded"));
         _rightOrWrong.setVisible(true);
         _youSaid.setText(SceneSwitch.getBundle().getString("keyCheckMicrophone"));
         _youSaid.setVisible(true);
         _answerIs.setVisible(false);
-        _record.setVisible(false);
-        _next.setVisible(true);
     }
-    
-    /**
-     * this method is called when user press the play button to hear recording
-     * @param event
-     */
-	@FXML
-	public void handlePressPlay(MouseEvent event) {
-        try {
-            File audio = new File(TataiApp.getTempDir() + "temp.wav");
-            AudioInputStream stream = AudioSystem.getAudioInputStream(audio);
-            AudioFormat format = stream.getFormat();
-            DataLine.Info  info = new DataLine.Info(Clip.class, format);
-            Clip clip = (Clip) AudioSystem.getLine(info);
-            clip.open(stream);
-            clip.start();
-        }catch (Exception e){
-            ;
-        }
-	}
+
+
+    //==================================================================================================================
 
 	/**
 	 * cancels recording and comparing

@@ -1,7 +1,7 @@
 package application.controller;
 
 import application.TataiApp;
-import application.model.User;
+import application.model.admin.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

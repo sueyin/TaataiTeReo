@@ -1,12 +1,11 @@
-package application.model.question;
+package application.model.survival;
 
-import javafx.beans.property.StringProperty;
-
-import java.awt.image.AreaAveragingScaleFilter;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * This class generates random equations (for the survival mode). It can generate 14 types of equations of different
+ * difficulties. The answer of every equation and numbers appeared in every equation are integers between 1 - 99.
+ */
 public class MathGenerator {
     private static final String MULTIPLE = "\u00D7";
     private static final String DIVIDE = "\u00F7";
@@ -20,12 +19,15 @@ public class MathGenerator {
         readFactors();
         readDivisors();
     }
+
+    //================================================================================
+
     /*
         Basic Math generators
      */
 
     /**
-     * Given an answer, randomly generate a addition equation.
+     * Given an integer, randomly generate a addition equation whose result is the integer.
      */
     public static String generateAddition(int answer) {
         //int range = (max - min) +1
@@ -36,7 +38,7 @@ public class MathGenerator {
     }
 
     /**
-     * Given an answer, randomly generate a substraction equation.
+     * Given an integer, randomly generate a substraction equation whose result is the integer.
      */
     public static String generateSubstraction(int answer, int max) {
         int a = (int) (Math.random() * (max - answer) + answer + 1);
@@ -45,7 +47,7 @@ public class MathGenerator {
     }
 
     /**
-     * Given an answer, randomly generate a multiplication equation.
+     * Given an integer, randomly generate a multiplication equation whose result is the integer.
      */
     public static String generateMultiplication(int answer){
         readFactors();
@@ -55,7 +57,7 @@ public class MathGenerator {
     }
 
     /**
-     * Given an answer, randomly generate a division equation.
+     * Given an integer, randomly generate a division equation whose result is the integer.
      */
     public static String generateDivision(int answer){
         readDivisors();
@@ -64,8 +66,9 @@ public class MathGenerator {
         return divisors.get(0);
     }
 
-
-
+    /**
+     * Returns false if the input is a prime, true if not.
+     */
     public static boolean isMultiple(int answer){
         for (int i: _primes){
             if(i == answer){
@@ -75,6 +78,9 @@ public class MathGenerator {
         return true;
     }
 
+    /**
+     * For every integer between 1 - 99, find its factors (except 1 and itself) and store in a Map.
+     */
     private static void readFactors(){
         for (int i = 1; i <= 99; i++){
             ArrayList<String> factors = new ArrayList<>();
@@ -87,6 +93,9 @@ public class MathGenerator {
         }
     }
 
+    /**
+     * For every integer between 1 - 99, find how it can be get by a division between 1 - 99, and store in a Map.
+     */
     private static void readDivisors(){
         for (int i = 2; i <= 48; i++){
             ArrayList<String> divisors = new ArrayList<>();
@@ -99,13 +108,15 @@ public class MathGenerator {
         }
 
     }
+
     //================================================================================
+
     /*
         Equation generators
      */
 
     /**
-     * A+B with in 10
+     * A+B with in 1 - 10
      */
     public static String generateBasicA(){
         int answer = (int) (Math.random() * 9 + 2);
@@ -113,7 +124,7 @@ public class MathGenerator {
     }
 
     /**
-     * A+B with in 99
+     * A+B within 1 - 99
      */
     public static String generateBasicAH(){
         int answer = (int) (Math.random() * 98 + 2);
@@ -121,7 +132,7 @@ public class MathGenerator {
     }
 
     /**
-     * A-B with in 10
+     * A-B within 1 - 10
      */
     public static String generateBasicB(){
         //10 to 1
@@ -130,7 +141,7 @@ public class MathGenerator {
     }
 
     /**
-     * A-B with in 99
+     * A-B within 1 - 99
      */
     public static String generateBasicBH(){
         //98 to 1
@@ -139,7 +150,7 @@ public class MathGenerator {
     }
 
     /**
-     * A+B+C within 6 to 20
+     * A+B+C within 6 - 20
      */
     public static String generateCompA(){
         // 20 to 3
@@ -151,7 +162,7 @@ public class MathGenerator {
     }
 
     /**
-     * A+B+C with in 99
+     * A+B+C within 1 - 99
      */
     public static String generateCompB(){
         //99 to 3
@@ -162,7 +173,7 @@ public class MathGenerator {
     }
 
     /**
-     * A-B-C with in 99
+     * A-B-C within 1 - 99
      */
     public static String generateCompC(){
         //97 to 1
@@ -174,7 +185,7 @@ public class MathGenerator {
     }
 
     /**
-     * A-B+C / A+B-C with in 99
+     * A-B+C or A+B-C within 1 - 99
      */
     public static String generateCompD(){
         int answer = (int)(Math.random()* 98 + 2);
@@ -188,7 +199,7 @@ public class MathGenerator {
     }
 
     /**
-     * A*B+C / A+B*C with in 99
+     * A*B+C or A+B*C within 1 - 99
      */
     public static String generateCompE(){
         int answer = (int)(Math.random()* 98 + 2);
@@ -205,7 +216,7 @@ public class MathGenerator {
     }
 
     /**
-     * A*B-C within 99
+     * A*B-C within 1 - 99
      */
     public static String generateCompF(){
         //99-2
@@ -220,7 +231,7 @@ public class MathGenerator {
     }
 
     /**
-     * C-A*B within 99
+     * C-A*B within 1 - 99
      */
     public static String generateCompG(){
         //98 - 2
@@ -235,7 +246,7 @@ public class MathGenerator {
     }
 
     /**
-     * A/B+C / A+C/B  within 99
+     * A/B+C or A+C/B  within 1 - 99
      */
     public static String generateCompH(){
         //48 to 2
@@ -251,7 +262,7 @@ public class MathGenerator {
     }
 
     /**
-     * A/B-C  within 99
+     * A/B-C  within 1- 99
      */
     public static String generateCompI(){
         //48 to 2
@@ -263,7 +274,7 @@ public class MathGenerator {
     }
 
     /**
-     * C-A/B  within 99
+     * C-A/B  within 1 - 99
      */
     public static String generateCompJ(){
         //48 to 2
@@ -273,10 +284,5 @@ public class MathGenerator {
         int answer = b - a;
         return answer + "#" + b + "-" + generateDivision(a)  ;
     }
-
-
-
-
-
 
 }

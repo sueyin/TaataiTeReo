@@ -1,7 +1,7 @@
 package application.controller;
 
 import application.model.question.OneChanceQuestion;
-import application.model.question.SurvivalQuestionSuite;
+import application.model.survival.SurvivalQuestionSuite;
 import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

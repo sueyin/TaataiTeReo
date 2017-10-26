@@ -1,23 +1,19 @@
 package application.controller;
 
 import application.confirmation.ConfirmationModel;
-import application.model.CustomManager;
+import application.model.admin.CustomManager;
 import application.tableModel.TableList;
 import application.viewModel.SceneSwitch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import com.jfoenix.controls.JFXButton;
 
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -25,7 +21,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CustomDoPageController {

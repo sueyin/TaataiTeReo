@@ -2,7 +2,7 @@ package application.controller;
 
 
 import application.model.question.TwoChancesQuestion;
-import application.model.question.ClassicQuestionSuite;
+import application.model.classic.ClassicQuestionSuite;
 import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
