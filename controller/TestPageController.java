@@ -30,10 +30,10 @@ public abstract class TestPageController {
     protected Label _question;
 
     @FXML
-    protected Label _rightOrWrong;
+    protected Label _youSaid;
 
     @FXML
-    protected Label _youSaid;
+    protected Label _rightOrWrong;
 
     @FXML
     protected Label _answerIs;
@@ -126,7 +126,8 @@ public abstract class TestPageController {
     	_play.setVisible(true);
         _rightOrWrong.setText(SceneSwitch.getBundle().getString("keyCorrect"));
     	_rightOrWrong.setVisible(true);
-        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSaid")+" " + _q.getRead());
+        //_youSaid.setText(SceneSwitch.getBundle().getString("keyYouSaid")+" " + _q.getRead());
+        _youSaid.setText(SceneSwitch.getBundle().getString("keyYouSaid")+" " + _q.getAnswer());
     	_youSaid.setVisible(true);
     	_answerIs.setVisible(false);
         _record.setVisible(false);

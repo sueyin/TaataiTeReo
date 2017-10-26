@@ -317,7 +317,7 @@ public class User {
     }
 
     /**
-     * Update the specified level if the current score is higher than the past record
+     * Update the specified level if the current score is higher than the past record.
      */
     public void updateClassicRecord(String level, String score){
         //Read the most current classic record
@@ -400,10 +400,9 @@ public class User {
 
     /**
      * Read the current highest score, compare with the latest attempt. Update the highest if the score of the latest
-     * attempt is higher.
-     * @param score a int representing the score of the latest attempt
+     * attempt is higher.Returns true if the score is higher than the past score, false otherwise.
      */
-    public void updateSurvivalScore(int score){
+    public boolean updateSurvivalScore(int score){
         readSurvivalScore();
         //Update the score if it is higher
         if (_survivalScore < score ) {
@@ -416,6 +415,9 @@ public class User {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
+            return true;
+        }else{
+            return false;
         }
     }
 

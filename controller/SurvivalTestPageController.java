@@ -58,6 +58,7 @@ public class SurvivalTestPageController extends TestPageController{
 		_gameOver.setVisible(false);
 		_backToMain.setVisible(false);
 		_exp.setVisible(false);
+		_highScore.setVisible(false);
 		//set score to 0
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore0"));
 		
@@ -135,7 +136,11 @@ public class SurvivalTestPageController extends TestPageController{
 			_title.setVisible(false);
 			_play.setVisible(false);
 			//calculate EXP point earned and display it to the user
-			MainPageController.getUser().updateSurvivalScore(_score);
+			boolean higher = MainPageController.getUser().updateSurvivalScore(_score);
+			if (higher){
+				_highScore.setText("New Highest Score!");
+				_highScore.setVisible(true);
+			}
 			_exp.setText("+EXP "+_score);
 			_exp.setVisible(true);
 			calculateExp();
