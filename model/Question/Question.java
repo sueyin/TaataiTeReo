@@ -158,7 +158,6 @@ public abstract class Question {
 		*/
 
 
-		_read = "tahi";
 		//Randomly set the result to be true or false.
 		int i = (int)(Math.random()*10);
 		if (i < 5) {

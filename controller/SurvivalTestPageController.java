@@ -60,6 +60,7 @@ public class SurvivalTestPageController extends TestPageController{
 		_exp.setVisible(false);
 		_highScore.setVisible(false);
 		//set score to 0
+		_score = 0;
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore0"));
 		
 		//set 3 lives
