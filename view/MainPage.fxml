@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_1.jpeg); -fx-background-color: black;" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_1.jpeg); -fx-background-color: black;" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainPageController">
 	<children>
 		<Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="126.0" prefHeight="153.0" prefWidth="426.0" text="Tātai!" textAlignment="CENTER" textFill="WHITE">
 			<font>
@@ -75,7 +75,7 @@
          <graphic>
             <HBox alignment="CENTER">
                <children>
-      						<ImageView fitHeight="45.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+      						<ImageView fitHeight="44.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
       							<image>
       								<Image url="@../image/mainpage/logout.png" />
       							</image>
@@ -88,30 +88,6 @@
             								<Font name="Yuanti SC Regular" size="15.0" />
             							</font>
             						</Label>
-               </children>
-            </HBox>
-         </graphic>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="487.0" layoutY="312.0" onMouseClicked="#handlePressPractice" text=" ">
-         <graphic>
-            <HBox alignment="CENTER">
-               <children>
-            								<ImageView fitHeight="40.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-            									<image>
-            										<Image url="@../image/achievement/unkown.png" />
-            									</image>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <effect>
-                        <ColorAdjust brightness="1.0" />
-                     </effect>
-            								</ImageView>
-            								<Label alignment="CENTER" text="%keyPractice" textFill="WHITE">
-            									<font>
-            										<Font size="20.0" />
-            									</font>
-            								</Label>
                </children>
             </HBox>
          </graphic>
@@ -134,14 +110,62 @@
             </HBox>
          </graphic>
       </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="487.0" layoutY="314.0" onMouseClicked="#handlePressPractice" text=" ">
+         <graphic>
+            <HBox alignment="CENTER">
+               <children>
+            								<ImageView fitHeight="40.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+            									<image>
+            										<Image url="@../image/achievement/unkown.png" />
+            									</image>
+                     <HBox.margin>
+                        <Insets left="-4.0" right="10.0" />
+                     </HBox.margin>
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+            								</ImageView>
+            								<Label alignment="CENTER" text="%keyPractice" textFill="WHITE">
+            									<font>
+            										<Font size="20.0" />
+            									</font>
+            								</Label>
+               </children>
+            </HBox>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="487.0" layoutY="404.0" onMouseClicked="#handlePressClassic" text=" ">
+         <graphic>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+      								<ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+      									<image>
+      										<Image url="@../image/mainpage/classic.png" />
+      									</image>
+      								</ImageView>
+      								<Label alignment="CENTER" contentDisplay="CENTER" text="%keyClassic" textAlignment="CENTER" textFill="WHITE">
+      									<font>
+      										<Font size="20.0" />
+      									</font>
+                     <HBox.margin>
+                        <Insets left="3.0" />
+                     </HBox.margin>
+      								</Label>
+               </children>
+            </HBox>
+         </graphic>
+      </JFXButton>
       <JFXButton alignment="CENTER" layoutX="487.0" layoutY="483.0" onMouseClicked="#handlePressSurvival" text=" ">
          <graphic>
             <HBox alignment="CENTER" spacing="13.0">
                <children>
-                  <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/mainpage/endless.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets left="-5.0" right="-5.0" />
+                     </HBox.margin>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" text="%keySurvival" textAlignment="CENTER" textFill="WHITE">
                      <font>
@@ -166,24 +190,6 @@
       								<Font name="Yuanti SC Regular" size="20.0" />
       							</font>
       						</Label>
-               </children>
-            </HBox>
-         </graphic>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="493.0" layoutY="404.0" onMouseClicked="#handlePressClassic" text=" ">
-         <graphic>
-            <HBox alignment="CENTER" spacing="10.0">
-               <children>
-      								<ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-      									<image>
-      										<Image url="@../image/mainpage/classic.png" />
-      									</image>
-      								</ImageView>
-      								<Label alignment="CENTER" contentDisplay="CENTER" text="%keyClassic" textAlignment="CENTER" textFill="WHITE">
-      									<font>
-      										<Font size="20.0" />
-      									</font>
-      								</Label>
                </children>
             </HBox>
          </graphic>
