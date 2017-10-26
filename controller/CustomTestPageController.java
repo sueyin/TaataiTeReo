@@ -2,7 +2,7 @@ package application.controller;
 
 import application.model.CustomManager;
 import application.model.question.TwoChancesQuestion;
-import application.tableModel.TableList;
+import application.tablemodel.TableList;
 import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 

@@ -21,22 +21,22 @@
             <Glow level="1.0" />
          </effect>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="157.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="147.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/classic/classic.png" />
          </image>
       </ImageView>
-      <Label fx:id="_star" alignment="CENTER_RIGHT" layoutX="213.0" layoutY="238.0" prefHeight="30.0" prefWidth="48.0" text="45" textFill="WHITE">
+      <Label fx:id="_star" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="237.0" prefHeight="30.0" prefWidth="48.0" text="45" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="59.0" layoutX="157.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="61.0" fitWidth="64.0" layoutX="145.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/mainpage/survival.png" />
+            <Image url="@../image/mainpage/endless.png" />
          </image>
       </ImageView>
-      <Label fx:id="_highScore" layoutX="396.0" layoutY="343.0" prefHeight="30.0" prefWidth="164.0" text="123" textFill="WHITE">
+      <Label fx:id="_highScore" layoutX="381.0" layoutY="344.0" prefHeight="30.0" prefWidth="164.0" text="123" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -46,12 +46,12 @@
             <Font size="25.0" />
          </font>
       </Label>
- <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+      <JFXButton fx:id="_return" layoutX="33.0" layoutY="55.0" onMouseClicked="#handlePressReturn" prefHeight="44.0" prefWidth="121.0" stylesheets="@../application.css" text=" " textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="36.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
+            <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" translateX="5.0">
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
@@ -60,6 +60,9 @@
                </effect>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="-10.0" top="-10.0" />
+         </padding>
       </JFXButton>
       <VBox fx:id="_star2" layoutX="772.0" layoutY="194.0" prefHeight="322.0" prefWidth="101.0" spacing="40.0">
          <children>
@@ -89,7 +92,7 @@
          <children>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -97,7 +100,7 @@
             </ImageView>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -105,7 +108,7 @@
             </ImageView>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -113,7 +116,7 @@
             </ImageView>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -224,7 +227,7 @@
          <children>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -232,7 +235,7 @@
             </ImageView>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -240,7 +243,7 @@
             </ImageView>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -248,7 +251,7 @@
             </ImageView>
             <ImageView fitHeight="56.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/achievement/unknown.png" />
+                  <Image url="@../image/achievement/unkown.png" />
                </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -256,7 +259,7 @@
             </ImageView>
          </children>
       </VBox>
-      <Label fx:id="_highScore1" layoutX="219.0" layoutY="343.0" text="Highest score:" textFill="WHITE">
+      <Label fx:id="_highScore1" layoutX="207.0" layoutY="343.0" text="Highest score:" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -266,7 +269,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="_star3" layoutX="269.0" layoutY="238.0" text="/45" textFill="WHITE">
+      <Label fx:id="_star3" layoutX="259.0" layoutY="237.0" text="/45" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>

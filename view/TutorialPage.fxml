@@ -146,7 +146,7 @@
                   <Font name="Yuanti SC Regular" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="_label33" alignment="TOP_LEFT" layoutX="30.0" layoutY="260.0" prefHeight="291.0" prefWidth="260.0" text="%keyTutorialPage3-2" textFill="WHITE" wrapText="true">
+            <Label fx:id="_label33" alignment="TOP_LEFT" layoutX="60.0" layoutY="260.0" prefHeight="291.0" prefWidth="250.0" text="%keyTutorialPage3-2" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Yuanti SC Regular" size="20.0" />
                </font>
@@ -160,7 +160,7 @@
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="_returnInstr" alignment="CENTER" layoutX="94.0" layoutY="25.0" prefHeight="83.0" prefWidth="274.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage4-2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_returnInstr" alignment="CENTER" layoutX="125.0" layoutY="25.0" prefHeight="83.0" prefWidth="243.0" style="-fx-background-color: #696969; -fx-background-radius: 30; -fx-opacity: 0.8;" text="%keyTutorialPage4-2" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="18.0" />
          </font>
@@ -340,12 +340,12 @@
       </JFXButton>
          </children>
       </AnchorPane>  
-          <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+      <JFXButton fx:id="_return" layoutX="33.0" layoutY="55.0" onMouseClicked="#handlePressReturn" prefHeight="44.0" prefWidth="121.0" stylesheets="@../application.css" text=" " textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="36.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
+            <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" translateX="5.0">
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
@@ -354,6 +354,9 @@
                </effect>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="-10.0" top="-10.0" />
+         </padding>
       </JFXButton>
    </children>
 </AnchorPane>

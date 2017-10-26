@@ -31,12 +31,12 @@
          </padding>
       </JFXButton>
 
- <JFXButton fx:id="_return" layoutX="33.0" layoutY="35.0" onMouseClicked="#handlePressReturn" prefHeight="46.0" prefWidth="108.0" stylesheets="@../application.css" text=" " textFill="WHITE">
+      <JFXButton fx:id="_return" layoutX="33.0" layoutY="55.0" onMouseClicked="#handlePressReturn" prefHeight="44.0" prefWidth="121.0" stylesheets="@../application.css" text=" " textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="36.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="33.0" fitWidth="45.0" pickOnBounds="true">
+            <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" translateX="5.0">
                <image>
                   <Image url="@../image/custom/return.png" />
                </image>
@@ -45,6 +45,9 @@
                </effect>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="-10.0" top="-10.0" />
+         </padding>
       </JFXButton>
       <Label fx:id="_topRight" alignment="CENTER" layoutX="939.0" layoutY="95.0" prefHeight="40.0" prefWidth="148.0" text="Label" textFill="WHITE">
          <font>

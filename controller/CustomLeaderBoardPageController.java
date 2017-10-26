@@ -2,6 +2,9 @@ package application.controller;
 
 import application.TataiApp;
 import application.model.User;
+import application.tablemodel.ExpModel;
+import application.tablemodel.StarModel;
+import application.tablemodel.SurvivalModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,9 +14,6 @@ import java.util.*;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.tableModel.ExpModel;
-import application.tableModel.StarModel;
-import application.tableModel.SurvivalModel;
 import application.viewModel.SceneSwitch;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
@@ -73,6 +73,7 @@ public class CustomLeaderBoardPageController {
 	private void setUpExpTable(){
 		_expData = FXCollections.observableArrayList();
 		//load in the exp value of every users in sorted order
+		
 		for (Map.Entry<String, Integer> entry : _expRank.entrySet())
 		{
 			ExpModel a = new ExpModel(entry.getKey(), Integer.toString(entry.getValue()));
@@ -157,7 +158,7 @@ public class CustomLeaderBoardPageController {
 	}
 
 	/**
-	 * sort the users base on their high score, number of stars and exp value
+	 * Sort the users base on their high score, number of stars and exp value
 	 */
 	private Map<String, Integer> sortByRecord(Map<String, Integer> unsortMap)
 	{
@@ -172,9 +173,14 @@ public class CustomLeaderBoardPageController {
 
 		// Maintaining insertion order with the help of LinkedList
 		Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+		int i = 0;
 		for (Map.Entry<String, Integer> entry : list)
 		{
 			sortedMap.put(entry.getKey(), entry.getValue());
+			i++;
+			if (i == 14){
+				break;
+			}
 		}
 		return sortedMap;
 	}

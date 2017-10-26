@@ -8,8 +8,7 @@ import java.util.Map;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.tableModel.PracticeResultModel;
-import application.tableModel.PracticeResultModel;
+import application.tablemodel.PracticeResultModel;
 import application.viewModel.SceneSwitch;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

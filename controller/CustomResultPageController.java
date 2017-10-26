@@ -2,9 +2,8 @@ package application.controller;
 
 import com.jfoenix.controls.JFXButton;
 
-import application.tableModel.CustomResultModel;
+import application.tablemodel.CustomResultModel;
 import application.viewModel.SceneSwitch;
-import application.tableModel.CustomResultModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
