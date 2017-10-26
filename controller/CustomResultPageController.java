@@ -30,10 +30,16 @@ public class CustomResultPageController {
 	private ObservableList<CustomResultModel> _data= FXCollections.observableArrayList();
 	
 	
+	/**
+	 * initalize the page, and create the table to display details on the questions done
+	 */
 	@FXML
 	public void initialize() {
 		_data = FXCollections.observableArrayList();
+		//collect information on the result of the questions suite done
 		ArrayList<String> report = CustomTestPageController.getReport();
+		
+		//add data into the table
 		for (String s : report) {
 			String[] individualRep = s.split("#");
 			CustomResultModel a = new CustomResultModel(individualRep[0], individualRep[1], individualRep[2], individualRep[3]);
@@ -42,6 +48,7 @@ public class CustomResultPageController {
 			_tableView.setEditable(true);
 		}
 
+		//create columns: question, answer, yourAnswer, and score in the table
 		TableColumn<CustomResultModel, String> questionCol = new TableColumn<CustomResultModel, String>(SceneSwitch.getBundle().getString("keyQuestion"));
 		questionCol.setCellValueFactory(new PropertyValueFactory<CustomResultModel, String>("question"));
 		TableColumn<CustomResultModel, String> answerCol = new TableColumn<CustomResultModel, String>(SceneSwitch.getBundle().getString("keyAnswer"));
@@ -55,6 +62,9 @@ public class CustomResultPageController {
 		_tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	}
 	
+	/**
+	 * this method switches to custom page when user decides to exit
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());

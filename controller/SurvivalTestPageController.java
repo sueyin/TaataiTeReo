@@ -28,27 +28,38 @@ public class SurvivalTestPageController extends TestPageController{
 
 
 
+	/**
+	 * This method initialize the survival test page, set three lives
+	 */
 	@FXML
 	public void initialize(){
 		super.initialize();
 		_next.setVisible(false);
+		//set score to 0
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore0"));
+		
+		//set 3 lives
 		_live = 3;
 		fullHeart();
 
+		//create a new question suite
 		_qs = new SurvivalQuestionSuite();
 		_q = new OneChanceQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
 		_question.setText(_q.getQuestion());
 	}
 
-	/*
-		Handler
+	/**
+	 * when the user press next, switch to the next question
+	 * @param event
 	 */
 	@FXML
 	public void handlePressNext(MouseEvent event) {
+		//create a new question
 		_qs.nextQuestion();
 		_q = new OneChanceQuestion(_qs.getQuestion(), _qs.getAnswer(), this);
 		_question.setText(_q.getQuestion());
+		
+		//update GUI
 		_record.setVisible(true);
 		_next.setVisible(false);
 		_youSaid.setVisible(false);
@@ -56,6 +67,10 @@ public class SurvivalTestPageController extends TestPageController{
 		_rightOrWrong.setVisible(false);
 	}
 
+	/**
+	 * return to main page when user press return an cancel the recording of the question 
+	 * @param event
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		super.cancelQuestion();
@@ -64,6 +79,9 @@ public class SurvivalTestPageController extends TestPageController{
 	}
 
 
+	/**
+	 * call method wrongGUI() in TestPage Controller, and minus one life. If no lift, then switch to game over
+	 */
 	@Override
 	public void wrongGUI(){
 		super.wrongGUI();
@@ -83,15 +101,19 @@ public class SurvivalTestPageController extends TestPageController{
 		}
 	}
 
+	/**
+	 * call method rightGUI() in TestPage Controller, update the score label
+	 */
 	@Override
 	public void rightGUI(){
 		super.rightGUI();
-		System.out.println(_score);
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore") +" " + _score);
 	}
 
 
-	//Calculate exp
+	/**
+	 * calculates exp value 
+	 */
 	private void calculateExp(){
 		int exp;
 		if (_score < 10){

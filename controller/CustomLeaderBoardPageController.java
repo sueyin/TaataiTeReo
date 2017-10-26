@@ -44,24 +44,35 @@ public class CustomLeaderBoardPageController {
 	private ObservableList<SurvivalModel> _survivalData= FXCollections.observableArrayList();
 
 
+	/**
+	 * This method initialize the page and load any data necessary
+	 */
 	@FXML
 	public void initialize() {
+		//read in all users
 		readUsers();
+		//get the exp, stars, and high score data for each user
 		for (User u : _usrs){
 			_expRank.put(u.getName(), u.getExp());
 			_starRank.put(u.getName(), u.getStars());
 			_survivalRank.put(u.getName(), u.getSurvivalScore());
 		}
+		//sort the users by the three factors
 		_expRank = sortByRecord(_expRank);
 		_starRank = sortByRecord(_starRank);
 		_survivalRank = sortByRecord(_survivalRank);
+		//set up the three tables for each of the three factors
 		setUpExpTable();
 		setUpStarTable();
 		setUpSurvivalTable();
 	}
 	
+	/**
+	 * This method sets up the Exp table
+	 */
 	private void setUpExpTable(){
 		_expData = FXCollections.observableArrayList();
+		//load in the exp value of every users in sorted order
 		for (Map.Entry<String, Integer> entry : _expRank.entrySet())
 		{
 			ExpModel a = new ExpModel(entry.getKey(), Integer.toString(entry.getValue()));
@@ -79,8 +90,12 @@ public class CustomLeaderBoardPageController {
 		_expTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	}
 	
+	/**
+	 * This method sets up the star table
+	 */
 	private void setUpStarTable() {
 		_starData = FXCollections.observableArrayList();
+		//load in the number of stars of every users earned in sorted order
 		for (Map.Entry<String, Integer> entry : _starRank.entrySet())
 		{
 			StarModel a = new StarModel(entry.getKey(), Integer.toString(entry.getValue()));
@@ -98,8 +113,12 @@ public class CustomLeaderBoardPageController {
 		_starTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	}
 	
+	/**
+	 * this method sets up the survivial high score table
+	 */
 	private void setUpSurvivalTable() {
 		_survivalData = FXCollections.observableArrayList();
+		//load in the high score of every users in sorted order
 		for (Map.Entry<String, Integer> entry : _survivalRank.entrySet())
 		{
 			SurvivalModel a = new SurvivalModel(entry.getKey(), Integer.toString(entry.getValue()));
@@ -108,6 +127,7 @@ public class CustomLeaderBoardPageController {
 		_survivalTable.setItems(_survivalData);
 		_survivalTable.setEditable(true);
 		
+		//create columns
 		TableColumn<SurvivalModel, String> userCol = new TableColumn<SurvivalModel, String>(SceneSwitch.getBundle().getString("keyUser"));
 		userCol.setCellValueFactory(new PropertyValueFactory<SurvivalModel, String>("user"));
 		TableColumn<SurvivalModel, String> survivalCol = new TableColumn<SurvivalModel, String>(SceneSwitch.getBundle().getString("keySurvival"));
@@ -117,13 +137,18 @@ public class CustomLeaderBoardPageController {
 		_survivalTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	}
 	
+	/**
+	 * This method switches from leader board page to main page
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/MainPage.fxml");
 	}
 
-
+	/**
+	 * This method reads all the user information from data base
+	 */
 	private void readUsers(){
 		File urs = new File(TataiApp.getUserDir());
 		for (File f : urs.listFiles()){
@@ -131,6 +156,9 @@ public class CustomLeaderBoardPageController {
 		}
 	}
 
+	/**
+	 * sort the users base on their high score, number of stars and exp value
+	 */
 	private Map<String, Integer> sortByRecord(Map<String, Integer> unsortMap)
 	{
 		List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(unsortMap.entrySet());

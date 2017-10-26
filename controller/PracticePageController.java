@@ -45,51 +45,71 @@ public class PracticePageController {
 		_disabledButton.setVisible(false);
 	}
 
-	// Event Listener on JFXButton[#_mainReturn].onMouseClicked
+	/**
+	 * when user press return, switch back to main page
+	 */
 	@FXML
 	public void handlePressMainReturn(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/MainPage.fxml");
 	}
-	// Event Listener on JFXButton[#_easy].onMouseClicked
+	/**
+	 * when user press easy, then switch to test page and generate an easy question 
+	 * @param event
+	 */
 	@FXML
 	public void handlePressEasy(MouseEvent event) {
 		_question = Integer.toString((int) ((Math.random()*10)+1));
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticeTestPage.fxml");
 	}
-	// Event Listener on JFXButton[#_hard].onMouseClicked
+	/**
+	 * when user press hard, then switch to test page and generate an hard question 
+	 * @param event
+	 */
 	@FXML
 	public void handlePressHard(MouseEvent event) {
 		_question = Integer.toString((int) ((Math.random()*100)+1));
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticeTestPage.fxml");
 	}
-	// Event Listener on TextField[#_textField].onKeyReleased
+	/**
+	 * when user enters or changes in the text field, read in new input, and checks if it's valid, change the custom button's graphic according to the result
+	 * @param event
+	 */
 	@FXML
 	public void handleTextChange(KeyEvent event) {
+		//read input from textField
 		String input = _textField.getText();
+		//remove all spaces in the input
 		input = input.replaceAll("\\s+","");
+		//when input is empty, display "#"
 		if (input.equals("")){
 			_custom.setText("#");
 		}
+		//if the input is number between 1 -99, then display the number on the button 
 		else if (isOnlyNumber(input)){
 			int num = Integer.parseInt(input);
 			if (num > 0 && num < 100) {
 				_custom.setText(input);
 				_disabledButton.setVisible(false);
 			}
+			//input is out of range, show "input undefined"
 			else {
 				_disabledButton.setVisible(true);
 			}
 		}
+		//input is not a number, show "input undefined"
 		else {
 			_disabledButton.setVisible(true);
 		}
 	}
 
 
-	// Event Listener on JFXButton[#_custom].onMouseClicked
+	/**
+	 * When user press custom, read input from textfield, and switch to test page
+	 * @param event
+	 */
 	@FXML
 	public void handlePressCustom(MouseEvent event) {
 		_question = _textField.getText();
@@ -98,7 +118,10 @@ public class PracticePageController {
 		
 	}
 
-
+	/**
+	 * switch to statistic page
+	 * @param event
+	 */
 	@FXML
 	public void handlePressStatistic(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());

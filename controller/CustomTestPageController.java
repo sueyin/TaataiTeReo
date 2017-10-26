@@ -33,8 +33,12 @@ public class CustomTestPageController extends TestPageController {
 
 	private int _index;
 
+	/**
+	 * Initialize the page
+	 */
 	@FXML
 	public void initialize() {
+		//get questions from database
 		_reportList.clear();
 		_selectedQS = CustomDoPageController.getSelected();
 		_isPublic = _selectedQS.getPublic();
@@ -43,15 +47,19 @@ public class CustomTestPageController extends TestPageController {
 		_manager = new CustomManager();
 		_qs = _manager.readQuestionSuite(_id, _isPublic);
 
+		//shuffle the questions into random order
 		for (Integer i : _qs.keySet()) {
 			_indexList.add(i);
 		}
 		Collections.shuffle(_indexList);
 		_index = 0;
 
+		//change the question, answer strings into desired format 
 		String custom = _qs.get(_indexList.get(_index));
 		String answer = custom.split("#")[0];
 		String question = custom.split("#")[1];
+		
+		//create new question
 		_q = new TwoChancesQuestion(question, answer,this);
 
 		//Setup GUI
@@ -67,7 +75,9 @@ public class CustomTestPageController extends TestPageController {
 	}
 
 
-	// Event Listener on JFXButton[#_next].onMouseClicked
+	/**
+	 * When user presses next, switch to the next questions
+	 */
 	@FXML
 	public void handlePressNext(MouseEvent event) {
 		//Create report
@@ -80,23 +90,27 @@ public class CustomTestPageController extends TestPageController {
 		String rep = _q.getQuestion()+"#"+_q.getAnswer()+"#"+_q.getRead()+"#"+ result;
 		_reportList.add(rep);
 
-
-
+		//if it is the last question, then switch to result page
 		if (_index + 1 == _indexList.size()){
 			SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 			load.switchScene("/application/view/CustomResultPage.fxml");
+		//if it is not the last question, then change GUI to the next question
 		}else{
 			_index++;
+			//get the next question
 			nextQuestion();
 			_next.setVisible(false);
 			_record.setVisible(true);
+			//if it is the second to last question, then change the text from "next" to "finish"
 			if (_index + 1 == _indexList.size() - 1){
 				_next.setText(SceneSwitch.getBundle().getString("keyFinish"));
 			}
 		}
 	}
 
-	// Event Listener on JFXButton[#_return].onMouseClicked
+	/**
+	 * This method exists the test page and go back to custom page
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		super.cancelQuestion();
@@ -105,7 +119,9 @@ public class CustomTestPageController extends TestPageController {
 	}
 
 
-
+	/**
+	 * this method creates questions from the given question suite
+	 */
 	private void nextQuestion(){
 		String custom = _qs.get(_indexList.get(_index));
 		String answer = custom.split("#")[0];

@@ -58,7 +58,7 @@ public abstract class Question {
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
 	private String computeRead() {
-		
+	/*	
 		String read = null;
 		//Read the mlx file produced by HTK command.
 		File recout = new File(RECOUT);
@@ -79,9 +79,9 @@ public abstract class Question {
 		}else{
 			return "";
 		}
-		
+		*/
 
-		//return "dd";
+		return "dd";
 	}
 
 
@@ -90,7 +90,7 @@ public abstract class Question {
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
-
+/*
 		//TODO start bar
 
 		//Create a Task to implement Record in the background thread
@@ -121,8 +121,8 @@ public abstract class Question {
 
 		new Thread(_recordTask).start();
 
-
-		//compare();
+*/
+		compare();
 
 	}
 
@@ -134,7 +134,7 @@ public abstract class Question {
 	 */
 	private void compare(){
 
-
+/*
 		//Create anthoer Task to implement the HTK command in background.
 		_compareTask = new Task<Void>() {
 			@Override public Void call() throws IOException {
@@ -173,8 +173,8 @@ public abstract class Question {
 
 
 
-
-		/*
+*/
+		
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
 			_result = false;
@@ -184,7 +184,7 @@ public abstract class Question {
 		System.out.println("before updategui");
 		updateGUI();
 		//TODO compare完了之后在done()里叫 updateGUI()
-		 */
+		 
 
 	}
 

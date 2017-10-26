@@ -8,8 +8,8 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ClassicQuestionSuite {
-    //private static final String BANKDIR = "./src/application/bank/classic/";
-    private static final String BANKDIR = "./bank/classic/";
+    private static final String BANKDIR = "./src/application/bank/classic/";
+   // private static final String BANKDIR = "./bank/classic/";
     private static final int TOTAL = 10;
 
     private String _level;
@@ -45,6 +45,7 @@ public class ClassicQuestionSuite {
         Collections.shuffle(_answers);
     }
 
+    
     /**
      * Increase the current index by one. Process to the next question.
      */

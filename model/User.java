@@ -2,7 +2,9 @@ package application.model;
 
 
 import application.TataiApp;
+import application.controller.MainPageController;
 import application.model.file.FileReader;
+import application.viewModel.SceneSwitch;
 
 import java.io.*;
 import java.util.*;
@@ -350,9 +352,22 @@ public class User {
         int stars = 0;
         for (String s : _classicStatistic.keySet()){
        		String record = _classicStatistic.get(s);
+       		int highestScore = 0;
        		if (!record.equals("-")){
-       			stars = stars + Integer.parseInt(record);
+       			highestScore = Integer.parseInt(record);
+       			if (highestScore > 8) {
+           			stars = stars + 3;
+        		}
+        		//display 1 star is between 2-4
+        		else if (highestScore > 4) {
+        			stars = stars + 2;
+        		}
+        		//display 2 stars if between 5 -8
+        		else if (highestScore > 1) {
+        			stars = stars+ 1;
+        		}
        		}
+       		
        	}
         return stars;
     }

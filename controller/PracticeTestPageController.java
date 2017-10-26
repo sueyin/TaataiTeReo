@@ -44,12 +44,20 @@ public class PracticeTestPageController extends TestPageController{
 		super.handlePressRecord(event);
 	}
 	
+	/**
+	 * this method switches to statistic page
+	 * @param event
+	 */
 	@FXML
 	public void handlePressStatistic(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticeStatisticPage.fxml");
 	}
 	
+	/**
+	 * this method switch to practice page 
+	 * @param event
+	 */
 	@FXML
 	public void handlePressReturn(MouseEvent event) {
 		super.cancelQuestion();
@@ -57,12 +65,19 @@ public class PracticeTestPageController extends TestPageController{
 		load.switchScene("/application/view/PracticePage.fxml");
 	}
 	
+	/**
+	 * this page repeats the current question again
+	 * @param event
+	 */
 	@FXML
 	public void handlePressNext(MouseEvent event) {
 		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
 		load.switchScene("/application/view/PracticeTestPage.fxml");
 	}
 	
+	/**
+	 * this method calls the rightGUI() method in TestPageControler and also format the statistic button
+	 */
 	@Override
 	public void rightGUI() {
 		super.rightGUI();
@@ -71,6 +86,9 @@ public class PracticeTestPageController extends TestPageController{
 		_statisticLabel.setVisible(true);
 	}
 	
+	/**
+	 * this method calls the wrongGUI() method in TestPageControler and also format the statistic button
+	 */
 	@Override
 	public void wrongGUI() {
 		super.wrongGUI();
@@ -79,6 +97,9 @@ public class PracticeTestPageController extends TestPageController{
 		_statisticLabel.setVisible(true);
 	}
 	
+	/**
+	 * this method calls the tryAgainGUI() method in TestPageControler
+	 */
 	@Override
 	public void tryAgainGUI() {
 		super.tryAgainGUI();
