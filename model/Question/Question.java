@@ -58,11 +58,7 @@ public abstract class Question {
 	 * Read mlx file produced by HTK and get what were recognized.
 	 */
 	private String computeRead() {
-<<<<<<< HEAD
-		/*
-=======
-	/*	
->>>>>>> a585004ae9754c62ab3f10614ddf5540e3ee9f05
+	/*
 		String read = null;
 		//Read the mlx file produced by HTK command.
 		File recout = new File(RECOUT);
@@ -94,14 +90,9 @@ public abstract class Question {
 	 * field to change GUI respectively. (record -> recording)
 	 */
 	public void test(){
-<<<<<<< HEAD
-
-		/*
-=======
 /*
 		//TODO start bar
 
->>>>>>> a585004ae9754c62ab3f10614ddf5540e3ee9f05
 		//Create a Task to implement Record in the background thread
 		_recordTask = new Task<Void>() {
 			@Override public Void call() throws IOException {
@@ -131,10 +122,7 @@ public abstract class Question {
 		new Thread(_recordTask).start();
 		*/
 
-<<<<<<< HEAD
-=======
-*/
->>>>>>> a585004ae9754c62ab3f10614ddf5540e3ee9f05
+
 		compare();
 
 	}
@@ -147,11 +135,7 @@ public abstract class Question {
 	 */
 	private void compare(){
 
-<<<<<<< HEAD
-		/*
-=======
 /*
->>>>>>> a585004ae9754c62ab3f10614ddf5540e3ee9f05
 		//Create anthoer Task to implement the HTK command in background.
 		_compareTask = new Task<Void>() {
 			@Override public Void call() throws IOException {
@@ -181,9 +165,6 @@ public abstract class Question {
 				updateGUI();
 			}
 		});
-
-		//ToDO stop bar
-		//_page.getBar().progressProperty().bind(_compareTask.progressProperty());
 		new Thread(_compareTask).start();
 		*/
 
@@ -191,11 +172,7 @@ public abstract class Question {
 
 
 
-<<<<<<< HEAD
-=======
-*/
-		
->>>>>>> a585004ae9754c62ab3f10614ddf5540e3ee9f05
+
 		int i = (int)(Math.random()*10);
 		if (i < 5) {
 			_result = false;
@@ -204,11 +181,8 @@ public abstract class Question {
 		}
 		System.out.println("before updategui");
 		updateGUI();
-<<<<<<< HEAD
-=======
 		//TODO compare完了之后在done()里叫 updateGUI()
-		 
->>>>>>> a585004ae9754c62ab3f10614ddf5540e3ee9f05
+
 
 	}
 
