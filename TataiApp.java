@@ -30,6 +30,7 @@ public class TataiApp extends Application {
         
         primaryStage.setTitle("Tatai Te Reo");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

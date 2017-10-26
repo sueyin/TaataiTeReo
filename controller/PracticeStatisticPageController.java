@@ -75,7 +75,6 @@ public class PracticeStatisticPageController {
 		//set twos tables to show the most well done 8 and most poorly done 8 numbers 
 		setTable();
 		//initialize the "no attempt" message to false
-		_null.setVisible(false);
 		_overall.setText(SceneSwitch.getBundle().getString("keyOverallCorrect")+" "+_overallCorrect+SceneSwitch.getBundle().getString("keyOverallAttempts")+ ""+_overallAttempt);
 		_selected.setText(SceneSwitch.getBundle().getString("keyOverallData"));
 
@@ -148,7 +147,15 @@ public class PracticeStatisticPageController {
 	 * set pie chart value to overall data statistic
 	 */
 	private void setPieOverall() {
-		setPie(_overallCorrect, _overallAttempt-_overallCorrect);
+		if (_overallAttempt == 0) {
+			_pie.setVisible(false);
+			_null.setVisible(true);
+		}
+		else {
+			_null.setVisible(false);
+			setPie(_overallCorrect, _overallAttempt-_overallCorrect);
+		}
+
 	}
 	
 	/**

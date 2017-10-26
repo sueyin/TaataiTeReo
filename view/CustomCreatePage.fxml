@@ -73,7 +73,7 @@
       </Label>
       <Label fx:id="_equationMessage" alignment="CENTER" layoutX="685.0" layoutY="201.0" prefHeight="65.0" prefWidth="422.0" text="fdfsdfsdfsd" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="27.0" />
+            <Font name="Yuanti SC Regular" size="22.0" />
          </font>
       </Label>
       <JFXButton fx:id="_help" layoutX="1053.0" layoutY="14.0" prefHeight="57.0" prefWidth="54.0" text=" " textFill="WHITE">
@@ -93,7 +93,7 @@
       </JFXButton>
       <Label fx:id="_maxMessage" alignment="CENTER" layoutX="580.0" layoutY="201.0" prefHeight="65.0" prefWidth="489.0" text="reached maximum number of questions" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Yuanti SC Regular" size="25.0" />
+            <Font name="Yuanti SC Regular" size="22.0" />
          </font>
       </Label>
        <Label fx:id="_helpPanel" alignment="TOP_CENTER" layoutX="338.0" layoutY="157.0" prefHeight="260.0" prefWidth="500.0" style="-fx-background-color: black; -fx-opacity: 0.9;" text="Help&#10;&#10;&#10;&#10;This is page is used to create new question suite.&#10;&#10;Each question suite could contain 1 - 10 questions.&#10;&#10;when a question suite is made public, every user could see and access it.&#10;&#10;When it is set to private, then only the user itself could see it." textAlignment="CENTER" textFill="WHITE">
