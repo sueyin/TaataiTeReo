@@ -36,6 +36,9 @@ public class SurvivalTestPageController extends TestPageController{
 	
 	@FXML
 	private Label _exp;
+	
+	@FXML
+	private Label _highScore;
 
 	//Functionality
 	private SurvivalQuestionSuite _qs;
@@ -51,6 +54,7 @@ public class SurvivalTestPageController extends TestPageController{
 	public void initialize(){
 		super.initialize();
 		_next.setVisible(false);
+		_highScore.setVisible(false);
 		_gameOver.setVisible(false);
 		_backToMain.setVisible(false);
 		_exp.setVisible(false);

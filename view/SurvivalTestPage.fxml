@@ -112,7 +112,7 @@
             <Image url="@../image/testpage/heart.png" />
          </image>
       </ImageView>
-      <Label fx:id="_gameOver" alignment="CENTER" layoutX="300.0" layoutY="71.0" prefHeight="60.0" prefWidth="526.0" text="%keyGameOver" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="_gameOver" alignment="CENTER" layoutX="300.0" layoutY="50.0" prefHeight="60.0" prefWidth="526.0" text="%keyGameOver" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="70.0" />
          </font>
@@ -128,6 +128,11 @@
       <Label fx:id="_exp" alignment="CENTER" layoutX="735.0" layoutY="242.0" prefHeight="40.0" prefWidth="148.0" text="+EXP 2" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="45.0" />
+         </font>
+      </Label>
+      <Label fx:id="_highScore" alignment="CENTER" layoutX="300.0" layoutY="150.0" prefHeight="60.0" prefWidth="526.0" text="%keyHighScore" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Yuanti SC Regular" size="40.0" />
          </font>
       </Label>
    </children>
