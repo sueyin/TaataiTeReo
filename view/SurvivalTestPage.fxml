@@ -54,8 +54,7 @@
             <Font name="Yuanti SC Regular" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="970.0" layoutY="120.0" prefHeight="431.0" prefWidth="69.0" text=" " />
-       <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyClassic" textFill="WHITE">
+       <Label fx:id = "_title" alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keySurvival" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="40.0" />
          </font>
@@ -120,5 +119,18 @@
             <Image url="@../image/testpage/heart.png" />
          </image>
       </ImageView>
+      <Label fx:id="_gameOver" alignment="CENTER" layoutX="300.0" layoutY="71.0" prefHeight="60.0" prefWidth="526.0" text="%keyGameOver" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Yuanti SC Regular" size="70.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="_backToMain" layoutX="478.0" layoutY="480.0" onMouseClicked="#handlePressReturnToMain" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="%keyBackToMain" textFill="WHITE">
+         <font>
+            <Font name="Yuanti SC Regular" size="25.0" />
+         </font>
+         <padding>
+            <Insets top="1.0" />
+         </padding>
+      </JFXButton>
    </children>
 </AnchorPane>

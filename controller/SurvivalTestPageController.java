@@ -1,10 +1,13 @@
 package application.controller;
 
+import com.jfoenix.controls.JFXButton;
+
 import application.model.question.OneChanceQuestion;
 import application.model.question.SurvivalQuestionSuite;
 import application.viewModel.SceneSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -20,6 +23,15 @@ public class SurvivalTestPageController extends TestPageController{
 
 	@FXML
 	private ImageView _heart2;
+	
+	@FXML
+	private JFXButton _backToMain;
+	
+	@FXML
+	private Label _gameOver;
+	
+	@FXML
+	private Label _title;
 
 	//Functionality
 	private SurvivalQuestionSuite _qs;
@@ -35,6 +47,8 @@ public class SurvivalTestPageController extends TestPageController{
 	public void initialize(){
 		super.initialize();
 		_next.setVisible(false);
+		_gameOver.setVisible(false);
+		_backToMain.setVisible(false);
 		//set score to 0
 		_topRight.setText(SceneSwitch.getBundle().getString("keyScore0"));
 		
@@ -79,6 +93,11 @@ public class SurvivalTestPageController extends TestPageController{
 	}
 
 
+	@FXML
+	public void handlePressReturnToMain(MouseEvent event) {
+		SceneSwitch load = new SceneSwitch((Stage) ((Node) event.getSource()).getScene().getWindow());
+		load.switchScene("/application/view/MainPage.fxml");
+	}
 	/**
 	 * call method wrongGUI() in TestPage Controller, and minus one life. If no lift, then switch to game over
 	 */
@@ -90,11 +109,12 @@ public class SurvivalTestPageController extends TestPageController{
 			twoHeart();
 		}else if (_live == 1){
 			oneHeart();
+		//lose the game, end
 		}else{
 			noHeart();
-			_youSaid.setText(SceneSwitch.getBundle().getString("keyGameOver"));
-			_rightOrWrong.setVisible(false);
-			_answerIs.setVisible(false);
+			_gameOver.setVisible(true);
+			_backToMain.setVisible(true);
+			_title.setVisible(false);
 			_play.setVisible(false);
 			MainPageController.getUser().updateSurvivalScore(_score);
 			calculateExp();
