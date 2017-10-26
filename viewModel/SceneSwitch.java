@@ -1,4 +1,4 @@
-package application.viewModel;
+package application.viewmodel;
 
 import java.io.IOException;
 import java.util.Locale;
