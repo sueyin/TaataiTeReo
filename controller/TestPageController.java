@@ -15,6 +15,11 @@ import javafx.scene.input.MouseEvent;
 import javax.sound.sampled.*;
 import java.io.File;
 
+/**
+ * All test pages inherit this abstract class
+ * @author shenhong
+ *
+ */
 public abstract class TestPageController {
     //GUI
     @FXML
@@ -65,6 +70,9 @@ public abstract class TestPageController {
         _score = _score + 1;
     }
 
+    /**
+     * method that initialize GUI to before recording
+     */
     @FXML
     public void initialize() {
     	_play.setVisible(false);
@@ -75,6 +83,10 @@ public abstract class TestPageController {
     	_answerIs.setVisible(false);
     }
 
+    /**
+     * this method is called when user press record, shows the recording page
+     * @param event
+     */
     @FXML
     public void handlePressRecord(MouseEvent event) {
         _play.setVisible(false);
@@ -84,7 +96,9 @@ public abstract class TestPageController {
         _q.test();
     }
 
-    //Change GUI methods
+    /**
+     * this method is called when the question is answered correctly, update to GUI to display correct
+     */
     public void rightGUI(){
     	_process.setVisible(false);
     	_loading.setVisible(false);
@@ -98,6 +112,9 @@ public abstract class TestPageController {
         _next.setVisible(true);
     }
 
+    /**
+     * this method is called when the user gets the question wrong the first time, update to GUI to display try again
+     */
     public void tryAgainGUI(){
     	_process.setVisible(false);
     	_loading.setVisible(false);
@@ -111,6 +128,9 @@ public abstract class TestPageController {
         _record.setVisible(true);
     }
 
+    /**
+     * this method is called when the question is answered incorrectly two times, update to GUI to display incorrect, and runs out of chances
+     */
     public void wrongGUI(){
     	_process.setVisible(false);
     	_loading.setVisible(false);
@@ -125,6 +145,9 @@ public abstract class TestPageController {
         _next.setVisible(true);
     }
 
+    /**
+     * this method is called when nothing has been recorded
+     */
     public void emptyRecordGUI(){
         _process.setVisible(false);
         _loading.setVisible(false);
@@ -138,6 +161,10 @@ public abstract class TestPageController {
         _next.setVisible(true);
     }
     
+    /**
+     * this method is called when user press the play button to hear recording
+     * @param event
+     */
 	@FXML
 	public void handlePressPlay(MouseEvent event) {
         try {
@@ -153,6 +180,9 @@ public abstract class TestPageController {
         }
 	}
 
+	/**
+	 * cancels recording and comparing
+	 */
 	protected void cancelQuestion(){
         _q.cancel();
     }

@@ -60,6 +60,9 @@ public class PracticeStatisticPageController {
 	private ObservableList<PracticeResultModel> _bottomData; 
 
 	
+	/**
+	 * initialize the pie chart displaying overall data result
+	 */
 	@FXML
 	public void initialize() {
 		//TODO change to User
@@ -89,13 +92,19 @@ public class PracticeStatisticPageController {
 		load.switchScene("/application/view/PracticePage.fxml");
 	}
 
+	/**
+	 * when overall statistic is pressed, displays overall data in the pie chart
+	 * @param event
+	 */
 	@FXML
 	public void handlePressOverall(MouseEvent event) {
 		_selected.setText(SceneSwitch.getBundle().getString("keyOverallData"));
+		//if there is no attempt in record, show "no attempt"
 		if (_overallAttempt == 0) {
 			_null.setVisible(true);
 			_pie.setVisible(false);
 		}
+		//show data when there are attempts
 		else {
 			_null.setVisible(false);
 			_pie.setVisible(true);
@@ -170,16 +179,22 @@ public class PracticeStatisticPageController {
 		setTableList(_bottom);
 	}
 	
-	private void setPie(int correctNum, int totalNum){
+	/**
+	 * set up of a pie chart, takes parameters of number of right attempts, and incorrect attempts
+	 * @param correctNum
+	 * @param totalNum
+	 */
+	private void setPie(int correctNum, int incorNum){
 		ObservableList<PieChart.Data> pieChartData =FXCollections.observableArrayList();
 		PieChart.Data correct = new PieChart.Data(SceneSwitch.getBundle().getString("keyCorrect"), correctNum);
-		PieChart.Data total = new PieChart.Data(SceneSwitch.getBundle().getString("keyIncorrect"), totalNum);		
-		pieChartData.addAll(correct, total);
+		PieChart.Data incor = new PieChart.Data(SceneSwitch.getBundle().getString("keyIncorrect"), incorNum);		
+		pieChartData.addAll(correct, incor);
 		_pie.setData(pieChartData);
 		_pie.setLabelsVisible(true);
 		_pie.setLegendVisible(false);
+		// set defauly color for the pie chart
 		correct.getNode().setStyle("-fx-pie-color: #628462;");		
-		total.getNode().setStyle("-fx-pie-color: #555e55;");
+		incor.getNode().setStyle("-fx-pie-color: #555e55;");
 	}
 	
 	/**
@@ -212,10 +227,12 @@ public class PracticeStatisticPageController {
 	private void changeInfo(TableView<PracticeResultModel> list) {
 		PracticeResultModel selected = (PracticeResultModel) list.getSelectionModel().getSelectedItem();
 		_selected.setText(SceneSwitch.getBundle().getString("keyResultsFor")+ selected.getName());
+		// if there is no attempt for the number selected, then display "no attempt"
 		if (selected.getAttempt().intValue()==0) {
 			_null.setVisible(true);
 			_pie.setVisible(false);
 		}
+		//if there is attempt, then display pie chart 
 		else {
 			_null.setVisible(false);
 			_pie.setVisible(true);

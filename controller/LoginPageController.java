@@ -106,7 +106,9 @@ public class LoginPageController {
 		_selectUserMessage.setVisible(false);
 	}
 
-	
+	/**
+	 * Switch to Chinese language 
+	 */
 	@FXML
 	public void handlePressChinese(MouseEvent event) {
 		SceneSwitch.setLanguage("中文");
@@ -114,6 +116,9 @@ public class LoginPageController {
 		load.switchScene("/application/view/LoginPage.fxml");
 	}
 	
+	/**
+	 * Switch to English language
+	 */
 	@FXML
 	public void handlePressEnglish(MouseEvent event) {
 		SceneSwitch.setLanguage("English");

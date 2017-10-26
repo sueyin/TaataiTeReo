@@ -45,6 +45,7 @@ public class ClassicQuestionSuite {
         Collections.shuffle(_answers);
     }
 
+    
     /**
      * Increase the current index by one. Process to the next question.
      */

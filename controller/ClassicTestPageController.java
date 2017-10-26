@@ -86,7 +86,7 @@ public class ClassicTestPageController extends TestPageController {
 	public void handlePressNext(MouseEvent event) {
 		_qs.collectResult(_q.getResult());
 		// if the user has ended the 10th question, then switch to result page
-		if (_next.getText().equals("Completed")){
+		if (_qs.getIndexNumber()==10){
 			//record the result of this level 
 			MainPageController.getUser().updateClassicRecord(_selectedLevel, Integer.toString(_score));
 			//switch to result page 
