@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1184.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1184.0" style="-fx-background-image: url(/application/image/background_2.jpeg);" stylesheets="application/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PracticeStatisticPageController">
    <children>
       <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyStatistic" textFill="WHITE">
          <font>
@@ -44,7 +44,7 @@
       </Label>
       <TableView fx:id="_top" layoutX="154.0" layoutY="212.0" prefHeight="153.0" prefWidth="371.0" stylesheets="@../application.css" />
       <TableView fx:id="_bottom" layoutX="154.0" layoutY="394.0" prefHeight="153.0" prefWidth="371.0" stylesheets="@../application.css" />
-      <JFXButton fx:id="_overall" alignment="CENTER" layoutX="158.0" layoutY="163.0" onMouseClicked="#handlePressOverall" prefHeight="42.0" prefWidth="350.0" text="overall" textFill="WHITE">
+      <JFXButton fx:id="_overall" alignment="CENTER" layoutX="158.0" layoutY="145.0" onMouseClicked="#handlePressOverall" prefHeight="42.0" prefWidth="350.0" text="overall" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="20.0" />
          </font>
@@ -54,5 +54,7 @@
             <Font name="Yuanti SC Regular" size="30.0" />
          </font>
       </Label>
+      <Label layoutX="158.0" layoutY="194.0" prefHeight="17.0" prefWidth="121.0" text="Well Done:" textFill="WHITE" />
+      <Label layoutX="158.0" layoutY="377.0" prefHeight="17.0" prefWidth="93.0" text="Need to Practice:" textFill="WHITE" />
    </children>
 </AnchorPane>

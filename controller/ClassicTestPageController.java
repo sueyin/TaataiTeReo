@@ -123,6 +123,7 @@ public class ClassicTestPageController extends TestPageController {
 			_rightOrWrong.setVisible(false);
 			_youSaid.setVisible(false);
 			_answerIs.setVisible(false);
+			_play.setVisible(false);
 		}
 	}
 
