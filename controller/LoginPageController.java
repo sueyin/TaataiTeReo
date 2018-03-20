@@ -166,6 +166,7 @@ public class LoginPageController {
 				custom.delete();
 			}
 			_items.remove(toDelete);
+			_data.remove(toDelete);
 		}
 	}
 
@@ -247,6 +248,7 @@ public class LoginPageController {
 	 * This method initializes the user list when launching this page. It gets data on existing users from txt file
 	 */
 	private void initialiseUserList(){
+		_data.clear();
 		File usrDir = new File(TataiApp.getUserDir());
 		for (String user : Arrays.asList(usrDir.list())){
 			_data.add(user);

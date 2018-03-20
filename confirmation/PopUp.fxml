@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="_message" alignment="CENTER" layoutX="50.0" layoutY="43.0" prefHeight="67.0" prefWidth="300.0" text="" textFill="WHITE">
+      <Label fx:id="_message" alignment="CENTER" layoutX="50.0" layoutY="18.0" prefHeight="106.0" prefWidth="300.0" text="" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Yuanti SC Regular" size="22.0" />
          </font>

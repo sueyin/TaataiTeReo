@@ -31,6 +31,12 @@ public class PracticeResultModel implements Comparable<PracticeResultModel>{
 	public PracticeResultModel(String num, ArrayList<Boolean> data) {
 		this.num = new SimpleStringProperty(num);
 		_data = data;
+		if (_data == null) {
+			attempt = 0;
+		}
+		else {
+			attempt = _data.size();
+		}
 	}
 
 	public double getCorrectPercent() {

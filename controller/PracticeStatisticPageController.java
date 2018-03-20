@@ -210,7 +210,7 @@ public class PracticeStatisticPageController {
 		numCol.setCellValueFactory(new PropertyValueFactory("num"));
 		TableColumn<PracticeResultModel, Integer> correctCol = new TableColumn<PracticeResultModel, Integer>(SceneSwitch.getBundle().getString("keyCorrectAttempts"));
 		correctCol.setCellValueFactory(new PropertyValueFactory("correct"));
-		TableColumn<PracticeResultModel, Integer> attemptCol = new TableColumn<PracticeResultModel, Integer>(SceneSwitch.getBundle().getString("keyIncorrectAttempts"));
+		TableColumn<PracticeResultModel, Integer> attemptCol = new TableColumn<PracticeResultModel, Integer>(SceneSwitch.getBundle().getString("keyAttempt"));
 		attemptCol.setCellValueFactory(new PropertyValueFactory("attempt"));
 
 

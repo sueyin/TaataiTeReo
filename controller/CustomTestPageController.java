@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.model.admin.CustomManager;
+import application.model.admin.FileReader;
 import application.model.question.TwoChancesQuestion;
 import application.tablemodel.TableList;
 import application.viewmodel.SceneSwitch;
@@ -57,7 +58,7 @@ public class CustomTestPageController extends TestPageController {
 		//change the question, answer strings into desired format 
 		String custom = _qs.get(_indexList.get(_index));
 		String answer = custom.split("#")[0];
-		String question = custom.split("#")[1];
+		String question = FileReader.translate(custom.split("#")[1]);
 		
 		//create new question
 		_q = new TwoChancesQuestion(question, answer,this);
@@ -125,7 +126,7 @@ public class CustomTestPageController extends TestPageController {
 	private void nextQuestion(){
 		String custom = _qs.get(_indexList.get(_index));
 		String answer = custom.split("#")[0];
-		String question = custom.split("#")[1];
+		String question = FileReader.translate(custom.split("#")[1]);
 		_q = new TwoChancesQuestion(question, answer,this);
 		_question.setText(question);
 	}

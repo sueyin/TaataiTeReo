@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_3.jpeg);" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicTestPageController">
+<AnchorPane prefHeight="633.0" prefWidth="1126.0" style="-fx-background-image: url(/application/image/background_3.jpeg);" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ClassicTestPageController">
    <children>
       <JFXButton fx:id="_record" layoutX="478.0" layoutY="481.0" onMouseClicked="#handlePressRecord" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #696969; -fx-background-radius: 30;" text="%keyRecord" textFill="WHITE">
          <font>
@@ -94,7 +94,7 @@
             <Font name="Yuanti SC Regular" size="125.0" />
          </font>
       </Label>
-      <VBox layoutX="366.0" layoutY="358.0" prefWidth="423.0">
+      <VBox layoutX="305.0" layoutY="358.0" prefHeight="84.0" prefWidth="565.0">
          <children>
             <Label fx:id="_youSaid" contentDisplay="CENTER" prefWidth="500.0" text="message" textAlignment="CENTER" textFill="#aeaeae">
                <font>

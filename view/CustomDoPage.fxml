@@ -39,7 +39,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label alignment="CENTER" layoutX="350.0" layoutY="35.0" prefHeight="83.0" prefWidth="426.0" text="%keyCustomDoTitle" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="294.0" layoutY="35.0" prefHeight="83.0" prefWidth="555.0" text="%keyCustomDoTitle" textFill="WHITE">
          <font>
             <Font name="Yuanti SC Regular" size="40.0" />
          </font>
