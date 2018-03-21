@@ -25,4 +25,5 @@ Before you start, please also make sure your microphone works fine.
 Now you are ready to run this application! Enjoy!
 
 
+## Full user manual could be viewed below. 
 ![hustlin_erd](usermanual.pdf)
