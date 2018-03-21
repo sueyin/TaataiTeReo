@@ -23,3 +23,6 @@ You can run this application by opening terminal, and go to the working director
 java –jar Tatai.jar
 Before you start, please also make sure your microphone works fine.
 Now you are ready to run this application! Enjoy!
+
+
+![hustlin_erd](usermanual.pdf)
